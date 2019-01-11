@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ArbFONTS-GE_SS_Two_Medium.otf">
+            <string>GESSTwoMedium-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SideMenuCell" customModule="Yakrm" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="315" height="65"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="315" height="64.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DQ7-KL-6bx">
+                        <rect key="frame" x="50" y="30" width="245" height="25"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user red.png" id="A5e-oc-1kv">
+                        <rect key="frame" x="15" y="30" width="25" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <view alpha="0.59999999999999998" contentMode="scaleToFill" id="hBb-En-z7P">
+                        <rect key="frame" x="0.0" y="64" width="320" height="1"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="imgSidebaar" destination="A5e-oc-1kv" id="HlS-gC-6hl"/>
+                <outlet property="lblName" destination="DQ7-KL-6bx" id="kPs-KC-uPh"/>
+                <outlet property="viewLine" destination="hBb-En-z7P" id="NoL-pO-OdB"/>
+            </connections>
+            <point key="canvasLocation" x="16.800000000000001" y="-8.0959520239880067"/>
+        </tableViewCell>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="NnI-fA-Pny" customClass="SideMenuCell" customModule="Yakrm" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="315" height="46"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NnI-fA-Pny" id="yis-Oc-uew">
+                <rect key="frame" x="0.0" y="0.0" width="315" height="45.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pyO-7O-zBH">
+                        <rect key="frame" x="50" y="10" width="245" height="25"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="4g1-6e-jB2">
+                        <rect key="frame" x="15" y="10" width="25" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <view alpha="0.59999999999999998" contentMode="scaleToFill" id="TVY-Bl-MkM">
+                        <rect key="frame" x="0.0" y="45" width="320" height="1"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="imgSidebaar" destination="4g1-6e-jB2" id="qY6-79-Xf0"/>
+                <outlet property="lblName" destination="pyO-7O-zBH" id="6GP-mu-zMF"/>
+                <outlet property="viewLine" destination="TVY-Bl-MkM" id="AVs-2a-dSe"/>
+            </connections>
+            <point key="canvasLocation" x="16.800000000000001" y="143.92803598200899"/>
+        </tableViewCell>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="3bG-Q5-k09" customClass="SideMenuCell" customModule="Yakrm" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="315" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3bG-Q5-k09" id="8iI-5v-S3Z">
+                <rect key="frame" x="0.0" y="0.0" width="315" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Odb-kd-OPo">
+                        <rect key="frame" x="0.0" y="64" width="315" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="13"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tkO-T1-OZA">
+                        <rect key="frame" x="13" y="15" width="40" height="40"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" image="sidemenumail.png"/>
+                    </button>
+                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="p9T-OW-N7c">
+                        <rect key="frame" x="63" y="15" width="40" height="40"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" image="sidemenusms.png"/>
+                    </button>
+                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ssv-v9-yfz">
+                        <rect key="frame" x="113" y="15" width="40" height="40"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" image="sidemenuuser.png"/>
+                    </button>
+                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Gvu-a1-XfQ">
+                        <rect key="frame" x="163" y="15" width="40" height="40"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" image="sidemenucall.png"/>
+                    </button>
+                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WgA-Qe-EhQ">
+                        <rect key="frame" x="213" y="15" width="40" height="40"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" image="sidemenutwitter.png"/>
+                    </button>
+                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="z6s-Bv-MA6">
+                        <rect key="frame" x="263" y="15" width="40" height="40"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" image="sidemenufb.png"/>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="btnCall" destination="Gvu-a1-XfQ" id="h16-2M-yrV"/>
+                <outlet property="btnFB" destination="z6s-Bv-MA6" id="3Mo-hZ-Lzs"/>
+                <outlet property="btnMail" destination="tkO-T1-OZA" id="Usd-7r-cWe"/>
+                <outlet property="btnSMS" destination="p9T-OW-N7c" id="bQB-Vq-cPq"/>
+                <outlet property="btnTwitter" destination="WgA-Qe-EhQ" id="qO1-jp-EHJ"/>
+                <outlet property="btnUser" destination="ssv-v9-yfz" id="YgZ-ir-TBg"/>
+                <outlet property="lblName" destination="Odb-kd-OPo" id="YA0-XO-2Fb"/>
+            </connections>
+            <point key="canvasLocation" x="16.800000000000001" y="267.16641679160421"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="sidemenucall.png" width="512" height="512"/>
+        <image name="sidemenufb.png" width="512" height="512"/>
+        <image name="sidemenumail.png" width="834" height="834"/>
+        <image name="sidemenusms.png" width="834" height="834"/>
+        <image name="sidemenutwitter.png" width="512" height="512"/>
+        <image name="sidemenuuser.png" width="834" height="834"/>
+        <image name="user red.png" width="64" height="64"/>
+    </resources>
+</document>

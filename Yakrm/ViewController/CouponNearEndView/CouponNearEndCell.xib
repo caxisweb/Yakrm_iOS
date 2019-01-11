@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ArbFONTS-GE_SS_Two_Medium.otf">
+            <string>GESSTwoMedium-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CouponNearEndCell" customModule="Yakrm" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="89.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screenshot 2018-12-11 at 3.53.07 PM.png" id="yTH-yD-p6N">
+                        <rect key="frame" x="10" y="15" width="85" height="55"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The most popular gifts    " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WGg-dR-nqf">
+                        <rect key="frame" x="100" y="15" width="155" height="20"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="12"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SR 5" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FMg-Hy-fO6">
+                        <rect key="frame" x="255" y="15" width="65" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="12"/>
+                        <color key="textColor" red="0.90980392160000001" green="0.21960784310000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The most popular gifts    " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mne-Lz-fTP">
+                        <rect key="frame" x="100" y="35" width="155" height="20"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="11"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The most popular gifts    " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eVR-Ui-yOk">
+                        <rect key="frame" x="100" y="55" width="155" height="20"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="11"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_logo.png" id="aoA-Fx-vCf">
+                        <rect key="frame" x="273" y="50" width="30" height="27"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                </subviews>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="imgProfile" destination="yTH-yD-p6N" id="MZQ-Dq-lqe"/>
+                <outlet property="lblDate" destination="eVR-Ui-yOk" id="NIF-fm-XPU"/>
+                <outlet property="lblDiscount" destination="Mne-Lz-fTP" id="49y-Cx-ezZ"/>
+                <outlet property="lblName" destination="WGg-dR-nqf" id="aPg-F2-Zzz"/>
+                <outlet property="lblPrice" destination="FMg-Hy-fO6" id="F7t-KB-m9o"/>
+            </connections>
+            <point key="canvasLocation" x="133" y="132"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Screenshot 2018-12-11 at 3.53.07 PM.png" width="381" height="216"/>
+        <image name="app_logo.png" width="1024" height="1024"/>
+    </resources>
+</document>

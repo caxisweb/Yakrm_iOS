@@ -1,0 +1,132 @@
+/* 
+  Localizable.strings
+  Yakrm
+
+  Created by Krutik V. Poojara on 12/12/18.
+  Copyright © 2018 Krutik V. Poojara. All rights reserved.
+*/
+
+"When you register a new account, you are accepting usage agreement and the application privacy policy" = "بتسجيلك حساب جديد تكون موافق على اتفاقية الإستخدام وكذلك سياسة الخصوصية الخاص بالتطبيق";
+"usage agreement" = "اتفاقية الإستخدام";
+"privacy policy" = "سياسة الخصوصية";
+
+"Already have an account? log in" = "لديك حساب بالفعل؟ تسجيل الدخول";
+"log in" = "تسجيل الدخول";
+
+"Cancel" = "إلغاء";
+"Done" = "فعله";
+
+"You do not own this mobile ? Change the number" = "لا تملك هذا الجوال؟ تغيير رقم الجوال";
+"Change the number" = "تغيير رقم الجوال";
+
+"You Have already have an account? log in" = "لديك حساب بالفعل؟ تسجيل الدخول ";
+
+
+"By Using Pay Pal" = "بواسطة باي بال";
+"By Using Mada Card" = "بواسطة بطاقة مدى";
+"By Using Credit Card" = "بواسطة بطاقة الدفع";
+
+"Ended In" = "تنتهي في";
+"Ended By" = "انتهت بتاريخ";
+"The Value" = "القيمة";
+"Sr" = "ريال سعودي";
+"Discount" = "الخصم";
+"The Price" = "السعر";
+"Sent By Your Friend" = "مرسلة من صديقك";
+"Hello Friend. I Am Sending You This Present To Express My Love And Gratitude For You As A Friend" = "هلا حبيبي، بأرسلك هذه الهدية لأعبر عن اعتزازي بك كصديق عزيز";
+"I Hope That You Will Be Happy During Every Single Moment Of Your Life" = "وتمني لك السعادة والتميز في حياتك كلها";
+"Attached Video" = "فيديو مرفق";
+"Press To Watch" = "اضغط للمشاهدة";
+
+"SAR" = "ريال سعودي";
+"Your current balance" = "رصيدك الحالي";
+
+"Rs" = "ر.س";
+"SR" = "ر.س";
+"Voucher For Discount" = "قسيمة خصم";
+"Active Till" = "صالحة حتى";
+
+
+"My Wallet" = "محفظتي";
+"Auction" = "مزاد";
+"Replace" = "استبدال";
+"Received" = "مستلمة";
+"Buy" = "شراء";
+
+"Voucher Till" = "صالحة حتى";
+"Available Till" = "صالحة حتى";
+"Valdi Till" = "صالحة حتى";
+"Voucher Number" = "رقم القسيمة";
+"Pin Number" = "رقمرقم pin";
+
+"Discount Voucher" = "قسيمة خصم";
+"Discounts Of Voucher" = "قسيمة خصم";
+
+"Name" = "الإسم";
+"Email Address" = "البريد الإلكتروني";
+"Hello Friend. I Am Sending You This Voucher To Express My Love And Gratitude For You As A Friend I Hope That You Will Be Happy During Every Single Moment Of Your Life" = "هلا حبيبي، بأرسلك هذه الهدية لأعبر عن مدى اعتزازي بك كصديق عزيز وأنتمى لك السعادة والتميز في حياتك كلها.";
+
+"Here, You Find Vouchers sent By Your Friends" = "هنا تجد قسائم الخصم المرسلة من أصدقائك";
+"You Can Transform It Into Wallet Cards And Use It In purchasing And Discount Process" = "ويمكنك نقلها إلى محفظة الكروت واستغلالها في الشراء والخصومات";
+
+"You Will Get The Amount Of" = "ستحصل على مبلغ";
+"SR Only" = "ر.س فقط";
+
+"Main Page" = "الرئيسية";
+"My Personal Account" = "حسابي الشخصي";
+"Active Vouchers" = "القسائم النشطة";
+"Favorite Vouchers" = "القسائم المفضلة";
+"Best Brands" = "البائعين المفضلين";
+"Transactions Record" = "سجل العمليات";
+"Auctions" = "المزادات";
+"Payment Methods" = "طرق الدفع";
+"Support And Contact" = "الدعم والتواصل";
+"About The Application" = "عن التطبيق";
+"Instructions And Conditions" = "التعليمات والشروط";
+"Sign Out" = "تسجيل الخروج ";
+"English Version" = "English Version";
+"Share With Your Friends" = "شارك التطبيق مع أصدقائك";
+
+"(For The Coming 2 Days Only)" = "(لمدة 2 أيام قادمة فقط)";
+
+"Yesterday" = "يوم أمس";
+"New" = "جديد";
+"Mohammed Abd Allah Al-'amdi" = "محمد عبدالله الغامدي";
+
+"Auctions Of Other" = "مزادات الأخرين";
+"Auction On My Vouchers" = "مزاد على قسائمي";
+
+"Last Auction:" = "أخر مزايدة:";
+"Introduce Your Auction With Value:" = "قدم مزايدتك بقيمة";
+"Auction With Value" = "مزايدة بقيمة";
+"Auction Number" = "عدد المزايدات";
+"Remaining 15 H 25 M" = "المتبقي: 15س: 25 د";
+
+"You Win This Voucher With Amount Of" = "لقد فزت بالقسيمة بمبلغ";
+"The Voucher Is Transferred Into Your Wallet" = "انتقلت القسيمة إلى محفظتك";
+
+"Wins The Auction." = "فاز بالمزاد";
+"The Value is" = "بقيمة";
+"Your Auction's Value Was" = "كانت قيمة مزايدتك";
+"The Number Of The Auctions" = "عدد المزايدات";
+
+"Sorry, No One Participates In This Auction" = "للأسف لم يشترك بالمزاد أحد";
+
+"Here, You Find Voucher Cards  Sent By Your Friends" = "ويمكنك نقلها إلى محفظة الكروت واستغلالها في الشراء والخصومات";
+
+"Cuisine" = "مأكولات";
+"Coffee" = "قهوة";
+"Books and Magazines" = "كتب ومجلات";
+"Stores and  groceries" = "متاجر وتموينات";
+"Children Toys" = "ألعاب أطفال";
+"Fashion and Uniforms" = "مراكز تجميل وعناية";
+"Care and makeup centers" = "موضة وأزياء";
+"Hotels and Tourism" = "فنادق وسياحة";
+"Sport Clothes" = "ملابس رياضية";
+"Phones and Electronics" = "هواتف وإلكترونيات";
+"Sport Tools" = "أدوات رياضية";
+"Clothes" = "ملابس";
+"Jewelries and Golden" = "مجوهرات وذهب";
+"Others" = "أخرى";
+
+"Your Amount" = "رصيدك";

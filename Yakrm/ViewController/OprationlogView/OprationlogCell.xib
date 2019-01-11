@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ArbFONTS-GE_SS_Two_Bold.otf">
+            <string>GESSTwoBold-Bold</string>
+        </array>
+        <array key="ArbFONTS-GE_SS_Two_Medium.otf">
+            <string>GESSTwoMedium-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="OprationlogCell" customModule="Yakrm" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="74.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" id="033-ut-b5p">
+                        <rect key="frame" x="5" y="0.0" width="4" height="65"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.90980392160000001" green="0.21960784310000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 r. s" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CaA-vf-s3o">
+                        <rect key="frame" x="212" y="10" width="100" height="35"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="GESSTwoBold-Bold" family="GE SS Two" pointSize="23"/>
+                        <color key="textColor" red="0.18823529410000001" green="0.60392156860000001" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STARBUCKSCARD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fdV-HD-puQ">
+                        <rect key="frame" x="17" y="10" width="190" height="25"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="15"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The most popular gifts    " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5xr-mD-0sR">
+                        <rect key="frame" x="17" y="35" width="190" height="20"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="12"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018 December 12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="U0m-Sn-RUZ">
+                        <rect key="frame" x="212" y="45" width="100" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="11"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view hidden="YES" contentMode="scaleToFill" id="z3l-oZ-I1d">
+                        <rect key="frame" x="0.0" y="74" width="320" height="1"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.79607843140000001" green="0.79607843140000001" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </subviews>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="lblDate" destination="U0m-Sn-RUZ" id="3zS-aJ-tRC"/>
+                <outlet property="lblDetails" destination="5xr-mD-0sR" id="TRI-o3-N2b"/>
+                <outlet property="lblName" destination="fdV-HD-puQ" id="6jj-Kt-myL"/>
+                <outlet property="lblPrice" destination="CaA-vf-s3o" id="xnz-Ke-97b"/>
+                <outlet property="viewLine" destination="033-ut-b5p" id="8DR-BQ-Yf8"/>
+            </connections>
+            <point key="canvasLocation" x="132.80000000000001" y="130.88455772113943"/>
+        </tableViewCell>
+    </objects>
+</document>
