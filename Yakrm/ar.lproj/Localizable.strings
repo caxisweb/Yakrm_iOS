@@ -12,6 +12,7 @@
 
 "Already have an account? log in" = "لديك حساب بالفعل؟ تسجيل الدخول";
 "log in" = "تسجيل الدخول";
+"Sign Up/Log In" = "تسجيل الدخول/سجل";
 
 "Cancel" = "إلغاء";
 "Done" = "فعله";
@@ -26,6 +27,7 @@
 "By Using Mada Card" = "بواسطة بطاقة مدى";
 "By Using Credit Card" = "بواسطة بطاقة الدفع";
 
+"Total" = "المجموع";
 "Ended In" = "تنتهي في";
 "Ended By" = "انتهت بتاريخ";
 "The Value" = "القيمة";
@@ -61,6 +63,7 @@
 
 "Discount Voucher" = "قسيمة خصم";
 "Discounts Of Voucher" = "قسيمة خصم";
+"Discount till" = "توفير حتى";
 
 "Name" = "الإسم";
 "Email Address" = "البريد الإلكتروني";
@@ -107,6 +110,7 @@
 
 "Wins The Auction." = "فاز بالمزاد";
 "The Value is" = "بقيمة";
+"Balance" = "بقيمة";
 "Your Auction's Value Was" = "كانت قيمة مزايدتك";
 "The Number Of The Auctions" = "عدد المزايدات";
 

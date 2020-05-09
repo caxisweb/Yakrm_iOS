@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import MBProgressHUD
+import Toaster
 
 class ActiveVoucherView: UIViewController,UITableViewDelegate,UITableViewDataSource
 {
@@ -16,7 +20,14 @@ class ActiveVoucherView: UIViewController,UITableViewDelegate,UITableViewDataSou
     @IBOutlet var tblView: UITableView!
     
 
+    //    var loadingNotification : MBProgressHUD!
+    var json : JSON!
+    var strMessage : String!
+    
     var app = AppDelegate()
+    
+    var arrVoucher : [Any] = []
+    
     
     //MARK:-
     override func viewDidLoad()
@@ -41,6 +52,15 @@ class ActiveVoucherView: UIViewController,UITableViewDelegate,UITableViewDataSou
         }
         self.tblView.delegate = self
         self.tblView.dataSource = self
+        
+        if self.app.isConnectedToInternet()
+        {
+            self.getActiveVoucherAPI()
+        }
+        else
+        {
+            Toast(text: self.app.InternetConnectionMessage).show()
+        }
     }
 
     @IBAction func btnBack(_ sender: UIButton)
@@ -51,7 +71,7 @@ class ActiveVoucherView: UIViewController,UITableViewDelegate,UITableViewDataSou
     //MARK:- Tablview
     func numberOfSections(in tableView: UITableView) -> Int
     {
-        return 20
+        return self.arrVoucher.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -68,6 +88,16 @@ class ActiveVoucherView: UIViewController,UITableViewDelegate,UITableViewDataSou
             cell = Bundle.main.loadNibNamed("PaymentCell", owner: self, options: nil)?[1] as! PaymentCell!
         }
         
+        var arrValue = JSON(self.arrVoucher)
+        
+        let strName : String = arrValue[indexPath.section]["brand_name"].stringValue
+        let strDate : String = arrValue[indexPath.section]["created_at"].stringValue
+        let strPrice : String = arrValue[indexPath.section]["voucher_price"].stringValue
+        var strImage : String = arrValue[indexPath.section]["voucher_image"].stringValue
+        strImage = strImage.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        
+        cell.imgProfile.sd_setImage(with: URL(string: "\(self.app.ImageURL)voucher_images/\(strImage)"), placeholderImage: nil)
+
         if self.app.isEnglish
         {
             cell.lblName.textAlignment = .left
@@ -89,9 +119,10 @@ class ActiveVoucherView: UIViewController,UITableViewDelegate,UITableViewDataSou
             cell.lblPrice.font = cell.lblPrice.font.withSize(9)
         }
         
-        cell.lblDetails.text = "\(indexPath.section + 1) " + "Voucher For Discount".localized
-        cell.lblDate.text = "Active Till".localized + " 14/12/2018"
-        cell.lblPrice.text = "\(indexPath.row) " + "Rs".localized
+        cell.lblName.text = strName
+        cell.lblDetails.text = ""//"\(indexPath.section + 1) " + "Voucher For Discount".localized
+        cell.lblDate.text = "Active Till".localized + " \(strDate)"
+        cell.lblPrice.text = "\(strPrice) " + "SR".localized
         
         cell.layer.cornerRadius = 1
         cell.frame.size.width = tblView.frame.size.width
@@ -123,10 +154,68 @@ class ActiveVoucherView: UIViewController,UITableViewDelegate,UITableViewDataSou
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
+        var arrValue = JSON(self.arrVoucher)
+        
         let VC = self.storyboard?.instantiateViewController(withIdentifier: "StarbucksCardView") as! StarbucksCardView
+        VC.json = arrValue[indexPath.section]
         self.navigationController?.pushViewController(VC, animated: true)
     }
     
-    
+    //MARK:- Active Voucher API
+    func getActiveVoucherAPI()
+    {
+        var loadingNotification : MBProgressHUD!
+        
+        loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: false)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
+        loadingNotification.label.text = "Loading..."
+//        loadingNotification.dimBackground = true
+        
+        let headers : HTTPHeaders = ["Authorization": self.app.strToken,
+                                     "Content-Type":"application/json"]
+        print(JSON(headers))
+        
+        AF.request("\(self.app.BaseURL)get_active_voucher_ofuser", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            debugPrint(response)
+            
+            //            self.loadingNotification.hide(animated: true)
+            loadingNotification.hide(animated: true)
+            
+            if response.response?.statusCode == 200
+            {
+                if response.result.isSuccess == true
+                {
+                    if let value = response.result.value
+                    {
+                        self.json = JSON(value)
+                        print(self.json)
+                        
+                        let strStatus : String = self.json["status"].stringValue
+                        self.strMessage = self.json["message"].stringValue
+                        
+                        if strStatus == "1"
+                        {
+                            self.arrVoucher = self.json["data"].arrayValue
+                            self.app.AdminProfitDiscount = self.json["admin_profit_dis"].floatValue
+                        }
+                        else
+                        {
+                            Toast(text: self.strMessage).show()
+                        }
+                        self.tblView.reloadData()
+                    }
+                }
+                else
+                {
+                    Toast(text: "Request time out.").show()
+                }
+            }
+            else
+            {
+                print(response.result.error.debugDescription)
+                Toast(text: "Request time out.").show()
+            }
+        }
+    }
     
 }

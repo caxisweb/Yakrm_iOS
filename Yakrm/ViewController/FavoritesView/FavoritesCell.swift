@@ -12,12 +12,14 @@ class FavoritesCell: UITableViewCell
 {
 
     @IBOutlet var lblName: UILabel!
+    @IBOutlet var lblDesc: UILabel!
     @IBOutlet var lblDiscount: UILabel!
     @IBOutlet var imgProfile: UIImageView!
     
     @IBOutlet var lblDate: UILabel!
     @IBOutlet var lblPrice: UILabel!
     @IBOutlet var lblDiscountedPrice: UILabel!
+    @IBOutlet var btnDelete: UIButton!
 
     
     override func awakeFromNib() {

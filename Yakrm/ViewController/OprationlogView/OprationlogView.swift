@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import MBProgressHUD
+import Toaster
 
 class OprationlogView: UIViewController,UITableViewDelegate,UITableViewDataSource
 {
@@ -17,7 +21,13 @@ class OprationlogView: UIViewController,UITableViewDelegate,UITableViewDataSourc
     @IBOutlet var viewHeader: UIView!
     @IBOutlet var lblPrice: UILabel!
     
+    var loadingNotification : MBProgressHUD!
+    var json : JSON!
+    var strMessage : String!
+    
     var app = AppDelegate()
+    
+    var arrTransaction : [Any] = []
     
     //MARK:-
     override func viewDidLoad()
@@ -51,6 +61,18 @@ class OprationlogView: UIViewController,UITableViewDelegate,UITableViewDataSourc
         {
             self.lblTitle.textAlignment = .right
         }
+        
+        if self.app.isConnectedToInternet()
+        {
+            self.getAllUserTransactionAPI()
+        }
+        else
+        {
+            Toast(text: self.app.InternetConnectionMessage).show()
+        }
+        
+        self.lblPrice.text = "\(self.app.strWallet) " + "SAR".localized + "\n" + "Your current balance".localized
+
     }
     
     func setShadowonView(vv :UIView)
@@ -72,7 +94,7 @@ class OprationlogView: UIViewController,UITableViewDelegate,UITableViewDataSourc
     //MARK:- Tablview
     func numberOfSections(in tableView: UITableView) -> Int
     {
-        return 20
+        return self.arrTransaction.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -89,15 +111,22 @@ class OprationlogView: UIViewController,UITableViewDelegate,UITableViewDataSourc
             cell = Bundle.main.loadNibNamed("OprationlogCell", owner: self, options: nil)?[0] as! OprationlogCell!
         }
         
+        var arrValue = JSON(self.arrTransaction)
+        
+        let strName : String = arrValue[indexPath.section]["brand_name"].stringValue
+        let strVenderName : String = arrValue[indexPath.section]["vendor_name"].stringValue
+        let strDate : String = arrValue[indexPath.section]["created_at"].stringValue
+        let strPrice : String = arrValue[indexPath.section]["voucher_price"].stringValue
+
         var color = UIColor()
-        if indexPath.section % 2 == 0
-        {
-            color = UIColor.init(rgb: 0xEE4158)
-        }
-        else
-        {
+//        if indexPath.section % 2 == 0
+//        {
+//            color = UIColor.init(rgb: 0xEE4158)
+//        }
+//        else
+//        {
             color = UIColor.init(rgb: 0x309A4E)
-        }
+//        }
         cell.viewLine.backgroundColor = color
         cell.lblPrice.textColor = color
         
@@ -111,9 +140,12 @@ class OprationlogView: UIViewController,UITableViewDelegate,UITableViewDataSourc
             cell.lblName.textAlignment = .right
             cell.lblDetails.textAlignment = .right
         }
-        cell.lblPrice.text = "50" + "SR".localized
-        cell.lblDetails.text = "Mohammed Abd Allah Al-'amdi".localized
         
+        cell.lblName.text = strName
+        cell.lblPrice.text = strPrice + "SR".localized
+        cell.lblDetails.text = strVenderName
+        cell.lblDate.text = self.getDateStringFormate(strDate: strDate)
+
         if DeviceType.IS_IPHONE_5
         {
             cell.lblName.font = cell.lblName.font.withSize(13)
@@ -127,13 +159,34 @@ class OprationlogView: UIViewController,UITableViewDelegate,UITableViewDataSourc
         cell.layer.shadowOpacity = 1.0
         cell.layer.shadowRadius = 1.0
         //        vv.layer.masksToBounds = false
-        cell.layer.cornerRadius = 1.0
+        cell.layer.cornerRadius = 3.0
         cell.backgroundColor = UIColor.white
+        cell.clipsToBounds = true
 
         cell.selectionStyle = .none
         tblView.rowHeight = cell.frame.size.height
         
         return cell
+    }
+    
+    func getDateStringFormate(strDate : String) -> String
+    {
+        var strFullDate = String()
+        if strDate.isEmpty
+        {
+            return strFullDate
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
+        let date = dateFormatter.date(from: strDate)
+        if date != nil
+        {
+            dateFormatter.dateFormat = "dd-MMM-yy" //25-JAN-19
+            strFullDate = dateFormatter.string(from: date!)
+        }
+        
+        return strFullDate
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
@@ -148,6 +201,60 @@ class OprationlogView: UIViewController,UITableViewDelegate,UITableViewDataSourc
     {
         return 10
     }
+    
+    //MARK:- get Cart API
+    func getAllUserTransactionAPI()
+    {
+        loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: false)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
+        loadingNotification.label.text = "Loading..."
+//        loadingNotification.dimBackground = true
+        
+        let headers : HTTPHeaders = ["Authorization": self.app.strToken,
+                                     "Content-Type": "application/json"]
+        
+        AF.request("\(self.app.BaseURL)get_all_usertransaction", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            debugPrint(response)
+            
+            self.loadingNotification.hide(animated: true)
+            
+            if response.response?.statusCode == 200
+            {
+                if response.result.isSuccess == true
+                {
+                    if let value = response.result.value
+                    {
+                        self.json = JSON(value)
+                        print(self.json)
+                        
+                        let strStatus : String = self.json["status"].stringValue
+                        self.strMessage = self.json["message"].stringValue
+                        
+                        self.arrTransaction.removeAll()
+                        if strStatus == "1"
+                        {
+                            self.arrTransaction = self.json["data"].arrayValue
+                        }
+                        else
+                        {
+                            Toast(text: self.strMessage).show()
+                        }
+                        self.tblView.reloadData()
+                    }
+                }
+                else
+                {
+                    Toast(text: "Request time out.").show()
+                }
+            }
+            else
+            {
+                print(response.result.error.debugDescription)
+                Toast(text: "Request time out.").show()
+            }
+        }
+    }
+    
     
     
     

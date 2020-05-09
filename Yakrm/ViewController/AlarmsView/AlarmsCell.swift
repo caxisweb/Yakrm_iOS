@@ -17,6 +17,7 @@ class AlarmsCell: UITableViewCell
     
     @IBOutlet var lblNew: UILabel!
     @IBOutlet var viewLine: UIView!
+    @IBOutlet var btnDelete: UIButton!
     
 
     override func awakeFromNib()

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -116,7 +116,6 @@
 		8816D0BB21BE9E0300614CAE /* starmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 8816D0B621BE9DFD00614CAE /* starmenu.png */; };
 		8816D0BD21BE9E0300614CAE /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = 8816D0B821BE9DFF00614CAE /* house.png */; };
 		8816D0BE21BE9E0300614CAE /* usermenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 8816D0B921BE9E0100614CAE /* usermenu.png */; };
-		881A998C21D64039003D7FCE /* wallet.png in Resources */ = {isa = PBXBuildFile; fileRef = 881A998B21D64029003D7FCE /* wallet.png */; };
 		8821F80921D3641400F454F8 /* house (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 8821F80521D3640300F454F8 /* house (1).png */; };
 		8821F80A21D3641400F454F8 /* payment-method.png in Resources */ = {isa = PBXBuildFile; fileRef = 8821F80621D3640300F454F8 /* payment-method.png */; };
 		8821F80B21D3641400F454F8 /* auction (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 8821F80721D3640700F454F8 /* auction (1).png */; };
@@ -187,7 +186,6 @@
 		88D009B721C3E4FA006960A4 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 88D009B321C3E4F8006960A4 /* facebook.png */; };
 		88D009B821C3E4FA006960A4 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 88D009B421C3E4F9006960A4 /* twitter.png */; };
 		88D009BA21C3E52A006960A4 /* sms.png in Resources */ = {isa = PBXBuildFile; fileRef = 88D009B921C3E529006960A4 /* sms.png */; };
-		88D6417A21C11B28001174CD /* shopping-basket.png in Resources */ = {isa = PBXBuildFile; fileRef = 88D6417921C11B25001174CD /* shopping-basket.png */; };
 		88DA2BCC21CD1BFE008EEDAB /* NSBundle+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DA2BCA21CD1BFE008EEDAB /* NSBundle+Language.m */; };
 		88E1526D21C4CBCB0051DD92 /* PurchasedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1526C21C4CBCB0051DD92 /* PurchasedView.swift */; };
 		88E1527021C4CFFA0051DD92 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1526F21C4CFFA0051DD92 /* PaymentView.swift */; };
@@ -327,7 +325,6 @@
 		8816D0B621BE9DFD00614CAE /* starmenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starmenu.png; sourceTree = "<group>"; };
 		8816D0B821BE9DFF00614CAE /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = house.png; sourceTree = "<group>"; };
 		8816D0B921BE9E0100614CAE /* usermenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = usermenu.png; sourceTree = "<group>"; };
-		881A998B21D64029003D7FCE /* wallet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wallet.png; path = ../../../../../../Downloads/wallet.png; sourceTree = "<group>"; };
 		8821F80521D3640300F454F8 /* house (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house (1).png"; sourceTree = "<group>"; };
 		8821F80621D3640300F454F8 /* payment-method.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "payment-method.png"; sourceTree = "<group>"; };
 		8821F80721D3640700F454F8 /* auction (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "auction (1).png"; sourceTree = "<group>"; };
@@ -400,7 +397,6 @@
 		88D009B321C3E4F8006960A4 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		88D009B421C3E4F9006960A4 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
 		88D009B921C3E529006960A4 /* sms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sms.png; sourceTree = "<group>"; };
-		88D6417921C11B25001174CD /* shopping-basket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shopping-basket.png"; path = "../../../../../../Downloads/shopping-basket.png"; sourceTree = "<group>"; };
 		88DA2BCA21CD1BFE008EEDAB /* NSBundle+Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Language.m"; sourceTree = "<group>"; };
 		88DA2BCB21CD1BFE008EEDAB /* NSBundle+Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Language.h"; sourceTree = "<group>"; };
 		88E1526C21C4CBCB0051DD92 /* PurchasedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedView.swift; sourceTree = "<group>"; };
@@ -777,7 +773,6 @@
 				88D009B121C3E4F6006960A4 /* friends.png */,
 				88D009B221C3E4F7006960A4 /* phone-receiver.png */,
 				88D009B421C3E4F9006960A4 /* twitter.png */,
-				88D6417921C11B25001174CD /* shopping-basket.png */,
 				88063B0321BFE0AF0093E074 /* user red.png */,
 				88063AFF21BFC7AC0093E074 /* Screenshot 2018-12-11 at 3.53.07 PM.png */,
 				88063B0021BFC7B50093E074 /* Screenshot 2018-12-11 at 3.53.18 PM.png */,
@@ -814,7 +809,6 @@
 				8815452F21BA68C6007B8148 /* SplashScreeenNasoB12.jpg */,
 				88063ADA21BF91950093E074 /* app_logo.png */,
 				884E0CAD21D4EC3D00F294F6 /* menuIcon.png */,
-				881A998B21D64029003D7FCE /* wallet.png */,
 				88063AD921BF91950093E074 /* intro_icon.png */,
 			);
 			path = Images;
@@ -1216,7 +1210,6 @@
 				8821F80C21D3641400F454F8 /* ic_dolor (1).png in Resources */,
 				8816D0B421BE90C800614CAE /* checkboxselected.png in Resources */,
 				8815453821BA7B25007B8148 /* share.png in Resources */,
-				88D6417A21C11B28001174CD /* shopping-basket.png in Resources */,
 				880E7FB021C52CB300E74636 /* groupusers copy.png in Resources */,
 				88AE2AD221DF401000CC400E /* walletred.png in Resources */,
 				88E1527F21C4D8530051DD92 /* ReceivedCell.xib in Resources */,
@@ -1230,7 +1223,6 @@
 				8821F80921D3641400F454F8 /* house (1).png in Resources */,
 				8821F81921D3905600F454F8 /* cart_error.png in Resources */,
 				88063AEA21BFBA4D0093E074 /* at.png in Resources */,
-				881A998C21D64039003D7FCE /* wallet.png in Resources */,
 				880D6EBD21C788F500240CA2 /* facebookred.png in Resources */,
 				886CD08521B8EFFB000B5B13 /* Assets.xcassets in Resources */,
 				88D009B821C3E4FA006960A4 /* twitter.png in Resources */,
@@ -1254,46 +1246,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Yakrm/Pods-Yakrm-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/DLRadioButton/DLRadioButton.framework",
-				"${BUILT_PRODUCTS_DIR}/DatePickerDialog/DatePickerDialog.framework",
-				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/PinCodeTextField/PinCodeTextField.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
-				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
-				"${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Yakrm/Pods-Yakrm-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DLRadioButton.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DatePickerDialog.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinCodeTextField.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITextView_Placeholder.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Yakrm/Pods-Yakrm-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Yakrm/Pods-Yakrm-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Yakrm/Pods-Yakrm-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B959096A02E0E9F5E8F9C8D6 /* [CP] Check Pods Manifest.lock */ = {
@@ -1564,7 +1525,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = KJXPL7NP8J;
+				DEVELOPMENT_TEAM = MFPDYWP67B;
 				INFOPLIST_FILE = Yakrm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1573,7 +1534,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.inforaam.Yakrm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Yakrm Dev";
+				PROVISIONING_PROFILE_SPECIFIER = "Wild Card Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "Yakrm/Yakrm-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -1588,7 +1549,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = KJXPL7NP8J;
+				DEVELOPMENT_TEAM = MFPDYWP67B;
 				INFOPLIST_FILE = Yakrm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1597,7 +1558,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.inforaam.Yakrm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Yakrm Dev";
+				PROVISIONING_PROFILE_SPECIFIER = "Wild Card Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "Yakrm/Yakrm-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;

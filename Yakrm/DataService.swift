@@ -25,7 +25,7 @@ class DataService {
         
         let discogsURL = "\(DISCOGS_AUTH_URL)\(codeNumber)&?barcode&key=\(DISCOGS_KEY)&secret=\(DISCOGS_SECRET)"
         
-        Alamofire.request(discogsURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+        AF.request(discogsURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
             debugPrint(response)
             
             if response.response?.statusCode == 200

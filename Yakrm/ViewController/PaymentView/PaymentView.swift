@@ -65,7 +65,7 @@ class PaymentView: UIViewController,UITableViewDelegate,UITableViewDataSource
         {
             self.lblCHANGE.textAlignment = .right
         }
-        self.lblBalance.text = "Your Amount".localized + "100" + "Rs".localized
+        self.lblBalance.text = "Your Amount".localized + " 0 " + "SR".localized
         
         self.tblView.delegate = self
         self.tblView.dataSource = self

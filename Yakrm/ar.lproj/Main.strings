@@ -6,7 +6,7 @@
 "1Pv-DO-qIM.text" = "SAR 2,450\nYour current balance";
 
 /* Class = "UILabel"; text = "SR"; ObjectID = "1vF-ye-VzA"; */
-"1vF-ye-VzA.text" = "ريال ";
+"1vF-ye-VzA.text" = "ريال";
 
 /* Class = "UILabel"; text = "Replace and add the amount to your balance"; ObjectID = "23e-33-0rR"; */
 "23e-33-0rR.text" = "استبدال وإضافة المبلغ إلى رصيدك";
@@ -46,7 +46,7 @@
 "5Fx-23-STe.text" = "05";
 
 /* Class = "UILabel"; text = "Favorites"; ObjectID = "5Y2-g0-hXX"; */
-"5Y2-g0-hXX.text" = "المفضلة";
+"5Y2-g0-hXX.text" = "القسائم المفضلة";
 
 /* Class = "UILabel"; text = "Do you have questions, ideas, or evaluations?\nContact us and send us"; ObjectID = "5k5-iZ-KzA"; */
 "5k5-iZ-KzA.text" = "هل لديك أسئلة أو أفكار أو تقييم؟ تواصل معنا وأرسل لنا
@@ -446,7 +446,7 @@
 "hW9-R8-X3A.text" = "أو";
 
 /* Class = "UILabel"; text = "SAR 2,450\nYour current balance"; ObjectID = "hdv-I3-gKM"; */
-"hdv-I3-gKM.text" = "SAR 2,450\nYour current balance";
+"hdv-I3-gKM.text" = "SAR 0\nYour current balance";
 
 /* Class = "UILabel"; text = "25"; ObjectID = "hgr-5h-DPY"; */
 "hgr-5h-DPY.text" = "25";
@@ -657,3 +657,44 @@
 "VdB-6L-Hef.placeholder" = "الإسم";
 /* Class = "UITextField"; placeholder = "Name"; ObjectID = "zl9-pv-wU3"; */
 "oYU-9l-APo.placeholder" = "الإسم";
+
+
+
+/* Class = "UILabel"; text = "Your Current Amount Is Not Enough To Carry Out Purchasing Process"; ObjectID = "V7Y-Zi-SRr"; */
+"V7Y-Zi-SRr.text" = "رصيدك الحالي غير كافي لإتمام علية الشراء";
+
+/* Class = "UILabel"; text = "Total Amount"; ObjectID = "stH-ls-tMP"; */
+"stH-ls-tMP.text" = "المبلغ الإجمالي هو";
+
+/* Class = "UILabel"; text = "SR"; ObjectID = "ode-Wd-idg"; */
+"ode-Wd-idg.text" = "ريال";
+
+/* Class = "UILabel"; text = "Charge your account balance"; ObjectID = "tL1-hN-Jor"; */
+"tL1-hN-Jor.text" = "شحن رصيد لحسابك";
+
+/* Class = "UILabel"; text = "Payment Methods"; ObjectID = "q96-c3-TYW"; */
+"q96-c3-TYW.text" = "طرق الدفع";
+///////
+/* Class = "UILabel"; text = "There Is No Any Payment Method Added In Your Account"; ObjectID = "ogD-JU-jvz"; */
+"ogD-JU-jvz.text" = "لا يوجد طرق للدفع مسجلة لديك";
+
+/* Class = "UILabel"; text = "Adding A Payment Method"; ObjectID = "dsB-Jc-QEY"; */
+"dsB-Jc-QEY.text" = "إضافة طريقة دفع";
+
+/* Class = "UILabel"; text = "Card Holder Name"; ObjectID = "IC8-SX-oxH"; */
+"IC8-SX-oxH.text" = "اسم صاحب البطاقة";
+
+/* Class = "UILabel"; text = "Card Number"; ObjectID = "vSy-xQ-TRC"; */
+"vSy-xQ-TRC.text" = "رقم البطاقة";
+
+/* Class = "UILabel"; text = "Security Number"; ObjectID = "YXg-GN-hFm"; */
+"YXg-GN-hFm.text" = "رقم الحماية";
+
+/* Class = "UILabel"; text = "Expiry Date"; ObjectID = "k0P-67-mu6"; */
+"k0P-67-mu6.text" = "تاريخ الإنتهاء";
+
+/* Class = "UIButton"; normalTitle = "Add"; ObjectID = "QC4-LC-99L"; */
+"QC4-LC-99L.normalTitle" = "إضافة";
+
+/* Class = "UITextField"; placeholder = "Card Holder Name"; ObjectID = "pUe-59-f1J"; */
+"pUe-59-f1J.placeholder" = "أدخل الإسم كاملاً من فضلك";

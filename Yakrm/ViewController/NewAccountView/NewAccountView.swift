@@ -268,7 +268,7 @@ class NewAccountView: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
             }
             else if self.strMobile.characters.count < 10
             {
-                Toast(text: "Please Enter Valid Mobile Number").show()
+                Toast(text: "Mobile Number should be minimum of 10 characters").show()
             }
             else
             {
@@ -295,7 +295,7 @@ class NewAccountView: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
         loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: false)
         loadingNotification.mode = MBProgressHUDMode.indeterminate
         loadingNotification.label.text = "Loading..."
-        loadingNotification.dimBackground = true
+//        loadingNotification.dimBackground = true
         
         let headers : HTTPHeaders = ["Content-Type": "application/json"]
 
@@ -303,7 +303,7 @@ class NewAccountView: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
                                       "phone":self.strMobile]
         print(JSON(parameters))
         
-        Alamofire.request("\(self.app.BaseURL)registration_step_1", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        AF.request("\(self.app.BaseURL)registration_step_1", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             debugPrint(response)
             
             self.loadingNotification.hide(animated: true)

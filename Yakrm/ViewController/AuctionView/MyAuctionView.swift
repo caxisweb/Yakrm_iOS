@@ -60,7 +60,6 @@ class MyAuctionView: UIViewController,UITableViewDelegate,UITableViewDataSource
         {
             if self.btnSegment.selectedSegmentIndex == 0
             {
-                
                 cell = Bundle.main.loadNibNamed("OtherAuctionCell", owner: self, options: nil)?[2] as! OtherAuctionCell!
                 
                 if self.app.isEnglish
@@ -78,6 +77,11 @@ class MyAuctionView: UIViewController,UITableViewDelegate,UITableViewDataSource
                     cell.lblName.font = cell.lblName.font.withSize(11)
                     cell.lblDetails.font = cell.lblDetails.font.withSize(9)
 
+                    cell.lblLastBid.font = cell.lblLastBid.font.withSize(8)
+                    cell.lblBidDetails.font = cell.lblBidDetails.font.withSize(8)
+                }
+                else if DeviceType.IS_IPHONE_6P || DeviceType.IS_IPHONE_XR
+                {
                     cell.lblLastBid.font = cell.lblLastBid.font.withSize(10)
                     cell.lblBidDetails.font = cell.lblBidDetails.font.withSize(10)
                 }

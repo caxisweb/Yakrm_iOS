@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import MBProgressHUD
+import Toaster
 
 class StarbucksCardView: UIViewController
 {
@@ -29,7 +33,18 @@ class StarbucksCardView: UIViewController
 
     @IBOutlet var btnReplaceVoucher: UIButton!
     
+    //    var loadingNotification : MBProgressHUD!
+    var json : JSON!
+    var strMessage : String!
+    
     var app = AppDelegate()
+    
+    var strVoucherID = String()
+    var strVoucherPaymentID = String()
+    var strImage = String()
+    var strName = String()
+    var strPrice = String()
+
     //MARK:-
     override func viewDidLoad()
     {
@@ -72,13 +87,48 @@ class StarbucksCardView: UIViewController
         }
         self.viewBorder.dropShadow(color: .lightGray, opacity: 1, offSet: CGSize(width: 0, height: 1), radius: 1, scale: true)
 
-        self.lblDate.text = "Voucher Till".localized + " 25 January 2019"
-        self.lblPrice.text = "30 " + "Rs".localized
+        self.strImage = json["voucher_image"].stringValue
+        let strDate : String = json["created_at"].stringValue
+        self.strPrice = json["voucher_price"].stringValue
+        let strVoucherNumber : String = json["scan_code"].stringValue
+        let strPinNumber : String = json["pin_code"].stringValue
+        self.strVoucherID = json["voucher_id"].stringValue
+        self.strVoucherPaymentID = json["voucher_payment_detail_id"].stringValue
+        self.strName = json["brand_name"].stringValue
 
-        self.lblVoucherNumber.text = "Voucher Number".localized + ": 2556 21 9852 2541#"
-        self.lblPinNumber.text = "Pin Number".localized + ": #562177"
+        self.strImage = self.strImage.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        
+        self.imgProfile.sd_setImage(with: URL(string: "\(self.app.ImageURL)voucher_images/\(strImage)"), placeholderImage: nil)
+
+        self.imgBarcode.image = Barcode.fromString(string: strVoucherNumber)
+
+        self.lblDate.text = "Voucher Till".localized + " \(self.getDateStringFormate(strDate: strDate))"
+        self.lblPrice.text = "\(strPrice) " + "SR".localized
+
+        self.lblVoucherNumber.text = "Voucher Number".localized + ": \(strVoucherNumber)"
+        self.lblPinNumber.text = "Pin Number".localized + ": \(strPinNumber)"
 
         self.setScrollViewHeight()
+    }
+    
+    func getDateStringFormate(strDate : String) -> String
+    {
+        var strFullDate = String()
+        if strDate.isEmpty
+        {
+            return strFullDate
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = dateFormatter.date(from: strDate)
+        if date != nil
+        {
+            dateFormatter.dateFormat = "dd MMMM yyyy"
+            strFullDate = dateFormatter.string(from: date!)
+        }
+        
+        return strFullDate
     }
     
     func setScrollViewHeight()
@@ -100,6 +150,11 @@ class StarbucksCardView: UIViewController
     @IBAction func btnAllAction(_ sender: UIButton)
     {
         let VC = self.storyboard?.instantiateViewController(withIdentifier: "ReplacementView") as! ReplacementView
+        VC.strVoucherID = self.strVoucherID
+        VC.strVoucherPaymentID = self.strVoucherPaymentID
+        VC.strImage = self.strImage
+        VC.strName = self.strName
+        VC.strPrice = self.strPrice
         self.navigationController?.pushViewController(VC, animated: true)
     }
     

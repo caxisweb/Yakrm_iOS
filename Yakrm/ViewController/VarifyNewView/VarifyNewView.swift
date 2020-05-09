@@ -164,14 +164,14 @@ class VarifyNewView: UIViewController,PinCodeTextFieldDelegate
         loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: false)
         loadingNotification.mode = MBProgressHUDMode.indeterminate
         loadingNotification.label.text = "Loading..."
-        loadingNotification.dimBackground = true
+//        loadingNotification.dimBackground = true
         
         let headers : HTTPHeaders = ["Authorization": self.app.strToken,
                                     "Content-Type": "application/json"]
         
         let parameters: Parameters = ["otp":self.strOTP]
         print(JSON(parameters))
-        Alamofire.request("\(self.app.BaseURL)verify_otp", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        AF.request("\(self.app.BaseURL)verify_otp", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             debugPrint(response)
             
             self.loadingNotification.hide(animated: true)

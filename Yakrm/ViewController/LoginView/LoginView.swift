@@ -215,13 +215,13 @@ class LoginView: UIViewController,UITextFieldDelegate
         loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: false)
         loadingNotification.mode = MBProgressHUDMode.indeterminate
         loadingNotification.label.text = "Loading..."
-        loadingNotification.dimBackground = true
+//        loadingNotification.dimBackground = true
         
         let parameters: Parameters = ["email":self.strEmail,
                                       "password":self.strPassword]
         print(JSON(parameters))
         
-        Alamofire.request("\(self.app.BaseURL)login", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+        AF.request("\(self.app.BaseURL)login", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             debugPrint(response)
             
             self.loadingNotification.hide(animated: true)
@@ -246,6 +246,7 @@ class LoginView: UIViewController,UITextFieldDelegate
                             self.app.strMobile = self.json["phone"].stringValue
                             self.app.strProfile = self.json["user_profile"].stringValue
                             self.app.strToken = self.json["token"].stringValue
+                            self.app.strWallet = self.json["wallet"].stringValue
 
                             self.app.defaults.setValue(self.app.strUserID, forKey: "user_id")
                             
@@ -254,9 +255,12 @@ class LoginView: UIViewController,UITextFieldDelegate
                             self.app.defaults.setValue(self.app.strMobile, forKey: "mobile")
                             self.app.defaults.setValue(self.app.strProfile, forKey: "profile")
                             self.app.defaults.setValue(self.app.strToken, forKey: "tokan")
+                            self.app.defaults.setValue(self.app.strWallet, forKey: "wallet")
 
                             self.app.defaults.synchronize()
                             
+                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
+
                             let VC = self.storyboard?.instantiateViewController(withIdentifier: "HomeView") as! HomeView
                             self.navigationController?.pushViewController(VC, animated: true)
                         }

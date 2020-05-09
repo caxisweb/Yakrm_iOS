@@ -8,14 +8,19 @@
 
 import UIKit
 import DLRadioButton
+import Alamofire
+import SwiftyJSON
+import MBProgressHUD
+import Toaster
 
-class HomeView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITextFieldDelegate
+class HomeView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource
 {
     //MARK:- Outlet
 
     @IBOutlet var viewNavigation: UIView!
     @IBOutlet var clTopView: UICollectionView!
-    
+    @IBOutlet var tblView: UITableView!
+
     @IBOutlet var viewTop: UIView!
     @IBOutlet var lblMost: UILabel!
     @IBOutlet var clView: UICollectionView!
@@ -76,6 +81,8 @@ class HomeView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
                      "Clothes".localized,
                      "Jewelries and Golden".localized,
                      "Others".localized]
+    var arrGiftCategory : [Any] = []
+    
     var arrImage : [UIImage] = []
     var arrSelected : [String] = []
     
@@ -85,15 +92,22 @@ class HomeView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
     var checkElectronic = Bool()
     var checkPepar = Bool()
     
-    var strGiftOrder = String()
-    
-    var app = AppDelegate()
-    
-    var empty = Bool()
     var strCategoryID = String()
     
     var img = UIImage()
+    
+//    var loadingNotification : MBProgressHUD!
+    var json : JSON!
+    var strMessage : String!
+    
+    var app = AppDelegate()
+    
+    var arrHome : [Any] = []
+    var arrFilter : [Any] = []
 
+    var arrGiftType : [String] = []
+    var strGiftOrder = "0"
+    
     //MARK:-
     override func viewDidLoad()
     {
@@ -118,6 +132,7 @@ class HomeView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
             self.clTopView.frame = CGRect(x:self.clTopView.frame.origin.x, y: self.viewNavigation.frame.origin.y + self.viewNavigation.frame.size.height, width:self.clTopView.frame.size.width, height: self.clTopView.frame.size.height)
             self.viewTop.frame = CGRect(x:self.viewTop.frame.origin.x, y: self.clTopView.frame.origin.y + self.clTopView.frame.size.height, width:self.viewTop.frame.size.width, height: self.viewTop.frame.size.height)
             self.clView.frame = CGRect(x:self.clView.frame.origin.x, y: self.viewTop.frame.origin.y + self.viewTop.frame.size.height + 5, width:self.clView.frame.size.width, height: ScreenSize.SCREEN_HEIGHT - self.viewTop.frame.origin.y - self.viewTop.frame.size.height - 5)
+            self.tblView.frame = self.clView.frame
             statusBarHeight = 44
         }
         self.scrollView.frame = CGRect(x:self.scrollView.frame.origin.x, y: statusBarHeight, width:self.scrollView.frame.size.width, height: ScreenSize.SCREEN_HEIGHT - statusBarHeight)
@@ -154,10 +169,10 @@ class HomeView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
         self.clView.delegate = self
         self.clView.dataSource = self
     
-        clFilterView.register(UINib(nibName: "FilterCell", bundle: nil), forCellWithReuseIdentifier: "FilterCell")
-        clFilterView.delegate = self
-        clFilterView.dataSource = self
-        clFilterView.reloadData()
+//        clFilterView.register(UINib(nibName: "FilterCell", bundle: nil), forCellWithReuseIdentifier: "FilterCell")
+//        clFilterView.delegate = self
+//        clFilterView.dataSource = self
+//        clFilterView.reloadData()
         
         if self.app.isEnglish
         {
@@ -204,12 +219,12 @@ class HomeView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
             self.btnBrand.semanticContentAttribute = .forceRightToLeft
         }
 
-        let edges = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        self.layout.sectionInset = edges
-        self.clFilterView.collectionViewLayout = self.layout
+//        let edges = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//        self.layout.sectionInset = edges
+//        self.clFilterView.collectionViewLayout = self.layout
 
-        let lastIndexPath = IndexPath(item: self.arrBrands.count-1, section: 0);
-        self.clFilterView.scrollToItem(at: lastIndexPath, at: .bottom, animated: true);
+//        let lastIndexPath = IndexPath(item: self.arrGiftCategory.count-1, section: 0);
+//        self.clFilterView.scrollToItem(at: lastIndexPath, at: .bottom, animated: true);
 
         self.clTopView.backgroundColor = UIColor.init(rgb: 0xEE4158)
         self.clTopView.dropShadow(color: .darkGray, opacity: 1, offSet: CGSize(width: 0, height: 1), radius: 3, scale: true)
@@ -226,10 +241,35 @@ class HomeView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
         self.setTextfildDesign(txt: self.txtSearch, vv: self.viewSearch)
         
         self.btnFilterAction.layer.cornerRadius = 5
+        
+//        if self.app.isConnectedToInternet()
+//        {
+//            self.getHomeAPI()
+//        }
+//        else
+//        {
+//            Toast(text: self.app.InternetConnectionMessage).show()
+//        }
+        
+        self.tblView.delegate = self
+        self.tblView.dataSource = self
+
     }
     
     override func viewWillAppear(_ animated: Bool)
     {
+        self.tblView.isHidden = true
+        if self.arrHome.count == 0
+        {
+            if self.app.isConnectedToInternet()
+            {
+                self.getHomeAPI()
+            }
+            else
+            {
+                Toast(text: self.app.InternetConnectionMessage).show()
+            }
+        }
         self.IndexTop = 0
         self.clTopView.reloadData()
     }
@@ -256,23 +296,7 @@ class HomeView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
         {
             X = 0
             self.Filter = true
-            
-            self.arrSelected.removeAll()
-            self.clFilterView.reloadData()
-            
-            self.img = UIImage(named: "checkboxempty.png")!
-            self.img = self.img.maskWithColor(color: UIColor.darkGray)
-            self.btnElectronic.setImage(self.img, for: .normal)
-            self.btnPaper.setImage(self.img, for: .normal)
 
-            self.btnPopular.isSelected = false
-            self.btnDiscounted.isSelected = false
-            self.btnBrand.isSelected = false
-            
-            self.radioButtonSetDesign(btn: self.btnPopular)
-            self.radioButtonSetDesign(btn: self.btnDiscounted)
-            self.radioButtonSetDesign(btn: self.btnBrand)
-            
             self.btnCloseAction.alpha = 0
         }
         UIView.animate(withDuration: 0.4)
@@ -359,11 +383,11 @@ class HomeView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
         }
         else if collectionView == clFilterView
         {
-            return self.arrBrands.count
+            return self.arrGiftCategory.count//arrBrands.count
         }
         else
         {
-            return 20
+            return self.arrHome.count
         }
     }
     
@@ -396,7 +420,6 @@ class HomeView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
         {
             cellFilter = collectionView.dequeueReusableCell(withReuseIdentifier: "FilterCell", for: indexPath) as! FilterCell
             
-            cellFilter.lblName.text = self.arrBrands[indexPath.row].uppercased()
 
             cellFilter.lblName.layer.cornerRadius = cellFilter.lblName.frame.size.height / 2
             cellFilter.lblName.clipsToBounds = true
@@ -406,9 +429,14 @@ class HomeView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
             {
                 cellFilter.lblName.font = cellFilter.lblName.font.withSize(10)
             }
-            self.strCategoryID = "\(indexPath.row)"
+            let arrValue = JSON(self.arrGiftCategory)
+            let strGiftID : String = arrValue[indexPath.row]["id"].stringValue
+            let strName : String = arrValue[indexPath.row]["gift_category_name"].stringValue
+            cellFilter.lblName.text = strName.uppercased()
+
+//            self.strCategoryID = "\(indexPath.row)"
             var textColor : UIColor = UIColor.black
-            if self.arrSelected.contains(self.strCategoryID)
+            if self.arrSelected.contains(strGiftID)//self.strCategoryID)
             {
                 cellFilter.lblName.backgroundColor = UIColor.init(rgb: 0xEE4158)
                 textColor = UIColor.white
@@ -421,16 +449,28 @@ class HomeView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
         {
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCell", for: indexPath) as! HomeCell
             
-            var img = UIImage()
-            if indexPath.row % 2 == 0
-            {
-                img = UIImage(named: "Screenshot 2018-12-11 at 3.53.07 PM.png")!
-            }
-            else
-            {
-                img = UIImage(named: "Screenshot 2018-12-11 at 3.53.18 PM.png")!
-            }
-            cell.imgProfile.image = img
+            var arrValue = JSON(self.arrHome)
+            
+            let strName : String = arrValue[indexPath.row]["brand_name"].stringValue
+            let strDiscount : String = arrValue[indexPath.row]["discount"].stringValue
+            var strImage : String = arrValue[indexPath.row]["brand_image"].stringValue
+            strImage = strImage.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+
+            cell.lblName.text = strName.uppercased()
+//            cell.lblDiscount.text = "Discount".localized + " \(strDiscount)%"
+            
+            cell.imgProfile.sd_setImage(with: URL(string: "\(self.app.ImageURL)brand_images/\(strImage)"), placeholderImage: nil)
+
+//            var img = UIImage()
+//            if indexPath.row % 2 == 0
+//            {
+//                img = UIImage(named: "Screenshot 2018-12-11 at 3.53.07 PM.png")!
+//            }
+//            else
+//            {
+//                img = UIImage(named: "Screenshot 2018-12-11 at 3.53.18 PM.png")!
+//            }
+//            cell.imgProfile.image = img
             
             if self.app.isEnglish
             {
@@ -452,8 +492,8 @@ class HomeView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
                 cell.lblDiscount.font = cell.lblDiscount.font.withSize(11)
             }
             let strDISCOUNT = "Discount".localized
-            let strAttDiscount = NSMutableAttributedString(string: "\(strDISCOUNT) \(indexPath.row + 1)%")
-            strAttDiscount.setColorForText("\(indexPath.row + 1)%", with: UIColor.init(rgb: 0xEE4158))
+            let strAttDiscount = NSMutableAttributedString(string: "\(strDISCOUNT) \(strDiscount)%")
+            strAttDiscount.setColorForText("\(strDiscount)%", with: UIColor.init(rgb: 0xEE4158))
             cell.lblDiscount.attributedText = strAttDiscount
             cell.dropShadow(color: .lightGray, opacity: 1, offSet: CGSize(width: 0, height: 1), radius: 1, scale: true)
 
@@ -495,21 +535,27 @@ class HomeView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
         }
         else if collectionView == self.clFilterView
         {
+            let arrValue = JSON(self.arrGiftCategory)
+            let strGiftID : String = arrValue[indexPath.row]["id"].stringValue
+
             self.strCategoryID = "\(indexPath.row)"
-            if self.arrSelected.contains(self.strCategoryID)
+            if self.arrSelected.contains(strGiftID)
             {
-                let indexOfA = self.arrSelected.index(of: self.strCategoryID)
+                let indexOfA = self.arrSelected.index(of: strGiftID)
                 self.arrSelected.remove(at: indexOfA!)
             }
             else
             {
-                self.arrSelected.append(self.strCategoryID)
+                self.arrSelected.append(strGiftID)
             }
             self.clFilterView.reloadData()
         }
         else if collectionView == self.clView
         {
+            var arrValue = JSON(self.arrHome)
+            
             let VC = self.storyboard?.instantiateViewController(withIdentifier: "DetailsView") as! DetailsView
+            VC.strBranchID = arrValue[indexPath.row]["brand_id"].stringValue
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }
@@ -522,7 +568,11 @@ class HomeView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
         }
         else if collectionView == clFilterView
         {
-            let strCity : String = self.arrBrands[indexPath.row].uppercased()
+            let arrValue = JSON(self.arrGiftCategory)
+            
+//            let strCity : String = self.arrBrands[indexPath.row].uppercased()
+            var strCity : String = arrValue[indexPath.row]["gift_category_name"].stringValue
+            strCity = strCity.uppercased()
             var size : CGFloat = 11
             if DeviceType.IS_IPHONE_5
             {
@@ -543,8 +593,30 @@ class HomeView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
   
     @IBAction func btnCancel(_ sender: UIButton)
     {
-        if sender.tag == 1
+        if sender.tag == 1 || sender.tag == 2
         {
+            if sender.tag == 2
+            {
+                self.arrSelected.removeAll()
+                self.clFilterView.reloadData()
+                
+                self.checkElectronic = false
+                self.checkPepar = false
+                self.img = UIImage(named: "checkboxempty.png")!
+                self.img = self.img.maskWithColor(color: UIColor.darkGray)
+                
+                self.btnElectronic.setImage(img, for: .normal)
+                self.btnPaper.setImage(img, for: .normal)
+                
+                self.strGiftOrder = "0"
+                self.btnPopular.isSelected = false
+                self.btnDiscounted.isSelected = false
+                self.radioButtonSetDesign(btn: self.btnPopular)
+                self.radioButtonSetDesign(btn: self.btnDiscounted)
+                
+                self.tblView.isHidden = true
+                self.clView.isHidden = false
+            }
             self.HideShowFilter()
         }
         else
@@ -565,41 +637,60 @@ class HomeView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
         {
             ProjectUtility.animatePopupView(viewPopup: self.viewPopup, viewDetails: self.viewResearch)
         }
-        else if sender.tag == 2
+        else
         {
-            let VC = self.storyboard?.instantiateViewController(withIdentifier: "FavoritesView") as! FavoritesView
-            self.navigationController?.pushViewController(VC, animated: true)
-        }
-        else if sender.tag == 3
-        {
-            let VC = self.storyboard?.instantiateViewController(withIdentifier: "AlarmsView") as! AlarmsView
-            self.navigationController?.pushViewController(VC, animated: true)
-        }
-        else if sender.tag == 4
-        {
-            if self.empty
+//            if self.app.strUserID.isEmpty
+//            {
+//                let VC = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+//                self.navigationController?.pushViewController(VC, animated: true)
+//            }
+//            else
+//            {
+//
+//            }
+            if sender.tag == 2
             {
-                self.empty = false
+                if self.app.strUserID.isEmpty
+                {
+                    let VC = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+                    self.navigationController?.pushViewController(VC, animated: true)
+                }
+                else
+                {
+                    let VC = self.storyboard?.instantiateViewController(withIdentifier: "FavoritesView") as! FavoritesView
+                    self.navigationController?.pushViewController(VC, animated: true)
+                }
             }
-            else
+            else if sender.tag == 3
             {
-                self.empty = true
-            }
-            let VC = self.storyboard?.instantiateViewController(withIdentifier: "CartView") as! CartView
-            VC.empty = self.empty
-            self.navigationController?.pushViewController(VC, animated: true)
-        }
-        else if sender.tag == 5
-        {
-            if self.app.strUserID.isEmpty
-            {
-                let VC = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+                let VC = self.storyboard?.instantiateViewController(withIdentifier: "AlarmsView") as! AlarmsView
                 self.navigationController?.pushViewController(VC, animated: true)
             }
-            else
+            else if sender.tag == 4
             {
-                let VC = self.storyboard?.instantiateViewController(withIdentifier: "PersonalView") as! PersonalView
-                self.navigationController?.pushViewController(VC, animated: true)
+                if self.app.strUserID.isEmpty
+                {
+                    let VC = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+                    self.navigationController?.pushViewController(VC, animated: true)
+                }
+                else
+                {
+                    let VC = self.storyboard?.instantiateViewController(withIdentifier: "CartView") as! CartView
+                    self.navigationController?.pushViewController(VC, animated: true)
+                }
+            }
+            else if sender.tag == 5
+            {
+                if self.app.strUserID.isEmpty
+                {
+                    let VC = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+                    self.navigationController?.pushViewController(VC, animated: true)
+                }
+                else
+                {
+                    let VC = self.storyboard?.instantiateViewController(withIdentifier: "PersonalView") as! PersonalView
+                    self.navigationController?.pushViewController(VC, animated: true)
+                }
             }
         }
     }
@@ -636,6 +727,16 @@ class HomeView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
                 self.img = img.maskWithColor(color: UIColor.init(rgb: 0x3C99C0))
             }
         }
+        self.arrGiftType.removeAll()
+        if self.checkElectronic
+        {
+            self.arrGiftType.append("electronic gift")
+        }
+        if self.checkPepar
+        {
+            self.arrGiftType.append("paper gift")
+        }
+        
         sender.setImage(img, for: .normal)
     }
     
@@ -647,15 +748,15 @@ class HomeView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
 
         if sender.tag == 1
         {
-            self.strGiftOrder = "Popular"
+            self.strGiftOrder = "1"
         }
         else if sender.tag == 2
         {
-            self.strGiftOrder = "Discounted"
+            self.strGiftOrder = "2"
         }
         else
         {
-            self.strGiftOrder = "Brand"
+            self.strGiftOrder = "3"
         }
         
         sender.isSelected = true
@@ -684,10 +785,261 @@ class HomeView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
         }
     }
     
-    
     @IBAction func btnFilterActionDone(_ sender: UIButton)
     {
+        print(self.arrSelected)
+        print(self.arrGiftType)
+        print(self.strGiftOrder )
         
+        if self.arrSelected.count == 0 && self.arrGiftType.count == 0 && self.strGiftOrder == "0"
+        {
+            Toast(text: "Please Select atleast one filter category from above").show()
+        }
+        else
+        {
+            if self.app.isConnectedToInternet()
+            {
+                self.getFilterVoucherAPI()
+            }
+            else
+            {
+                Toast(text: self.app.InternetConnectionMessage).show()
+            }
+        }
+    }
+
+    @IBAction func btnFilterActionDelete(_ sender: UIButton)
+    {
+        self.HideShowFilter()
+    }
+    
+    //MARK:- Home API
+    func getHomeAPI()
+    {
+        var loadingNotification : MBProgressHUD!
+
+        loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: false)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
+        loadingNotification.label.text = "Loading..."
+//        loadingNotification.dimBackground = true
+        
+        AF.request("\(self.app.BaseURL)getAllActiveVoucher", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+            debugPrint(response)
+            
+//            self.loadingNotification.hide(animated: true)
+            loadingNotification.hide(animated: true)
+
+            if response.response?.statusCode == 200
+            {
+                if response.result.isSuccess == true
+                {
+                    if let value = response.result.value
+                    {
+                        self.json = JSON(value)
+                        print(self.json)
+                        
+                        let strStatus : String = self.json["status"].stringValue
+                        self.strMessage = self.json["message"].stringValue
+                        
+                        if strStatus == "1"
+                        {
+                            self.arrHome = self.json["data"].arrayValue
+                            self.arrGiftCategory = self.json["gift_category"].arrayValue
+
+                            self.clView.reloadData()
+                            
+                            self.clFilterView.register(UINib(nibName: "FilterCell", bundle: nil), forCellWithReuseIdentifier: "FilterCell")
+                            self.clFilterView.delegate = self
+                            self.clFilterView.dataSource = self
+                            self.clFilterView.reloadData()
+                            
+                            let edges = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+                            self.layout.sectionInset = edges
+                            self.clFilterView.collectionViewLayout = self.layout
+                            
+                            let lastIndexPath = IndexPath(item: self.arrGiftCategory.count-1, section: 0);
+                            self.clFilterView.scrollToItem(at: lastIndexPath, at: .bottom, animated: true);
+                            self.clFilterView.reloadData()
+                        }
+                        else
+                        {
+                            Toast(text: self.strMessage).show()
+                        }
+                    }
+                }
+                else
+                {
+                    Toast(text: "Request time out.").show()
+                }
+            }
+            else
+            {
+                print(response.result.error.debugDescription)
+                Toast(text: "Request time out.").show()
+            }
+        }
+    }
+    
+    //MARK:- Filter Voucher API
+    func getFilterVoucherAPI()
+    {
+        var loadingNotification : MBProgressHUD!
+        
+        loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: false)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
+        loadingNotification.label.text = "Loading..."
+//        loadingNotification.dimBackground = true
+        
+        let headers : HTTPHeaders = ["Authorization": self.app.strToken,
+                                     "Content-Type": "application/json"]
+        print(JSON(headers))
+        
+        let strGiftCatID : String = self.arrSelected.joined(separator:",")
+        let strGiftType : String = self.arrGiftType.joined(separator:",")
+        let parameters: Parameters = ["gift_category_id":strGiftCatID,
+                                      "gift_type":strGiftType,
+                                      "gift_order":self.strGiftOrder]
+        print(JSON(parameters))
+
+        AF.request("\(self.app.BaseURL)filter_voucher", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+            debugPrint(response)
+            
+            //            self.loadingNotification.hide(animated: true)
+            loadingNotification.hide(animated: true)
+            
+            if response.response?.statusCode == 200
+            {
+                if response.result.isSuccess == true
+                {
+                    if let value = response.result.value
+                    {
+                        self.json = JSON(value)
+                        print(self.json)
+                        
+                        let strStatus : String = self.json["status"].stringValue
+                        self.strMessage = self.json["message"].stringValue
+                        self.HideShowFilter()
+                        
+                        if strStatus == "1"
+                        {
+                            self.arrFilter = self.json["data"].arrayValue
+                            self.tblView.isHidden = false
+                            self.clView.isHidden = true
+                            self.tblView.reloadData()
+                        }
+                        else
+                        {
+                            self.tblView.isHidden = true
+                            self.clView.isHidden = false
+
+                            Toast(text: self.strMessage).show()
+                        }
+                    }
+                }
+                else
+                {
+                    Toast(text: "Request time out.").show()
+                }
+            }
+            else
+            {
+                print(response.result.error.debugDescription)
+                Toast(text: "Request time out.").show()
+            }
+        }
+    }
+    
+    //MARK:- Tablview
+    func numberOfSections(in tableView: UITableView) -> Int
+    {
+        return self.arrFilter.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        var cell : PaymentCell!
+        cell = tblView.dequeueReusableCell(withIdentifier: "PaymentCell") as! PaymentCell!
+        if cell == nil
+        {
+            cell = Bundle.main.loadNibNamed("PaymentCell", owner: self, options: nil)?[1] as! PaymentCell!
+        }
+        
+        var arrValue = JSON(self.arrFilter)
+        
+        let strName : String = arrValue[indexPath.section]["brand_name"].stringValue
+        let strDate : String = arrValue[indexPath.section]["expired_at"].stringValue
+        let strPrice : String = arrValue[indexPath.section]["voucher_price"].stringValue
+        var strImage : String = arrValue[indexPath.section]["voucher_image"].stringValue
+        strImage = strImage.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        
+        cell.imgProfile.sd_setImage(with: URL(string: "\(self.app.ImageURL)voucher_images/\(strImage)"), placeholderImage: nil)
+        
+        if self.app.isEnglish
+        {
+            cell.lblName.textAlignment = .left
+            cell.lblDetails.textAlignment = .left
+            cell.lblDate.textAlignment = .left
+        }
+        else
+        {
+            cell.lblName.textAlignment = .right
+            cell.lblDetails.textAlignment = .right
+            cell.lblDate.textAlignment = .right
+        }
+        
+        if DeviceType.IS_IPHONE_5
+        {
+            cell.lblName.font = cell.lblName.font.withSize(9)
+            cell.lblDetails.font = cell.lblDetails.font.withSize(9)
+            cell.lblDate.font = cell.lblDate.font.withSize(9)
+            cell.lblPrice.font = cell.lblPrice.font.withSize(9)
+        }
+        
+        cell.lblName.text = strName
+        cell.lblDetails.text = ""//"\(indexPath.section + 1) " + "Voucher For Discount".localized
+        cell.lblDate.text = "Active Till".localized + " \(strDate)"
+        cell.lblPrice.text = "\(strPrice) " + "SR".localized
+        
+        cell.layer.cornerRadius = 1
+        cell.frame.size.width = tblView.frame.size.width
+        cell.layer.shadowOffset = CGSize(width: 0, height: 1.5)
+        cell.layer.shadowRadius = 1
+        cell.layer.shadowOpacity = 0.2
+        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: -1, height: 1.5)).cgPath
+        cell.layer.shouldRasterize = true
+        cell.layer.rasterizationScale = UIScreen.main.scale
+        
+        cell.selectionStyle = .none
+        tblView.rowHeight = cell.frame.size.height
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        var arrValue = JSON(self.arrFilter)
+        
+        let VC = self.storyboard?.instantiateViewController(withIdentifier: "DetailsView") as! DetailsView
+        VC.strBranchID = arrValue[indexPath.section]["brand_id"].stringValue
+        self.navigationController?.pushViewController(VC, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
+    {
+        let viewFooter = UIView()
+        viewFooter.backgroundColor = UIColor.clear
+        
+        return viewFooter
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
+    {
+        return 10
     }
     
 }

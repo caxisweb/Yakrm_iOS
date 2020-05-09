@@ -152,8 +152,8 @@ class OtherAuctionView: UIViewController,UITableViewDelegate,UITableViewDataSour
                 cell.txtQue.inputView = pickerView
                 cell.txtQue.text = self.arrSelected[indexPath.section]
                 
-                cell.lblPrice.layer.cornerRadius = 4
-                cell.lblPrice.clipsToBounds = true
+//                cell.lblPrice.layer.cornerRadius = 4
+//                cell.lblPrice.clipsToBounds = true
             }
             else //if self.btnSegment.selectedSegmentIndex == 1
             {
@@ -222,10 +222,12 @@ class OtherAuctionView: UIViewController,UITableViewDelegate,UITableViewDataSour
     {
         self.arrSelected[textField.tag] = self.strText
         textField .resignFirstResponder()
-        let contentOffset = self.tblView.contentOffset
-        self.tblView.reloadData()
-        self.tblView.setContentOffset(contentOffset, animated: false)
-        
+//        let contentOffset = self.tblView.contentOffset
+//        self.tblView.reloadData()
+//        self.tblView.setContentOffset(contentOffset, animated: false)
+        let indexPath = IndexPath(item: 0, section: textField.tag)
+        self.tblView.reloadRows(at: [indexPath], with: .automatic)
+
         return true
     }
     

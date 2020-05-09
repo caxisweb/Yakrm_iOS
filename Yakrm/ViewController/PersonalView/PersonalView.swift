@@ -75,7 +75,7 @@ class PersonalView: UIViewController,UITextFieldDelegate,UIPickerViewDataSource,
         self.imgProfile.clipsToBounds = true
         strImage = self.app.strProfile.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
 
-        self.imgProfile.sd_setImage(with: URL(string: "\(self.app.ImageURL)\(self.strImage)"), placeholderImage: UIImage(named:"user.png")!)
+        self.imgProfile.sd_setImage(with: URL(string: "\(self.app.ImageURL)user_profile/\(self.strImage)"), placeholderImage: UIImage(named:"user.png")!)
 
         self.picker.delegate = self
 
@@ -247,6 +247,11 @@ class PersonalView: UIViewController,UITextFieldDelegate,UIPickerViewDataSource,
 //        return true
 //    }
 //    
+    @IBAction func btnChangePasswordAction(_ sender: UIButton)
+    {
+//        let VC = self.storyboard?.instantiateViewController(withIdentifier: "ChangePasswordView") as! ChangePasswordView
+//        self.navigationController?.pushViewController(VC, animated: true)
+    }
     
     @IBAction func btnModifyAction(_ sender: UIButton)
     {
@@ -280,7 +285,7 @@ class PersonalView: UIViewController,UITextFieldDelegate,UIPickerViewDataSource,
         }
         else if self.strMobile.characters.count < 10
         {
-            Toast(text: "Please Enter Valid Mobile Number").show()
+            Toast(text: "Mobile Number should be minimum of 10 characters").show()
         }
         else
         {
@@ -301,7 +306,7 @@ class PersonalView: UIViewController,UITextFieldDelegate,UIPickerViewDataSource,
         loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: false)
         loadingNotification.mode = MBProgressHUDMode.indeterminate
         loadingNotification.label.text = "Loading..."
-        loadingNotification.dimBackground = true
+//        loadingNotification.dimBackground = true
         
         let headers : HTTPHeaders = ["Authorization": self.app.strToken,
                                      "Content-Type": "application/json"]
@@ -312,7 +317,7 @@ class PersonalView: UIViewController,UITextFieldDelegate,UIPickerViewDataSource,
                                       "country_id": "1"]
         print(JSON(parameters))
         
-        Alamofire.request("\(self.app.BaseURL)update_user_profile", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        AF.request("\(self.app.BaseURL)update_user_profile", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             debugPrint(response)
             
             self.loadingNotification.hide(animated: true)
@@ -335,11 +340,13 @@ class PersonalView: UIViewController,UITextFieldDelegate,UIPickerViewDataSource,
                             self.app.strName = self.json["name"].stringValue
                             self.app.strEmail = self.json["email"].stringValue
                             self.app.strMobile = self.json["phone"].stringValue
-                            
+                            self.app.strToken = self.json["token"].stringValue
+
                             self.app.defaults.setValue(self.app.strName, forKey: "name")
                             self.app.defaults.setValue(self.app.strEmail, forKey: "email")
                             self.app.defaults.setValue(self.app.strMobile, forKey: "mobile")
-                            
+                            self.app.defaults.setValue(self.app.strToken, forKey: "token")
+
                             self.app.defaults.synchronize()
                         }
                     }
@@ -432,10 +439,10 @@ class PersonalView: UIViewController,UITextFieldDelegate,UIPickerViewDataSource,
         loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: false)
         loadingNotification.mode = MBProgressHUDMode.indeterminate
         loadingNotification.label.text = "Loading..."
-        loadingNotification.dimBackground = true
+//        loadingNotification.dimBackground = true
         
-        let Header : HTTPHeaders = ["Authorization":self.app.strToken,
-                                    "Content-Type":"application/json"]
+        let Header : HTTPHeaders = ["Authorization":self.app.strToken]
+        //,"Content-Type":"application/json"
         
         Alamofire.upload(multipartFormData:{ multipartFormData in
             if let imageData = img.jpegData(compressionQuality: 0.3)

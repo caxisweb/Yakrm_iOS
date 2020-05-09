@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import MBProgressHUD
+import Toaster
 
 class CartView: UIViewController,UITableViewDelegate,UITableViewDataSource
 {
@@ -21,10 +25,22 @@ class CartView: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     @IBOutlet var viewEmpty: UIView!
     @IBOutlet var btnPurchase: UIButton!
+    @IBOutlet var viewBottom: UIView!
+
+    
+    var loadingNotification : MBProgressHUD!
+    var json : JSON!
+    var strMessage : String!
     
     var app = AppDelegate()
     
     var empty = Bool()
+    
+    var arrCart : [Any] = []
+    
+    var strCartID = String()
+    var strTotal = String()
+
     //MARK:-
     override func viewDidLoad()
     {
@@ -54,20 +70,10 @@ class CartView: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.btnPay.layer.cornerRadius = 5
         self.btnPurchase.layer.cornerRadius = 5
 
-        if self.empty
-        {
-            self.viewEmpty.isHidden = false
-            self.tblView.isHidden = true
-            self.btnPay.isHidden = true
-            self.lblTotal.isHidden = true
-        }
-        else
-        {
-            self.viewEmpty.isHidden = true
-            self.tblView.isHidden = false
-            self.btnPay.isHidden = false
-            self.lblTotal.isHidden = false
-        }
+        self.viewEmpty.isHidden = true
+        self.tblView.isHidden = true
+        self.viewBottom.isHidden = true
+
         if self.app.isEnglish
         {
             self.lblTitle.textAlignment = .left
@@ -75,6 +81,15 @@ class CartView: UIViewController,UITableViewDelegate,UITableViewDataSource
         else
         {
             self.lblTitle.textAlignment = .right
+        }
+        
+        if self.app.isConnectedToInternet()
+        {
+            self.getCartAPI()
+        }
+        else
+        {
+            Toast(text: self.app.InternetConnectionMessage).show()
         }
     }
     
@@ -86,7 +101,7 @@ class CartView: UIViewController,UITableViewDelegate,UITableViewDataSource
     //MARK:- Tablview
     func numberOfSections(in tableView: UITableView) -> Int
     {
-        return 20
+        return self.arrCart.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -103,16 +118,17 @@ class CartView: UIViewController,UITableViewDelegate,UITableViewDataSource
             cell = Bundle.main.loadNibNamed("FavoritesCell", owner: self, options: nil)?[1] as! FavoritesCell!
         }
         
-        var img = UIImage()
-        if indexPath.section % 2 == 0
-        {
-            img = UIImage(named: "Screenshot 2018-12-11 at 3.53.07 PM.png")!
-        }
-        else
-        {
-            img = UIImage(named: "Screenshot 2018-12-11 at 3.53.18 PM.png")!
-        }
-        cell.imgProfile.image = img
+        var arrValue = JSON(self.arrCart)
+        
+        let strName : String = arrValue[indexPath.section]["brand_name"].stringValue
+        let strDate : String = arrValue[indexPath.section]["expired_at"].stringValue
+        let Price : Int = arrValue[indexPath.section]["voucher_price"].intValue
+        let Discount : Int = arrValue[indexPath.section]["discount"].intValue
+        let strType : String = arrValue[indexPath.section]["voucher_type"].stringValue
+        var strImage : String = arrValue[indexPath.section]["brand_image"].stringValue
+        strImage = strImage.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        cell.imgProfile.sd_setImage(with: URL(string: "\(self.app.ImageURL)brand_images/\(strImage)"), placeholderImage: nil)
+
         if self.app.isEnglish
         {
             cell.lblName.textAlignment = .left
@@ -138,16 +154,26 @@ class CartView: UIViewController,UITableViewDelegate,UITableViewDataSource
             cell.lblDiscountedPrice.font = cell.lblDiscountedPrice.font.withSize(10)
         }
         
-        let strPriceDec = "2500" + "Sr".localized
+        cell.lblName.text = strName.uppercased() + " (\(strType))"
+        cell.lblDate.text = "Ended In".localized + " \(self.getDateStringFormate(strDate: strDate))"
+        cell.lblPrice.text = "The Value".localized + " : \(Price)" + "SR".localized
+        
+        let DicountPrice : Int = Price * Discount / 100
+        let DicountedPrice : Int = Price - DicountPrice
+        
+        let strPriceDec = "\(DicountedPrice)" + "SR".localized
         
         let strDISCOUNT = "Discount".localized
-        let strAttDiscount = NSMutableAttributedString(string: "\(strDISCOUNT) : \(indexPath.row + 1)%")
-        strAttDiscount.setColorForText("\(indexPath.row + 1)%", with: UIColor.init(rgb: 0xEE4158))
+        let strAttDiscount = NSMutableAttributedString(string: "\(strDISCOUNT) : \(Discount)%")
+        strAttDiscount.setColorForText("\(Discount)%", with: UIColor.init(rgb: 0xEE4158))
         cell.lblDiscount.attributedText = strAttDiscount
         let strPRICE = "The Price".localized
         let strAttPrice = NSMutableAttributedString(string: "\(strPRICE) : \(strPriceDec)")
         strAttPrice.setColorForText(strPriceDec, with: UIColor.init(rgb: 0xEE4158))
         cell.lblDiscountedPrice.attributedText = strAttPrice
+
+        cell.btnDelete.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        cell.btnDelete.tag = indexPath.section
 
         cell.layer.cornerRadius = 1
         cell.frame.size.width = tblView.frame.size.width
@@ -162,6 +188,55 @@ class CartView: UIViewController,UITableViewDelegate,UITableViewDataSource
         tblView.rowHeight = cell.frame.size.height
         
         return cell
+    }
+    
+    @objc func buttonAction(sender: UIButton!)
+    {
+        let alertController = UIAlertController(title: "Are you sure You want to Delete ?", message: nil, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (action:UIAlertAction!) in
+            print("you have pressed the Cancel button")
+        }
+        alertController.addAction(cancelAction)
+        
+        let OKAction = UIAlertAction(title: "Delete", style: .destructive) { (action:UIAlertAction!) in
+            print("you have pressed OK button")
+            
+            var arrValue = JSON(self.arrCart)
+            self.strCartID = arrValue[sender.tag]["cart_id"].stringValue
+            
+            if self.app.isConnectedToInternet()
+            {
+                self.DeleteCartAPI(index: sender.tag)
+            }
+            else
+            {
+                Toast(text: self.app.InternetConnectionMessage).show()
+            }
+        }
+        alertController.addAction(OKAction)
+        
+        self.present(alertController, animated: true, completion:nil)
+
+    }
+    func getDateStringFormate(strDate : String) -> String
+    {
+        var strFullDate = String()
+        if strDate.isEmpty
+        {
+            return strFullDate
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
+        let date = dateFormatter.date(from: strDate)
+        if date != nil
+        {
+            dateFormatter.dateFormat = "dd-MM-yyyy"
+            strFullDate = dateFormatter.string(from: date!)
+        }
+
+        return strFullDate
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
@@ -179,8 +254,145 @@ class CartView: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     @IBAction func btnPay(_ sender: UIButton)
     {
-        let VC = self.storyboard?.instantiateViewController(withIdentifier: "PurchasedView") as! PurchasedView
-        self.navigationController?.pushViewController(VC, animated: true)
+        if sender.tag == 1
+        {
+            let VC = self.storyboard?.instantiateViewController(withIdentifier: "PurchasedView") as! PurchasedView
+            VC.strTotal = self.strTotal
+            self.navigationController?.pushViewController(VC, animated: true)
+        }
+        else
+        {
+            if let viewController = navigationController?.viewControllers.first(where: {$0 is HomeView})
+            {
+                navigationController?.popToViewController(viewController, animated: true)
+            }
+        }
+        
+    }
+    
+    //MARK:- get Cart API
+    func getCartAPI()
+    {
+        loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: false)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
+        loadingNotification.label.text = "Loading..."
+//        loadingNotification.dimBackground = true
+        
+        let headers : HTTPHeaders = ["Authorization": self.app.strToken,
+                                     "Content-Type": "application/json"]
+        
+        AF.request("\(self.app.BaseURL)get_all_cart_list", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            debugPrint(response)
+            
+            self.loadingNotification.hide(animated: true)
+            
+            if response.response?.statusCode == 200
+            {
+                if response.result.isSuccess == true
+                {
+                    if let value = response.result.value
+                    {
+                        self.json = JSON(value)
+                        print(self.json)
+                        
+                        let strStatus : String = self.json["status"].stringValue
+                        self.strMessage = self.json["message"].stringValue
+                        
+                        self.arrCart.removeAll()
+                        if strStatus == "1"
+                        {
+                            self.strTotal = self.json["total_price"].stringValue
+                            
+                            self.arrCart = self.json["data"].arrayValue
+                            self.lblTotal.text = "Total".localized + " : \(self.strTotal)" + "SR".localized
+                            self.tblView.isHidden = false
+                            self.viewBottom.isHidden = false
+                        }
+                        else
+                        {
+                            Toast(text: self.strMessage).show()
+                            self.viewEmpty.isHidden = false
+                            
+                            self.tblView.isHidden = true
+                            self.viewBottom.isHidden = true
+                        }
+                        self.tblView.reloadData()
+                    }
+                }
+                else
+                {
+                    Toast(text: "Request time out.").show()
+                }
+            }
+            else
+            {
+                print(response.result.error.debugDescription)
+                Toast(text: "Request time out.").show()
+            }
+        }
+    }
+    
+    //MARK:- Delete Cart API
+    func DeleteCartAPI(index : Int)
+    {
+        loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: false)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
+        loadingNotification.label.text = "Loading..."
+//        loadingNotification.dimBackground = true
+        
+        let headers : HTTPHeaders = ["Authorization": self.app.strToken,
+                                     "Content-Type": "application/json"]
+        
+        let parameters: Parameters = ["cart_id":self.strCartID]
+        print(JSON(parameters))
+        
+        AF.request("\(self.app.BaseURL)remove_voucher_from_cart", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            debugPrint(response)
+            
+            self.loadingNotification.hide(animated: true)
+            
+            if response.response?.statusCode == 200
+            {
+                if response.result.isSuccess == true
+                {
+                    if let value = response.result.value
+                    {
+                        self.json = JSON(value)
+                        print(self.json)
+                        
+                        let strStatus : String = self.json["status"].stringValue
+                        self.strMessage = self.json["message"].stringValue
+                       
+                        Toast(text: self.strMessage).show()
+
+                        if strStatus == "1"
+                        {
+                            self.getCartAPI()
+                            
+//                            self.arrCart.remove(at: index)
+//                            self.tblView.reloadData()
+//                            if self.arrCart.count == 0
+//                            {
+//                                self.tblView.isHidden = true
+//                                self.btnPay.isHidden = true
+//                                self.lblTotal.isHidden = true
+//
+//                                self.viewEmpty.isHidden = false
+//                            }
+                        }
+                    }
+                }
+                else
+                {
+                    Toast(text: "Request time out.").show()
+                }
+            }
+            else
+            {
+                print(response.result.error.debugDescription)
+                Toast(text: "Request time out.").show()
+            }
+        }
     }
     
     

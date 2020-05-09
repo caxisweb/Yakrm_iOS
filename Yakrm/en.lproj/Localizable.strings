@@ -12,6 +12,7 @@
 
 "Already have an account? log in" = "Already have an account? log in";
 "log in" = "log in";
+"Sign Up/Log In" = "Sign Up/Log In";
 
 "Cancel" = "Cancel";
 "Done" = "Done";
@@ -25,10 +26,12 @@
 "By Using Mada Card" = "By Using Mada Card";
 "By Using Credit Card" = "By Using Credit Card";
 
+"Total" = "Total";
 "Ended In" = "Ended In";
 "Ended By" = "Ended By";
 
 "The Value" = "The Value";
+"Balance" = "Balance";
 "Sr" = "Sr";
 "Discount" = "Discount";
 "The Price" = "The Price";
@@ -61,6 +64,7 @@
 
 "Discount Voucher" = "Discount Voucher";
 "Discounts Of Voucher" = "Discounts Of Voucher";
+"Discount till" = "Discount till";
 
 "Name" = "Name";
 "Email Address" = "Email Address";

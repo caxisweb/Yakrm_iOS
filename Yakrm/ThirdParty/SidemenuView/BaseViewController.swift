@@ -64,7 +64,7 @@ class BaseViewController: UIViewController,SlideMenuDelegate
                 
             case 6:
                 
-                let alertController = UIAlertController(title: "Are you sure ?", message: "You want to log out ?", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Are you sure You want to Logout ?", message: nil, preferredStyle: .alert)
                 
                 let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (action:UIAlertAction!) in
                     print("you have pressed the Cancel button")
@@ -114,8 +114,8 @@ class BaseViewController: UIViewController,SlideMenuDelegate
                 
             case 5:
                 
-                let alertController = UIAlertController(title: "Are you sure ?", message: "You want to log out ?", preferredStyle: .alert)
-                
+                let alertController = UIAlertController(title: "Are you sure You want to Logout ?", message: nil, preferredStyle: .alert)
+
                 let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (action:UIAlertAction!) in
                     print("you have pressed the Cancel button")
                 }

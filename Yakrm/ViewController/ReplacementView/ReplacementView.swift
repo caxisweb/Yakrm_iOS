@@ -27,13 +27,25 @@ class ReplacementView: UIViewController
     
     @IBOutlet var btnOK: UIButton!
     
+    @IBOutlet var imgProfile: UIImageView!
+    @IBOutlet var lblName: UILabel!
+
     var app = AppDelegate()
     
+    var strVoucherID = String()
+    var strVoucherPaymentID = String()
+    var strImage = String()
+    var strName = String()
+    var strPrice = String()
+
     //MAEK: -
     override func viewDidLoad()
     {
         super.viewDidLoad()
         app = UIApplication.shared.delegate as! AppDelegate
+        
+        self.imgProfile.sd_setImage(with: URL(string: "\(self.app.ImageURL)voucher_images/\(self.strImage)"), placeholderImage: nil)
+        self.lblName.text = self.strName
         
         self.viewNavigation.backgroundColor = UIColor.init(rgb: 0xEE4158)
         
@@ -81,12 +93,24 @@ class ReplacementView: UIViewController
         if sender.tag == 1
         {
             let VC = self.storyboard?.instantiateViewController(withIdentifier: "SendView") as! SendView
+            VC.strVoucherID = self.strVoucherID
+            VC.strVoucherPaymentID = self.strVoucherPaymentID
+            VC.strImage = self.strImage
+            VC.strName = self.strName
+            VC.strPrice = self.strPrice
             self.navigationController?.pushViewController(VC, animated: true)
         }
         else if sender.tag == 2
         {
-            let VC = self.storyboard?.instantiateViewController(withIdentifier: "AmountView") as! AmountView
+            let VC = self.storyboard?.instantiateViewController(withIdentifier: "ExchangeView") as! ExchangeView
+            VC.strVoucherID = self.strVoucherID
+            VC.strVoucherPaymentID = self.strVoucherPaymentID
+            VC.strImage = self.strImage
+            VC.strName = self.strName
+            VC.strPrice = self.strPrice
             self.navigationController?.pushViewController(VC, animated: true)
+//            let VC = self.storyboard?.instantiateViewController(withIdentifier: "AmountView") as! AmountView
+//            self.navigationController?.pushViewController(VC, animated: true)
         }
         else
         {

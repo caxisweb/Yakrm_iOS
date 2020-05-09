@@ -32,7 +32,7 @@ class ReceivedView: UIViewController,UITableViewDelegate,UITableViewDataSource
         if DeviceType.IS_IPHONE_X || DeviceType.IS_IPHONE_XR
         {
             self.viewNavigation.frame = CGRect(x:self.viewNavigation.frame.origin.x, y: self.viewNavigation.frame.origin.y, width:self.viewNavigation.frame.size.width, height: 88)
-            self.tblView.frame = CGRect(x:self.tblView.frame.origin.x, y: self.viewNavigation.frame.origin.y + self.viewNavigation.frame.size.height + 20, width:self.tblView.frame.size.width, height: ScreenSize.SCREEN_HEIGHT - self.viewNavigation.frame.size.height - 20)
+            self.tblView.frame = CGRect(x:self.tblView.frame.origin.x, y: self.viewNavigation.frame.origin.y + self.viewNavigation.frame.size.height, width:self.tblView.frame.size.width, height: ScreenSize.SCREEN_HEIGHT - self.viewNavigation.frame.size.height)
         }
         if self.app.isEnglish
         {
@@ -97,7 +97,7 @@ class ReceivedView: UIViewController,UITableViewDelegate,UITableViewDataSource
             cell.lblDetails.textAlignment = .right
         }
         
-        cell.lblDate.text = "Ended In".localized + " ٢٠١٨/١٢/١٢"
+        cell.lblDate.text = "Ended In".localized + " 12/12/2018"
         cell.lblPrice.text = "The Value".localized + ": 2500" + "Sr".localized
 //        cell.lblDiscount.text = "Discount".localized + ":3%"
 //        cell.lblDiscountedPrice.text = "The Price".localized

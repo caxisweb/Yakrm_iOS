@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import MBProgressHUD
+import Toaster
 
 class FavoritesView: UIViewController,UITableViewDelegate,UITableViewDataSource
 {
@@ -16,7 +20,17 @@ class FavoritesView: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet var lblTitle: UILabel!
     @IBOutlet var tblView: UITableView!
     
+
+    var loadingNotification : MBProgressHUD!
+    var json : JSON!
+    var strMessage : String!
+    
     var app = AppDelegate()
+    
+    var arrFavourite : [Any] = []
+
+    var strBrandID = String()
+
     //MARK:-
     override func viewDidLoad()
     {
@@ -41,6 +55,14 @@ class FavoritesView: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.tblView.delegate = self
         self.tblView.dataSource = self
 
+        if self.app.isConnectedToInternet()
+        {
+            self.getFavouriteAPI()
+        }
+        else
+        {
+            Toast(text: self.app.InternetConnectionMessage).show()
+        }
     }
     
     @IBAction func btnBack(_ sender: UIButton)
@@ -51,7 +73,7 @@ class FavoritesView: UIViewController,UITableViewDelegate,UITableViewDataSource
     //MARK:- Tablview
     func numberOfSections(in tableView: UITableView) -> Int
     {
-        return 20
+        return self.arrFavourite.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -68,17 +90,14 @@ class FavoritesView: UIViewController,UITableViewDelegate,UITableViewDataSource
             cell = Bundle.main.loadNibNamed("FavoritesCell", owner: self, options: nil)?[0] as! FavoritesCell!
         }
         
-        var img = UIImage()
-        if indexPath.section % 2 == 0
-        {
-            img = UIImage(named: "Screenshot 2018-12-11 at 3.53.07 PM.png")!
-        }
-        else
-        {
-            img = UIImage(named: "Screenshot 2018-12-11 at 3.53.18 PM.png")!
-        }
-        cell.imgProfile.image = img
+        var arrValue = JSON(self.arrFavourite)
         
+        let strName : String = arrValue[indexPath.section]["brand_name"].stringValue
+        let strDiscount : String = arrValue[indexPath.section]["discount"].stringValue
+        var strImage : String = arrValue[indexPath.section]["brand_image"].stringValue
+        strImage = strImage.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        cell.imgProfile.sd_setImage(with: URL(string: "\(self.app.ImageURL)brand_images/\(strImage)"), placeholderImage: nil)
+
         if self.app.isEnglish
         {
             cell.lblName.textAlignment = .left
@@ -94,8 +113,13 @@ class FavoritesView: UIViewController,UITableViewDelegate,UITableViewDataSource
             cell.lblName.font = cell.lblName.font.withSize(11)
             cell.lblDiscount.font = cell.lblDiscount.font.withSize(11)
         }
+        cell.lblName.text = strName
+        let strDISCOUNT = "Discount till".localized
+        let strAttDiscount = NSMutableAttributedString(string: "\(strDISCOUNT) \(strDiscount)%")
+        strAttDiscount.setColorForText("\(strDiscount)%", with: UIColor.init(rgb: 0xEE4158))
+        cell.lblDiscount.attributedText = strAttDiscount
 
-                cell.layer.cornerRadius = 1
+        cell.layer.cornerRadius = 1
         cell.frame.size.width = tblView.frame.size.width
         cell.layer.shadowOffset = CGSize(width: 0, height: 1.5)
         cell.layer.shadowRadius = 1
@@ -104,10 +128,50 @@ class FavoritesView: UIViewController,UITableViewDelegate,UITableViewDataSource
         cell.layer.shouldRasterize = true
         cell.layer.rasterizationScale = UIScreen.main.scale
 
+        cell.btnDelete.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        cell.btnDelete.tag = indexPath.section
+
         cell.selectionStyle = .none
         tblView.rowHeight = cell.frame.size.height
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        var arrValue = JSON(self.arrFavourite)
+        let VC = self.storyboard?.instantiateViewController(withIdentifier: "DetailsView") as! DetailsView
+        VC.strBranchID = arrValue[indexPath.section]["id"].stringValue
+        self.navigationController?.pushViewController(VC, animated: true)
+    }
+    
+    @objc func buttonAction(sender: UIButton!)
+    {
+        let alertController = UIAlertController(title: "Are you sure You want to Remove from Favourites ?", message: nil, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (action:UIAlertAction!) in
+            print("you have pressed the Cancel button")
+        }
+        alertController.addAction(cancelAction)
+        
+        let OKAction = UIAlertAction(title: "Remove", style: .destructive) { (action:UIAlertAction!) in
+            print("you have pressed OK button")
+            
+            var arrValue = JSON(self.arrFavourite)
+            self.strBrandID = arrValue[sender.tag]["id"].stringValue
+            
+            if self.app.isConnectedToInternet()
+            {
+                self.DeleteFavouriteAPI()
+            }
+            else
+            {
+                Toast(text: self.app.InternetConnectionMessage).show()
+            }
+        }
+        alertController.addAction(OKAction)
+        
+        self.present(alertController, animated: true, completion:nil)
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
@@ -123,5 +187,110 @@ class FavoritesView: UIViewController,UITableViewDelegate,UITableViewDataSource
         return 20
     }
 
-
+    //MARK:- get Favourite API
+    func getFavouriteAPI()
+    {
+        loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: false)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
+        loadingNotification.label.text = "Loading..."
+//        loadingNotification.dimBackground = true
+        
+        let headers : HTTPHeaders = ["Authorization": self.app.strToken,
+                                     "Content-Type": "application/json"]
+        
+        AF.request("\(self.app.BaseURL)getAllFavouritesList", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            debugPrint(response)
+            
+            self.loadingNotification.hide(animated: true)
+            
+            if response.response?.statusCode == 200
+            {
+                if response.result.isSuccess == true
+                {
+                    if let value = response.result.value
+                    {
+                        self.json = JSON(value)
+                        print(self.json)
+                        
+                        let strStatus : String = self.json["status"].stringValue
+                        self.strMessage = self.json["message"].stringValue
+                        
+                        self.arrFavourite.removeAll()
+                        if strStatus == "1"
+                        {
+                            self.arrFavourite = self.json["data"].arrayValue
+                        }
+                        else
+                        {
+                            Toast(text: self.strMessage).show()
+                        }
+                        self.tblView.reloadData()
+                    }
+                }
+                else
+                {
+                    Toast(text: "Request time out.").show()
+                }
+            }
+            else
+            {
+                print(response.result.error.debugDescription)
+                Toast(text: "Request time out.").show()
+            }
+        }
+    }
+    
+    //MARK:- Delete Favourite API
+    func DeleteFavouriteAPI()
+    {
+        loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: false)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
+        loadingNotification.label.text = "Loading..."
+//        loadingNotification.dimBackground = true
+        
+        let headers : HTTPHeaders = ["Authorization": self.app.strToken,
+                                     "Content-Type": "application/json"]
+        
+        let parameters: Parameters = ["brand_id":self.strBrandID,
+                                      "is_favourite":0]
+        print(JSON(parameters))
+        
+        AF.request("\(self.app.BaseURL)addremove_to_favourite", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            debugPrint(response)
+            
+            self.loadingNotification.hide(animated: true)
+            
+            if response.response?.statusCode == 200
+            {
+                if response.result.isSuccess == true
+                {
+                    if let value = response.result.value
+                    {
+                        self.json = JSON(value)
+                        print(self.json)
+                        
+                        let strStatus : String = self.json["status"].stringValue
+                        self.strMessage = self.json["message"].stringValue
+                        
+                        Toast(text: self.strMessage).show()
+                        
+                        if strStatus == "1"
+                        {
+                            self.getFavouriteAPI()
+                        }
+                    }
+                }
+                else
+                {
+                    Toast(text: "Request time out.").show()
+                }
+            }
+            else
+            {
+                print(response.result.error.debugDescription)
+                Toast(text: "Request time out.").show()
+            }
+        }
+    }
+    
 }

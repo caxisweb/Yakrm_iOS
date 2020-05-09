@@ -15,7 +15,8 @@ class PaymentCell: UITableViewCell
     @IBOutlet var lblDetails: UILabel!
     @IBOutlet var lblDate: UILabel!
     @IBOutlet var lblPrice: UILabel!
-
+    @IBOutlet weak var imgEdit: UIImageView!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

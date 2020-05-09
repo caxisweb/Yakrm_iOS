@@ -50,8 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     
     let defaults = UserDefaults.standard
     
-    var BaseURL = "http://codeclinic.in/demo/yakrm/api/"
-    var ImageURL = "http://www.codeclinic.in/demo/yakrm/assets/uploads/user_profile/"
+    var BaseURL = "http://yakrm.com/api/"
+    var ImageURL = "http://yakrm.com/assets/uploads/"//vendor_brand_image/"
     
     var InternetConnectionMessage = "Internet Connetion in not availble.Try Again"
     
@@ -66,6 +66,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     var strMobile = String()
     var strProfile = String()
     var strToken = String()
+    var strWallet = String()
+    var AdminProfitDiscount = Float()
 
     var strLanguage = String()
     var isEnglish = Bool()
@@ -74,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
     {
         UIApplication.shared.statusBarStyle = .lightContent
-        UIApplication.shared.statusBarView?.backgroundColor = UIColor.init(rgb: 0xEE4158)//D93454)//D03251
+//        UIApplication.shared.statusBarView?.backgroundColor = UIColor.init(rgb: 0xEE4158)//D93454)//D03251
         
         let langStr : String = Locale.current.languageCode!
         if langStr == "ar"
@@ -137,10 +139,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate
             {
                 strViewController = "ViewController"
             }
+            if defaults.string(forKey: "wallet") != nil
+            {
+                self.strWallet = (defaults.value(forKey: "wallet") as! String)
+            }
         }
         if DeviceType.IS_SIMULATOR
         {
-//            strViewController = "RegisterView"
+            strViewController = "PaymentMethodView"
         }
 //        strViewController = "MGPScannerViewController"
 //        strViewController = "BarcodeView"

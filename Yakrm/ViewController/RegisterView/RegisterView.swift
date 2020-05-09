@@ -227,7 +227,7 @@ class RegisterView: UIViewController,UITextFieldDelegate
         loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: false)
         loadingNotification.mode = MBProgressHUDMode.indeterminate
         loadingNotification.label.text = "Loading..."
-        loadingNotification.dimBackground = true
+//        loadingNotification.dimBackground = true
         
         let headers : HTTPHeaders = ["Authorization": self.app.strToken,
                                      "Content-Type": "application/json"]
@@ -237,7 +237,7 @@ class RegisterView: UIViewController,UITextFieldDelegate
                                       "password":self.strPassword]
         print(JSON(parameters))
         
-        Alamofire.request("\(self.app.BaseURL)registration_step_2", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        AF.request("\(self.app.BaseURL)registration_step_2", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             debugPrint(response)
             
             self.loadingNotification.hide(animated: true)
@@ -263,7 +263,8 @@ class RegisterView: UIViewController,UITextFieldDelegate
                             self.app.strMobile = self.json["phone"].stringValue
                             self.app.strProfile = self.json["user_profile"].stringValue
                             self.app.strToken = self.json["token"].stringValue
-                            
+                            self.app.strWallet = "0"
+
                             self.app.defaults.setValue(self.app.strUserID, forKey: "user_id")
                             
                             self.app.defaults.setValue(self.app.strName, forKey: "name")
@@ -271,18 +272,15 @@ class RegisterView: UIViewController,UITextFieldDelegate
                             self.app.defaults.setValue(self.app.strMobile, forKey: "mobile")
                             self.app.defaults.setValue(self.app.strProfile, forKey: "profile")
                             self.app.defaults.setValue(self.app.strToken, forKey: "tokan")
-                            
+                            self.app.defaults.setValue(self.app.strWallet, forKey: "wallet")
+
                             self.app.defaults.synchronize()
                             
+                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
+
                             let VC = self.storyboard?.instantiateViewController(withIdentifier: "HomeView") as! HomeView
                             self.navigationController?.pushViewController(VC, animated: true)
                         }
-//                        {
-//                            let VC = self.storyboard?.instantiateViewController(withIdentifier: "LoginView") as! LoginView
-//                            VC.isRegisterd = true
-//                            self.navigationController?.pushViewController(VC, animated: true)
-//                        }
-
                     }
                 }
                 else

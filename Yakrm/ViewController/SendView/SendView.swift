@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import MBProgressHUD
+import Toaster
+
 
 class SendView: UIViewController,UITextFieldDelegate,UITextViewDelegate
 {
@@ -36,8 +41,22 @@ class SendView: UIViewController,UITextFieldDelegate,UITextViewDelegate
     
     @IBOutlet var btnComplete: UIButton!
     
+    
+    var loadingNotification : MBProgressHUD!
+    var json : JSON!
+    var strMessage : String!
+    
     var app = AppDelegate()
     
+    var strMobile = String()
+    var strDesc = String()
+    var isCheck = Bool()
+    
+    var strVoucherID = String()
+    var strVoucherPaymentID = String()
+    var strImage = String()
+    var strName = String()
+    var strPrice = String()
 
     //MARK:-
     override func viewDidLoad()
@@ -102,9 +121,12 @@ class SendView: UIViewController,UITextFieldDelegate,UITextViewDelegate
             self.btnComplete.titleLabel?.font = self.btnComplete.titleLabel?.font.withSize(15)
         }
         
-        self.lblPrice.text = "123 " + "Rs".localized
-        self.lblFriendsName.text = "Name".localized + ":Mahmoud Abdel Mattal"
-        self.lblEmail.text = "Email Address".localized + ":email@domain.dlt"
+        self.imgProfile.sd_setImage(with: URL(string: "\(self.app.ImageURL)voucher_images/\(self.strImage)"), placeholderImage: nil)
+
+        self.lblName.text = self.strName
+        self.lblPrice.text = "\(self.strPrice) " + "SR".localized
+        self.lblFriendsName.text = "Name".localized + " : "//Mahmoud Abdel Mattal"
+        self.lblEmail.text = "Email Address".localized + " : "//email@domain.dlt"
         
         self.txtMessage.text = "Hello Friend. I Am Sending You This Voucher To Express My Love And Gratitude For You As A Friend I Hope That You Will Be Happy During Every Single Moment Of Your Life".localized
         
@@ -119,6 +141,11 @@ class SendView: UIViewController,UITextFieldDelegate,UITextViewDelegate
         self.txtMessage.backgroundColor = UIColor.clear
 
         self.setScrollViewHeight()
+        
+        let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yyyy"
+        let strFullDate : String = dateFormatter.string(from: Date())
+        self.txtSendingData.text = strFullDate
     }
     
     func setTextfildDesign(txt : UITextField, vv : UIView, addView : Bool)
@@ -232,11 +259,238 @@ class SendView: UIViewController,UITextFieldDelegate,UITextViewDelegate
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func btnComplete(_ sender: UIButton)
+    @IBAction func btnSearch(_ sender: UIButton)
     {
-
+        self.isCheck = false
+        self.txtNumber.resignFirstResponder()
+        self.txtMessage.resignFirstResponder()
+        self.strMobile = self.txtNumber.text!
+        
+        if self.strMobile.isEmpty
+        {
+            Toast(text: "Please Enter Mobile Number").show()
+        }
+        else if self.strMobile.characters.count < 10
+        {
+            Toast(text: "Mobile Number should be minimum of 10 characters").show()
+        }
+        else
+        {
+            if self.app.isConnectedToInternet()
+            {
+                self.FindContactNumberAPI()
+            }
+            else
+            {
+                Toast(text: self.app.InternetConnectionMessage).show()
+            }
+        }
     }
     
+    //MARK:- Find Contact Number API
+    func FindContactNumberAPI()
+    {
+        loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: false)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
+        loadingNotification.label.text = "Loading..."
+//        loadingNotification.dimBackground = true
+        
+        let headers : HTTPHeaders = ["Authorization": self.app.strToken,
+                                     "Content-Type": "application/json"]
+        //9429888309
+        let parameters: Parameters = ["phone":self.strMobile]
+        print(JSON(parameters))
+        
+        AF.request("\(self.app.BaseURL)find_contact_no", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            debugPrint(response)
+            
+            self.loadingNotification.hide(animated: true)
+            
+            if response.response?.statusCode == 200
+            {
+                if response.result.isSuccess == true
+                {
+                    if let value = response.result.value
+                    {
+                        self.json = JSON(value)
+                        print(self.json)
+                        
+                        let strStatus : String = self.json["status"].stringValue
+                        self.strMessage = self.json["message"].stringValue
+                        
+                        var strFriendsName = String()
+                        var strEmail = String()
+                        if strStatus == "1"
+                        {
+                            strFriendsName = self.json["name"].stringValue
+                            strEmail = self.json["email"].stringValue
+                            self.isCheck = true
+                        }
+                        else
+                        {
+                            Toast(text: self.strMessage).show()
+                        }
+                        self.lblFriendsName.text = "Name".localized + " : \(strFriendsName)"
+                        self.lblEmail.text = "Email Address".localized + " : \(strEmail)"
+                    }
+                }
+                else
+                {
+                    Toast(text: "Request time out.").show()
+                }
+            }
+            else
+            {
+                print(response.result.error.debugDescription)
+                Toast(text: "Request time out.").show()
+            }
+        }
+    }
+    
+    @IBAction func btnComplete(_ sender: UIButton)
+    {
+        self.txtNumber.resignFirstResponder()
+        self.txtMessage.resignFirstResponder()
+        self.strDesc = self.txtMessage.text!
+
+        if self.isCheck == false
+        {
+            Toast(text: "Please verify your friends mobile number").show()
+        }
+        else if self.strDesc.isEmpty
+        {
+            Toast(text: "Please Enter Description").show()
+        }
+        else
+        {
+            let alertController = UIAlertController(title: "Are you sure ?", message: nil, preferredStyle: .alert)
+            
+            let cancelAction = UIAlertAction(title: "NO", style: .default) { (action:UIAlertAction!) in
+                print("you have pressed the Cancel button")
+            }
+            alertController.addAction(cancelAction)
+            
+            let OKAction = UIAlertAction(title: "YES", style: .default) { (action:UIAlertAction!) in
+                print("you have pressed OK button")
+                
+                if self.app.isConnectedToInternet()
+                {
+                    self.SendVoucherAsGiftAPI()
+                }
+                else
+                {
+                    Toast(text: self.app.InternetConnectionMessage).show()
+                }
+            }
+            alertController.addAction(OKAction)
+            
+            self.present(alertController, animated: true, completion:nil)
+        }
+    }
+    
+    //MARK:- SendVoucherAsGift API
+    func SendVoucherAsGiftAPI()
+    {
+        loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: false)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
+        loadingNotification.label.text = "Loading..."
+//        loadingNotification.dimBackground = true
+        
+        let Header : HTTPHeaders = ["Authorization":self.app.strToken]
+        //,"Content-Type":"application/json"
+        
+        Alamofire.upload(multipartFormData:{ multipartFormData in
+            
+            multipartFormData.append(self.strVoucherID.data(using: .utf8)!, withName: "voucher_id")
+            multipartFormData.append(self.strMobile.data(using: .utf8)!, withName: "phone")
+            multipartFormData.append(self.strDesc.data(using: .utf8)!, withName: "description")
+            multipartFormData.append(self.strVoucherPaymentID.data(using: .utf8)!, withName: "voucher_payment_detail_id")
+
+        },usingThreshold:UInt64.init(),
+          to:"\(self.app.BaseURL)send_voucher_as_gift",
+            method:.post,
+            headers:Header,
+            encodingCompletion: { encodingResult in
+                switch encodingResult {
+                case .success(let upload, _, _):
+                    upload.responseJSON
+                        { response in
+                            self.loadingNotification.hide(animated: true)
+                            
+                            debugPrint("SUCCESS RESPONSE:- \(response)")
+                            if let value = response.result.value
+                            {
+                                self.json = JSON(value)
+                                print(self.json)
+                                
+                                let strStatus : String = self.json["status"].stringValue
+                                self.strMessage = self.json["message"].stringValue
+                                Toast(text: self.strMessage).show()
+                                if strStatus == "1"
+                                {
+                                    let desiredViewController = self.navigationController!.viewControllers.filter { $0 is HomeView }.first!
+                                    self.navigationController!.popToViewController(desiredViewController, animated: true)
+                                }
+                            }
+                    }
+                case .failure(let encodingError):
+                    print(encodingError)
+                    Toast(text: "Request time out.").show()
+                    self.loadingNotification.hide(animated: true)
+                }
+        })
+    }
+//    {
+//        loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: false)
+//        loadingNotification.mode = MBProgressHUDMode.indeterminate
+//        loadingNotification.label.text = "Loading..."
+//        loadingNotification.dimBackground = true
+//
+//        let headers : HTTPHeaders = ["Authorization": self.app.strToken]//,"Content-Type": "application/json"
+//
+//        let parameters: Parameters = ["voucher_id":self.strVoucherID,
+//                                      "phone":self.strMobile,
+//                                      "description":self.strDesc,
+//                                      "voucher_payment_detail_id":self.strVoucherPaymentID]
+//        print(JSON(parameters))
+//
+//        Alamofire.request("\(self.app.BaseURL)send_voucher_as_gift", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+//            debugPrint(response)
+//
+//            self.loadingNotification.hide(animated: true)
+//
+//            if response.response?.statusCode == 200
+//            {
+//                if response.result.isSuccess == true
+//                {
+//                    if let value = response.result.value
+//                    {
+//                        self.json = JSON(value)
+//                        print(self.json)
+//
+//                        let strStatus : String = self.json["status"].stringValue
+//                        self.strMessage = self.json["message"].stringValue
+//                        Toast(text: self.strMessage).show()
+//
+//                        if strStatus == "1"
+//                        {
+//                            let desiredViewController = self.navigationController!.viewControllers.filter { $0 is HomeView }.first!
+//                            self.navigationController!.popToViewController(desiredViewController, animated: true)
+//                        }
+//                    }
+//                }
+//                else
+//                {
+//                    Toast(text: "Request time out.").show()
+//                }
+//            }
+//            else
+//            {
+//                print(response.result.error.debugDescription)
+//                Toast(text: "Request time out.").show()
+//            }
+//        }
+//    }
     
     
 }

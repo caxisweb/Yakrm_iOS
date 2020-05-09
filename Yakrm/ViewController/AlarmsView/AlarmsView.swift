@@ -108,10 +108,34 @@ class AlarmsView: UIViewController ,UITableViewDelegate,UITableViewDataSource
         cell.lblNew.layer.cornerRadius = 4
         cell.lblNew.clipsToBounds = true
         
+        cell.btnDelete.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        cell.btnDelete.tag = indexPath.row
+
         cell.selectionStyle = .none
         tblView.rowHeight = cell.viewLine.frame.origin.y + cell.viewLine.frame.size.height//cell.frame.size.height
         
         return cell
+    }
+    
+    @objc func buttonAction(sender: UIButton!)
+    {
+        let buttonPosition : CGPoint = sender.convert(CGPoint.zero, to: self.tblView)
+        let indexPath : IndexPath = self.tblView.indexPathForRow(at: buttonPosition)!
+        
+        let alertController = UIAlertController(title: "Are you sure You want to Delete ?", message: nil, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (action:UIAlertAction!) in
+            print("you have pressed the Cancel button")
+        }
+        alertController.addAction(cancelAction)
+        
+        let OKAction = UIAlertAction(title: "Delete", style: .destructive) { (action:UIAlertAction!) in
+            print("you have pressed OK button")
+            print("Section : \(indexPath.section) Row : \(indexPath.row)")
+        }
+        alertController.addAction(OKAction)
+        
+        self.present(alertController, animated: true, completion:nil)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
@@ -131,7 +155,8 @@ class AlarmsView: UIViewController ,UITableViewDelegate,UITableViewDataSource
         {
             lblFontSize = 9
         }
-        lbl.font = UIFont (name: "GE SS Two Medium", size: lblFontSize)
+//        lbl.font = UIFont (name: "GE SS Two Medium", size: lblFontSize)
+        lbl.font = UIFont.systemFont(ofSize: lblFontSize, weight: .medium)
         lbl.backgroundColor = UIColor.clear
         if self.app.isEnglish
         {
@@ -156,7 +181,7 @@ class AlarmsView: UIViewController ,UITableViewDelegate,UITableViewDataSource
     
     @IBAction func btnDeleteAll(_ sender: UIButton)
     {
-        let alertController = UIAlertController(title: "Are you sure ?", message: "You want to Delete All ?", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Are you sure You want to Delete All ?", message: nil, preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: "NO", style: .default) { (action:UIAlertAction!) in
             print("you have pressed the Cancel button")

@@ -15,7 +15,8 @@ class DetailsCell: UITableViewCell
     @IBOutlet var lblValue: UILabel!
     @IBOutlet var lblDiscount: UILabel!
     @IBOutlet var lblPay: UILabel!
-    
+    @IBOutlet var btnCart: UIButton!
+
     
     
     override func awakeFromNib() {

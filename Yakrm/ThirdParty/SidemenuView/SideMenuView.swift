@@ -72,7 +72,14 @@ class SideMenuView: UIViewController,UITableViewDelegate,UITableViewDataSource, 
         self.arrayMenuOptions.append(["title":"Support And Contact".localized, "icon":"9.Support.png"])
         self.arrayMenuOptions.append(["title":"About The Application".localized, "icon":"10.About.png"])
         self.arrayMenuOptions.append(["title":"Instructions And Conditions".localized, "icon":"11.Instruction.png"])
-        self.arrayMenuOptions.append(["title":"Sign Out".localized, "icon":"12.SignOut.png"])
+        if self.app.strUserID.isEmpty
+        {
+            self.arrayMenuOptions.append(["title":"Sign Up/Log In".localized, "icon":"12.SignOut.png"])
+        }
+        else
+        {
+            self.arrayMenuOptions.append(["title":"Sign Out".localized, "icon":"12.SignOut.png"])
+        }
 //        if self.app.isEnglish
 //        {
 //        self.arrayMenuOptions.append(["title":"النسخة الإنجليزية", "icon":"user"])
@@ -372,31 +379,48 @@ class SideMenuView: UIViewController,UITableViewDelegate,UITableViewDataSource, 
         }
         else if row == 11
         {
-            let alertController = UIAlertController(title: "Are you sure ?", message: "You want to log out ?", preferredStyle: .alert)
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (action:UIAlertAction!) in
-                print("you have pressed the Cancel button")
-            }
-            alertController.addAction(cancelAction)
-            
-            let OKAction = UIAlertAction(title: "Logout", style: .destructive) { (action:UIAlertAction!) in
-                print("you have pressed OK button")
-                
-                self.app.strUserID = ""
-                self.app.defaults.removeObject(forKey: "user_id")
-                self.app.defaults.synchronize()
-                
+            if self.app.strUserID.isEmpty
+            {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
+
                 let VC = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
                 
                 let navigationController = mainViewController.rootViewController as! NavigationController
                 navigationController.pushViewController(VC, animated: true)
                 
                 mainViewController.hideLeftView(animated: true, completionHandler: nil)
-
             }
-            alertController.addAction(OKAction)
-            
-            self.present(alertController, animated: true, completion:nil)
+            else
+            {
+                let alertController = UIAlertController(title: "Are you sure You want to Logout ?", message: nil, preferredStyle: .alert)
+
+                let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (action:UIAlertAction!) in
+                    print("you have pressed the Cancel button")
+                }
+                alertController.addAction(cancelAction)
+                
+                let OKAction = UIAlertAction(title: "Logout", style: .destructive) { (action:UIAlertAction!) in
+                    print("you have pressed OK button")
+                    
+                    self.app.strUserID = ""
+                    self.app.strToken = ""
+                    self.app.defaults.removeObject(forKey: "user_id")
+                    self.app.defaults.synchronize()
+                    
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
+
+                    let VC = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+                    
+                    let navigationController = mainViewController.rootViewController as! NavigationController
+                    navigationController.pushViewController(VC, animated: true)
+                    
+                    mainViewController.hideLeftView(animated: true, completionHandler: nil)
+                    
+                }
+                alertController.addAction(OKAction)
+                
+                self.present(alertController, animated: true, completion:nil)
+            }
         }
         else if row == 12
         {
