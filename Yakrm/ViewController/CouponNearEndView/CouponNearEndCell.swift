@@ -8,15 +8,13 @@
 
 import UIKit
 
-class CouponNearEndCell: UITableViewCell
-{
+class CouponNearEndCell: UITableViewCell {
 
     @IBOutlet var imgProfile: UIImageView!
     @IBOutlet var lblName: UILabel!
     @IBOutlet var lblDiscount: UILabel!
     @IBOutlet var lblDate: UILabel!
     @IBOutlet var lblPrice: UILabel!
-    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,5 +26,5 @@ class CouponNearEndCell: UITableViewCell
 
         // Configure the view for the selected state
     }
-    
+
 }

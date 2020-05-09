@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2FF5F01724672477007F7F9D /* AppWebservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5F01524672477007F7F9D /* AppWebservice.swift */; };
+		2FF5F01824672477007F7F9D /* AppLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5F01624672477007F7F9D /* AppLoader.swift */; };
 		88063ADC21BF91A50093E074 /* intro_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88063AD921BF91950093E074 /* intro_icon.png */; };
 		88063ADD21BF91A50093E074 /* app_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 88063ADA21BF91950093E074 /* app_logo.png */; };
 		88063AE021BFA3C70093E074 /* search (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 88063ADF21BFA3C30093E074 /* search (1).png */; };
@@ -206,6 +208,8 @@
 
 /* Begin PBXFileReference section */
 		0DE149130D3FCBD84C99A4D1 /* Pods-Yakrm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yakrm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Yakrm/Pods-Yakrm.debug.xcconfig"; sourceTree = "<group>"; };
+		2FF5F01524672477007F7F9D /* AppWebservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppWebservice.swift; sourceTree = "<group>"; };
+		2FF5F01624672477007F7F9D /* AppLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLoader.swift; sourceTree = "<group>"; };
 		88063AD921BF91950093E074 /* intro_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_icon.png; sourceTree = "<group>"; };
 		88063ADA21BF91950093E074 /* app_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_logo.png; sourceTree = "<group>"; };
 		88063ADF21BFA3C30093E074 /* search (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search (1).png"; sourceTree = "<group>"; };
@@ -434,6 +438,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2FF5F01424672477007F7F9D /* AppWebservice */ = {
+			isa = PBXGroup;
+			children = (
+				2FF5F01524672477007F7F9D /* AppWebservice.swift */,
+				2FF5F01624672477007F7F9D /* AppLoader.swift */,
+			);
+			path = AppWebservice;
+			sourceTree = "<group>";
+		};
 		880D6E8521C77F3D00240CA2 /* LGSideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -958,6 +971,7 @@
 		886CD07C21B8EF94000B5B13 /* Yakrm */ = {
 			isa = PBXGroup;
 			children = (
+				2FF5F01424672477007F7F9D /* AppWebservice */,
 				884BE8D421D9FC30001E2085 /* Album.swift */,
 				884BE8D221D9FC2E001E2085 /* Constants.swift */,
 				884BE8D321D9FC2F001E2085 /* DataService.swift */,
@@ -1320,6 +1334,7 @@
 				880D6EB221C77F3F00240CA2 /* NavigationController.swift in Sources */,
 				880D6EDC21C7B37500240CA2 /* OprationlogCell.swift in Sources */,
 				880D6EF021C7C52500240CA2 /* ViewPagerController.m in Sources */,
+				2FF5F01824672477007F7F9D /* AppLoader.swift in Sources */,
 				88E1527021C4CFFA0051DD92 /* PaymentView.swift in Sources */,
 				880E7F9921C5074E00E74636 /* CouponView.swift in Sources */,
 				880D6EE021C7B8C500240CA2 /* FeedbackView.swift in Sources */,
@@ -1338,6 +1353,7 @@
 				880E7FB621C538E600E74636 /* AmountView.swift in Sources */,
 				880D6EA821C77F3F00240CA2 /* LeftViewController.swift in Sources */,
 				880D6EA121C77F3F00240CA2 /* LGSideMenuHelper.m in Sources */,
+				2FF5F01724672477007F7F9D /* AppWebservice.swift in Sources */,
 				884BE8D521D9FC31001E2085 /* Constants.swift in Sources */,
 				880D6EB321C77F3F00240CA2 /* MenuViewController.swift in Sources */,
 				880D6EE321C7BEAE00240CA2 /* GeneralView.swift in Sources */,

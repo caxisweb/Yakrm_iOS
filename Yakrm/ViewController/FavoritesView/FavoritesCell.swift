@@ -8,20 +8,18 @@
 
 import UIKit
 
-class FavoritesCell: UITableViewCell
-{
+class FavoritesCell: UITableViewCell {
 
     @IBOutlet var lblName: UILabel!
     @IBOutlet var lblDesc: UILabel!
     @IBOutlet var lblDiscount: UILabel!
     @IBOutlet var imgProfile: UIImageView!
-    
+
     @IBOutlet var lblDate: UILabel!
     @IBOutlet var lblPrice: UILabel!
     @IBOutlet var lblDiscountedPrice: UILabel!
     @IBOutlet var btnDelete: UIButton!
 
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -32,5 +30,5 @@ class FavoritesCell: UITableViewCell
 
         // Configure the view for the selected state
     }
-    
+
 }

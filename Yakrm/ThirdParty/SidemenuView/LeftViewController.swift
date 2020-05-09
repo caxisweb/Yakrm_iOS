@@ -3,9 +3,8 @@
 //  LGSideMenuControllerDemo
 //
 
-class LeftViewController: UITableViewController
-{
-    var arrayMenuOptions = [Dictionary<String,String>]()
+class LeftViewController: UITableViewController {
+    var arrayMenuOptions = [[String: String]]()
 
     private let titlesArray = ["Open Right View",
                                "",
@@ -16,30 +15,27 @@ class LeftViewController: UITableViewController
                                "Articles",
                                "Video",
                                "Music"]
-        
-    override func viewDidLoad()
-    {
+
+    override func viewDidLoad() {
         super.viewDidLoad()
-        
+
 //        tableView.contentInset = UIEdgeInsets(top: 44.0, left: 0.0, bottom: 44.0, right: 0.0)
-        
+
         self.updateArrayMenuOptions()
     }
-    
-    func updateArrayMenuOptions()
-    {
-        arrayMenuOptions.append(["title":"Welcome", "icon":""])
-        arrayMenuOptions.append(["title":"Home", "icon":""])
-        arrayMenuOptions.append(["title":"News", "icon":""])
-        arrayMenuOptions.append(["title":"Videos", "icon":""])
-        arrayMenuOptions.append(["title":"Adverticements", "icon":""])
-        arrayMenuOptions.append(["title":"E Paper", "icon":""])
-        arrayMenuOptions.append(["title":"Share App", "icon":""])
-        arrayMenuOptions.append(["title":"Rate App", "icon":""])
-        
+
+    func updateArrayMenuOptions() {
+        arrayMenuOptions.append(["title": "Welcome", "icon": ""])
+        arrayMenuOptions.append(["title": "Home", "icon": ""])
+        arrayMenuOptions.append(["title": "News", "icon": ""])
+        arrayMenuOptions.append(["title": "Videos", "icon": ""])
+        arrayMenuOptions.append(["title": "Adverticements", "icon": ""])
+        arrayMenuOptions.append(["title": "E Paper", "icon": ""])
+        arrayMenuOptions.append(["title": "Share App", "icon": ""])
+        arrayMenuOptions.append(["title": "Rate App", "icon": ""])
+
         tableView.reloadData()
     }
-    
 
 //    override var prefersStatusBarHidden: Bool {
 //        return true
@@ -52,37 +48,31 @@ class LeftViewController: UITableViewController
 //    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
 //        return .fade
 //    }
-    
+
     // MARK: - UITableViewDataSource
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayMenuOptions.count//titlesArray.count
     }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        var cell : SideMenuCell!
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell: SideMenuCell!
         cell = tableView.dequeueReusableCell(withIdentifier: "SideMenuCell") as! SideMenuCell!
-        
-        if cell == nil
-        {
-            if indexPath.row == 0
-            {
+
+        if cell == nil {
+            if indexPath.row == 0 {
                 cell = Bundle.main.loadNibNamed("SideMenuCell", owner: self, options: nil)?[0] as! SideMenuCell
-                
+
                 cell.lblName.text = arrayMenuOptions[indexPath.row]["title"]!
                 cell.selectionStyle = .none
-            }
-            else
-            {
+            } else {
                 cell = Bundle.main.loadNibNamed("SideMenuCell", owner: self, options: nil)?[1] as! SideMenuCell
                 cell.lblName.text = arrayMenuOptions[indexPath.row]["title"]!
-                
+
                 cell.selectionStyle = .default
             }
         }
-        
+
         tableView.rowHeight = cell.frame.size.height
         return cell
     }
@@ -95,29 +85,27 @@ class LeftViewController: UITableViewController
 //
 //        return cell
 //    }
-    
+
     // MARK: - UITableViewDelegate
-    
+
 //    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return (indexPath.row == 1 || indexPath.row == 3) ? 22.0 : 44.0
 //    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let mainViewController = sideMenuController!
-        
+
         let navigationController = mainViewController.rootViewController as! NavigationController
         let viewController: UIViewController!
-        
+
         viewController = self.storyboard!.instantiateViewController(withIdentifier: "ViewController")
-        
+
         navigationController.setViewControllers([viewController], animated: false)
-        
+
         // Rarely you can get some visual bugs when you change view hierarchy and toggle side views in the same iteration
         // You can use delay to avoid this and probably other unexpected visual bugs
         mainViewController.hideLeftView(animated: true, delay: 0.0, completionHandler: nil)
-        
-        
+
         /*
         if indexPath.row == 0
         {
@@ -165,5 +153,5 @@ class LeftViewController: UITableViewController
         }
  */
     }
-    
+
 }

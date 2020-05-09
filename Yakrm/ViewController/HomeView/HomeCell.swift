@@ -8,20 +8,17 @@
 
 import UIKit
 
-class HomeCell: UICollectionViewCell
-{
+class HomeCell: UICollectionViewCell {
 
     @IBOutlet var imgProfile: UIImageView!
     @IBOutlet var lblName: UILabel!
     @IBOutlet var lblDiscount: UILabel!
-    
+
     @IBOutlet var imgLogo: UIImageView!
-    
-    
-    override func awakeFromNib()
-    {
+
+    override func awakeFromNib() {
         super.awakeFromNib()
-    
+
     }
 
 }

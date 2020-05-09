@@ -8,8 +8,7 @@
 
 import UIKit
 
-class DetailsCell: UITableViewCell
-{
+class DetailsCell: UITableViewCell {
 
     @IBOutlet var imgProfile: UIImageView!
     @IBOutlet var lblValue: UILabel!
@@ -17,8 +16,6 @@ class DetailsCell: UITableViewCell
     @IBOutlet var lblPay: UILabel!
     @IBOutlet var btnCart: UIButton!
 
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,5 +26,5 @@ class DetailsCell: UITableViewCell
 
         // Configure the view for the selected state
     }
-    
+
 }
