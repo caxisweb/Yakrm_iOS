@@ -8,19 +8,18 @@
 
 import UIKit
 
-class OprationlogCell: UITableViewCell
-{
-    
+class OprationlogCell: UITableViewCell {
+
     @IBOutlet var viewLine: UIView!
     @IBOutlet var lblName: UILabel!
     @IBOutlet var lblDetails: UILabel!
-    
+
     @IBOutlet var lblDate: UILabel!
     @IBOutlet var lblPrice: UILabel!
     @IBOutlet var lblType: UILabel!
 
     @IBOutlet var lblVoucherType: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -31,5 +30,5 @@ class OprationlogCell: UITableViewCell
 
         // Configure the view for the selected state
     }
-    
+
 }

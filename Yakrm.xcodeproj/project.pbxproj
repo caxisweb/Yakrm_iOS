@@ -8,22 +8,52 @@
 
 /* Begin PBXBuildFile section */
 		2F335EA72467F0670023B620 /* DeliveryModule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F335EA52467F0670023B620 /* DeliveryModule.storyboard */; };
-		2F335EAB2467F1130023B620 /* StartScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F335EAA2467F1130023B620 /* StartScreenVC.swift */; };
-		2F335EAE24684CE10023B620 /* PlaceOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F335EAD24684CE10023B620 /* PlaceOrderVC.swift */; };
-		2F335EB024684CEC0023B620 /* MyOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F335EAF24684CEC0023B620 /* MyOrderVC.swift */; };
-		2F335EB224684D1C0023B620 /* DeliveryScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F335EB124684D1C0023B620 /* DeliveryScreenVC.swift */; };
-		2F335EB4246902BD0023B620 /* DeliveryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F335EB3246902BD0023B620 /* DeliveryDetailVC.swift */; };
 		2F3EE275246B028F0066C50F /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3EE274246B028F0066C50F /* AppView.swift */; };
-		2F3EE278246B0C970066C50F /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3EE277246B0C970066C50F /* HeaderCell.swift */; };
-		2F3EE27B246B0FAF0066C50F /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3EE27A246B0FAF0066C50F /* ItemCell.swift */; };
-		2F6B3E002470468400036828 /* OrderDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3DFF2470468400036828 /* OrderDetail.swift */; };
-		2F6B3E0224710DF300036828 /* PaymentConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E0124710DF300036828 /* PaymentConfirmation.swift */; };
-		2F9437AE246A568A00C64570 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9437AD246A568A00C64570 /* OrderCell.swift */; };
-		2F9E23DD246F1F4400C4CA40 /* UpdateLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9E23DC246F1F4400C4CA40 /* UpdateLocationViewController.swift */; };
+		2F6B3E1624712ECA00036828 /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E0524712ECA00036828 /* Orders.swift */; };
+		2F6B3E1724712ECA00036828 /* OrderDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E0624712ECA00036828 /* OrderDetail.swift */; };
+		2F6B3E1824712ECA00036828 /* StartScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E0824712ECA00036828 /* StartScreenVC.swift */; };
+		2F6B3E1924712ECA00036828 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E0B24712ECA00036828 /* HeaderCell.swift */; };
+		2F6B3E1A24712ECA00036828 /* MyOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E0C24712ECA00036828 /* MyOrderVC.swift */; };
+		2F6B3E1B24712ECA00036828 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E0E24712ECA00036828 /* ItemCell.swift */; };
+		2F6B3E1C24712ECA00036828 /* DeliveryScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E0F24712ECA00036828 /* DeliveryScreenVC.swift */; };
+		2F6B3E1D24712ECA00036828 /* PaymentConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E1024712ECA00036828 /* PaymentConfirmation.swift */; };
+		2F6B3E1E24712ECA00036828 /* PlaceOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E1124712ECA00036828 /* PlaceOrderVC.swift */; };
+		2F6B3E1F24712ECA00036828 /* UpdateLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E1224712ECA00036828 /* UpdateLocationViewController.swift */; };
+		2F6B3E2024712ECA00036828 /* DeliveryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E1324712ECA00036828 /* DeliveryDetailVC.swift */; };
+		2F6B3E2124712ECA00036828 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E1524712ECA00036828 /* OrderCell.swift */; };
+		2F6B3E2624712F2B00036828 /* AppWebservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E2424712F2B00036828 /* AppWebservice.swift */; };
+		2F6B3E2724712F2B00036828 /* AppLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E2524712F2B00036828 /* AppLoader.swift */; };
+		2F6B3E31247131BF00036828 /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2F6B3E28247131BD00036828 /* Resources.bundle */; };
+		2F6B3E32247131BF00036828 /* PTSRConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E29247131BE00036828 /* PTSRConstants.swift */; };
+		2F6B3E33247131BF00036828 /* OPPWAMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6B3E2A247131BE00036828 /* OPPWAMobile.framework */; };
+		2F6B3E34247131BF00036828 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E2B247131BE00036828 /* Request.swift */; };
+		2F6B3E35247131BF00036828 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E2C247131BE00036828 /* Utils.swift */; };
+		2F6B3E36247131BF00036828 /* paytabs-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6B3E2D247131BE00036828 /* paytabs-iOS.framework */; };
+		2F6B3E37247131BF00036828 /* OPPWAMobile-Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2F6B3E2E247131BE00036828 /* OPPWAMobile-Resources.bundle */; };
+		2F6B3E38247131BF00036828 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E2F247131BE00036828 /* Config.swift */; };
+		2F6B3E39247131BF00036828 /* payments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E30247131BE00036828 /* payments.swift */; };
+		2F6B3E3D24715BD000036828 /* PaymentMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E3C24715BD000036828 /* PaymentMethodView.swift */; };
+		2F6B3E40247162C500036828 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E3F247162C500036828 /* SearchView.swift */; };
+		2F6B3E452471637800036828 /* VarifyPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E422471637700036828 /* VarifyPasswordView.swift */; };
+		2F6B3E462471637800036828 /* ForgotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E432471637700036828 /* ForgotView.swift */; };
+		2F6B3E472471637800036828 /* VarifyForgotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E442471637700036828 /* VarifyForgotView.swift */; };
+		2F6B3E4A2471662400036828 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E492471662400036828 /* ChangePasswordView.swift */; };
+		2F6B3E4D247167FD00036828 /* ExchangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E4C247167FD00036828 /* ExchangeView.swift */; };
+		2F6B3E5024716A1400036828 /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E4F24716A1400036828 /* CardListView.swift */; };
+		2F6B3E5324716B8B00036828 /* InstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E5224716B8B00036828 /* InstructionView.swift */; };
+		2F6B3E5624716DFE00036828 /* shopping-basket.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F6B3E5424716DFE00036828 /* shopping-basket.png */; };
+		2F6B3E5724716DFE00036828 /* wallet.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F6B3E5524716DFE00036828 /* wallet.png */; };
+		2F6B3E5B24716E0600036828 /* 512_ V.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F6B3E5824716E0600036828 /* 512_ V.png */; };
+		2F6B3E5C24716E0600036828 /* 512.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F6B3E5924716E0600036828 /* 512.png */; };
+		2F6B3E5D24716E0600036828 /* add-circular.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F6B3E5A24716E0600036828 /* add-circular.png */; };
+		2F6B3E5F24716E1200036828 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F6B3E5E24716E1200036828 /* delete.png */; };
+		2F6B3E6124716E1C00036828 /* edit-document.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F6B3E6024716E1C00036828 /* edit-document.png */; };
+		2F6B3E6324716E2700036828 /* hyperpay.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F6B3E6224716E2700036828 /* hyperpay.png */; };
+		2F6B3E6824716E3C00036828 /* riyal-currency-symbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F6B3E6424716E3B00036828 /* riyal-currency-symbol.png */; };
+		2F6B3E6924716E3C00036828 /* new-file.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F6B3E6524716E3C00036828 /* new-file.png */; };
+		2F6B3E6A24716E3C00036828 /* returnVoucher.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F6B3E6624716E3C00036828 /* returnVoucher.png */; };
+		2F6B3E6B24716E3C00036828 /* riyalIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F6B3E6724716E3C00036828 /* riyalIcon.png */; };
 		2F9E23DF246F8A2300C4CA40 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9E23DE246F8A2300C4CA40 /* LocationManager.swift */; };
-		2F9E23E2246F8FD600C4CA40 /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9E23E1246F8FD600C4CA40 /* Orders.swift */; };
-		2FF5F01724672477007F7F9D /* AppWebservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5F01524672477007F7F9D /* AppWebservice.swift */; };
-		2FF5F01824672477007F7F9D /* AppLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5F01624672477007F7F9D /* AppLoader.swift */; };
 		88063ADC21BF91A50093E074 /* intro_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88063AD921BF91950093E074 /* intro_icon.png */; };
 		88063ADD21BF91A50093E074 /* app_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 88063ADA21BF91950093E074 /* app_logo.png */; };
 		88063AE021BFA3C70093E074 /* search (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 88063ADF21BFA3C30093E074 /* search (1).png */; };
@@ -224,22 +254,54 @@
 /* Begin PBXFileReference section */
 		0DE149130D3FCBD84C99A4D1 /* Pods-Yakrm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yakrm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Yakrm/Pods-Yakrm.debug.xcconfig"; sourceTree = "<group>"; };
 		2F335EA62467F0670023B620 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DeliveryModule.storyboard; sourceTree = "<group>"; };
-		2F335EAA2467F1130023B620 /* StartScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenVC.swift; sourceTree = "<group>"; };
-		2F335EAD24684CE10023B620 /* PlaceOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceOrderVC.swift; sourceTree = "<group>"; };
-		2F335EAF24684CEC0023B620 /* MyOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderVC.swift; sourceTree = "<group>"; };
-		2F335EB124684D1C0023B620 /* DeliveryScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryScreenVC.swift; sourceTree = "<group>"; };
-		2F335EB3246902BD0023B620 /* DeliveryDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDetailVC.swift; sourceTree = "<group>"; };
 		2F3EE274246B028F0066C50F /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
-		2F3EE277246B0C970066C50F /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
-		2F3EE27A246B0FAF0066C50F /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
-		2F6B3DFF2470468400036828 /* OrderDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetail.swift; sourceTree = "<group>"; };
-		2F6B3E0124710DF300036828 /* PaymentConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentConfirmation.swift; sourceTree = "<group>"; };
-		2F9437AD246A568A00C64570 /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
-		2F9E23DC246F1F4400C4CA40 /* UpdateLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateLocationViewController.swift; sourceTree = "<group>"; };
+		2F6B3E0524712ECA00036828 /* Orders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
+		2F6B3E0624712ECA00036828 /* OrderDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetail.swift; sourceTree = "<group>"; };
+		2F6B3E0824712ECA00036828 /* StartScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreenVC.swift; sourceTree = "<group>"; };
+		2F6B3E0B24712ECA00036828 /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		2F6B3E0C24712ECA00036828 /* MyOrderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyOrderVC.swift; sourceTree = "<group>"; };
+		2F6B3E0E24712ECA00036828 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		2F6B3E0F24712ECA00036828 /* DeliveryScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryScreenVC.swift; sourceTree = "<group>"; };
+		2F6B3E1024712ECA00036828 /* PaymentConfirmation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentConfirmation.swift; sourceTree = "<group>"; };
+		2F6B3E1124712ECA00036828 /* PlaceOrderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceOrderVC.swift; sourceTree = "<group>"; };
+		2F6B3E1224712ECA00036828 /* UpdateLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateLocationViewController.swift; sourceTree = "<group>"; };
+		2F6B3E1324712ECA00036828 /* DeliveryDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryDetailVC.swift; sourceTree = "<group>"; };
+		2F6B3E1524712ECA00036828 /* OrderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
+		2F6B3E2224712F0000036828 /* DeliveryModule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = DeliveryModule.storyboard; path = "/Volumes/Macintosh HD - Data/Jaydeep/Yakrm/Yakrm_iOS/Yakrm/AppWebservice/DeliveryModule.storyboard"; sourceTree = "<absolute>"; };
+		2F6B3E2424712F2B00036828 /* AppWebservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppWebservice.swift; sourceTree = "<group>"; };
+		2F6B3E2524712F2B00036828 /* AppLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLoader.swift; sourceTree = "<group>"; };
+		2F6B3E28247131BD00036828 /* Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resources.bundle; sourceTree = "<group>"; };
+		2F6B3E29247131BE00036828 /* PTSRConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PTSRConstants.swift; sourceTree = "<group>"; };
+		2F6B3E2A247131BE00036828 /* OPPWAMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OPPWAMobile.framework; sourceTree = "<group>"; };
+		2F6B3E2B247131BE00036828 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		2F6B3E2C247131BE00036828 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		2F6B3E2D247131BE00036828 /* paytabs-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "paytabs-iOS.framework"; sourceTree = "<group>"; };
+		2F6B3E2E247131BE00036828 /* OPPWAMobile-Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "OPPWAMobile-Resources.bundle"; sourceTree = "<group>"; };
+		2F6B3E2F247131BE00036828 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		2F6B3E30247131BE00036828 /* payments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = payments.swift; sourceTree = "<group>"; };
+		2F6B3E3A247131D200036828 /* Yakrm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Yakrm.entitlements; sourceTree = "<group>"; };
+		2F6B3E3C24715BD000036828 /* PaymentMethodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodView.swift; sourceTree = "<group>"; };
+		2F6B3E3F247162C500036828 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		2F6B3E422471637700036828 /* VarifyPasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VarifyPasswordView.swift; sourceTree = "<group>"; };
+		2F6B3E432471637700036828 /* ForgotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotView.swift; sourceTree = "<group>"; };
+		2F6B3E442471637700036828 /* VarifyForgotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VarifyForgotView.swift; sourceTree = "<group>"; };
+		2F6B3E492471662400036828 /* ChangePasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		2F6B3E4C247167FD00036828 /* ExchangeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeView.swift; sourceTree = "<group>"; };
+		2F6B3E4F24716A1400036828 /* CardListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
+		2F6B3E5224716B8B00036828 /* InstructionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionView.swift; sourceTree = "<group>"; };
+		2F6B3E5424716DFE00036828 /* shopping-basket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shopping-basket.png"; sourceTree = "<group>"; };
+		2F6B3E5524716DFE00036828 /* wallet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wallet.png; sourceTree = "<group>"; };
+		2F6B3E5824716E0600036828 /* 512_ V.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "512_ V.png"; sourceTree = "<group>"; };
+		2F6B3E5924716E0600036828 /* 512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 512.png; sourceTree = "<group>"; };
+		2F6B3E5A24716E0600036828 /* add-circular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-circular.png"; sourceTree = "<group>"; };
+		2F6B3E5E24716E1200036828 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		2F6B3E6024716E1C00036828 /* edit-document.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit-document.png"; sourceTree = "<group>"; };
+		2F6B3E6224716E2700036828 /* hyperpay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hyperpay.png; sourceTree = "<group>"; };
+		2F6B3E6424716E3B00036828 /* riyal-currency-symbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "riyal-currency-symbol.png"; sourceTree = "<group>"; };
+		2F6B3E6524716E3C00036828 /* new-file.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new-file.png"; sourceTree = "<group>"; };
+		2F6B3E6624716E3C00036828 /* returnVoucher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = returnVoucher.png; sourceTree = "<group>"; };
+		2F6B3E6724716E3C00036828 /* riyalIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = riyalIcon.png; sourceTree = "<group>"; };
 		2F9E23DE246F8A2300C4CA40 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		2F9E23E1246F8FD600C4CA40 /* Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
-		2FF5F01524672477007F7F9D /* AppWebservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppWebservice.swift; sourceTree = "<group>"; };
-		2FF5F01624672477007F7F9D /* AppLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLoader.swift; sourceTree = "<group>"; };
 		88063AD921BF91950093E074 /* intro_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_icon.png; sourceTree = "<group>"; };
 		88063ADA21BF91950093E074 /* app_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_logo.png; sourceTree = "<group>"; };
 		88063ADF21BFA3C30093E074 /* search (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search (1).png"; sourceTree = "<group>"; };
@@ -459,49 +521,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F6B3E33247131BF00036828 /* OPPWAMobile.framework in Frameworks */,
 				88AE2AD621DF6C8D00CC400E /* SafariServices.framework in Frameworks */,
 				88AE2AD421DF6B8D00CC400E /* MessageUI.framework in Frameworks */,
 				FC42A0C43E5E94D91DBD63EF /* Pods_Yakrm.framework in Frameworks */,
+				2F6B3E36247131BF00036828 /* paytabs-iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2F335EA82467F09A0023B620 /* NewModule */ = {
-			isa = PBXGroup;
-			children = (
-				2F9E23E0246F8F8D00C4CA40 /* Model */,
-				2F335EAC24684CCB0023B620 /* DeliveryScreen */,
-				2F335EA92467F0A70023B620 /* StartScreenVC */,
-			);
-			path = NewModule;
-			sourceTree = "<group>";
-		};
-		2F335EA92467F0A70023B620 /* StartScreenVC */ = {
-			isa = PBXGroup;
-			children = (
-				2F335EAA2467F1130023B620 /* StartScreenVC.swift */,
-			);
-			path = StartScreenVC;
-			sourceTree = "<group>";
-		};
-		2F335EAC24684CCB0023B620 /* DeliveryScreen */ = {
-			isa = PBXGroup;
-			children = (
-				2F9E23DC246F1F4400C4CA40 /* UpdateLocationViewController.swift */,
-				2F3EE279246B0FA20066C50F /* ItemCell */,
-				2F3EE276246B0C7B0066C50F /* HeaderCell */,
-				2F9437AC246A567600C64570 /* OrderCell */,
-				2F335EAD24684CE10023B620 /* PlaceOrderVC.swift */,
-				2F335EAF24684CEC0023B620 /* MyOrderVC.swift */,
-				2F335EB124684D1C0023B620 /* DeliveryScreenVC.swift */,
-				2F335EB3246902BD0023B620 /* DeliveryDetailVC.swift */,
-				2F6B3E0124710DF300036828 /* PaymentConfirmation.swift */,
-			);
-			path = DeliveryScreen;
-			sourceTree = "<group>";
-		};
 		2F3EE273246B02770066C50F /* AppControls */ = {
 			isa = PBXGroup;
 			children = (
@@ -510,46 +540,139 @@
 			path = AppControls;
 			sourceTree = "<group>";
 		};
-		2F3EE276246B0C7B0066C50F /* HeaderCell */ = {
+		2F6B3E0324712ECA00036828 /* NewModule */ = {
 			isa = PBXGroup;
 			children = (
-				2F3EE277246B0C970066C50F /* HeaderCell.swift */,
+				2F6B3E2224712F0000036828 /* DeliveryModule.storyboard */,
+				2F6B3E0424712ECA00036828 /* Model */,
+				2F6B3E0724712ECA00036828 /* StartScreenVC */,
+				2F6B3E0924712ECA00036828 /* DeliveryScreen */,
 			);
-			path = HeaderCell;
+			path = NewModule;
 			sourceTree = "<group>";
 		};
-		2F3EE279246B0FA20066C50F /* ItemCell */ = {
+		2F6B3E0424712ECA00036828 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2F3EE27A246B0FAF0066C50F /* ItemCell.swift */,
-			);
-			path = ItemCell;
-			sourceTree = "<group>";
-		};
-		2F9437AC246A567600C64570 /* OrderCell */ = {
-			isa = PBXGroup;
-			children = (
-				2F9437AD246A568A00C64570 /* OrderCell.swift */,
-			);
-			path = OrderCell;
-			sourceTree = "<group>";
-		};
-		2F9E23E0246F8F8D00C4CA40 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				2F9E23E1246F8FD600C4CA40 /* Orders.swift */,
-				2F6B3DFF2470468400036828 /* OrderDetail.swift */,
+				2F6B3E0524712ECA00036828 /* Orders.swift */,
+				2F6B3E0624712ECA00036828 /* OrderDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		2FF5F01424672477007F7F9D /* AppWebservice */ = {
+		2F6B3E0724712ECA00036828 /* StartScreenVC */ = {
 			isa = PBXGroup;
 			children = (
-				2FF5F01524672477007F7F9D /* AppWebservice.swift */,
-				2FF5F01624672477007F7F9D /* AppLoader.swift */,
+				2F6B3E0824712ECA00036828 /* StartScreenVC.swift */,
+			);
+			path = StartScreenVC;
+			sourceTree = "<group>";
+		};
+		2F6B3E0924712ECA00036828 /* DeliveryScreen */ = {
+			isa = PBXGroup;
+			children = (
+				2F6B3E0A24712ECA00036828 /* HeaderCell */,
+				2F6B3E0C24712ECA00036828 /* MyOrderVC.swift */,
+				2F6B3E0D24712ECA00036828 /* ItemCell */,
+				2F6B3E0F24712ECA00036828 /* DeliveryScreenVC.swift */,
+				2F6B3E1024712ECA00036828 /* PaymentConfirmation.swift */,
+				2F6B3E1124712ECA00036828 /* PlaceOrderVC.swift */,
+				2F6B3E1224712ECA00036828 /* UpdateLocationViewController.swift */,
+				2F6B3E1324712ECA00036828 /* DeliveryDetailVC.swift */,
+				2F6B3E1424712ECA00036828 /* OrderCell */,
+			);
+			path = DeliveryScreen;
+			sourceTree = "<group>";
+		};
+		2F6B3E0A24712ECA00036828 /* HeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				2F6B3E0B24712ECA00036828 /* HeaderCell.swift */,
+			);
+			path = HeaderCell;
+			sourceTree = "<group>";
+		};
+		2F6B3E0D24712ECA00036828 /* ItemCell */ = {
+			isa = PBXGroup;
+			children = (
+				2F6B3E0E24712ECA00036828 /* ItemCell.swift */,
+			);
+			path = ItemCell;
+			sourceTree = "<group>";
+		};
+		2F6B3E1424712ECA00036828 /* OrderCell */ = {
+			isa = PBXGroup;
+			children = (
+				2F6B3E1524712ECA00036828 /* OrderCell.swift */,
+			);
+			path = OrderCell;
+			sourceTree = "<group>";
+		};
+		2F6B3E2324712F2B00036828 /* AppWebservice */ = {
+			isa = PBXGroup;
+			children = (
+				2F6B3E2424712F2B00036828 /* AppWebservice.swift */,
+				2F6B3E2524712F2B00036828 /* AppLoader.swift */,
 			);
 			path = AppWebservice;
+			sourceTree = "<group>";
+		};
+		2F6B3E3B24715BD000036828 /* PaymentMethodView */ = {
+			isa = PBXGroup;
+			children = (
+				2F6B3E3C24715BD000036828 /* PaymentMethodView.swift */,
+			);
+			path = PaymentMethodView;
+			sourceTree = "<group>";
+		};
+		2F6B3E3E247162C500036828 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				2F6B3E3F247162C500036828 /* SearchView.swift */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
+		2F6B3E412471637700036828 /* ForgotView */ = {
+			isa = PBXGroup;
+			children = (
+				2F6B3E422471637700036828 /* VarifyPasswordView.swift */,
+				2F6B3E432471637700036828 /* ForgotView.swift */,
+				2F6B3E442471637700036828 /* VarifyForgotView.swift */,
+			);
+			path = ForgotView;
+			sourceTree = "<group>";
+		};
+		2F6B3E482471662400036828 /* ChangePasswordView */ = {
+			isa = PBXGroup;
+			children = (
+				2F6B3E492471662400036828 /* ChangePasswordView.swift */,
+			);
+			path = ChangePasswordView;
+			sourceTree = "<group>";
+		};
+		2F6B3E4B247167FD00036828 /* ExchangeView */ = {
+			isa = PBXGroup;
+			children = (
+				2F6B3E4C247167FD00036828 /* ExchangeView.swift */,
+			);
+			path = ExchangeView;
+			sourceTree = "<group>";
+		};
+		2F6B3E4E24716A1400036828 /* CardListView */ = {
+			isa = PBXGroup;
+			children = (
+				2F6B3E4F24716A1400036828 /* CardListView.swift */,
+			);
+			path = CardListView;
+			sourceTree = "<group>";
+		};
+		2F6B3E5124716B8B00036828 /* InstructionView */ = {
+			isa = PBXGroup;
+			children = (
+				2F6B3E5224716B8B00036828 /* InstructionView.swift */,
+			);
+			path = InstructionView;
 			sourceTree = "<group>";
 		};
 		880D6E8521C77F3D00240CA2 /* LGSideMenu */ = {
@@ -860,6 +983,18 @@
 		8852BF9421B8FCC9001F71BC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2F6B3E6524716E3C00036828 /* new-file.png */,
+				2F6B3E6624716E3C00036828 /* returnVoucher.png */,
+				2F6B3E6424716E3B00036828 /* riyal-currency-symbol.png */,
+				2F6B3E6724716E3C00036828 /* riyalIcon.png */,
+				2F6B3E6224716E2700036828 /* hyperpay.png */,
+				2F6B3E6024716E1C00036828 /* edit-document.png */,
+				2F6B3E5E24716E1200036828 /* delete.png */,
+				2F6B3E5824716E0600036828 /* 512_ V.png */,
+				2F6B3E5924716E0600036828 /* 512.png */,
+				2F6B3E5A24716E0600036828 /* add-circular.png */,
+				2F6B3E5424716DFE00036828 /* shopping-basket.png */,
+				2F6B3E5524716DFE00036828 /* wallet.png */,
 				889EF18021E341F5008BBD4B /* camera red.png */,
 				88AE2AD121DF3FFF00CC400E /* walletred.png */,
 				884E0CAF21D5023100F294F6 /* mp4_icon.png */,
@@ -935,43 +1070,50 @@
 		8852BF9521B8FCC9001F71BC /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2F335EA82467F09A0023B620 /* NewModule */,
-				88B6992521DE244600C9EF9A /* ScannerView */,
 				8821F80F21D3699D00F454F8 /* ActiveVoucherView */,
-				88B6DB2121CB6AC20098C33D /* FavoriteBrandView */,
-				880D6EEA21C7C43C00240CA2 /* AuctionView */,
-				880D6EE721C7C26400240CA2 /* TermsView */,
-				880D6EE421C7C0EF00240CA2 /* ForAppView */,
-				880D6EE121C7BE9E00240CA2 /* GeneralView */,
-				880D6EDE21C7B8B300240CA2 /* FeedbackView */,
-				880D6ED721C7B20800240CA2 /* OprationlogView */,
-				880D6ED021C7A9EF00240CA2 /* AlarmsView */,
-				880D6ECD21C7A6FF00240CA2 /* VoucherExpiredView */,
-				880D6EC621C7983000240CA2 /* CouponNearEndView */,
-				880D6EC321C790E600240CA2 /* FavoriteSellerView */,
-				880E7FB421C538CB00E74636 /* AmountView */,
-				880E7FB121C52F8700E74636 /* SendView */,
-				880E7FAC21C52B9000E74636 /* ReplacementView */,
-				880E7FA921C5261D00E74636 /* UpdateCouponView */,
 				880E7FA621C51C8800E74636 /* AddCouponView */,
+				880D6ED021C7A9EF00240CA2 /* AlarmsView */,
+				880E7FB421C538CB00E74636 /* AmountView */,
+				880D6EEA21C7C43C00240CA2 /* AuctionView */,
 				880E7FA321C50D1B00E74636 /* BarcodeView */,
-				880E7F9E21C5092800E74636 /* CouponDetailsView */,
-				880E7F9721C506A100E74636 /* CouponView */,
-				880E7F9421C5068D00E74636 /* StarbucksCardView */,
-				88E1528421C4DDA80051DD92 /* WalletView */,
-				88E1527121C4D3760051DD92 /* ReceivedView */,
-				88E1526E21C4CFEC0051DD92 /* PaymentView */,
-				88E1526B21C4CBB30051DD92 /* PurchasedView */,
+				2F6B3E4E24716A1400036828 /* CardListView */,
 				8816D09721BE6CD500614CAE /* CartView */,
-				8816D08E21BE683900614CAE /* FavoritesView */,
+				2F6B3E482471662400036828 /* ChangePasswordView */,
+				880E7F9E21C5092800E74636 /* CouponDetailsView */,
+				880D6EC621C7983000240CA2 /* CouponNearEndView */,
+				880E7F9721C506A100E74636 /* CouponView */,
 				8815453321BA77F7007B8148 /* DetailsView */,
+				2F6B3E4B247167FD00036828 /* ExchangeView */,
+				88B6DB2121CB6AC20098C33D /* FavoriteBrandView */,
+				880D6EC321C790E600240CA2 /* FavoriteSellerView */,
+				8816D08E21BE683900614CAE /* FavoritesView */,
+				880D6EDE21C7B8B300240CA2 /* FeedbackView */,
+				880D6EE421C7C0EF00240CA2 /* ForAppView */,
+				2F6B3E412471637700036828 /* ForgotView */,
+				880D6EE121C7BE9E00240CA2 /* GeneralView */,
 				8815452421BA65B4007B8148 /* HomeView */,
-				8852BFBA21B936C0001F71BC /* PersonalView */,
-				8852BFB721B936A4001F71BC /* VarifyLoginView */,
+				2F6B3E5124716B8B00036828 /* InstructionView */,
 				8852BFB421B93637001F71BC /* LoginView */,
-				8852BFB121B93602001F71BC /* RegisterView */,
-				8852BFAE21B935C4001F71BC /* VarifyNewView */,
 				8852BFAB21B9357F001F71BC /* NewAccountView */,
+				2F6B3E0324712ECA00036828 /* NewModule */,
+				880D6ED721C7B20800240CA2 /* OprationlogView */,
+				2F6B3E3B24715BD000036828 /* PaymentMethodView */,
+				88E1526E21C4CFEC0051DD92 /* PaymentView */,
+				8852BFBA21B936C0001F71BC /* PersonalView */,
+				88E1526B21C4CBB30051DD92 /* PurchasedView */,
+				88E1527121C4D3760051DD92 /* ReceivedView */,
+				8852BFB121B93602001F71BC /* RegisterView */,
+				880E7FAC21C52B9000E74636 /* ReplacementView */,
+				88B6992521DE244600C9EF9A /* ScannerView */,
+				2F6B3E3E247162C500036828 /* SearchView */,
+				880E7FB121C52F8700E74636 /* SendView */,
+				880E7F9421C5068D00E74636 /* StarbucksCardView */,
+				880D6EE721C7C26400240CA2 /* TermsView */,
+				880E7FA921C5261D00E74636 /* UpdateCouponView */,
+				8852BFB721B936A4001F71BC /* VarifyLoginView */,
+				8852BFAE21B935C4001F71BC /* VarifyNewView */,
+				880D6ECD21C7A6FF00240CA2 /* VoucherExpiredView */,
+				88E1528421C4DDA80051DD92 /* WalletView */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1079,7 +1221,17 @@
 		886CD07C21B8EF94000B5B13 /* Yakrm */ = {
 			isa = PBXGroup;
 			children = (
-				2FF5F01424672477007F7F9D /* AppWebservice */,
+				2F6B3E3A247131D200036828 /* Yakrm.entitlements */,
+				2F6B3E2F247131BE00036828 /* Config.swift */,
+				2F6B3E2E247131BE00036828 /* OPPWAMobile-Resources.bundle */,
+				2F6B3E2A247131BE00036828 /* OPPWAMobile.framework */,
+				2F6B3E30247131BE00036828 /* payments.swift */,
+				2F6B3E2D247131BE00036828 /* paytabs-iOS.framework */,
+				2F6B3E29247131BE00036828 /* PTSRConstants.swift */,
+				2F6B3E2B247131BE00036828 /* Request.swift */,
+				2F6B3E28247131BD00036828 /* Resources.bundle */,
+				2F6B3E2C247131BE00036828 /* Utils.swift */,
+				2F6B3E2324712F2B00036828 /* AppWebservice */,
 				884BE8D421D9FC30001E2085 /* Album.swift */,
 				884BE8D221D9FC2E001E2085 /* Constants.swift */,
 				884BE8D321D9FC2F001E2085 /* DataService.swift */,
@@ -1244,14 +1396,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F6B3E6A24716E3C00036828 /* returnVoucher.png in Resources */,
 				8852BFA021B8FD42001F71BC /* ArbFONTS-GE_SS_Two_Medium.otf in Resources */,
+				2F6B3E5624716DFE00036828 /* shopping-basket.png in Resources */,
 				8815452E21BA6719007B8148 /* TopCell.xib in Resources */,
 				8852BF9E21B8FD42001F71BC /* ArbFONTS-GE_SS_Two_Bold.otf in Resources */,
 				8816D0BB21BE9E0300614CAE /* starmenu.png in Resources */,
 				8821F81521D3850700F454F8 /* wallet_plush_icon.png in Resources */,
 				88E6DC2121C909DB0002B8E2 /* Localizable.strings in Resources */,
 				884E0CAB21D4E9DD00F294F6 /* 3.Active.png in Resources */,
+				2F6B3E5724716DFE00036828 /* wallet.png in Resources */,
 				88063B0121BFC7B80093E074 /* Screenshot 2018-12-11 at 3.53.07 PM.png in Resources */,
+				2F6B3E5B24716E0600036828 /* 512_ V.png in Resources */,
 				880D6EBE21C788F500240CA2 /* smsred.png in Resources */,
 				88D009BA21C3E52A006960A4 /* sms.png in Resources */,
 				884E0CA321D4E9DD00F294F6 /* 9.Support.png in Resources */,
@@ -1263,10 +1419,13 @@
 				880D6EC021C788F500240CA2 /* callwhite.png in Resources */,
 				88D009B621C3E4FA006960A4 /* phone-receiver.png in Resources */,
 				880D6ECC21C7987800240CA2 /* CouponNearEndCell.xib in Resources */,
+				2F6B3E5D24716E0600036828 /* add-circular.png in Resources */,
 				88063AEC21BFBA750093E074 /* locked.png in Resources */,
 				88E1528321C4DAA70051DD92 /* mp4.png in Resources */,
 				88063AF821BFC0410093E074 /* ic_offer_icon.png in Resources */,
 				88063AE221BFA3EA0093E074 /* search (2).png in Resources */,
+				2F6B3E5C24716E0600036828 /* 512.png in Resources */,
+				2F6B3E6824716E3C00036828 /* riyal-currency-symbol.png in Resources */,
 				88063AFC21BFC2320093E074 /* ic_addcart_plush.png in Resources */,
 				8821F81F21D390C400F454F8 /* payment_type_csmada_icon.png in Resources */,
 				880D6EAA21C77F3F00240CA2 /* SideMenuCell.xib in Resources */,
@@ -1280,13 +1439,17 @@
 				88D009B721C3E4FA006960A4 /* facebook.png in Resources */,
 				8852BFAA21B925FF001F71BC /* user.png in Resources */,
 				88063AEE21BFBEB90093E074 /* currency.png in Resources */,
+				2F6B3E6B24716E3C00036828 /* riyalIcon.png in Resources */,
 				8821F81E21D390C400F454F8 /* paypal_icon.png in Resources */,
+				2F6B3E6324716E2700036828 /* hyperpay.png in Resources */,
+				2F6B3E6124716E1C00036828 /* edit-document.png in Resources */,
 				88B6DB2721CB6B370098C33D /* FavoriteBrandCell.xib in Resources */,
 				880E7F9D21C5080F00E74636 /* CouponCell.xib in Resources */,
 				8816D0B021BE7B2800614CAE /* FilterCell.xib in Resources */,
 				8815453221BA74E0007B8148 /* funnel.png in Resources */,
 				88063AE821BFB9FC0093E074 /* icon (1).png in Resources */,
 				886CD08821B8EFFB000B5B13 /* LaunchScreen.storyboard in Resources */,
+				2F6B3E31247131BF00036828 /* Resources.bundle in Resources */,
 				884E0CA221D4E9DD00F294F6 /* 7.Auction.png in Resources */,
 				8852BFA821B90DEF001F71BC /* left-arrow.png in Resources */,
 				880E7F9321C5050900E74636 /* Barcode.jpg in Resources */,
@@ -1304,6 +1467,7 @@
 				2F335EA72467F0670023B620 /* DeliveryModule.storyboard in Resources */,
 				8815454721BA9049007B8148 /* MailWhite.png in Resources */,
 				8816D09421BE698400614CAE /* FavoritesCell.xib in Resources */,
+				2F6B3E5F24716E1200036828 /* delete.png in Resources */,
 				880E7F8E21C4EAD100E74636 /* Coupon.png in Resources */,
 				8821F81D21D390C400F454F8 /* payment_visa_icon.png in Resources */,
 				88E1527521C4D6050051DD92 /* PaymentCell.xib in Resources */,
@@ -1312,6 +1476,7 @@
 				88E1528821C4DEE40051DD92 /* Doller.png in Resources */,
 				889EF18121E341FD008BBD4B /* camera red.png in Resources */,
 				8815453921BA7B25007B8148 /* star (1).png in Resources */,
+				2F6B3E6924716E3C00036828 /* new-file.png in Resources */,
 				8876C90E21D1097700E1F165 /* auction.png in Resources */,
 				880D6EDD21C7B37500240CA2 /* OprationlogCell.xib in Resources */,
 				8816D09621BE6A7400614CAE /* stayellow.png in Resources */,
@@ -1323,6 +1488,7 @@
 				88063ADD21BF91A50093E074 /* app_logo.png in Resources */,
 				884E0CB821D50FDC00F294F6 /* sidemenucall.png in Resources */,
 				884E0CAE21D4EC4800F294F6 /* menuIcon.png in Resources */,
+				2F6B3E37247131BF00036828 /* OPPWAMobile-Resources.bundle in Resources */,
 				8815454B21BA916F007B8148 /* mailred.png in Resources */,
 				88E1527821C4D6300051DD92 /* paypal.png in Resources */,
 				884E0CB021D5023700F294F6 /* mp4_icon.png in Resources */,
@@ -1431,11 +1597,14 @@
 				880D6EAD21C77F3F00240CA2 /* ChooseNavigationController.swift in Sources */,
 				880D6EAF21C77F3F00240CA2 /* SideMenuView.swift in Sources */,
 				88E1526D21C4CBCB0051DD92 /* PurchasedView.swift in Sources */,
+				2F6B3E38247131BF00036828 /* Config.swift in Sources */,
 				880D6EAC21C77F3F00240CA2 /* MainViewController.swift in Sources */,
+				2F6B3E5324716B8B00036828 /* InstructionView.swift in Sources */,
 				880D6EF421C7C60A00240CA2 /* MyAuctionView.swift in Sources */,
 				880D6EA721C77F3F00240CA2 /* LGSideMenuBorderView.m in Sources */,
 				880D6EF221C7C5EA00240CA2 /* OtherAuctionView.swift in Sources */,
 				8815453C21BA7DD1007B8148 /* DetailsCell.swift in Sources */,
+				2F6B3E1F24712ECA00036828 /* UpdateLocationViewController.swift in Sources */,
 				8816D09321BE698400614CAE /* FavoritesCell.swift in Sources */,
 				880E7FAB21C5263700E74636 /* UpdateCouponView.swift in Sources */,
 				886CD08021B8EF95000B5B13 /* ViewController.swift in Sources */,
@@ -1443,12 +1612,13 @@
 				8852BFB621B93656001F71BC /* LoginView.swift in Sources */,
 				880D6ECB21C7987800240CA2 /* CouponNearEndCell.swift in Sources */,
 				88E1527421C4D6050051DD92 /* PaymentCell.swift in Sources */,
-				2F335EAE24684CE10023B620 /* PlaceOrderVC.swift in Sources */,
 				8852BFAD21B93591001F71BC /* NewAccountView.swift in Sources */,
 				880D6EEC21C7C44A00240CA2 /* AuctionView.swift in Sources */,
+				2F6B3E1D24712ECA00036828 /* PaymentConfirmation.swift in Sources */,
 				880D6EE621C7C0FC00240CA2 /* ForAppView.swift in Sources */,
+				2F6B3E1E24712ECA00036828 /* PlaceOrderVC.swift in Sources */,
+				2F6B3E4A2471662400036828 /* ChangePasswordView.swift in Sources */,
 				880E7FA821C51CA900E74636 /* AddCouponView.swift in Sources */,
-				2F3EE278246B0C970066C50F /* HeaderCell.swift in Sources */,
 				884BE8D721D9FC31001E2085 /* Album.swift in Sources */,
 				880D6EA221C77F3F00240CA2 /* LGSideMenuView.m in Sources */,
 				8815452921BA66FA007B8148 /* HomeCell.swift in Sources */,
@@ -1457,71 +1627,81 @@
 				8816D09021BE685300614CAE /* FavoritesView.swift in Sources */,
 				8815452621BA65C7007B8148 /* HomeView.swift in Sources */,
 				880D6EE921C7C27900240CA2 /* TermsView.swift in Sources */,
+				2F6B3E5024716A1400036828 /* CardListView.swift in Sources */,
 				880D6ED921C7B21700240CA2 /* OprationlogView.swift in Sources */,
-				2F9E23E2246F8FD600C4CA40 /* Orders.swift in Sources */,
 				880E7FA521C50D2500E74636 /* BarcodeView.swift in Sources */,
 				880D6ED221C7AA0000240CA2 /* AlarmsView.swift in Sources */,
 				880E7F9C21C5080F00E74636 /* CouponCell.swift in Sources */,
 				880D6EB221C77F3F00240CA2 /* NavigationController.swift in Sources */,
 				880D6EDC21C7B37500240CA2 /* OprationlogCell.swift in Sources */,
 				880D6EF021C7C52500240CA2 /* ViewPagerController.m in Sources */,
-				2F9E23DD246F1F4400C4CA40 /* UpdateLocationViewController.swift in Sources */,
-				2FF5F01824672477007F7F9D /* AppLoader.swift in Sources */,
 				2F9E23DF246F8A2300C4CA40 /* LocationManager.swift in Sources */,
 				88E1527021C4CFFA0051DD92 /* PaymentView.swift in Sources */,
 				880E7F9921C5074E00E74636 /* CouponView.swift in Sources */,
 				880D6EE021C7B8C500240CA2 /* FeedbackView.swift in Sources */,
 				88E1527E21C4D8530051DD92 /* ReceivedCell.swift in Sources */,
+				2F6B3E1924712ECA00036828 /* HeaderCell.swift in Sources */,
 				880D6EAE21C77F3F00240CA2 /* SideMenuCell.swift in Sources */,
-				2F335EAB2467F1130023B620 /* StartScreenVC.swift in Sources */,
+				2F6B3E2624712F2B00036828 /* AppWebservice.swift in Sources */,
 				8852BFBC21B936C8001F71BC /* PersonalView.swift in Sources */,
 				8821F81121D369D800F454F8 /* ActiveVoucherView.swift in Sources */,
 				880D6ED521C7AA2100240CA2 /* AlarmsCell.swift in Sources */,
+				2F6B3E1824712ECA00036828 /* StartScreenVC.swift in Sources */,
+				2F6B3E34247131BF00036828 /* Request.swift in Sources */,
 				88B6992721DE248C00C9EF9A /* MGPScannerViewController.swift in Sources */,
-				2F335EB224684D1C0023B620 /* DeliveryScreenVC.swift in Sources */,
 				880D6EF721C7CDF700240CA2 /* OtherAuctionCell.swift in Sources */,
+				2F6B3E2024712ECA00036828 /* DeliveryDetailVC.swift in Sources */,
 				88B6DB2321CB6AD80098C33D /* FavoriteBrandView.swift in Sources */,
 				8816D0AF21BE7B2800614CAE /* FilterCell.swift in Sources */,
 				880D6EB021C77F3F00240CA2 /* RightViewController.swift in Sources */,
+				2F6B3E1C24712ECA00036828 /* DeliveryScreenVC.swift in Sources */,
 				880D6EA621C77F3F00240CA2 /* UIViewController+LGSideMenuController.m in Sources */,
-				2F335EB024684CEC0023B620 /* MyOrderVC.swift in Sources */,
 				880E7FB321C52F9100E74636 /* SendView.swift in Sources */,
 				880E7FB621C538E600E74636 /* AmountView.swift in Sources */,
 				880D6EA821C77F3F00240CA2 /* LeftViewController.swift in Sources */,
 				880D6EA121C77F3F00240CA2 /* LGSideMenuHelper.m in Sources */,
-				2FF5F01724672477007F7F9D /* AppWebservice.swift in Sources */,
 				884BE8D521D9FC31001E2085 /* Constants.swift in Sources */,
 				880D6EB321C77F3F00240CA2 /* MenuViewController.swift in Sources */,
 				880D6EE321C7BEAE00240CA2 /* GeneralView.swift in Sources */,
-				2F3EE27B246B0FAF0066C50F /* ItemCell.swift in Sources */,
 				880E7FAE21C52B9B00E74636 /* ReplacementView.swift in Sources */,
 				2F3EE275246B028F0066C50F /* AppView.swift in Sources */,
+				2F6B3E4D247167FD00036828 /* ExchangeView.swift in Sources */,
+				2F6B3E462471637800036828 /* ForgotView.swift in Sources */,
+				2F6B3E452471637800036828 /* VarifyPasswordView.swift in Sources */,
+				2F6B3E35247131BF00036828 /* Utils.swift in Sources */,
 				880D6EB121C77F3F00240CA2 /* LeftViewCell.swift in Sources */,
-				2F6B3E002470468400036828 /* OrderDetail.swift in Sources */,
 				880E7F9621C5068D00E74636 /* StarbucksCardView.swift in Sources */,
 				8815453521BA7804007B8148 /* DetailsView.swift in Sources */,
+				2F6B3E1724712ECA00036828 /* OrderDetail.swift in Sources */,
 				8852BF9921B8FD1C001F71BC /* ProjectUtility.swift in Sources */,
 				880E7FA021C5093500E74636 /* CouponDetailsView.swift in Sources */,
 				88DA2BCC21CD1BFE008EEDAB /* NSBundle+Language.m in Sources */,
+				2F6B3E472471637800036828 /* VarifyForgotView.swift in Sources */,
 				8852BFB321B9360D001F71BC /* RegisterView.swift in Sources */,
 				8852BFB921B936AC001F71BC /* VarifyLoginView.swift in Sources */,
+				2F6B3E32247131BF00036828 /* PTSRConstants.swift in Sources */,
 				8852BFB021B935D5001F71BC /* VarifyNewView.swift in Sources */,
 				884BE8D621D9FC31001E2085 /* DataService.swift in Sources */,
 				880D6EA421C77F3F00240CA2 /* LGSideMenuController.m in Sources */,
+				2F6B3E2724712F2B00036828 /* AppLoader.swift in Sources */,
 				880D6EC521C790FA00240CA2 /* FavoriteSellerView.swift in Sources */,
+				2F6B3E2124712ECA00036828 /* OrderCell.swift in Sources */,
 				88E1527B21C4D8110051DD92 /* ReceivedView.swift in Sources */,
+				2F6B3E1624712ECA00036828 /* Orders.swift in Sources */,
 				88E1528621C4DDB60051DD92 /* WalletView.swift in Sources */,
+				2F6B3E40247162C500036828 /* SearchView.swift in Sources */,
 				880D6EA521C77F3F00240CA2 /* LGSideMenuGesturesHandler.m in Sources */,
 				88B6DB2621CB6B370098C33D /* FavoriteBrandCell.swift in Sources */,
+				2F6B3E1B24712ECA00036828 /* ItemCell.swift in Sources */,
 				886CD07E21B8EF95000B5B13 /* AppDelegate.swift in Sources */,
+				2F6B3E3D24715BD000036828 /* PaymentMethodView.swift in Sources */,
 				8816D0AC21BE793300614CAE /* FlowLayout.m in Sources */,
-				2F335EB4246902BD0023B620 /* DeliveryDetailVC.swift in Sources */,
 				880D6EA321C77F3F00240CA2 /* LGSideMenuSegue.m in Sources */,
-				2F9437AE246A568A00C64570 /* OrderCell.swift in Sources */,
 				8815452D21BA6719007B8148 /* TopCell.swift in Sources */,
+				2F6B3E39247131BF00036828 /* payments.swift in Sources */,
+				2F6B3E1A24712ECA00036828 /* MyOrderVC.swift in Sources */,
 				880D6EC821C7983C00240CA2 /* CouponNearEndView.swift in Sources */,
 				880D6EAB21C77F3F00240CA2 /* RightViewCell.swift in Sources */,
-				2F6B3E0224710DF300036828 /* PaymentConfirmation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1690,14 +1870,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Yakrm/Yakrm.entitlements;
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MFPDYWP67B;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Yakrm",
+				);
 				INFOPLIST_FILE = Yakrm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.inforaam.Yakrm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Wild Card Profile";
@@ -1714,14 +1901,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Yakrm/Yakrm.entitlements;
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MFPDYWP67B;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Yakrm",
+				);
 				INFOPLIST_FILE = Yakrm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.inforaam.Yakrm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Wild Card Profile";

@@ -11,7 +11,7 @@
 import UIKit
 
 class FSPagerCollectionView: UICollectionView {
-    
+
     #if !os(tvOS)
     override var scrollsToTop: Bool {
         set {
@@ -22,12 +22,12 @@ class FSPagerCollectionView: UICollectionView {
         }
     }
     #endif
-    
+
     override var contentInset: UIEdgeInsets {
         set {
             super.contentInset = .zero
-            if (newValue.top > 0) {
-                let contentOffset = CGPoint(x:self.contentOffset.x, y:self.contentOffset.y+newValue.top);
+            if newValue.top > 0 {
+                let contentOffset = CGPoint(x: self.contentOffset.x, y: self.contentOffset.y+newValue.top)
                 self.contentOffset = contentOffset
             }
         }
@@ -35,17 +35,17 @@ class FSPagerCollectionView: UICollectionView {
             return super.contentInset
         }
     }
-    
+
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         self.commonInit()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.commonInit()
     }
-    
+
     fileprivate func commonInit() {
         self.contentInset = .zero
         self.decelerationRate = UIScrollView.DecelerationRate.fast
@@ -62,5 +62,5 @@ class FSPagerCollectionView: UICollectionView {
             self.isPagingEnabled = false
         #endif
     }
-    
+
 }

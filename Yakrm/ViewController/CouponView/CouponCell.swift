@@ -8,13 +8,12 @@
 
 import UIKit
 
-class CouponCell: UITableViewCell
-{
-    
+class CouponCell: UITableViewCell {
+
     @IBOutlet var imgProfile: UIImageView!
     @IBOutlet var lblName: UILabel!
     @IBOutlet var lblDetails: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,5 +24,5 @@ class CouponCell: UITableViewCell
 
         // Configure the view for the selected state
     }
-    
+
 }

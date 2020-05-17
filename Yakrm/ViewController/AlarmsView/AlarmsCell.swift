@@ -8,21 +8,18 @@
 
 import UIKit
 
-class AlarmsCell: UITableViewCell
-{
-    
+class AlarmsCell: UITableViewCell {
+
     @IBOutlet var imgProfile: UIImageView!
     @IBOutlet var lblName: UILabel!
     @IBOutlet var lblDetails: UILabel!
     @IBOutlet var lblDate: UILabel!
-    
+
     @IBOutlet var lblNew: UILabel!
     @IBOutlet var viewLine: UIView!
     @IBOutlet var btnDelete: UIButton!
-    
 
-    override func awakeFromNib()
-    {
+    override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
@@ -32,5 +29,5 @@ class AlarmsCell: UITableViewCell
 
         // Configure the view for the selected state
     }
-    
+
 }

@@ -170,8 +170,7 @@ extension String {
 
 extension String {
 
-    subscript (i: Int) -> String
-    {
+    subscript (i: Int) -> String {
         return self[i ..< i + 1]
 
 //        return self[Range(i ..< i + 1)]

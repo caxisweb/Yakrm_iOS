@@ -8,14 +8,12 @@
 
 import Foundation
 
-struct ApplicationXIBs
-{
+struct ApplicationXIBs {
     static let kPTSRLauncherView = "PTSRLauncherView"
-    
+
     static let kPTFWInitialSetupView = "PTFWInitialSetupView"
 }
 
-struct ApplicationResources
-{
+struct ApplicationResources {
     static let kFrameworkResourcesBundle = "Resources"
 }

@@ -36,7 +36,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "188"
             endingLineNumber = "188"
-            landmarkName = "getLoginAPI()"
+            landmarkName = "btnBack(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -52,7 +52,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "206"
             endingLineNumber = "206"
-            landmarkName = "getLoginAPI()"
+            landmarkName = "btnAllAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

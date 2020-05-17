@@ -9,15 +9,15 @@
 import Foundation
 
 internal extension Int {
-    func times(f: () -> ()) {
+    func times(f: () -> Void) {
         if self > 0 {
             for _ in 0..<self {
                 f()
             }
         }
     }
-    
-    func times( f: @autoclosure () -> ()) {
+
+    func times( f: @autoclosure () -> Void) {
         if self > 0 {
             for _ in 0..<self {
                 f()

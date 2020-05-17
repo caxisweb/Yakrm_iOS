@@ -8,11 +8,10 @@
 
 import UIKit
 
-class FilterCell: UICollectionViewCell
-{
-    
+class FilterCell: UICollectionViewCell {
+
     @IBOutlet var lblName: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

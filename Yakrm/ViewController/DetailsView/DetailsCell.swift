@@ -8,8 +8,7 @@
 
 import UIKit
 
-class DetailsCell: UITableViewCell
-{
+class DetailsCell: UITableViewCell {
 
     @IBOutlet var imgProfile: UIImageView!
     @IBOutlet var lblValue: UILabel!
@@ -17,7 +16,6 @@ class DetailsCell: UITableViewCell
     @IBOutlet var lblPay: UILabel!
     @IBOutlet var btnCart: UIButton!
 
-    
     @IBOutlet var lblCardName: UILabel!
     @IBOutlet var lblDisc: UILabel!
     var lefBubleConstraint: NSLayoutConstraint!
@@ -25,7 +23,6 @@ class DetailsCell: UITableViewCell
     var leftMessageLable: NSLayoutConstraint!
     var rightMessageLable: NSLayoutConstraint!
 
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.addSubview(imgProfile)
@@ -36,9 +33,8 @@ class DetailsCell: UITableViewCell
             [
                 self.imgProfile.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
                 self.imgProfile.heightAnchor.constraint(equalToConstant: 44),
-                self.imgProfile.widthAnchor.constraint(equalToConstant: 44),
+                self.imgProfile.widthAnchor.constraint(equalToConstant: 44)
 
-               
             ]
         )
 
@@ -58,5 +54,5 @@ class DetailsCell: UITableViewCell
 
         // Configure the view for the selected state
     }
-    
+
 }

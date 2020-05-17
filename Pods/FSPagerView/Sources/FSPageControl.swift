@@ -10,7 +10,7 @@ import UIKit
 
 @IBDesignable
 open class FSPageControl: UIControl {
-    
+
     /// The number of page indicators of the page control. Default is 0.
     @IBInspectable
     open var numberOfPages: Int = 0 {
@@ -18,7 +18,7 @@ open class FSPageControl: UIControl {
             self.setNeedsCreateIndicators()
         }
     }
-    
+
     /// The current page, highlighted by the page control. Default is 0.
     @IBInspectable
     open var currentPage: Int = 0 {
@@ -26,7 +26,7 @@ open class FSPageControl: UIControl {
             self.setNeedsUpdateIndicators()
         }
     }
-    
+
     /// The spacing to use of page indicators in the page control.
     @IBInspectable
     open var itemSpacing: CGFloat = 6 {
@@ -34,7 +34,7 @@ open class FSPageControl: UIControl {
             self.setNeedsUpdateIndicators()
         }
     }
-    
+
     /// The spacing to use between page indicators in the page control.
     @IBInspectable
     open var interitemSpacing: CGFloat = 6 {
@@ -42,7 +42,7 @@ open class FSPageControl: UIControl {
             self.setNeedsLayout()
         }
     }
-    
+
     /// The distance that the page indicators is inset from the enclosing page control.
     @IBInspectable
     open var contentInsets: UIEdgeInsets = .zero {
@@ -50,14 +50,14 @@ open class FSPageControl: UIControl {
             self.setNeedsLayout()
         }
     }
-    
+
     /// The horizontal alignment of content within the control’s bounds. Default is center.
     open override var contentHorizontalAlignment: UIControl.ContentHorizontalAlignment {
         didSet {
             self.setNeedsLayout()
         }
     }
-    
+
     /// Hide the indicator if there is only one page. default is NO
     @IBInspectable
     open var hidesForSinglePage: Bool = false {
@@ -65,30 +65,30 @@ open class FSPageControl: UIControl {
             self.setNeedsUpdateIndicators()
         }
     }
-    
+
     internal var strokeColors: [UIControl.State: UIColor] = [:]
     internal var fillColors: [UIControl.State: UIColor] = [:]
     internal var paths: [UIControl.State: UIBezierPath] = [:]
     internal var images: [UIControl.State: UIImage] = [:]
     internal var alphas: [UIControl.State: CGFloat] = [:]
     internal var transforms: [UIControl.State: CGAffineTransform] = [:]
-    
+
     fileprivate weak var contentView: UIView!
-    
+
     fileprivate var needsUpdateIndicators = false
     fileprivate var needsCreateIndicators = false
     fileprivate var indicatorLayers = [CAShapeLayer]()
-    
+
     public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
-    
+
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }
-    
+
     open override func layoutSubviews() {
         super.layoutSubviews()
         self.contentView.frame = {
@@ -100,10 +100,10 @@ open class FSPageControl: UIControl {
             return frame
         }()
     }
-    
+
     open override func layoutSublayers(of layer: CALayer) {
         super.layoutSublayers(of: layer)
-        
+
         let diameter = self.itemSpacing
         let spacing = self.interitemSpacing
         var x: CGFloat = {
@@ -121,7 +121,7 @@ open class FSPageControl: UIControl {
                 return 0
             }
         }()
-        for (index,value) in self.indicatorLayers.enumerated() {
+        for (index, value) in self.indicatorLayers.enumerated() {
             let state: UIControl.State = (index == self.currentPage) ? .selected : .normal
             let image = self.images[state]
             let size = image?.size ?? CGSize(width: diameter, height: diameter)
@@ -129,9 +129,9 @@ open class FSPageControl: UIControl {
             value.frame = CGRect(origin: origin, size: size)
             x = x + spacing + diameter
         }
-        
+
     }
-    
+
     /// Sets the stroke color for page indicators to use for the specified state. (selected/normal).
     ///
     /// - Parameters:
@@ -145,7 +145,7 @@ open class FSPageControl: UIControl {
         self.strokeColors[state] = strokeColor
         self.setNeedsUpdateIndicators()
     }
-    
+
     /// Sets the fill color for page indicators to use for the specified state. (selected/normal).
     ///
     /// - Parameters:
@@ -159,7 +159,7 @@ open class FSPageControl: UIControl {
         self.fillColors[state] = fillColor
         self.setNeedsUpdateIndicators()
     }
-    
+
     /// Sets the image for page indicators to use for the specified state. (selected/normal).
     ///
     /// - Parameters:
@@ -173,9 +173,9 @@ open class FSPageControl: UIControl {
         self.images[state] = image
         self.setNeedsUpdateIndicators()
     }
-    
+
     @objc(setAlpha:forState:)
-    
+
     /// Sets the alpha value for page indicators to use for the specified state. (selected/normal).
     ///
     /// - Parameters:
@@ -188,7 +188,7 @@ open class FSPageControl: UIControl {
         self.alphas[state] = alpha
         self.setNeedsUpdateIndicators()
     }
-    
+
     /// Sets the path for page indicators to use for the specified state. (selected/normal).
     ///
     /// - Parameters:
@@ -202,20 +202,20 @@ open class FSPageControl: UIControl {
         self.paths[state] = path
         self.setNeedsUpdateIndicators()
     }
-    
+
     // MARK: - Private functions
-    
+
     fileprivate func commonInit() {
-        
+
         // Content View
         let view = UIView(frame: .zero)
         view.backgroundColor = UIColor.clear
         self.addSubview(view)
         self.contentView = view
         self.isUserInteractionEnabled = false
-        
+
     }
-    
+
     fileprivate func setNeedsUpdateIndicators() {
         self.needsUpdateIndicators = true
         self.setNeedsLayout()
@@ -223,7 +223,7 @@ open class FSPageControl: UIControl {
             self.updateIndicatorsIfNecessary()
         }
     }
-    
+
     fileprivate func updateIndicatorsIfNecessary() {
         guard self.needsUpdateIndicators else {
             return
@@ -240,7 +240,7 @@ open class FSPageControl: UIControl {
             }
         }
     }
-    
+
     fileprivate func updateIndicatorAttributes(for layer: CAShapeLayer) {
         let index = self.indicatorLayers.firstIndex(of: layer)
         let state: UIControl.State = index == self.currentPage ? .selected : .normal
@@ -267,14 +267,14 @@ open class FSPageControl: UIControl {
         }
         layer.opacity = Float(self.alphas[state] ?? 1.0)
     }
-    
+
     fileprivate func setNeedsCreateIndicators() {
         self.needsCreateIndicators = true
         DispatchQueue.main.async {
             self.createIndicatorsIfNecessary()
         }
     }
-    
+
     fileprivate func createIndicatorsIfNecessary() {
         guard self.needsCreateIndicators else {
             return
@@ -299,7 +299,7 @@ open class FSPageControl: UIControl {
         self.updateIndicatorsIfNecessary()
         CATransaction.commit()
     }
-    
+
 }
 
 extension UIControl.State: Hashable {
@@ -307,4 +307,3 @@ extension UIControl.State: Hashable {
         return Int((6777*self.rawValue+3777)%UInt(UInt16.max))
     }
 }
-

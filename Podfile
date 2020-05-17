@@ -31,5 +31,17 @@ target 'Yakrm' do
   pod 'GooglePlaces'
 
 
+  pod 'Localize-Swift'
+
+  pod 'BIObjCHelpers'
+  pod 'AFNetworking'
+  pod 'Mantle'
+  pod 'Reachability'
+  pod 'SDWebImage'
+  pod 'DGActivityIndicatorView'
+  pod 'Lockbox'
+  pod 'YLGIFImage'
+  pod 'SBJson'
+  pod 'PINCache'
 
 end

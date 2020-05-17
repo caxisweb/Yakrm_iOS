@@ -61,7 +61,7 @@ open class ZoomAnimatedTransitioningDelegate: NSObject, UIViewControllerTransiti
         UIApplication.shared.keyWindow?.addGestureRecognizer(gestureRecognizer)
     }
 
-    @objc func handleSwipe(_ gesture: UIPanGestureRecognizer) {
+    func handleSwipe(_ gesture: UIPanGestureRecognizer) {
         guard let referenceSlideshowController = referenceSlideshowController else {
             return
         }
@@ -199,7 +199,6 @@ class ZoomInAnimator: ZoomAnimator, UIViewControllerAnimatedTransitioning {
         containerView.sendSubview(toBack: transitionBackgroundView)
         #endif
 
-        
         let finalFrame = toViewController.view.frame
 
         var transitionView: UIImageView?
@@ -225,7 +224,7 @@ class ZoomInAnimator: ZoomAnimator, UIViewControllerAnimatedTransitioning {
 
         let duration: TimeInterval = transitionDuration(using: transitionContext)
 
-        UIView.animate(withDuration: duration, delay:0, usingSpringWithDamping:0.7, initialSpringVelocity:0, options: UIViewAnimationOptions.curveLinear, animations: {
+        UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
             fromViewController.view.alpha = 0
             transitionView?.frame = transitionViewFinalFrame
             transitionView?.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
@@ -254,7 +253,7 @@ class ZoomOutAnimator: ZoomAnimator, UIViewControllerAnimatedTransitioning {
         if let animatorForCurrentSession = animatorForCurrentTransition {
             return animatorForCurrentSession
         }
-        
+
         let params = animationParams(using: transitionContext)
 
         let animator = UIViewPropertyAnimator(duration: params.0, curve: .linear, animations: params.1)
@@ -264,7 +263,7 @@ class ZoomOutAnimator: ZoomAnimator, UIViewControllerAnimatedTransitioning {
         return animator
     }
 
-    private func animationParams(using transitionContext: UIViewControllerContextTransitioning) -> (TimeInterval, () -> (), (Any) -> ()) {
+    private func animationParams(using transitionContext: UIViewControllerContextTransitioning) -> (TimeInterval, () -> Void, (Any) -> Void) {
         let toViewController: UIViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
 
         guard let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as? FullScreenSlideshowViewController else {

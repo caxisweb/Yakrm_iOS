@@ -11,77 +11,66 @@ import MessageUI
 import SafariServices
 import Social
 
+@available(iOS 11.0, *)
+@available(iOS 11.0, *)
+@available(iOS 11.0, *)
+class SideMenuView: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate, SFSafariViewControllerDelegate, MFMessageComposeViewControllerDelegate {
+    // MARK: - Outlet
 
-@available(iOS 11.0, *)
-@available(iOS 11.0, *)
-@available(iOS 11.0, *)
-class SideMenuView: UIViewController,UITableViewDelegate,UITableViewDataSource, MFMailComposeViewControllerDelegate,SFSafariViewControllerDelegate,MFMessageComposeViewControllerDelegate
-{
-    //MARK:- Outlet
-    
-    
-    @IBOutlet var tblMenuOptions : UITableView!
-    var arrayMenuOptions = [Dictionary<String,String>]()
+    @IBOutlet var tblMenuOptions: UITableView!
+    var arrayMenuOptions = [[String: String]]()
     var cell = SideMenuCell()
-    
+
     var row = Int()
     var app = AppDelegate()
-    
+
     var strShareURL = "https://itunes.apple.com/us/app/"
 
-    //MARK:-
-    override func viewDidLoad()
-    {
+    // MARK: -
+    override func viewDidLoad() {
         super.viewDidLoad()
         app = UIApplication.shared.delegate as! AppDelegate
-        
+
         self.navigationController?.isNavigationBarHidden = true
-        
-        if self.app.defaults.string(forKey: "selectedLanguagebool") != nil
-        {
+
+        if self.app.defaults.string(forKey: "selectedLanguagebool") != nil {
             self.app.isEnglish = (self.app.defaults.value(forKey: "selectedLanguagebool") as! Bool)
         }
-        
-        if DeviceType.IS_IPHONE_X || DeviceType.IS_IPHONE_XR
-        {
+
+        if DeviceType.IS_IPHONE_X || DeviceType.IS_IPHONE_XR {
             let vv = UIView()
             vv.backgroundColor = UIColor(rgb: 0xD93454)//UIColor.red
             vv.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 24)
             self.view.addSubview(vv)
         }
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(self.showCartView(_:)), name: NSNotification.Name(rawValue: "SidemenuView"), object: nil)
 
         self.updateArrayMenuOptions()
     }
-    
-    @objc func showCartView(_ notification: NSNotification)
-    {
+
+    @objc func showCartView(_ notification: NSNotification) {
         self.updateArrayMenuOptions()
     }
 
-    func updateArrayMenuOptions()
-    {
+    func updateArrayMenuOptions() {
         self.arrayMenuOptions.removeAll()
-        
-        self.arrayMenuOptions.append(["title":"Main Page".localized, "icon":"1.Main.png"])
-        self.arrayMenuOptions.append(["title":"My Personal Account".localized, "icon":"2.myProfile.png"])
-        self.arrayMenuOptions.append(["title":"Active Vouchers".localized, "icon":"3.Active.png"])
-        self.arrayMenuOptions.append(["title":"Favorite Vouchers".localized, "icon":"4.Favorite.png"])
+
+        self.arrayMenuOptions.append(["title": "Main Page".localized, "icon": "1.Main.png"])
+        self.arrayMenuOptions.append(["title": "My Personal Account".localized, "icon": "2.myProfile.png"])
+        self.arrayMenuOptions.append(["title": "Active Vouchers".localized, "icon": "3.Active.png"])
+        self.arrayMenuOptions.append(["title": "Favorite Vouchers".localized, "icon": "4.Favorite.png"])
 //        self.arrayMenuOptions.append(["title":"Best Brands".localized, "icon":"5.Best.png"])
-        self.arrayMenuOptions.append(["title":"Transactions Record".localized, "icon":"6.Transaction.png"])
+        self.arrayMenuOptions.append(["title": "Transactions Record".localized, "icon": "6.Transaction.png"])
 //        self.arrayMenuOptions.append(["title":"Auctions".localized, "icon":"7.Auction.png"])
-        self.arrayMenuOptions.append(["title":"Payment Methods".localized, "icon":"8.Payment.png"])
-        self.arrayMenuOptions.append(["title":"Support And Contact".localized, "icon":"9.Support.png"])
-        self.arrayMenuOptions.append(["title":"About The Application".localized, "icon":"10.About.png"])
-        self.arrayMenuOptions.append(["title":"Instructions And Conditions".localized, "icon":"11.Instruction.png"])
-        if self.app.strUserID.isEmpty
-        {
-            self.arrayMenuOptions.append(["title":"Sign Up/Log In".localized, "icon":"12.SignOut.png"])
-        }
-        else
-        {
-            self.arrayMenuOptions.append(["title":"Sign Out".localized, "icon":"12.SignOut.png"])
+        self.arrayMenuOptions.append(["title": "Payment Methods".localized, "icon": "8.Payment.png"])
+        self.arrayMenuOptions.append(["title": "Support And Contact".localized, "icon": "9.Support.png"])
+        self.arrayMenuOptions.append(["title": "About The Application".localized, "icon": "10.About.png"])
+        self.arrayMenuOptions.append(["title": "Instructions And Conditions".localized, "icon": "11.Instruction.png"])
+        if self.app.strUserID.isEmpty {
+            self.arrayMenuOptions.append(["title": "Sign Up/Log In".localized, "icon": "12.SignOut.png"])
+        } else {
+            self.arrayMenuOptions.append(["title": "Sign Out".localized, "icon": "12.SignOut.png"])
         }
 //        if self.app.isEnglish
 //        {
@@ -89,10 +78,10 @@ class SideMenuView: UIViewController,UITableViewDelegate,UITableViewDataSource, 
 //        }
 //        else
 //        {
-        self.arrayMenuOptions.append(["title":"English Version".localized, "icon":"13.Language.png"])
+        self.arrayMenuOptions.append(["title": "English Version".localized, "icon": "13.Language.png"])
 //        }
-        self.arrayMenuOptions.append(["title":"Share With Your Friends".localized, "icon":"user"])
-        
+        self.arrayMenuOptions.append(["title": "Share With Your Friends".localized, "icon": "user"])
+
         self.tblMenuOptions.delegate = self
         self.tblMenuOptions.dataSource = self
         self.tblMenuOptions.separatorStyle = .none
@@ -101,213 +90,160 @@ class SideMenuView: UIViewController,UITableViewDelegate,UITableViewDataSource, 
 
     }
 
-    //MARK:- TablView Methods
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+    // MARK: - TablView Methods
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayMenuOptions.count
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        var cell : SideMenuCell!
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell: SideMenuCell!
         cell = tableView.dequeueReusableCell(withIdentifier: "SideMenuCell") as! SideMenuCell?
-        
-        if cell == nil
-        {
-            if indexPath.row == 0
-            {
+
+        if cell == nil {
+            if indexPath.row == 0 {
                 cell = Bundle.main.loadNibNamed("SideMenuCell", owner: self, options: nil)?[0] as! SideMenuCell
-            }
-            else if indexPath.row == self.arrayMenuOptions.count - 1
-            {
+            } else if indexPath.row == self.arrayMenuOptions.count - 1 {
                 cell = Bundle.main.loadNibNamed("SideMenuCell", owner: self, options: nil)?[2] as! SideMenuCell
-                
-                if DeviceType.IS_IPHONE_5
-                {
-                    cell.btnMail.frame = CGRect(x:cell.btnMail.frame.origin.x, y: cell.btnMail.frame.origin.y, width:30, height: 30)
-                    cell.btnSMS.frame = CGRect(x:cell.btnSMS.frame.origin.x, y: cell.btnSMS.frame.origin.y, width:30, height: 30)
-                    cell.btnUser.frame = CGRect(x:cell.btnUser.frame.origin.x, y: cell.btnUser.frame.origin.y, width:30, height: 30)
-                    cell.btnTwitter.frame = CGRect(x:cell.btnTwitter.frame.origin.x, y: cell.btnTwitter.frame.origin.y, width:30, height: 30)
-                    cell.btnFB.frame = CGRect(x:cell.btnFB.frame.origin.x, y: cell.btnFB.frame.origin.y, width:30, height: 30)
-                    
-                    cell.btnCall.frame = CGRect(x:cell.btnCall.frame.origin.x, y:
-                        15, width:30, height: 30)
+
+                if DeviceType.IS_IPHONE_5 {
+                    cell.btnMail.frame = CGRect(x: cell.btnMail.frame.origin.x, y: cell.btnMail.frame.origin.y, width: 30, height: 30)
+                    cell.btnSMS.frame = CGRect(x: cell.btnSMS.frame.origin.x, y: cell.btnSMS.frame.origin.y, width: 30, height: 30)
+                    cell.btnUser.frame = CGRect(x: cell.btnUser.frame.origin.x, y: cell.btnUser.frame.origin.y, width: 30, height: 30)
+                    cell.btnTwitter.frame = CGRect(x: cell.btnTwitter.frame.origin.x, y: cell.btnTwitter.frame.origin.y, width: 30, height: 30)
+                    cell.btnFB.frame = CGRect(x: cell.btnFB.frame.origin.x, y: cell.btnFB.frame.origin.y, width: 30, height: 30)
+
+                    cell.btnCall.frame = CGRect(x: cell.btnCall.frame.origin.x, y:
+                        15, width: 30, height: 30)
                 }
-                
+
                 cell.btnMail.layer.cornerRadius = cell.btnMail.frame.size.height / 2
                 cell.btnSMS.layer.cornerRadius = cell.btnMail.frame.size.height / 2
                 cell.btnUser.layer.cornerRadius = cell.btnMail.frame.size.height / 2
                 cell.btnTwitter.layer.cornerRadius = cell.btnMail.frame.size.height / 2
                 cell.btnFB.layer.cornerRadius = cell.btnMail.frame.size.height / 2
 
-                cell.btnMail.addTarget(self, action:#selector(self.buttonClicked), for: .touchUpInside)
-                cell.btnSMS.addTarget(self, action:#selector(self.buttonClicked), for: .touchUpInside)
-                cell.btnCall.addTarget(self, action:#selector(self.buttonClicked), for: .touchUpInside)
-                cell.btnUser.addTarget(self, action:#selector(self.buttonClicked), for: .touchUpInside)
-                cell.btnTwitter.addTarget(self, action:#selector(self.buttonClicked), for: .touchUpInside)
-                cell.btnFB.addTarget(self, action:#selector(self.buttonClicked), for: .touchUpInside)
-            }
-            else
-            {
+                cell.btnMail.addTarget(self, action: #selector(self.buttonClicked), for: .touchUpInside)
+                cell.btnSMS.addTarget(self, action: #selector(self.buttonClicked), for: .touchUpInside)
+                cell.btnCall.addTarget(self, action: #selector(self.buttonClicked), for: .touchUpInside)
+                cell.btnUser.addTarget(self, action: #selector(self.buttonClicked), for: .touchUpInside)
+                cell.btnTwitter.addTarget(self, action: #selector(self.buttonClicked), for: .touchUpInside)
+                cell.btnFB.addTarget(self, action: #selector(self.buttonClicked), for: .touchUpInside)
+            } else {
                 cell = Bundle.main.loadNibNamed("SideMenuCell", owner: self, options: nil)?[1] as! SideMenuCell
             }
         }
-        let img : UIImage = UIImage(named: arrayMenuOptions[indexPath.row]["icon"]!)!
+        let img: UIImage = UIImage(named: arrayMenuOptions[indexPath.row]["icon"]!)!
         cell.lblName.text = arrayMenuOptions[indexPath.row]["title"]!
-        
-        if self.app.isEnglish
-        {
+
+        if self.app.isEnglish {
             cell.lblName.textAlignment = .left
-        }
-        else
-        {
+        } else {
             cell.lblName.textAlignment = .right
         }
-        if indexPath.row == self.arrayMenuOptions.count - 1
-        {
-            if DeviceType.IS_IPHONE_5
-            {
+        if indexPath.row == self.arrayMenuOptions.count - 1 {
+            if DeviceType.IS_IPHONE_5 {
                 cell.lblName.font = cell.lblName.font.withSize(14)
             }
             cell.lblName.textAlignment = .center
-        }
-        else
-        {
+        } else {
             cell.imgSidebaar.image = img//.maskWithColor(color: UIColor.white)
             cell.imgSidebaar.clipsToBounds = true
 
-            if DeviceType.IS_IPHONE_5
-            {
+            if DeviceType.IS_IPHONE_5 {
                 cell.lblName.font = cell.lblName.font.withSize(12)
             }
         }
 
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.init(rgb: 0xEE4158)//DF1C4E)
-        
+
         tblMenuOptions.rowHeight = cell.frame.size.height
         return cell
     }
-    
-    @objc func buttonClicked(sender : UIButton)
-    {
-        if sender.tag == 1
-        {
+
+    @objc func buttonClicked(sender: UIButton) {
+        if sender.tag == 1 {
             let mailComposeViewController = configuredMailComposeViewController()
-            if MFMailComposeViewController.canSendMail()
-            {
+            if MFMailComposeViewController.canSendMail() {
                 self.present(mailComposeViewController, animated: true, completion: nil)
             }
-        }
-        else if sender.tag == 2
-        {
-            if (MFMessageComposeViewController.canSendText())
-            {
+        } else if sender.tag == 2 {
+            if MFMessageComposeViewController.canSendText() {
                 let controller = MFMessageComposeViewController()
                 controller.body = self.strShareURL
                 controller.recipients = [""]
                 controller.messageComposeDelegate = self
                 self.present(controller, animated: true, completion: nil)
-            }
-            else
-            {
+            } else {
                 self.AlertAction(strTitle: "Error Accessing SMS")
             }
-        }
-        else if sender.tag == 3
-        {
+        } else if sender.tag == 3 {
             self.ShareApp()
-        }
-        else if sender.tag == 4
-        {
+        } else if sender.tag == 4 {
             var urlWhats = "whatsapp://send?text=\(self.strShareURL)"
             urlWhats = urlWhats.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
-            if UIApplication.shared.canOpenURL(URL(string:urlWhats)!)
-            {
-                UIApplication.shared.open(URL(string:urlWhats)!, options: [:]) { (success) in
-                    if success
-                    {
+            if UIApplication.shared.canOpenURL(URL(string: urlWhats)!) {
+                UIApplication.shared.open(URL(string: urlWhats)!, options: [:]) { (success) in
+                    if success {
                         print("WhatsApp accessed successfully")
-                    }
-                    else
-                    {
+                    } else {
                         print("Error accessing WhatsApp")
                         self.AlertAction(strTitle: "Error Accessing WhatsApp")
                     }
                 }
             }
-        }
-        else if sender.tag == 5
-        {
+        } else if sender.tag == 5 {
             self.TwitterShare()
-        }
-        else
-        {
+        } else {
             self.FBShare()
         }
 //        print("\(sender.tag)")
     }
-    
-    func AlertAction(strTitle : String)
-    {
+
+    func AlertAction(strTitle: String) {
         let alertController = UIAlertController(title: "Yakrm", message: strTitle, preferredStyle: .alert)
-        
-        let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (_: UIAlertAction!) in
             print("you have pressed OK button")
         }
         alertController.addAction(OKAction)
-        
-        self.present(alertController, animated: true, completion:nil)
+
+        self.present(alertController, animated: true, completion: nil)
     }
-  
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.row = indexPath.row
         let mainViewController = sideMenuController!
-        let row : Int = indexPath.row
-        
-        if row == 0
-        {
+        let row: Int = indexPath.row
+
+        if row == 0 {
             mainViewController.hideLeftViewAnimated()
-        }
-        else if row == 1
-        {
-            if self.app.strUserID.isEmpty
-            {
+        } else if row == 1 {
+            if self.app.strUserID.isEmpty {
                 self.gotoViewcontroler()
-            }
-            else
-            {
+            } else {
                 let VC = self.storyboard?.instantiateViewController(withIdentifier: "PersonalView") as! PersonalView
-                
+
                 let navigationController = mainViewController.rootViewController as! NavigationController
                 navigationController.pushViewController(VC, animated: true)
-                
+
                 mainViewController.hideLeftView(animated: true, completionHandler: nil)
             }
-        }
-        else if row == 2
-        {
-            if self.app.strUserID.isEmpty
-            {
+        } else if row == 2 {
+            if self.app.strUserID.isEmpty {
                 self.gotoViewcontroler()
-            }
-            else
-            {
+            } else {
             let VC = self.storyboard?.instantiateViewController(withIdentifier: "ActiveVoucherView") as! ActiveVoucherView
 
             let navigationController = mainViewController.rootViewController as! NavigationController
             navigationController.pushViewController(VC, animated: true)
-            
+
                 mainViewController.hideLeftView(animated: true, completionHandler: nil)
-                
+
             }
-        }
-        else if row == 3
-        {
-            if self.app.strUserID.isEmpty
-            {
+        } else if row == 3 {
+            if self.app.strUserID.isEmpty {
                 self.gotoViewcontroler()
 //                let VC = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
 //
@@ -315,14 +251,12 @@ class SideMenuView: UIViewController,UITableViewDelegate,UITableViewDataSource, 
 //                navigationController.pushViewController(VC, animated: true)
 //
 //                mainViewController.hideLeftView(animated: true, completionHandler: nil)
-            }
-            else
-            {
+            } else {
             let VC = self.storyboard?.instantiateViewController(withIdentifier: "FavoritesView") as! FavoritesView
 
             let navigationController = mainViewController.rootViewController as! NavigationController
             navigationController.pushViewController(VC, animated: true)
-            
+
             mainViewController.hideLeftView(animated: true, completionHandler: nil)
             }
         }
@@ -350,8 +284,7 @@ class SideMenuView: UIViewController,UITableViewDelegate,UITableViewDataSource, 
 //        }
         else if row == 4//5
         {
-            if self.app.strUserID.isEmpty
-            {
+            if self.app.strUserID.isEmpty {
                 self.gotoViewcontroler()
 //                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
 //
@@ -361,9 +294,7 @@ class SideMenuView: UIViewController,UITableViewDelegate,UITableViewDataSource, 
 //                navigationController.pushViewController(VC, animated: true)
 //
 //                mainViewController.hideLeftView(animated: true, completionHandler: nil)
-            }
-            else
-            {
+            } else {
             let VC = self.storyboard?.instantiateViewController(withIdentifier: "OprationlogView") as! OprationlogView
 
             let navigationController = mainViewController.rootViewController as! NavigationController
@@ -384,8 +315,7 @@ class SideMenuView: UIViewController,UITableViewDelegate,UITableViewDataSource, 
 //        }
         else if row == 5//7
         {
-            if self.app.strUserID.isEmpty
-            {
+            if self.app.strUserID.isEmpty {
                 self.gotoViewcontroler()
 //                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
 //
@@ -395,22 +325,18 @@ class SideMenuView: UIViewController,UITableViewDelegate,UITableViewDataSource, 
 //                navigationController.pushViewController(VC, animated: true)
 //
 //                mainViewController.hideLeftView(animated: true, completionHandler: nil)
-            }
-            else
-            {
+            } else {
 //                let VC = self.storyboard?.instantiateViewController(withIdentifier: "PaymentMethodView") as! PaymentMethodView
                 let VC = self.storyboard?.instantiateViewController(withIdentifier: "CardListView") as! CardListView
 
                 let navigationController = mainViewController.rootViewController as! NavigationController
                 navigationController.pushViewController(VC, animated: true)
-                
+
                 mainViewController.hideLeftView(animated: true, completionHandler: nil)
             }
-        }
-        else if row == 6//8
+        } else if row == 6//8
         {
-            if self.app.strUserID.isEmpty
-            {
+            if self.app.strUserID.isEmpty {
                 self.gotoViewcontroler()
 //                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
 //
@@ -420,39 +346,32 @@ class SideMenuView: UIViewController,UITableViewDelegate,UITableViewDataSource, 
 //                navigationController.pushViewController(VC, animated: true)
 //
 //                mainViewController.hideLeftView(animated: true, completionHandler: nil)
-            }
-            else
-            {
+            } else {
                 let VC = self.storyboard?.instantiateViewController(withIdentifier: "FeedbackView") as! FeedbackView
-                
+
                 let navigationController = mainViewController.rootViewController as! NavigationController
                 navigationController.pushViewController(VC, animated: true)
-                
+
                 mainViewController.hideLeftView(animated: true, completionHandler: nil)
             }
-        }
-        else if row == 7//9
+        } else if row == 7//9
         {
             let VC = self.storyboard?.instantiateViewController(withIdentifier: "GeneralView") as! GeneralView
-            
+
             let navigationController = mainViewController.rootViewController as! NavigationController
             navigationController.pushViewController(VC, animated: true)
-            
+
             mainViewController.hideLeftView(animated: true, completionHandler: nil)
-        }
-        else if row == 8
-        {
+        } else if row == 8 {
             let VC = self.storyboard?.instantiateViewController(withIdentifier: "InstructionView") as! InstructionView
-            
+
             let navigationController = mainViewController.rootViewController as! NavigationController
             navigationController.pushViewController(VC, animated: true)
-            
+
             mainViewController.hideLeftView(animated: true, completionHandler: nil)
-        }
-        else if row == 9//11
+        } else if row == 9//11
         {
-            if self.app.strUserID.isEmpty
-            {
+            if self.app.strUserID.isEmpty {
                 self.gotoViewcontroler()
 //                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
 //
@@ -462,17 +381,15 @@ class SideMenuView: UIViewController,UITableViewDelegate,UITableViewDataSource, 
 //                navigationController.pushViewController(VC, animated: true)
 //
 //                mainViewController.hideLeftView(animated: true, completionHandler: nil)
-            }
-            else
-            {
+            } else {
                 let alertController = UIAlertController(title: "Are you sure You want to Logout ?", message: nil, preferredStyle: .alert)
 
-                let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (action:UIAlertAction!) in
+                let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (_: UIAlertAction!) in
                     print("you have pressed the Cancel button")
                 }
                 alertController.addAction(cancelAction)
-                
-                let OKAction = UIAlertAction(title: "Logout", style: .destructive) { (action:UIAlertAction!) in
+
+                let OKAction = UIAlertAction(title: "Logout", style: .destructive) { (_: UIAlertAction!) in
                     print("you have pressed OK button")
                     UIApplication.shared.cancelAllLocalNotifications()
 
@@ -482,31 +399,27 @@ class SideMenuView: UIViewController,UITableViewDelegate,UITableViewDataSource, 
                     self.app.defaults.removeObject(forKey: "user_id")
                     self.app.defaults.removeObject(forKey: "isCartAdded")
                     self.app.defaults.synchronize()
-                    
+
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
 
                     let VC = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-                    
+
                     let navigationController = mainViewController.rootViewController as! NavigationController
                     navigationController.pushViewController(VC, animated: true)
-                    
+
                     mainViewController.hideLeftView(animated: true, completionHandler: nil)
-                    
+
                 }
                 alertController.addAction(OKAction)
-                
-                self.present(alertController, animated: true, completion:nil)
+
+                self.present(alertController, animated: true, completion: nil)
             }
-        }
-        else if row == 10//12
+        } else if row == 10//12
         {
-            if self.app.strLanguage == "ar"
-            {
+            if self.app.strLanguage == "ar" {
                 self.app.strLanguage = "en"
                 self.app.isEnglish = true
-            }
-            else
-            {
+            } else {
                 self.app.strLanguage = "ar"
                 self.app.isEnglish = false
             }
@@ -514,7 +427,7 @@ class SideMenuView: UIViewController,UITableViewDelegate,UITableViewDataSource, 
             self.app.defaults.setValue(self.app.isEnglish, forKey: "selectedLanguagebool")
             self.app.defaults.synchronize()
             sideMenuController?.hideLeftViewAnimated()
-            
+
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
 
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LANGUAGE_WILL_CHANGE"), object: self.app.strLanguage)
@@ -525,33 +438,31 @@ class SideMenuView: UIViewController,UITableViewDelegate,UITableViewDataSource, 
             let mainViewController = storyboard.instantiateInitialViewController() as! MainViewController
             mainViewController.rootViewController = navigationController
             mainViewController.setup(type: UInt(2))
-            
+
             let window = UIApplication.shared.delegate!.window!!
             window.rootViewController = mainViewController
-            
+
             UIView.transition(with: window, duration: 0.3, options: [.transitionCrossDissolve], animations: nil, completion: nil)
         }
     }
-    
-    func gotoViewcontroler()
-    {
+
+    func gotoViewcontroler() {
         let mainViewController = sideMenuController!
-        
+
         let VC = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-        
+
         let navigationController = mainViewController.rootViewController as! NavigationController
         navigationController.pushViewController(VC, animated: true)
-        
+
         mainViewController.hideLeftView(animated: true, completionHandler: nil)
     }
-    
-    func ShareApp()
-    {
-        let url : NSURL = NSURL(string: "https://itunes.apple.com/us/app/")!
-        
-        let activityViewController : UIActivityViewController = UIActivityViewController(
+
+    func ShareApp() {
+        let url: NSURL = NSURL(string: "https://itunes.apple.com/us/app/")!
+
+        let activityViewController: UIActivityViewController = UIActivityViewController(
             activityItems: [url], applicationActivities: nil)
-        
+
         // Anything you want to exclude
         activityViewController.excludedActivityTypes = [
             UIActivity.ActivityType.postToWeibo,
@@ -566,34 +477,30 @@ class SideMenuView: UIViewController,UITableViewDelegate,UITableViewDataSource, 
         self.present(activityViewController, animated: true, completion: nil)
 //        sideMenuController?.hideLeftViewAnimated()
     }
-    
-    //MARK:- Mail Methods
-    func configuredMailComposeViewController() -> MFMailComposeViewController
-    {
+
+    // MARK: - Mail Methods
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
-        
+
         mailComposerVC.setToRecipients([])//"abc@gmail.com"
         mailComposerVC.setSubject("Sending you an in-app e-mail...")
         mailComposerVC.setMessageBody(self.strShareURL, isHTML: false)
-        
+
         return mailComposerVC
     }
-    
-    func showSendMailErrorAlert()
-    {
+
+    func showSendMailErrorAlert() {
         let alertController = UIAlertController(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", preferredStyle: .alert)
-        
+
         let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(defaultAction)
-        
+
         present(alertController, animated: true, completion: nil)
     }
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?)
-    {
-        switch result
-        {
+
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        switch result {
         case .cancelled:
             print("Mail cancelled")
         case .saved:
@@ -605,36 +512,29 @@ class SideMenuView: UIViewController,UITableViewDelegate,UITableViewDataSource, 
         default:
             break
         }
-        
+
         // Close the Mail Interface
         //        self.dismiss(animated: true, completion: { _ in })
         self .dismiss(animated: true) {
         }
     }
-    
-    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult)
-    {
-        self .dismiss(animated: true)
-        {
-        }
-    }    
 
-    //MARK:- FB Share
-    func FBShare()
-    {
-        let isInstalled : Bool = UIApplication.shared.canOpenURL(URL(string: "fb://")!)
-        if isInstalled
-        {
-            let VC : SLComposeViewController = SLComposeViewController(forServiceType:SLServiceTypeFacebook)
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        self .dismiss(animated: true) {
+        }
+    }
+
+    // MARK: - FB Share
+    func FBShare() {
+        let isInstalled: Bool = UIApplication.shared.canOpenURL(URL(string: "fb://")!)
+        if isInstalled {
+            let VC: SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
             VC.add(URL(string: strShareURL))
             self.present(VC, animated: true, completion: nil)
-        }
-        else
-        {
+        } else {
             //For Facebook
             let shareURL = "https://www.facebook.com/sharer/sharer.php?u=" + strShareURL
-            if let url = URL(string:shareURL)
-            {
+            if let url = URL(string: shareURL) {
                 let vc = SFSafariViewController(url: url, entersReaderIfAvailable: true)
                 vc.delegate=self
                 present(vc, animated: true)
@@ -646,18 +546,14 @@ class SideMenuView: UIViewController,UITableViewDelegate,UITableViewDataSource, 
         }
     }
 
-    //MARK:- Twitter Share
-    func TwitterShare()
-    {
-        let isInstalled : Bool = UIApplication.shared.canOpenURL(URL(string: "twitter://")!)
-        if isInstalled
-        {
-            let VC : SLComposeViewController = SLComposeViewController(forServiceType:SLServiceTypeTwitter)
+    // MARK: - Twitter Share
+    func TwitterShare() {
+        let isInstalled: Bool = UIApplication.shared.canOpenURL(URL(string: "twitter://")!)
+        if isInstalled {
+            let VC: SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
             VC.add(URL(string: strShareURL))
             self.present(VC, animated: true, completion: nil)
-        }
-        else
-        {
+        } else {
             let tweetText = ""
             let tweetUrl = self.strShareURL
             let shareString = "https://twitter.com/intent/tweet?url=\(tweetUrl)"
@@ -670,13 +566,10 @@ class SideMenuView: UIViewController,UITableViewDelegate,UITableViewDataSource, 
 //            self.present(alert, animated: true, completion: nil)
         }
     }
-    
-    func open(scheme: String)
-    {
-        if let url = URL(string: scheme)
-        {
-            UIApplication.shared.open(url, options: [:], completionHandler:
-                {
+
+    func open(scheme: String) {
+        if let url = URL(string: scheme) {
+            UIApplication.shared.open(url, options: [:], completionHandler: {
                 (success) in
                 print("Open \(scheme): \(success)")
             })

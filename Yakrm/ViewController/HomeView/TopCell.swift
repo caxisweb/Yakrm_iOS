@@ -8,13 +8,12 @@
 
 import UIKit
 
-class TopCell: UICollectionViewCell
-{
-    
+class TopCell: UICollectionViewCell {
+
     @IBOutlet var imgProfile: UIImageView!
     @IBOutlet var lblName: UILabel!
     @IBOutlet var viewLine: UIView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
