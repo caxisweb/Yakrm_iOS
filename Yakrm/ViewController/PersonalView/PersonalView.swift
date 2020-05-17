@@ -363,52 +363,52 @@ class PersonalView: UIViewController, UITextFieldDelegate, UIPickerViewDataSourc
         let Header: HTTPHeaders = ["Authorization": self.app.strToken]
         //,"Content-Type":"application/json"
 
-        AF.upload(multipartFormData: { multipartFormData in
-            if let imageData = img.jpegData(compressionQuality: 0.3) {
-                let format = DateFormatter()
-                format.dateFormat="yyyy-MM-dd-HH-mm-ss"
-                let currentFileName: String = "IMG-\(format.string(from: Date())).jpeg"
-
-                multipartFormData.append(imageData, withName: "user_profile", fileName: currentFileName, mimeType: "image/jpeg") //jpeg png
-            }
-
-        }, usingThreshold: UInt64.init(),
-          to: "\(self.app.BaseURL)profile_image_upload",
-            method: .post,
-            headers: Header,
-            encodingCompletion: { encodingResult in
-                switch encodingResult {
-                case .success(let upload, _, _):
-                    upload.responseJSON { response in
-                            self.loadingNotification.hide(animated: true)
-
-                            debugPrint("SUCCESS RESPONSE:- \(response)")
-                            if let value = response.result.value {
-                                self.json = JSON(value)
-                                print(self.json)
-
-                                let strStatus: String = self.json["status"].stringValue
-                                self.strMessage = self.json["message"].stringValue
-
-                                if strStatus == "1" {
-                                    self.imgProfile.image = img
-
-                                    self.app.strProfile = self.json["user_profile"].stringValue
-                                    self.app.defaults.setValue(self.app.strProfile, forKey: "profile")
-                                    self.app.defaults.synchronize()
-                                }
-//                                else
-//                                {
-                                    Toast(text: self.strMessage).show()
+//        AF.upload(multipartFormData: { multipartFormData in
+//            if let imageData = img.jpegData(compressionQuality: 0.3) {
+//                let format = DateFormatter()
+//                format.dateFormat="yyyy-MM-dd-HH-mm-ss"
+//                let currentFileName: String = "IMG-\(format.string(from: Date())).jpeg"
+//
+//                multipartFormData.append(imageData, withName: "user_profile", fileName: currentFileName, mimeType: "image/jpeg") //jpeg png
+//            }
+//
+//        }, usingThreshold: UInt64.init(),
+//          to: "\(self.app.BaseURL)profile_image_upload",
+//            method: .post,
+//            headers: Header,
+//            encodingCompletion: { encodingResult in
+//                switch encodingResult {
+//                case .success(let upload, _, _):
+//                    upload.responseJSON { response in
+//                            self.loadingNotification.hide(animated: true)
+//
+//                            debugPrint("SUCCESS RESPONSE:- \(response)")
+//                            if let value = response.result.value {
+//                                self.json = JSON(value)
+//                                print(self.json)
+//
+//                                let strStatus: String = self.json["status"].stringValue
+//                                self.strMessage = self.json["message"].stringValue
+//
+//                                if strStatus == "1" {
+//                                    self.imgProfile.image = img
+//
+//                                    self.app.strProfile = self.json["user_profile"].stringValue
+//                                    self.app.defaults.setValue(self.app.strProfile, forKey: "profile")
+//                                    self.app.defaults.synchronize()
 //                                }
-                            }
-                    }
-                case .failure(let encodingError):
-                    print(encodingError)
-                    Toast(text: "Request time out.").show()
-                    self.loadingNotification.hide(animated: true)
-                }
-        })
+////                                else
+////                                {
+//                                    Toast(text: self.strMessage).show()
+////                                }
+//                            }
+//                    }
+//                case .failure(let encodingError):
+//                    print(encodingError)
+//                    Toast(text: "Request time out.").show()
+//                    self.loadingNotification.hide(animated: true)
+//                }
+//        })
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

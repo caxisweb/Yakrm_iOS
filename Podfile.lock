@@ -4,6 +4,13 @@ PODS:
   - DatePickerDialog (3.0)
   - DLRadioButton (1.4.12)
   - FSPagerView (0.8.3)
+  - GoogleMaps (3.8.0):
+    - GoogleMaps/Maps (= 3.8.0)
+  - GoogleMaps/Base (3.8.0)
+  - GoogleMaps/Maps (3.8.0):
+    - GoogleMaps/Base
+  - GooglePlaces (3.8.0):
+    - GoogleMaps/Base (= 3.8.0)
   - ImageSlideshow (1.8.3):
     - ImageSlideshow/Core (= 1.8.3)
   - ImageSlideshow/Core (1.8.3)
@@ -27,6 +34,8 @@ DEPENDENCIES:
   - DatePickerDialog
   - DLRadioButton
   - FSPagerView
+  - GoogleMaps
+  - GooglePlaces
   - ImageSlideshow
   - ImageSlideshow/SDWebImage
   - IQKeyboardManagerSwift
@@ -45,6 +54,8 @@ SPEC REPOS:
     - DatePickerDialog
     - DLRadioButton
     - FSPagerView
+    - GoogleMaps
+    - GooglePlaces
     - ImageSlideshow
     - IQKeyboardManagerSwift
     - MBProgressHUD
@@ -61,6 +72,8 @@ SPEC CHECKSUMS:
   DatePickerDialog: 03dbb8350bfa80302ab2a8c83cee1fec70184444
   DLRadioButton: d7c4e225ed0e8013cef7be61455230c7557ad7c1
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
+  GoogleMaps: 7c8d66d70e4e8c300f43a7219d8fdaad7b325a9a
+  GooglePlaces: d5f70c3e9e427964fdeca1301a665d276ccd8754
   ImageSlideshow: 4694d7d699a1549582e7cc631fb392d8f91630f3
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
@@ -71,6 +84,6 @@ SPEC CHECKSUMS:
   Toaster: c1a81b376edcc2470157b4d1ee1e9341d3b96455
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
 
-PODFILE CHECKSUM: e9e4aef2a13f9fe4e2e967f191c8f9879a6faf46
+PODFILE CHECKSUM: ca777ed4a2225ec852afabe88004893aa1884417
 
 COCOAPODS: 1.9.1

@@ -89,13 +89,13 @@ class ReplacementView: UIViewController {
             VC.strPrice = self.strPrice
             self.navigationController?.pushViewController(VC, animated: true)
         } else if sender.tag == 2 {
-            let VC = self.storyboard?.instantiateViewController(withIdentifier: "ExchangeView") as! ExchangeView
-            VC.strVoucherID = self.strVoucherID
-            VC.strVoucherPaymentID = self.strVoucherPaymentID
-            VC.strImage = self.strImage
-            VC.strName = self.strName
-            VC.strPrice = self.strPrice
-            self.navigationController?.pushViewController(VC, animated: true)
+//            let VC = self.storyboard?.instantiateViewController(withIdentifier: "ExchangeView") as! ExchangeView
+//            VC.strVoucherID = self.strVoucherID
+//            VC.strVoucherPaymentID = self.strVoucherPaymentID
+//            VC.strImage = self.strImage
+//            VC.strName = self.strName
+//            VC.strPrice = self.strPrice
+//            self.navigationController?.pushViewController(VC, animated: true)
 //            let VC = self.storyboard?.instantiateViewController(withIdentifier: "AmountView") as! AmountView
 //            self.navigationController?.pushViewController(VC, animated: true)
         } else {

@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F335EA72467F0670023B620 /* DeliveryModule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F335EA52467F0670023B620 /* DeliveryModule.storyboard */; };
+		2F335EAB2467F1130023B620 /* StartScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F335EAA2467F1130023B620 /* StartScreenVC.swift */; };
+		2F335EAE24684CE10023B620 /* PlaceOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F335EAD24684CE10023B620 /* PlaceOrderVC.swift */; };
+		2F335EB024684CEC0023B620 /* MyOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F335EAF24684CEC0023B620 /* MyOrderVC.swift */; };
+		2F335EB224684D1C0023B620 /* DeliveryScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F335EB124684D1C0023B620 /* DeliveryScreenVC.swift */; };
+		2F335EB4246902BD0023B620 /* DeliveryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F335EB3246902BD0023B620 /* DeliveryDetailVC.swift */; };
+		2F3EE275246B028F0066C50F /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3EE274246B028F0066C50F /* AppView.swift */; };
+		2F3EE278246B0C970066C50F /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3EE277246B0C970066C50F /* HeaderCell.swift */; };
+		2F3EE27B246B0FAF0066C50F /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3EE27A246B0FAF0066C50F /* ItemCell.swift */; };
+		2F6B3E002470468400036828 /* OrderDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3DFF2470468400036828 /* OrderDetail.swift */; };
+		2F6B3E0224710DF300036828 /* PaymentConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3E0124710DF300036828 /* PaymentConfirmation.swift */; };
+		2F9437AE246A568A00C64570 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9437AD246A568A00C64570 /* OrderCell.swift */; };
+		2F9E23DD246F1F4400C4CA40 /* UpdateLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9E23DC246F1F4400C4CA40 /* UpdateLocationViewController.swift */; };
+		2F9E23DF246F8A2300C4CA40 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9E23DE246F8A2300C4CA40 /* LocationManager.swift */; };
+		2F9E23E2246F8FD600C4CA40 /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9E23E1246F8FD600C4CA40 /* Orders.swift */; };
 		2FF5F01724672477007F7F9D /* AppWebservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5F01524672477007F7F9D /* AppWebservice.swift */; };
 		2FF5F01824672477007F7F9D /* AppLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5F01624672477007F7F9D /* AppLoader.swift */; };
 		88063ADC21BF91A50093E074 /* intro_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88063AD921BF91950093E074 /* intro_icon.png */; };
@@ -208,6 +223,21 @@
 
 /* Begin PBXFileReference section */
 		0DE149130D3FCBD84C99A4D1 /* Pods-Yakrm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yakrm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Yakrm/Pods-Yakrm.debug.xcconfig"; sourceTree = "<group>"; };
+		2F335EA62467F0670023B620 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DeliveryModule.storyboard; sourceTree = "<group>"; };
+		2F335EAA2467F1130023B620 /* StartScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenVC.swift; sourceTree = "<group>"; };
+		2F335EAD24684CE10023B620 /* PlaceOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceOrderVC.swift; sourceTree = "<group>"; };
+		2F335EAF24684CEC0023B620 /* MyOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderVC.swift; sourceTree = "<group>"; };
+		2F335EB124684D1C0023B620 /* DeliveryScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryScreenVC.swift; sourceTree = "<group>"; };
+		2F335EB3246902BD0023B620 /* DeliveryDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDetailVC.swift; sourceTree = "<group>"; };
+		2F3EE274246B028F0066C50F /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		2F3EE277246B0C970066C50F /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		2F3EE27A246B0FAF0066C50F /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		2F6B3DFF2470468400036828 /* OrderDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetail.swift; sourceTree = "<group>"; };
+		2F6B3E0124710DF300036828 /* PaymentConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentConfirmation.swift; sourceTree = "<group>"; };
+		2F9437AD246A568A00C64570 /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
+		2F9E23DC246F1F4400C4CA40 /* UpdateLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateLocationViewController.swift; sourceTree = "<group>"; };
+		2F9E23DE246F8A2300C4CA40 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		2F9E23E1246F8FD600C4CA40 /* Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
 		2FF5F01524672477007F7F9D /* AppWebservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppWebservice.swift; sourceTree = "<group>"; };
 		2FF5F01624672477007F7F9D /* AppLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLoader.swift; sourceTree = "<group>"; };
 		88063AD921BF91950093E074 /* intro_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro_icon.png; sourceTree = "<group>"; };
@@ -438,6 +468,81 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F335EA82467F09A0023B620 /* NewModule */ = {
+			isa = PBXGroup;
+			children = (
+				2F9E23E0246F8F8D00C4CA40 /* Model */,
+				2F335EAC24684CCB0023B620 /* DeliveryScreen */,
+				2F335EA92467F0A70023B620 /* StartScreenVC */,
+			);
+			path = NewModule;
+			sourceTree = "<group>";
+		};
+		2F335EA92467F0A70023B620 /* StartScreenVC */ = {
+			isa = PBXGroup;
+			children = (
+				2F335EAA2467F1130023B620 /* StartScreenVC.swift */,
+			);
+			path = StartScreenVC;
+			sourceTree = "<group>";
+		};
+		2F335EAC24684CCB0023B620 /* DeliveryScreen */ = {
+			isa = PBXGroup;
+			children = (
+				2F9E23DC246F1F4400C4CA40 /* UpdateLocationViewController.swift */,
+				2F3EE279246B0FA20066C50F /* ItemCell */,
+				2F3EE276246B0C7B0066C50F /* HeaderCell */,
+				2F9437AC246A567600C64570 /* OrderCell */,
+				2F335EAD24684CE10023B620 /* PlaceOrderVC.swift */,
+				2F335EAF24684CEC0023B620 /* MyOrderVC.swift */,
+				2F335EB124684D1C0023B620 /* DeliveryScreenVC.swift */,
+				2F335EB3246902BD0023B620 /* DeliveryDetailVC.swift */,
+				2F6B3E0124710DF300036828 /* PaymentConfirmation.swift */,
+			);
+			path = DeliveryScreen;
+			sourceTree = "<group>";
+		};
+		2F3EE273246B02770066C50F /* AppControls */ = {
+			isa = PBXGroup;
+			children = (
+				2F3EE274246B028F0066C50F /* AppView.swift */,
+			);
+			path = AppControls;
+			sourceTree = "<group>";
+		};
+		2F3EE276246B0C7B0066C50F /* HeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				2F3EE277246B0C970066C50F /* HeaderCell.swift */,
+			);
+			path = HeaderCell;
+			sourceTree = "<group>";
+		};
+		2F3EE279246B0FA20066C50F /* ItemCell */ = {
+			isa = PBXGroup;
+			children = (
+				2F3EE27A246B0FAF0066C50F /* ItemCell.swift */,
+			);
+			path = ItemCell;
+			sourceTree = "<group>";
+		};
+		2F9437AC246A567600C64570 /* OrderCell */ = {
+			isa = PBXGroup;
+			children = (
+				2F9437AD246A568A00C64570 /* OrderCell.swift */,
+			);
+			path = OrderCell;
+			sourceTree = "<group>";
+		};
+		2F9E23E0246F8F8D00C4CA40 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2F9E23E1246F8FD600C4CA40 /* Orders.swift */,
+				2F6B3DFF2470468400036828 /* OrderDetail.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2FF5F01424672477007F7F9D /* AppWebservice */ = {
 			isa = PBXGroup;
 			children = (
@@ -830,6 +935,7 @@
 		8852BF9521B8FCC9001F71BC /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2F335EA82467F09A0023B620 /* NewModule */,
 				88B6992521DE244600C9EF9A /* ScannerView */,
 				8821F80F21D3699D00F454F8 /* ActiveVoucherView */,
 				88B6DB2121CB6AC20098C33D /* FavoriteBrandView */,
@@ -873,6 +979,8 @@
 		8852BF9621B8FCC9001F71BC /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				2F9E23DE246F8A2300C4CA40 /* LocationManager.swift */,
+				2F3EE273246B02770066C50F /* AppControls */,
 				88DA2BC921CD1BFE008EEDAB /* Language */,
 				880D6EED21C7C52500240CA2 /* CKPagerView */,
 				880D6E8521C77F3D00240CA2 /* LGSideMenu */,
@@ -986,6 +1094,7 @@
 				886CD08621B8EFFB000B5B13 /* LaunchScreen.storyboard */,
 				886CD08921B8EFFB000B5B13 /* Info.plist */,
 				8816D0A521BE78ED00614CAE /* Yakrm-Bridging-Header.h */,
+				2F335EA52467F0670023B620 /* DeliveryModule.storyboard */,
 			);
 			path = Yakrm;
 			sourceTree = "<group>";
@@ -1084,6 +1193,7 @@
 				886CD07721B8EF93000B5B13 /* Frameworks */,
 				886CD07821B8EF93000B5B13 /* Resources */,
 				8B701304122A4C16A343CECF /* [CP] Embed Pods Frameworks */,
+				455B1CA3179F879E203384A7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1191,6 +1301,7 @@
 				88063AFE21BFC34C0093E074 /* yakrm-back.jpg in Resources */,
 				88063ADC21BF91A50093E074 /* intro_icon.png in Resources */,
 				8821F81321D384C100F454F8 /* tab_wallet_icon.png in Resources */,
+				2F335EA72467F0670023B620 /* DeliveryModule.storyboard in Resources */,
 				8815454721BA9049007B8148 /* MailWhite.png in Resources */,
 				8816D09421BE698400614CAE /* FavoritesCell.xib in Resources */,
 				880E7F8E21C4EAD100E74636 /* Coupon.png in Resources */,
@@ -1254,6 +1365,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		455B1CA3179F879E203384A7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Yakrm/Pods-Yakrm-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Yakrm/Pods-Yakrm-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Yakrm/Pods-Yakrm-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8B701304122A4C16A343CECF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1315,10 +1443,12 @@
 				8852BFB621B93656001F71BC /* LoginView.swift in Sources */,
 				880D6ECB21C7987800240CA2 /* CouponNearEndCell.swift in Sources */,
 				88E1527421C4D6050051DD92 /* PaymentCell.swift in Sources */,
+				2F335EAE24684CE10023B620 /* PlaceOrderVC.swift in Sources */,
 				8852BFAD21B93591001F71BC /* NewAccountView.swift in Sources */,
 				880D6EEC21C7C44A00240CA2 /* AuctionView.swift in Sources */,
 				880D6EE621C7C0FC00240CA2 /* ForAppView.swift in Sources */,
 				880E7FA821C51CA900E74636 /* AddCouponView.swift in Sources */,
+				2F3EE278246B0C970066C50F /* HeaderCell.swift in Sources */,
 				884BE8D721D9FC31001E2085 /* Album.swift in Sources */,
 				880D6EA221C77F3F00240CA2 /* LGSideMenuView.m in Sources */,
 				8815452921BA66FA007B8148 /* HomeCell.swift in Sources */,
@@ -1328,27 +1458,33 @@
 				8815452621BA65C7007B8148 /* HomeView.swift in Sources */,
 				880D6EE921C7C27900240CA2 /* TermsView.swift in Sources */,
 				880D6ED921C7B21700240CA2 /* OprationlogView.swift in Sources */,
+				2F9E23E2246F8FD600C4CA40 /* Orders.swift in Sources */,
 				880E7FA521C50D2500E74636 /* BarcodeView.swift in Sources */,
 				880D6ED221C7AA0000240CA2 /* AlarmsView.swift in Sources */,
 				880E7F9C21C5080F00E74636 /* CouponCell.swift in Sources */,
 				880D6EB221C77F3F00240CA2 /* NavigationController.swift in Sources */,
 				880D6EDC21C7B37500240CA2 /* OprationlogCell.swift in Sources */,
 				880D6EF021C7C52500240CA2 /* ViewPagerController.m in Sources */,
+				2F9E23DD246F1F4400C4CA40 /* UpdateLocationViewController.swift in Sources */,
 				2FF5F01824672477007F7F9D /* AppLoader.swift in Sources */,
+				2F9E23DF246F8A2300C4CA40 /* LocationManager.swift in Sources */,
 				88E1527021C4CFFA0051DD92 /* PaymentView.swift in Sources */,
 				880E7F9921C5074E00E74636 /* CouponView.swift in Sources */,
 				880D6EE021C7B8C500240CA2 /* FeedbackView.swift in Sources */,
 				88E1527E21C4D8530051DD92 /* ReceivedCell.swift in Sources */,
 				880D6EAE21C77F3F00240CA2 /* SideMenuCell.swift in Sources */,
+				2F335EAB2467F1130023B620 /* StartScreenVC.swift in Sources */,
 				8852BFBC21B936C8001F71BC /* PersonalView.swift in Sources */,
 				8821F81121D369D800F454F8 /* ActiveVoucherView.swift in Sources */,
 				880D6ED521C7AA2100240CA2 /* AlarmsCell.swift in Sources */,
 				88B6992721DE248C00C9EF9A /* MGPScannerViewController.swift in Sources */,
+				2F335EB224684D1C0023B620 /* DeliveryScreenVC.swift in Sources */,
 				880D6EF721C7CDF700240CA2 /* OtherAuctionCell.swift in Sources */,
 				88B6DB2321CB6AD80098C33D /* FavoriteBrandView.swift in Sources */,
 				8816D0AF21BE7B2800614CAE /* FilterCell.swift in Sources */,
 				880D6EB021C77F3F00240CA2 /* RightViewController.swift in Sources */,
 				880D6EA621C77F3F00240CA2 /* UIViewController+LGSideMenuController.m in Sources */,
+				2F335EB024684CEC0023B620 /* MyOrderVC.swift in Sources */,
 				880E7FB321C52F9100E74636 /* SendView.swift in Sources */,
 				880E7FB621C538E600E74636 /* AmountView.swift in Sources */,
 				880D6EA821C77F3F00240CA2 /* LeftViewController.swift in Sources */,
@@ -1357,8 +1493,11 @@
 				884BE8D521D9FC31001E2085 /* Constants.swift in Sources */,
 				880D6EB321C77F3F00240CA2 /* MenuViewController.swift in Sources */,
 				880D6EE321C7BEAE00240CA2 /* GeneralView.swift in Sources */,
+				2F3EE27B246B0FAF0066C50F /* ItemCell.swift in Sources */,
 				880E7FAE21C52B9B00E74636 /* ReplacementView.swift in Sources */,
+				2F3EE275246B028F0066C50F /* AppView.swift in Sources */,
 				880D6EB121C77F3F00240CA2 /* LeftViewCell.swift in Sources */,
+				2F6B3E002470468400036828 /* OrderDetail.swift in Sources */,
 				880E7F9621C5068D00E74636 /* StarbucksCardView.swift in Sources */,
 				8815453521BA7804007B8148 /* DetailsView.swift in Sources */,
 				8852BF9921B8FD1C001F71BC /* ProjectUtility.swift in Sources */,
@@ -1376,16 +1515,27 @@
 				88B6DB2621CB6B370098C33D /* FavoriteBrandCell.swift in Sources */,
 				886CD07E21B8EF95000B5B13 /* AppDelegate.swift in Sources */,
 				8816D0AC21BE793300614CAE /* FlowLayout.m in Sources */,
+				2F335EB4246902BD0023B620 /* DeliveryDetailVC.swift in Sources */,
 				880D6EA321C77F3F00240CA2 /* LGSideMenuSegue.m in Sources */,
+				2F9437AE246A568A00C64570 /* OrderCell.swift in Sources */,
 				8815452D21BA6719007B8148 /* TopCell.swift in Sources */,
 				880D6EC821C7983C00240CA2 /* CouponNearEndView.swift in Sources */,
 				880D6EAB21C77F3F00240CA2 /* RightViewCell.swift in Sources */,
+				2F6B3E0224710DF300036828 /* PaymentConfirmation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		2F335EA52467F0670023B620 /* DeliveryModule.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F335EA62467F0670023B620 /* Base */,
+			);
+			name = DeliveryModule.storyboard;
+			sourceTree = "<group>";
+		};
 		886CD08121B8EF96000B5B13 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1543,7 +1693,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = MFPDYWP67B;
 				INFOPLIST_FILE = Yakrm/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1567,7 +1717,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = MFPDYWP67B;
 				INFOPLIST_FILE = Yakrm/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

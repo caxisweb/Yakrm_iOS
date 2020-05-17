@@ -152,7 +152,8 @@ class HomeView: UIViewController, UICollectionViewDelegate, UICollectionViewData
         self.arrImage.append(UIImage(named: "gift-box.png")!)
         self.arrImage.append(UIImage(named: "ic_dolor (1).png")!)
         self.arrImage.append(UIImage(named: "auction.png")!)
-        self.arrImage.append(UIImage(named: "wallet.png")!)
+        self.arrImage.append(UIImage(named: "auction.png")!)
+//        self.arrImage.append(UIImage(named: "wallet.png")!)
 
         self.clTopView.register(UINib(nibName: "TopCell", bundle: nil), forCellWithReuseIdentifier: "TopCell")
         self.clTopView.delegate = self
@@ -738,7 +739,7 @@ class HomeView: UIViewController, UICollectionViewDelegate, UICollectionViewData
 
         AppWebservice.shared.request("\(self.app.BaseURL)filter_voucher", method: .post, parameters: parameters, headers: nil, loader: true) { (statusCode, response, error) in
             if statusCode == 200 {
-                self.json = JSON(value)
+                self.json = response!
                 print(self.json)
 
                 let strStatus: String = self.json["status"].stringValue

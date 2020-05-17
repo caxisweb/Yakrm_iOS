@@ -12,6 +12,8 @@ import SystemConfiguration
 import Alamofire
 import UserNotifications
 import SwiftyJSON
+import GoogleMaps
+import GooglePlaces
 
 enum UIUserInterfaceIdiom: Int {
     case Unspecified
@@ -45,8 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let defaults = UserDefaults.standard
 
-    var BaseURL = "http://yakrm.com/api/"
+    var BaseURL = "http://test.yakrm.com/api/"
     var ImageURL = "http://yakrm.com/assets/uploads/"//vendor_brand_image/"
+    var newBaseURL = "http://test.yakrm.com/apis/v1/"
 
     var InternetConnectionMessage = "Internet Connetion in not availble.Try Again"
 
@@ -80,6 +83,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         print(langStr)
 
+        GMSServices.provideAPIKey("AIzaSyBq46koOKR3Q3K2xdVRo0ib0okFV_WPnDE")
+        GMSPlacesClient.provideAPIKey("AIzaSyBq46koOKR3Q3K2xdVRo0ib0okFV_WPnDE")
+
         NotificationCenter.default.addObserver(self, selector: #selector(languageWillChange), name: NSNotification.Name(rawValue: "LANGUAGE_WILL_CHANGE"), object: nil)
 
         if self.defaults.string(forKey: "selectedLanguage") != nil {
@@ -104,12 +110,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         var strViewController = "ViewController"
 
+//        EE4158
+        
+        let navigationBarAppearace = UINavigationBar.appearance()
+
+        navigationBarAppearace.tintColor = UIColor.white
+        navigationBarAppearace.barTintColor = UIColor.init(named: "pinkColor")
+        
         if defaults.string(forKey: "user_id") != nil {
             self.strUserID = (defaults.value(forKey: "user_id") as! String)
             self.strName = (defaults.value(forKey: "name") as! String)
             self.strEmail = (defaults.value(forKey: "email") as! String)
             self.strMobile = (defaults.value(forKey: "mobile") as! String)
-            strViewController = "HomeView"
+//            strViewController = "HomeView"
 
             if defaults.string(forKey: "profile") != nil {
                 self.strProfile = (defaults.value(forKey: "profile") as! String)
@@ -124,20 +137,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         if DeviceType.IS_SIMULATOR {
-            strViewController = "PaymentMethodView"
+//            strViewController = "PaymentMethodView"
         }
 //        strViewController = "MGPScannerViewController"
 //        strViewController = "BarcodeView"
 
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
-        navigationController.setViewControllers([storyboard.instantiateViewController(withIdentifier: strViewController)], animated: false)
-        let mainViewController = storyboard.instantiateInitialViewController() as! MainViewController
-        mainViewController.rootViewController = navigationController
-        mainViewController.setup(type: UInt(2))
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+//        navigationController.setViewControllers([storyboard.instantiateViewController(withIdentifier: strViewController)], animated: false)
+//        let mainViewController = storyboard.instantiateInitialViewController() as! MainViewController
+//        mainViewController.rootViewController = navigationController
+//        mainViewController.setup(type: UInt(2))
 
+        let storyboard = UIStoryboard.init(name: "DeliveryModule", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "StartScreenVC")
+        let navigation  = UINavigationController.init(rootViewController: vc)
+        
         let window = UIApplication.shared.delegate!.window!!
-        window.rootViewController = mainViewController
+        window.rootViewController = navigation
 
         UIView.transition(with: window, duration: 0.3, options: [.transitionCrossDissolve], animations: nil, completion: nil)
 

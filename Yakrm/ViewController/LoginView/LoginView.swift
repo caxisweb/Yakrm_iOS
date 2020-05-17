@@ -40,6 +40,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
     var strPassword = String()
 
     var isRegisterd = Bool()
+    var isDelivery : Bool = false
 
     // MARK: -
     override func viewDidLoad() {
@@ -146,10 +147,12 @@ class LoginView: UIViewController, UITextFieldDelegate {
             self.strPassword = self.txtPassword.text!
 
             if self.strEmail.isEmpty {
-                Toast(text: "Please Enter Email").show()
-            } else if self.strEmail.isValidEmail() == false {
-                Toast(text: "Please Enter Valid Email").show()
-            } else if self.strPassword.isEmpty {
+                Toast(text: "Please Enter Mobile Number").show()
+            }
+//            else if self.strEmail.isValidEmail() == false {
+//                Toast(text: "Please Enter Valid Email").show()
+//            }
+            else if self.strPassword.isEmpty {
                 Toast(text: "Please Enter Password").show()
             } else {
                 if self.app.isConnectedToInternet() {
@@ -169,8 +172,8 @@ class LoginView: UIViewController, UITextFieldDelegate {
     // MARK: - Log In API
     func getLoginAPI() {
 
-        let parameters: Parameters = ["email": self.strEmail,
-                                      "password": self.strPassword]
+        let parameters: Parameters = ["phone": self.strEmail,
+                                      "password": self.strPassword, "apn_id" : "1"]
         print(JSON(parameters))
 
         AppWebservice.shared.request("\(self.app.BaseURL)login", method: .post, parameters: parameters, headers: nil, loader: true) { (statusCode, response, error) in
@@ -197,15 +200,22 @@ class LoginView: UIViewController, UITextFieldDelegate {
                     self.app.defaults.setValue(self.app.strEmail, forKey: "email")
                     self.app.defaults.setValue(self.app.strMobile, forKey: "mobile")
                     self.app.defaults.setValue(self.app.strProfile, forKey: "profile")
-                    self.app.defaults.setValue(self.app.strToken, forKey: "tokan")
+                    self.app.defaults.setValue(self.json["token"].stringValue, forKey: "tokan")
                     self.app.defaults.setValue(self.app.strWallet, forKey: "wallet")
 
                     self.app.defaults.synchronize()
 
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
 
-                    let VC = self.storyboard?.instantiateViewController(withIdentifier: "HomeView") as! HomeView
-                    self.navigationController?.pushViewController(VC, animated: true)
+                    if self.isDelivery {
+                        let deliveryStoryboard = UIStoryboard.init(name: "DeliveryModule", bundle: nil)
+                        let vc =  deliveryStoryboard.instantiateViewController(withIdentifier: "DeliveryScreenVC")
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }else {
+                        let VC = self.storyboard?.instantiateViewController(withIdentifier: "HomeView") as! HomeView
+                        self.navigationController?.pushViewController(VC, animated: true)
+                    }
+                    
                 } else {
                     Toast(text: self.strMessage).show()
                 }

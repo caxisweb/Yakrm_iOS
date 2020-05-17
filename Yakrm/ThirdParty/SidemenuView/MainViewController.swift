@@ -30,7 +30,7 @@ class MainViewController: LGSideMenuController {
             rootViewCoverColorForLeftView = UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 0.05)
 
             rightViewWidth = 100.0
-            rightViewBackgroundImage = UIImage(named: "imageRight")
+//            rightViewBackgroundImage = UIImage(named: "imageRight")
             rightViewBackgroundColor = UIColor(red: 0.65, green: 0.5, blue: 0.65, alpha: 0.95)
             rootViewCoverColorForRightView = UIColor(red: 1.0, green: 0.0, blue: 1.0, alpha: 0.05)
         }

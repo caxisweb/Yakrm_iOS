@@ -322,43 +322,43 @@ class SendView: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         let Header: HTTPHeaders = ["Authorization": self.app.strToken]
         //,"Content-Type":"application/json"
 
-        AF.upload(multipartFormData: { multipartFormData in
-
-            multipartFormData.append(self.strVoucherID.data(using: .utf8)!, withName: "voucher_id")
-            multipartFormData.append(self.strMobile.data(using: .utf8)!, withName: "phone")
-            multipartFormData.append(self.strDesc.data(using: .utf8)!, withName: "description")
-            multipartFormData.append(self.strVoucherPaymentID.data(using: .utf8)!, withName: "voucher_payment_detail_id")
-
-        }, usingThreshold: UInt64.init(),
-          to: "\(self.app.BaseURL)send_voucher_as_gift",
-            method: .post,
-            headers: Header,
-            encodingCompletion: { encodingResult in
-                switch encodingResult {
-                case .success(let upload, _, _):
-                    upload.responseJSON { response in
-                            self.loadingNotification.hide(animated: true)
-
-                            debugPrint("SUCCESS RESPONSE:- \(response)")
-                            if let value = response.result.value {
-                                self.json = JSON(value)
-                                print(self.json)
-
-                                let strStatus: String = self.json["status"].stringValue
-                                self.strMessage = self.json["message"].stringValue
-                                Toast(text: self.strMessage).show()
-                                if strStatus == "1" {
-                                    let desiredViewController = self.navigationController!.viewControllers.filter { $0 is HomeView }.first!
-                                    self.navigationController!.popToViewController(desiredViewController, animated: true)
-                                }
-                            }
-                    }
-                case .failure(let encodingError):
-                    print(encodingError)
-                    Toast(text: "Request time out.").show()
-                    self.loadingNotification.hide(animated: true)
-                }
-        })
+//        AF.upload(multipartFormData: { multipartFormData in
+//
+//            multipartFormData.append(self.strVoucherID.data(using: .utf8)!, withName: "voucher_id")
+//            multipartFormData.append(self.strMobile.data(using: .utf8)!, withName: "phone")
+//            multipartFormData.append(self.strDesc.data(using: .utf8)!, withName: "description")
+//            multipartFormData.append(self.strVoucherPaymentID.data(using: .utf8)!, withName: "voucher_payment_detail_id")
+//
+//        }, usingThreshold: UInt64.init(),
+//          to: "\(self.app.BaseURL)send_voucher_as_gift",
+//            method: .post,
+//            headers: Header,
+//            encodingCompletion: { encodingResult in
+//                switch encodingResult {
+//                case .success(let upload, _, _):
+//                    upload.responseJSON { response in
+//                            self.loadingNotification.hide(animated: true)
+//
+//                            debugPrint("SUCCESS RESPONSE:- \(response)")
+//                            if let value = response.result.value {
+//                                self.json = JSON(value)
+//                                print(self.json)
+//
+//                                let strStatus: String = self.json["status"].stringValue
+//                                self.strMessage = self.json["message"].stringValue
+//                                Toast(text: self.strMessage).show()
+//                                if strStatus == "1" {
+//                                    let desiredViewController = self.navigationController!.viewControllers.filter { $0 is HomeView }.first!
+//                                    self.navigationController!.popToViewController(desiredViewController, animated: true)
+//                                }
+//                            }
+//                    }
+//                case .failure(let encodingError):
+//                    print(encodingError)
+//                    Toast(text: "Request time out.").show()
+//                    self.loadingNotification.hide(animated: true)
+//                }
+//        })
     }
 //    {
 //        loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: false)

@@ -263,8 +263,8 @@ class PurchasedView: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let VC = self.storyboard?.instantiateViewController(withIdentifier: "PaymentMethodView") as! PaymentMethodView
-        self.navigationController?.pushViewController(VC, animated: true)
+//        let VC = self.storyboard?.instantiateViewController(withIdentifier: "PaymentMethodView") as! PaymentMethodView
+//        self.navigationController?.pushViewController(VC, animated: true)
 
 //        let alertController = UIAlertController(title: "Are you sure ?", message: nil, preferredStyle: .alert)
 //

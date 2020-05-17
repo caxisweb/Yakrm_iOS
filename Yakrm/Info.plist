@@ -2,16 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Yakrm App Photos requires to Upload Profile Image</string>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>whatsapp</string>
-		<string>twitter</string>
-		<string>fb</string>
-	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>Yakrm App Camera requires access to read barcode number</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -28,6 +18,12 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>whatsapp</string>
+		<string>twitter</string>
+		<string>fb</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -35,6 +31,16 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Yakrm App Camera requires access to read barcode number</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Yakrm App uses location for getting current location for user location.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Yakrm App uses location for getting current location for user location.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Yakrm App uses location for getting current location for user location.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Yakrm App Photos requires to Upload Profile Image</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>ArbFONTS-GE_SS_Two_Bold.otf</string>

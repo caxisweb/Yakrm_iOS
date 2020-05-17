@@ -18,6 +18,7 @@ class ViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDelega
             self.viewPager.itemSize = FSPagerView.automaticSize
         }
     }
+    
     @IBOutlet var viewDetails: UIView!
     @IBOutlet var imgIcon: UIImageView!
     @IBOutlet var lblTitle: UILabel!
@@ -105,6 +106,12 @@ class ViewController: UIViewController, FSPagerViewDataSource, FSPagerViewDelega
     }
 
     @IBAction func btnAllAction(_ sender: UIButton) {
+        
+        let storyboard = UIStoryboard.init(name: "DeliveryModule", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "StartScreenVC")
+        self.navigationController?.pushViewController(vc, animated: true)
+        return
+        
         if sender.tag == 1 {
             let VC = self.storyboard?.instantiateViewController(withIdentifier: "HomeView") as! HomeView
             self.navigationController?.pushViewController(VC, animated: true)

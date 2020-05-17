@@ -27,6 +27,8 @@ target 'Yakrm' do
   pod 'DLRadioButton'
   pod 'FSPagerView'
   pod 'PinCodeTextField'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
 
 
 
