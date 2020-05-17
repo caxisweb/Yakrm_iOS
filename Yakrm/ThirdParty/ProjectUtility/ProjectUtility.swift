@@ -8,53 +8,57 @@
 
 import UIKit
 
-class ProjectUtility: NSObject {
-    class func animatePopupView (viewPopup: UIView, viewDetails: UIView) {
+class ProjectUtility: NSObject
+{
+    class func animatePopupView (viewPopup: UIView, viewDetails : UIView)
+    {
         viewPopup.isHidden = false
         viewDetails.isHidden = false
-        viewDetails.transform = CGAffineTransform.identity.scaledBy(x: 0.001, y: 0.001)
+        viewDetails.transform = CGAffineTransform.identity.scaledBy(x: 0.001, y: 0.001);
 
         UIView.animate(withDuration: 0.3/1.5, animations: {
-
+            
             viewDetails.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
-
-        }) { (_) in
-
+            
+        }) { (finished) in
+            
             UIView.animate(withDuration: 0.3/2, animations: {
-                viewDetails.transform = CGAffineTransform.identity.scaledBy(x: 0.9, y: 0.9)
-                }, completion: { (_) in
-
+                viewDetails.transform = CGAffineTransform.identity.scaledBy(x: 0.9, y: 0.9);
+                }, completion: { (finished) in
+                    
                     UIView.animate(withDuration: 0.3/2, animations: {
-                        viewDetails.transform = CGAffineTransform.identity
+                        viewDetails.transform = CGAffineTransform.identity;
                     })
             })
         }
     }
-
-    class func closePopupView (viewPopup: UIView, viewDetails: UIView) {
-        viewDetails.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
+    
+    class func closePopupView (viewPopup: UIView, viewDetails : UIView)
+    {
+        viewDetails.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1);
 
         UIView.animate(withDuration: 0.3/1.5, animations: {
-
+         
             viewPopup.isHidden = true
 
             viewDetails.transform = CGAffineTransform.identity.scaledBy(x: 0.001, y: 0.001)
 
-        }) { (_) in
+        }) { (finished) in
 
             UIView.animate(withDuration: 0.3/2, animations: {
+                
+                viewDetails.transform = CGAffineTransform.identity.scaledBy(x: 0.0, y: 0.0);
 
-                viewDetails.transform = CGAffineTransform.identity.scaledBy(x: 0.0, y: 0.0)
-
-            }, completion: { (_) in
-
-                UIView.animate(withDuration: 0.3/2, animations: {
+            }, completion: { (finished) in
+                
+                UIView.animate(withDuration: 0.3/2, animations:
+                    {
                         viewPopup.isHidden = true
                 })
             })
         }
     }
-
+    
 //    class func loadingShow()
 //    {
 //        let loader = Loader()
@@ -66,26 +70,31 @@ class ProjectUtility: NSObject {
 //        let loader = Loader()
 //        loader.hide()
 //    }
-
-    class func changeDateFormate (strDate: String, strFormatter1 strDateFormatter1: String, strFormatter2 strDateFormatter2: String) -> NSString {
+    
+    class func changeDateFormate (strDate: String, strFormatter1 strDateFormatter1: String, strFormatter2 strDateFormatter2: String) -> NSString
+    {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = strDateFormatter1
-
-        if let date = dateFormatter.date(from: strDate) {
+        
+        if let date = dateFormatter.date(from: strDate)
+        {
             dateFormatter.dateFormat = strDateFormatter2
-
-            if let strConvertedDate: NSString = dateFormatter.string(from: date) as NSString? {
+            
+            if let strConvertedDate:NSString = dateFormatter.string(from: date) as NSString?
+            {
                 return strConvertedDate
             }
         }
         return ""
     }
-
-    class func dateFromString (strDate: String, strFormatter strDateFormatter: String) -> Date {
+    
+    class func dateFromString (strDate: String, strFormatter strDateFormatter: String) -> Date
+    {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = strDateFormatter
-
-        if let convertedDate = dateFormatter.date(from: strDate) {
+        
+        if let convertedDate = dateFormatter.date(from: strDate)
+        {
             return convertedDate
         }
         return Date()
@@ -104,7 +113,8 @@ class ProjectUtility: NSObject {
         appDelegate.window?.makeToast(erroemessage, duration: 2.5, position: CSToastPositionBottom, style: style)
     }
     */
-    class func validateEmail(emailStr: String) -> Bool {
+    class func validateEmail(emailStr: String) -> Bool
+    {
         let emailRegex: String = "^[_\\p{L}\\p{Mark}0-9-]+(\\.[_\\p{L}\\p{Mark}0-9-]+)*@[\\p{L}\\p{Mark}0-9-]+(\\.[\\p{L}\\p{Mark}0-9]+)*(\\.[\\p{L}\\p{Mark}]{2,})$"
         let predicateForEmail: NSPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         let isValidated: Bool = predicateForEmail.evaluate(with: emailStr)

@@ -8,13 +8,14 @@
 
 import UIKit
 
-class SideMenuCell: UITableViewCell {
+class SideMenuCell: UITableViewCell
+{
 
-    // MARK: - Outlet
+    //MARK:- Outlet
     @IBOutlet var imgProfile: UIImageView!
-
+    
     @IBOutlet var lblName: UILabel!
-
+        
     @IBOutlet var imgSidebaar: UIImageView!
     @IBOutlet var viewLine: UIView!
 
@@ -25,8 +26,8 @@ class SideMenuCell: UITableViewCell {
     @IBOutlet var btnTwitter: UIButton!
     @IBOutlet var btnFB: UIButton!
 
-    // MARK: -
-
+    //MARK:-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -37,5 +38,5 @@ class SideMenuCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }

@@ -1,10 +1,71 @@
-/* 
+/*
   Localizable.strings
   Yakrm
 
   Created by Krutik V. Poojara on 12/12/18.
   Copyright © 2018 Krutik V. Poojara. All rights reserved.
 */
+
+"Please Enter Email" = "Please Enter Email";
+"Please Enter Valid Email" = "Please Enter Valid Email";
+"Please Enter Password" = "Please Enter Password";
+
+"Please Enter Mobile Number" = "Please Enter Mobile Number";
+"Mobile Number should be minimum of 10 characters" = "Mobile Number should be minimum of 10 characters";
+
+"Please Enter OTP" = "Please Enter OTP";
+
+"Please Enter Name" = "Please Enter Name";
+"Name should be minimum of 3 characters" = "Name should be minimum of 3 characters";
+"Password should be minimum of 6 characters" = "Password should be minimum of 6 characters";
+
+"Please Select atleast one filter category from above" = "Please Select atleast one filter category from above";
+
+"Are you sure You want to Remove from Favourites ?" = "Are you sure You want to Remove from Favourites ?";
+"Cancel" = "Cancel";
+"Remove" = "Remove";
+
+"Are you sure You want to Delete ?" = "Are you sure You want to Delete ?";
+"Delete" = "Delete";
+
+"Are you sure ?" = "Are you sure ?";
+"YES" = "YES";
+"NO" = "NO";
+
+"Video not availble" = "Video not availble";
+"OK" = "OK";
+
+"Are you sure You want to Logout ?" = "Are you sure You want to Logout ?";
+"Logout" = "Logout";
+
+"Please Enter Voucher Number" = "Please Enter Voucher Number";
+"Voucher already been replaced, You can't replace it again" = "Voucher already been replaced, You can't replace it again";
+
+"Please verify your friends mobile number" = "Please verify your friends mobile number";
+"Please Enter Description" = "Please Enter Description";
+
+"Please Enter Message Title" = "Please Enter Message Title";
+"Please Enter Message Details" = "Please Enter Message Details";
+
+"Please Enter Full Name" = "Please Enter Full Name";
+"Please Enter Card Number" = "Please Enter Card Number";
+"Please Enter Correct Card No" = "Please Enter Correct Card No";
+"Please Enter Card Expiry date" = "Please Enter Card Expiry date";
+"Please Enter Security Number" = "Please Enter Security Number";
+"Please Enter Correct Security Number" = "Please Enter Correct Security Number";
+
+"Please Enter Old Password" = "Please Enter Old Password";
+"Please Enter New Password" = "Please Enter New Password";
+"Please Enter Confirm Password" = "Please Enter Confirm Password";
+"Password not Match!" = "Password not Match!";
+
+"OTP not Varify" = "OTP not Varify";
+
+"Video Atteched successfully" = "Video Atteched successfully";
+
+//"Internet Connetion in not availble.Try Again" = "Internet Connetion in not availble.Try Again";
+"No Internet Connection" = "No Internet Connection";
+"Request time out." = "Request time out.";
 
 "When you register a new account, you are accepting usage agreement and the application privacy policy" = "When you register a new account, you are accepting usage agreement and the application privacy policy";
 "usage agreement" = "usage agreement";
@@ -22,12 +83,17 @@
 
 "You Have already have an account? log in" = "You Have already have an account? log in";
 
+"Purchase Voucher" = "Purchase Voucher";
+"Replace Voucher" = "Replace Voucher";
+"Return Voucher" = "Return Voucher";
+
 "By Using Pay Pal" = "By Using Pay Pal";
 "By Using Mada Card" = "By Using Mada Card";
 "By Using Credit Card" = "By Using Credit Card";
 
 "Total" = "Total";
 "Ended In" = "Ended In";
+"Ended On" = "Ended On";
 "Ended By" = "Ended By";
 
 "The Value" = "The Value";
@@ -49,6 +115,10 @@
 "Voucher For Discount" = "Voucher For Discount";
 "Active Till" = "Active Till";
 "Valdi Till" = "Valdi Till";
+
+
+"Wallet amount is " = "Wallet amount is ";
+"and the amount to be paid is" = "and the amount to be paid is";
 
 "My Wallet" = "My Wallet";
 "Auction" = "Auction";
@@ -133,3 +203,140 @@
 "Others" = "Others";
 
 "Your Amount" = "Your Amount";
+
+"Start The Adventure" = "Start The Adventure";
+"Buy gift cards" = "Buy gift cards";
+"Electronic or Paper Gifts" = "Electronic or Paper Gifts";
+
+"Add Photo!" = "Add Photo!";
+
+"Buy gift cards" = "Buy gift cards";
+"New Account" = "New Account";
+"Step 1 : Verify your mobile number" = "Step 1 : Verify your mobile number";
+"Choose the country" = "Choose the country";
+"Step 2 : Verify your mobile number" = "Step 2 : Verify your mobile number";
+"Enter login data" = "Enter login data";
+
+"E-mail" = "E-mail";
+"Do not have an account?" = "Do not have an account?";
+
+"My Personal Account" = "My Personal Account";
+"Name" = "Name";
+"Country" = "Country";
+"Mobile" = "Mobile";
+"Change Password" = "Change Password";
+
+"Add Photo!" = "Add Photo!";
+"Take Photo" = "Take Photo";
+"Choose from Gallery" = "Choose from Gallery";
+
+"Gift Order" = "Gift Order";
+"Most Popular " = "Most Popular ";
+"High Discounted" = "High Discounted";
+
+"Start Purchasing" = "Start Purchasing";
+
+"The total amount is" = "The total amount is";
+"The amount will be deducted from your current balance" = "The amount will be deducted from your current balance";
+"Total Amount" = "Total Amount";
+
+"My Wallet" = "My Wallet";
+"Vouchers Already Ended" = "Vouchers Already Ended";
+"Vouchers Will end Very Soon" = "Vouchers Will end Very Soon";
+
+
+"General instructions" = "General instructions";
+"Replace Voucher" = "Replace Voucher";
+
+"Scan The Card To Bring The Data Automatically" = "Scan The Card To Bring The Data Automatically";
+"Enter Data Manually In Case Scanning Is Failed" = "Enter Data Manually In Case Scanning Is Failed";
+
+"Upload  Voucher- Scan Barcode" = "Upload  Voucher- Scan Barcode";
+
+"Upload Voucher- Voucher Data" = "Upload Voucher- Voucher Data";
+
+"Adding To My Notecase" = "Adding To My Notecase";
+
+"Return Voucher And Add The Amount On Your Balance" = "Return Voucher And Add The Amount On Your Balance";
+"You receive this amount in your Wallet by returning this voucher" = "You receive this amount in your Wallet by returning this voucher";
+
+"Send to a friend" = "Send to a friend";
+"Friend mobile number" = "Friend mobile number";
+
+"Exchanging And to my balance" = "Exchanging And to my balance";
+"COMPLETING EXCHANGE PROSESS" = "COMPLETING EXCHANGE PROSESS";
+
+"By Visa" = "By Visa";
+"By Wallet" = "By Wallet";
+"CREDITED" = "CREDITED";
+"DEBITED" = "DEBITED";
+
+"Contact And Support" = "Contact And Support";
+
+"User Agreement And Privacy Policy" = "User Agreement And Privacy Policy";
+
+"Please Enter CardHolder Name" = "Please Enter CardHolder Name";
+
+//"Card Holder Name" = "Card Holder Name";
+"Card Holder Number" = "Card Holder Number";
+"Expiry Date" = "Expiry Date";
+
+"Enter Old Password" = "Enter Old Password";
+"Enter New Password" = "Enter New Password";
+"Enter Confirm Password" = "Enter Confirm Password";
+
+"Instructions And Conditions" = "Instructions And Conditions";
+
+"Search" = "Search";
+
+"Forgot Password" = "Forgot Password";
+"Can you enter your mobile number, please? " = "Can you enter your mobile number, please? ";
+"Send" = "Send";
+
+"Varify User" = "Varify User";
+"Enter the secret code which is sent to you" = "Enter the secret code which is sent to you";
+"Verify" = "Verify";
+
+"Card List" = "Card List";
+"Add Another Method" = "Add Another Method";
+"Resend" = "Resend";
+
+//"Mobile Number Start with \"05\"" = "Mobile Number Start with \"05\"";
+"Mobile Number Start with" = "Mobile Number Start with";
+
+
+"Add Video!" = "Add Video!";
+"Record video from camera" = "Record video from camera";
+"Select video from gallery" = "Select video from gallery";
+
+"Return" = "Return";
+"No cards is added yet" = "No cards is added yet";
+"Payment card is Added" = "Payment card is Added";
+"Please Wait" = "Please Wait";
+"Favorites are not avaliable" = "Favorites are not avaliable";
+"Added to Favorite" = "Added to Favorite";
+"Remove from your favorites" = "Remove from your favorites";
+"Please add item to the cart" = "Please add item to the cart";
+"Sucessfully changed password" = "Sucessfully changed password";
+"please select the date" = "please select the date";
+"Please Select Country" = "Please Select Country";
+"Please Enter the brand name" = "Please Enter the brand name";
+"No Voucher found" = "No Voucher found";
+"You haven't receive any gift yet" = "You haven't receive any gift yet";
+"Invalid contact number" = "Invalid contact number";
+"You have sent this voucher as a gift to X" = "You have sent this voucher as a gift to X";
+"Your transaction is completed" = "Your transaction is completed";
+"You have added the voucher in the cart" = "You have added the voucher in the cart";
+"You removed this voucher from the cart" = "You removed this voucher from the cart";
+"Congrates x the amout X is added to in your wallet" = "Congrates x the amout X is added to in your wallet";
+"You haven't any active vouchers" = "You haven't any active vouchers";
+"Favorite are not avaliable" = "Favorite are not avaliable";
+"brand vouchers are not available" = "brand vouchers are not available";
+"Profile data updated" = "Profile data updated";
+"Please enter correct old password" = "Please enter correct old password";
+"Please Enter new password.Your password look like old one" = "Please Enter new password.Your password look like old one";
+"Loading" = "Loading";
+"you will receive this amount in your wallet by returning this voucher" = "you will receive this amount in your wallet by returning this voucher";
+
+"Pay" = "Pay";
+"SAR And get" = "SAR And get";

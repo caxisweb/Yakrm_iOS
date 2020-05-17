@@ -5,6 +5,69 @@
   Created by Krutik V. Poojara on 12/12/18.
   Copyright © 2018 Krutik V. Poojara. All rights reserved.
 */
+"Please Enter Email" = "من فضلك ادخل بريد الكتروني";
+"Please Enter Valid Email" = "من فضلك ادخل بريد الكتروني صحيح";
+"Please Enter Password" = "من فضلك ادخل كلمة المرور";
+
+"Please Enter Mobile Number" = "ادخل رقم هاتف صحيح ";
+"Mobile Number should be minimum of 10 characters" = "رقم الهاتف يجب ان لا يقل عن 10 ارقام";
+
+"Please Enter OTP" = "من فضلك ادخل كود التحقق";
+
+"Please Enter Name" = "من فضلك ادخل الاسم";
+"Name should be minimum of 3 characters" = "الاسم لايجب ان يقل عن 3 احرف";
+"Password should be minimum of 6 characters" = "كلمة المرور  يجب ان لا تقل عن 6 احرف";
+
+"Please Select atleast one filter category from above" = "يرجي اختيار علي الاقل فئة واحدة";
+
+"Are you sure You want to Remove from Favourites ?" = "هل أنت متأكد من ازالة القسيمة من المفضلة؟";
+"Cancel" = "الغاء";
+"Remove" = "ازالة";
+
+"Are you sure You want to Delete ?" = "هل أنت متأكد من أنك تريد الحذف";
+"Delete" = "الحذف";
+
+"Are you sure ?" = "هل أنت متأكد ؟";
+"YES" = "نعم";
+"NO" = "لا";
+
+"Video not availble" = "الفيديو غير متاح";
+"OK" = "حسنا";
+
+"Are you sure You want to Logout ?" = "هل انت متأكد من تسجيل  الخروج ؟";
+"Logout" = "الخروج";
+
+"Please Enter Voucher Number" = "من فضلك ادخل رقم القسيمة";
+"Voucher already been replaced, You can't replace it again" = "هذه القسيمة تم استبدالها من قبل, لا يمكنك استبدالها مرة اخرى";
+
+"Please verify your friends mobile number" = "من فضلك تحقق من رقم صديقك";
+"Please Enter Description" = "من فضلك أدخل الوصف";
+
+"Please Enter Message Title" = "من فضلك ادخل عنوان الرسالة";
+"Please Enter Message Details" = "من فضلك ادخل  تفاصيل الرسالة";
+
+"Please Enter Full Name" = "من فضلك ادخل الاسم كاملا";
+"Please Enter Card Number" = "من فضلك ادخل رقم البطاقة";
+"Please Enter Correct Card No" = "من فضلك أدخل رقم بطاقة صحيح";
+//"Please Enter Expirey Date" = "من فضلك أدخل تاريخ الانتهاء";
+"Please Enter Card Expiry date" = "من فضلك أدخل تاريخ الانتهاء ";
+"Please Enter Security Number" = "من فضلك أدخل الرقم السري";
+"Please Enter Correct Security Number" = "من فضلك ادخل رقم سري صحيح";
+
+"Please Enter Old Password" = "من فضلك ادخل كلمة المرور القديمة";
+"Please Enter New Password" = "من فضلك ادخل كلمة المرور الجديدة";
+"Please Enter Confirm Password" = "الرجاء إدخال تأكيد كلمة المرور";
+"Password not Match!" = "كلمة السر ليست جيدة!";
+
+
+"OTP not Varify" = "لم يتم التحقق";
+
+"Video Atteched successfully" = "تم تسجيل الفيديو بنجاح";
+
+
+//"Internet Connetion in not availble.Try Again" = "تحقق من الاتصال بالانترنت";
+"No Internet Connection" = "تحقق من الاتصال بالانترنت";
+"Request time out." = "طلب مهلة";
 
 "When you register a new account, you are accepting usage agreement and the application privacy policy" = "بتسجيلك حساب جديد تكون موافق على اتفاقية الإستخدام وكذلك سياسة الخصوصية الخاص بالتطبيق";
 "usage agreement" = "اتفاقية الإستخدام";
@@ -22,6 +85,9 @@
 
 "You Have already have an account? log in" = "لديك حساب بالفعل؟ تسجيل الدخول ";
 
+"Purchase Voucher" = "شراء قسيمة";
+"Replace Voucher" = "استبدال قسيمة";
+"Return Voucher" = "قسيمة العودة";
 
 "By Using Pay Pal" = "بواسطة باي بال";
 "By Using Mada Card" = "بواسطة بطاقة مدى";
@@ -29,8 +95,11 @@
 
 "Total" = "المجموع";
 "Ended In" = "تنتهي في";
+"Ended On" = "تنتهي في";
 "Ended By" = "انتهت بتاريخ";
+
 "The Value" = "القيمة";
+"Balance" = "رصيدك";//"Balance" = "بقيمة"
 "Sr" = "ريال سعودي";
 "Discount" = "الخصم";
 "The Price" = "السعر";
@@ -47,7 +116,10 @@
 "SR" = "ر.س";
 "Voucher For Discount" = "قسيمة خصم";
 "Active Till" = "صالحة حتى";
+"Valdi Till" = "صالحة حتى";
 
+"Wallet amount is " = " مبلغ المحفظة هو";
+"and the amount to be paid is" = "والمبلغ الواجب دفعه هو";
 
 "My Wallet" = "محفظتي";
 "Auction" = "مزاد";
@@ -57,9 +129,8 @@
 
 "Voucher Till" = "صالحة حتى";
 "Available Till" = "صالحة حتى";
-"Valdi Till" = "صالحة حتى";
 "Voucher Number" = "رقم القسيمة";
-"Pin Number" = "رقمرقم pin";
+"Pin Number" = "رقم pin";//"رقمرقم pin"
 
 "Discount Voucher" = "قسيمة خصم";
 "Discounts Of Voucher" = "قسيمة خصم";
@@ -110,7 +181,6 @@
 
 "Wins The Auction." = "فاز بالمزاد";
 "The Value is" = "بقيمة";
-"Balance" = "بقيمة";
 "Your Auction's Value Was" = "كانت قيمة مزايدتك";
 "The Number Of The Auctions" = "عدد المزايدات";
 
@@ -134,3 +204,144 @@
 "Others" = "أخرى";
 
 "Your Amount" = "رصيدك";
+
+
+"Start The Adventure" = "ابدأ المغامرة";
+"Buy gift cards" = "شراء كروت الهدايا";
+"Electronic or Paper Gifts" = "الهدايا الإلكترونية أو الورقية";
+
+
+"Add Photo!" = "إضافة صورة!";
+
+"Buy gift cards" = "شراء كروت الهدايا";
+"New Account" = "حساب جديد";
+"Step 1 : Verify your mobile number" = "خطوة 1: التحقق من رقم الجوال";
+"Choose the country" = "اختر الدولة";
+"Step 2 : Verify your mobile number" = "خطوة 2: التحقق من رقم الجوال";
+"Enter login data" = "أدخل بيانات الدخول";
+"E-mail" = "البريد الإلكتروني";
+"Do not have an account?" = "ليس لديك حساب؟";
+
+"My Personal Account" = "حسابي الشخصي";
+"Name" = "الإسم";
+"Country" = "الدولة";
+"Mobile" = "رقم الجوال";
+"Change Password" = "تغير كلمة المرور";
+
+"Add Photo!" = "إضافة صورة!";
+"Take Photo" = "تصوير";
+"Choose from Gallery" = "اختر من المعرض";
+
+"Gift Order" = "ترتيب الهدايا";
+"Most Popular " = "  الأكثر شعبية";
+"High Discounted" = "  الأكثر خصما";
+
+"Start Purchasing" = "إبدأ الشراء";
+
+"The total amount is" = "المبلغ الإجمالي هو";
+"The amount will be deducted from your current balance" = "سيتم خصم المبلغ من رصيدك الحالي";
+"Total Amount" = "المبلغ الإجمالي هو";
+
+"My Wallet" = "محفظتي";
+//"Vouchers Already Ended" = "قسائم قرب تاريخ انتهائها";
+"Vouchers Already Ended" = "قسائم قرب انتهائها";
+"Vouchers Will end Very Soon" = "قسائم قرب إنتهاءها";
+
+"General instructions" = "تعليمات عامة";
+"Replace Voucher" = "استبدل القسيمة";
+
+"Scan The Card To Bring The Data Automatically" = "قم بعمل ماسح ضوئي للبطاقة لجلب بيانات البطاقة تلقائيا";
+"Enter Data Manually In Case Scanning Is Failed" = "إدخال البيانات يدويا في حالة فشل المسح الضوئي";
+
+"Upload  Voucher- Scan Barcode" = "رفع قسيمة خصم- مسح باركود";
+
+"Upload Voucher- Voucher Data" = "رفع قسيمة خصم- بيانات القسيمة";
+
+"Adding To My Notecase" = "إضافة إلى محفظتي";
+
+"Return Voucher And Add The Amount On Your Balance" = "عودة قسيمة وإضافة المبلغ على رصيدك";
+"You receive this amount in your Wallet by returning this voucher" = "تتلقى هذا المبلغ في محفظتك عن طريق إعادة هذه القسيمة";
+
+"Send to a friend" = "إرسال لصديق";
+"Friend mobile number" = "أدخل رقم جوال صديقك";
+
+"Exchanging And to my balance" = "استبدال وإضافة المبلغ إلى رصيدك";
+"COMPLETING EXCHANGE PROSESS" = "اتمام عملية الاستبدال";
+
+"By Visa" = "بواسطة فيزا";
+"By Wallet" = "بواسطة محفظة";
+"CREDITED" = "الفضل";
+"DEBITED" = "خصم";
+
+"Contact And Support" = "التواصل والدعم";
+
+"User Agreement And Privacy Policy" = "اتفاقية الإستخدام وسياسة الخصوصية";
+
+"Please Enter CardHolder Name" = "من فضلك ادخل اسم صاحب البطاقة";
+//"Card Holder Name" = "رقم البطاقة";
+"Expiry Date" = "تاريخ الانتهاء";
+"Card Holder Number" = "رقم البطاقة";
+
+
+"Enter Old Password" = "أدخل كلمة المرور القديمة";
+"Enter New Password" = "أدخل كلمة مرور جديدة";
+"Enter Confirm Password" = "أدخل تأكيد كلمة المرور";
+
+"Instructions And Conditions" = "التعليمات والشروط";
+
+"Search" = "نتائج البحث";
+
+"Forgot Password" = "هل نسيت كلمة المرور";
+"Can you enter your mobile number, please? " = "من فضلك أدخل رقم الجوال الخاص بك";
+"Send" = "ارسال";
+
+"Varify User" = "تحقق من المستخدم";
+"Enter the secret code which is sent to you " = "أدخل الكود السري المرسل إليك";
+"Verify" = "تحقق";
+
+"Card List" = "قائمة البطاقات";
+"Add Another Method" = "إضافة طريقة أخرى";
+"Resend" = "إعادة إرسال";
+
+"Mobile Number Start with" = "رقم الجوال يبدأ بـ";
+//"Mobile Number Start with \"05\"" = "رقم الجوال يبدأ بـ \" 05 \ "";
+
+"Add Video!" = "أضف فيديو!";
+"Record video from camera" = "تسجيل الفيديو من الكاميرا";
+"Select video from gallery" = "اختر الفيديو من المعرض";
+
+"Return" = "استيدال";
+"No cards is added yet" = "لم يتم اضافة بطاقات حتي الان";
+"Payment card is Added" = "لقد تمت اضافة البطاقة";
+"Please Wait" = "انتظر قليلا";
+"Favorites are not avaliable" = "لا توجد قسائم مفضلة";
+"Added to Favorite" = "لقد تمت الاضافة للمفضلة";
+"Remove from your favorites" = "تمت الازالة من المفضلة";
+"Please add item to the cart" = "من فضلك أضف العنصر للسلة";
+"Sucessfully changed password" = "لقد تم تغيير كلمة السر بنجاح";
+"please select the date" = "من فضلك اخنار التاريخ";
+"Please Select Country" = "من فضلك اختار الدولة";
+"Please Enter the brand name" = "من فضلك ادخل اسم البراند";
+"No Voucher found" = "لم يتم العثور على قسيمة";
+"You haven't receive any gift yet" = "لم تستلم اي هدايا حتي الان";
+"Invalid contact number" = "رقم الاتصال غير صحيح أو الرقم غير صحيح";
+"You have sent this voucher as a gift to X" = "X لقد تم ارسال هذه السيمة كهدية الى";
+"Your transaction is completed" = "لقد اكتملت العملية";
+"You have added the voucher in the cart" = "لقد تم اضافة القسيمة للسلة";
+"You removed this voucher from the cart" = "لقد تم ازالة هذه القسيمة من السلة";
+
+"Congrates x the amout X is added to in your wallet" = "مبروك X لقد تمت اضافة المبلغ x الي محقظتك";
+"You haven't any active vouchers" = "ليس لديك قسائم نشطة";
+"Favorite are not avaliable" = "لا توجد قسائم مفضلة";
+"brand vouchers are not available" = "هذه الماركة او البراند غير موجود";
+"Profile data updated" = "تم تعديل البيانات الشخصية";
+"Please enter correct old password" = "من فضلك أدخل كلمة المرور القديمة الصحيحة";
+"Please Enter new password.Your password look like old one" = "من فضلك أدخل كلمة سر جديدة";
+"Loading" = "تحميل";
+"you will receive this amount in your wallet by returning this voucher" = "تتلقي هذا المبلغ في محفظتك عن طريق اعادة هذه القسيمة";
+
+
+"I Pay" = "أدفع";
+"And get" = " ريال و احصل علي";
+
+"Pay" = "دفع";

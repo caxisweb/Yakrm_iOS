@@ -7,4 +7,5 @@
 #import "UIViewController+LGSideMenuController.h"
 #import "ViewPagerController.h"
 #import "NSBundle+Language.h"
-//#import <paytabs-iOS/paytabs_iOS.h>
+#import <paytabs-iOS/paytabs_iOS.h>
+#import <OPPWAMobile/OPPWAMobile.h>

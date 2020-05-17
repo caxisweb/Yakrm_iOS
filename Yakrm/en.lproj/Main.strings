@@ -1,0 +1,753 @@
+
+/* Class = "UILabel"; text = "You do not own this mobile ? change the number "; ObjectID = "0p0-na-NAj"; */
+"0p0-na-NAj.text" = "You do not own this mobile ? change the number ";
+
+/* Class = "UILabel"; text = "SAR 2,450\nYour current balance"; ObjectID = "1Pv-DO-qIM"; */
+"1Pv-DO-qIM.text" = "SAR 2,450\nYour current balance";
+
+/* Class = "UILabel"; text = "SR"; ObjectID = "1vF-ye-VzA"; */
+"1vF-ye-VzA.text" = "SR";
+
+/* Class = "UILabel"; text = "Exchange And Add The Amount On Your Balance"; ObjectID = "23e-33-0rR"; */
+"23e-33-0rR.text" = "Exchange And Add The Amount On Your Balance";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "2Jc-4A-UTV"; */
+"2Jc-4A-UTV.normalTitle" = "Save";
+
+/* Class = "UIButton"; normalTitle = "English Version"; ObjectID = "2bS-S6-WEE"; */
+"2bS-S6-WEE.normalTitle" = "English Version";
+
+/* Class = "UILabel"; text = "Active coupons"; ObjectID = "2ee-sn-3mZ"; */
+"2ee-sn-3mZ.text" = "Active coupons";
+
+/* Class = "UIButton"; normalTitle = "Verify"; ObjectID = "2ff-n8-7fc"; */
+"2ff-n8-7fc.normalTitle" = "Verify";
+
+/* Class = "UILabel"; text = "The Lowest Value for Increase Is 5 SR"; ObjectID = "2zW-ba-Pwy"; */
+"2zW-ba-Pwy.text" = "The Lowest Value for Increase Is 5 SR";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "35W-bu-D5E"; */
+"35W-bu-D5E.text" = "0";
+
+/* Class = "UILabel"; text = "Purchase"; ObjectID = "37U-fV-40u"; */
+"37U-fV-40u.text" = "Purchase";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "3Kk-Ls-aeu"; */
+"3Kk-Ls-aeu.placeholder" = "Password";
+
+/* Class = "UIButton"; normalTitle = "Accept"; ObjectID = "3NE-XO-RYv"; */
+"3NE-XO-RYv.normalTitle" = "Accept";
+
+/* Class = "UITextField"; placeholder = "Saudi Arabia"; ObjectID = "3l2-Jx-NFY"; */
+"3l2-Jx-NFY.placeholder" = "Saudi Arabia";
+
+/* Class = "UITextField"; text = "Saudi Arabia"; ObjectID = "3l2-Jx-NFY"; */
+"3l2-Jx-NFY.text" = "Saudi Arabia";
+
+/* Class = "UILabel"; text = "Pin Number"; ObjectID = "4lE-Oa-mTC"; */
+"4lE-Oa-mTC.text" = "Pin Number";
+
+/* Class = "UILabel"; text = "Active Vouchers"; ObjectID = "5Dm-Te-ezb"; */
+"5Dm-Te-ezb.text" = "Active Vouchers";
+
+/* Class = "UILabel"; text = "05"; ObjectID = "5Fx-23-STe"; */
+"5Fx-23-STe.text" = "05";
+
+/* Class = "UILabel"; text = "Favorite Vouchers"; ObjectID = "5Y2-g0-hXX"; */
+"5Y2-g0-hXX.text" = "Favorite Vouchers";
+
+/* Class = "UILabel"; text = "Any Questions, Ideas, Or Evaluations?\nContact With And Send To Us "; ObjectID = "5k5-iZ-KzA"; */
+"5k5-iZ-KzA.text" = "Any Questions, Ideas, Or Evaluations?\nContact With And Send To Us ";
+
+/* Class = "UILabel"; text = "Received Vouchers"; ObjectID = "5rx-xe-rZI"; */
+"5rx-xe-rZI.text" = "Received Vouchers";
+
+/* Class = "UILabel"; text = "New Account"; ObjectID = "5yV-pE-BBU"; */
+"5yV-pE-BBU.text" = "New Account";
+
+/* Class = "UITextField"; placeholder = "email@domain.com"; ObjectID = "69s-mK-rFV"; */
+"69s-mK-rFV.placeholder" = "email@domain.com";
+
+/* Class = "UILabel"; text = "STARBUCKSCARD"; ObjectID = "6RK-b3-Pcw"; */
+"6RK-b3-Pcw.text" = "STARBUCKSCARD";
+
+/* Class = "UILabel"; text = "Value of coupon"; ObjectID = "6VC-Cf-kdm"; */
+"6VC-Cf-kdm.text" = "Value of coupon";
+
+/* Class = "UIButton"; normalTitle = "Already have an account? log in"; ObjectID = "6X8-jW-VoL"; */
+"6X8-jW-VoL.normalTitle" = "Already have an account? log in";
+
+/* Class = "UILabel"; text = "No: 2541 9852 21 2556 #"; ObjectID = "78P-FO-meO"; */
+"78P-FO-meO.text" = "No: 2541 9852 21 2556 #";
+
+/* Class = "UILabel"; text = "Message Details"; ObjectID = "7Ci-Ud-QWZ"; */
+"7Ci-Ud-QWZ.text" = "Message Details";
+
+/* Class = "UILabel"; text = "Gift Details"; ObjectID = "7dO-CY-5BL"; */
+"7dO-CY-5BL.text" = "Gift Details";
+
+/* Class = "UILabel"; text = "5 SR"; ObjectID = "7eL-hp-Fxn"; */
+"7eL-hp-Fxn.text" = "5 SR";
+
+/* Class = "UILabel"; text = "About Yakrm"; ObjectID = "7q4-SO-aMO"; */
+"7q4-SO-aMO.text" = "About Yakrm";
+
+/* Class = "UILabel"; text = "Favorite Brands Of Vouchers"; ObjectID = "821-iL-TuZ"; */
+"821-iL-TuZ.text" = "Favorite Brands Of Vouchers";
+
+/* Class = "UILabel"; text = "The Process Is Carried Out Successfully"; ObjectID = "84k-ML-fvJ"; */
+"84k-ML-fvJ.text" = "The Process Is Carried Out Successfully";
+
+/* Class = "UITextField"; placeholder = "Enter your full name please"; ObjectID = "8jZ-HP-xOR"; */
+"8jZ-HP-xOR.placeholder" = "Enter your full name please";
+
+/* Class = "UILabel"; text = "Vouchers Will End Very Soon"; ObjectID = "96I-p0-IcF"; */
+"96I-p0-IcF.text" = "Vouchers Will End Very Soon";
+
+/* Class = "UILabel"; text = "The most popular gifts    "; ObjectID = "9Wx-Hd-pL6"; */
+"9Wx-Hd-pL6.text" = "The most popular gifts    ";
+
+/* Class = "UILabel"; text = " There is no Purchases in the buying basket"; ObjectID = "9gZ-8i-KHY"; */
+"9gZ-8i-KHY.text" = " There is no Purchases in the buying basket";
+
+/* Class = "UILabel"; text = "Log In"; ObjectID = "9kW-x4-7mz"; */
+"9kW-x4-7mz.text" = "Log In";
+
+/* Class = "UILabel"; text = "Enter the secret code which is sent to you "; ObjectID = "9ma-4N-PHP"; */
+"9ma-4N-PHP.text" = "Enter the secret code which is sent to you ";
+
+/* Class = "UIButton"; normalTitle = "Send"; ObjectID = "9pw-wE-kpg"; */
+"9pw-wE-kpg.normalTitle" = "Send";
+
+/* Class = "UILabel"; text = "Favorite Vouchers"; ObjectID = "9rz-ch-kD5"; */
+"9rz-ch-kD5.text" = "Favorite Vouchers";
+
+/* Class = "UITextField"; placeholder = "email@domain.com"; ObjectID = "AJ1-ce-RQe"; */
+"AJ1-ce-RQe.placeholder" = "email@domain.com";
+
+/* Class = "UILabel"; text = "STARBUCKSCARD"; ObjectID = "AVm-gV-SZV"; */
+"AVm-gV-SZV.text" = "STARBUCKSCARD";
+
+/* Class = "UILabel"; text = "STARBUCKSCARD"; ObjectID = "Ayd-0B-ho0"; */
+"Ayd-0B-ho0.text" = "STARBUCKSCARD";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "BHV-gb-r2k"; */
+"BHV-gb-r2k.normalTitle" = "Sign Up";
+
+/* Class = "UIButton"; normalTitle = "Return"; ObjectID = "BOP-xs-ULw"; */
+"BOP-xs-ULw.normalTitle" = "Return";
+
+/* Class = "UITextField"; placeholder = "Saudi Arabia"; ObjectID = "BUK-Wj-Art"; */
+"BUK-Wj-Art.placeholder" = "Saudi Arabia";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "BYr-TM-Vll"; */
+"BYr-TM-Vll.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "New Ideas"; ObjectID = "BdJ-QJ-sT5"; */
+"BdJ-QJ-sT5.placeholder" = "New Ideas";
+
+/* Class = "UISegmentedControl"; C4u-Gc-DhD.segmentTitles[0] = "Active Now"; ObjectID = "C4u-Gc-DhD"; */
+"C4u-Gc-DhD.segmentTitles[0]" = "Active Now";
+
+/* Class = "UISegmentedControl"; C4u-Gc-DhD.segmentTitles[1] = "Ended"; ObjectID = "C4u-Gc-DhD"; */
+"C4u-Gc-DhD.segmentTitles[1]" = "Ended";
+
+/* Class = "UILabel"; text = "Rs"; ObjectID = "Cd9-v4-wxu"; */
+"Cd9-v4-wxu.text" = "Rs";
+
+/* Class = "UILabel"; text = "Auction Duration: 3 Days"; ObjectID = "Cx2-GV-rJY"; */
+"Cx2-GV-rJY.text" = "Auction Duration: 3 Days";
+
+/* Class = "UILabel"; text = "Upload Voucher- Voucher Data"; ObjectID = "D2Q-85-OQ5"; */
+"D2Q-85-OQ5.text" = "Upload Voucher- Voucher Data";
+
+/* Class = "UILabel"; text = "Payment Methods"; ObjectID = "D5G-n1-HOQ"; */
+"D5G-n1-HOQ.text" = "Payment Methods";
+
+/* Class = "UIButton"; normalTitle = "Delete All"; ObjectID = "DbY-Ul-GKZ"; */
+"DbY-Ul-GKZ.normalTitle" = "Delete All";
+
+/* Class = "UILabel"; text = "Exchange Instructions"; ObjectID = "Dgb-0h-PWW"; */
+"Dgb-0h-PWW.text" = "Exchange Instructions";
+
+/* Class = "UIButton"; normalTitle = "Forgot your password ?"; ObjectID = "Dp8-Qi-7yw"; */
+"Dp8-Qi-7yw.normalTitle" = "Forgot your password ?";
+
+/* Class = "UILabel"; text = "Here you will find the gift cards sent by your friends and you can transfer them to the card portfolio and exploit them in the purchase and discounts. Here you will find the gift cards sent by your friends and you can transfer them to the card portfolio and exploit them in the purchase and discounts."; ObjectID = "Drf-jx-TNo"; */
+"Drf-jx-TNo.text" = "Here you will find the gift cards sent by your friends and you can transfer them to the card portfolio and exploit them in the purchase and discounts. Here you will find the gift cards sent by your friends and you can transfer them to the card portfolio and exploit them in the purchase and discounts.";
+
+/* Class = "UILabel"; text = "Pin number: # 562177"; ObjectID = "EDd-7L-Ub4"; */
+"EDd-7L-Ub4.text" = "Pin number: # 562177";
+
+/* Class = "UILabel"; text = "Here you will find the gift cards sent by your friends and you can transfer them to the wallet card and exploit them in the purchase and discounts"; ObjectID = "EVo-h9-VLx"; */
+"EVo-h9-VLx.text" = "Here you will find the gift cards sent by your friends and you can transfer them to the wallet card and exploit them in the purchase and discounts";
+
+/* Class = "UIButton"; normalTitle = "Verify"; ObjectID = "FG4-Ej-NfJ"; */
+"FG4-Ej-NfJ.normalTitle" = "Verify";
+
+/* Class = "UILabel"; text = "08"; ObjectID = "Fo9-6O-Ej7"; */
+"Fo9-6O-Ej7.text" = "08";
+
+/* Class = "UILabel"; text = "Gift Type"; ObjectID = "Glg-JC-8og"; */
+"Glg-JC-8og.text" = "Gift Type";
+
+/* Class = "UILabel"; text = "Enter the secret code which is sent to you"; ObjectID = "Gva-4r-oec"; */
+"Gva-4r-oec.text" = "Enter the secret code which is sent to you";
+
+/* Class = "UIButton"; normalTitle = "Send"; ObjectID = "HFd-Eb-lig"; */
+"HFd-Eb-lig.normalTitle" = "Send";
+
+/* Class = "UILabel"; text = "Friend information"; ObjectID = "HJN-BB-Kud"; */
+"HJN-BB-Kud.text" = "Friend information";
+
+/* Class = "UIButton"; normalTitle = "Complete the payment"; ObjectID = "HZ6-9B-Xr6"; */
+"HZ6-9B-Xr6.normalTitle" = "Complete the payment";
+
+/* Class = "UILabel"; text = "The Basket"; ObjectID = "I99-VD-nhi"; */
+"I99-VD-nhi.text" = "The Basket";
+
+/* Class = "UILabel"; text = "Card Holder Name"; ObjectID = "IC8-SX-oxH"; */
+"IC8-SX-oxH.text" = "Card Holder Name";
+
+/* Class = "UIButton"; normalTitle = "Sign Out"; ObjectID = "ILq-II-6BH"; */
+"ILq-II-6BH.normalTitle" = "Sign Out";
+
+/* Class = "UILabel"; text = "The most popular gifts    "; ObjectID = "Iad-bQ-xPt"; */
+"Iad-bQ-xPt.text" = "The most popular gifts    ";
+
+/* Class = "UILabel"; text = "Choose The Brand"; ObjectID = "Ios-sY-htD"; */
+"Ios-sY-htD.text" = "Choose The Brand";
+
+/* Class = "UILabel"; text = "0 SR"; ObjectID = "ItQ-v6-qFE"; */
+"ItQ-v6-qFE.text" = "0 SR";
+
+/* Class = "UILabel"; text = "The most popular gifts    "; ObjectID = "Iuq-0g-Kbb"; */
+"Iuq-0g-Kbb.text" = "The most popular gifts    ";
+
+/* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "J0p-lU-tc1"; */
+"J0p-lU-tc1.normalTitle" = "Delete";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "JfJ-mL-qer"; */
+"JfJ-mL-qer.text" = "1";
+
+/* Class = "UILabel"; text = "Ahmed Saad Abdel Rahman"; ObjectID = "Jkq-wC-EsP"; */
+"Jkq-wC-EsP.text" = "Ahmed Saad Abdel Rahman";
+
+/* Class = "UILabel"; text = "Vouchers Already Ended"; ObjectID = "KCN-Q0-OJa"; */
+"KCN-Q0-OJa.text" = "Vouchers Already Ended";
+
+/* Class = "UILabel"; text = "Main"; ObjectID = "KTf-7i-kFI"; */
+"KTf-7i-kFI.text" = "Main";
+
+/* Class = "UILabel"; text = "Here you will find discount vouchers sent by your friends and you can transfer them to your card wallet"; ObjectID = "KVk-WA-dqJ"; */
+"KVk-WA-dqJ.text" = "Here you will find discount vouchers sent by your friends and you can transfer them to your card wallet";
+
+/* Class = "UILabel"; text = "E-mail"; ObjectID = "KWP-qW-sAQ"; */
+"KWP-qW-sAQ.text" = "E-mail";
+
+/* Class = "UILabel"; text = "The most popular gifts    "; ObjectID = "LCM-7Q-yrZ"; */
+"LCM-7Q-yrZ.text" = "The most popular gifts    ";
+
+/* Class = "UILabel"; text = "The most popular gifts    "; ObjectID = "Ll3-H4-9nm"; */
+"Ll3-H4-9nm.text" = "The most popular gifts    ";
+
+/* Class = "UILabel"; text = "Search"; ObjectID = "M4G-0W-yXJ"; */
+"M4G-0W-yXJ.text" = "Search";
+
+/* Class = "UITextField"; placeholder = "*******"; ObjectID = "MB1-3c-0pa"; */
+"MB1-3c-0pa.placeholder" = "*******";
+
+/* Class = "UIButton"; normalTitle = "Added to the buying basket successfully  "; ObjectID = "Mat-E9-4Tp"; */
+"Mat-E9-4Tp.normalTitle" = "Added to the buying basket successfully  ";
+
+/* Class = "UITextField"; placeholder = "Pin Number"; ObjectID = "Mh0-E9-V19"; */
+"Mh0-E9-V19.placeholder" = "Pin Number";
+
+/* Class = "UILabel"; text = "Discount"; ObjectID = "N5a-1n-g5D"; */
+"N5a-1n-g5D.text" = "Discount";
+
+/* Class = "UILabel"; text = "Starbuckscard"; ObjectID = "NWi-tw-RGa"; */
+"NWi-tw-RGa.text" = "Starbuckscard";
+
+/* Class = "UITextField"; placeholder = "Voucher Number"; ObjectID = "ORL-uB-MZi"; */
+"ORL-uB-MZi.placeholder" = "Voucher Number";
+
+/* Class = "UITextField"; placeholder = "Sending Date"; ObjectID = "OUx-Oi-Xka"; */
+"OUx-Oi-Xka.placeholder" = "Sending Date";
+
+/* Class = "UILabel"; text = "Financial Transactions Record"; ObjectID = "Oxa-4w-hDn"; */
+"Oxa-4w-hDn.text" = "Financial Transactions Record";
+
+/* Class = "UIButton"; normalTitle = "Terms & Condition"; ObjectID = "PFX-Wa-wv6"; */
+"PFX-Wa-wv6.normalTitle" = "Terms & Condition";
+
+/* Class = "UILabel"; text = "Pay"; ObjectID = "Pfp-Z3-5Nb"; */
+"Pfp-Z3-5Nb.text" = "Pay";
+
+/* Class = "UILabel"; text = "Step 2 : Verify your mobile number"; ObjectID = "Q8H-HS-pXg"; */
+"Q8H-HS-pXg.text" = "Step 2 : Verify your mobile number";
+
+/* Class = "UILabel"; text = "Received"; ObjectID = "QAT-a2-Eqp"; */
+"QAT-a2-Eqp.text" = "Received";
+
+/* Class = "UILabel"; text = "Name: Mahmoud Abdel Mattal"; ObjectID = "QAh-Ic-GFc"; */
+"QAh-Ic-GFc.text" = "Name: Mahmoud Abdel Mattal";
+
+/* Class = "UIButton"; normalTitle = "Add"; ObjectID = "QC4-LC-99L"; */
+"QC4-LC-99L.normalTitle" = "Add";
+
+/* Class = "UILabel"; text = "Something Wrong Occurs And The Process Is Not Finished Yet"; ObjectID = "QIb-tH-lbd"; */
+"QIb-tH-lbd.text" = "Something Wrong Occurs And The Process Is Not Finished Yet";
+
+/* Class = "UILabel"; text = "Available Till"; ObjectID = "Qqz-Q7-UBH"; */
+"Qqz-Q7-UBH.text" = "Available Till";
+
+/* Class = "UILabel"; text = "Voucher Number:"; ObjectID = "Qua-56-U5F"; */
+"Qua-56-U5F.text" = "Voucher Number:";
+
+/* Class = "UIButton"; normalTitle = "Pay Now"; ObjectID = "R5U-5O-SrC"; */
+"R5U-5O-SrC.normalTitle" = "Pay Now";
+
+/* Class = "UIButton"; normalTitle = "Attached Video"; ObjectID = "R8i-eq-5Ny"; */
+"R8i-eq-5Ny.normalTitle" = "Attached Video";
+
+/* Class = "UILabel"; text = "Electronic Gift "; ObjectID = "RCd-AC-ywA"; */
+"RCd-AC-ywA.text" = "Electronic Gift ";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "Ra7-Wl-KFg"; */
+"Ra7-Wl-KFg.text" = "Value";
+
+/* Class = "UIButton"; normalTitle = "CHANGE PASSWORD"; ObjectID = "RgR-JW-pmr"; */
+"RgR-JW-pmr.normalTitle" = "CHANGE PASSWORD";
+
+/* Class = "UILabel"; text = "Active Vouchers"; ObjectID = "Rmu-wb-C8w"; */
+"Rmu-wb-C8w.text" = "Active Vouchers";
+
+/* Class = "UILabel"; text = "View Auction's Voucher"; ObjectID = "Sdp-PE-v0y"; */
+"Sdp-PE-v0y.text" = "View Auction's Voucher";
+
+/* Class = "UILabel"; text = "Charge Your Account Balance"; ObjectID = "SjI-3Q-PBZ"; */
+"SjI-3Q-PBZ.text" = "Charge Your Account Balance";
+
+/* Class = "UILabel"; text = "Total Amount"; ObjectID = "SmK-ye-QZB"; */
+"SmK-ye-QZB.text" = "Total Amount";
+
+/* Class = "UILabel"; text = "User Agreement"; ObjectID = "Sw4-B3-Axc"; */
+"Sw4-B3-Axc.text" = "User Agreement";
+
+/* Class = "UIButton"; normalTitle = "Already have an account? log in"; ObjectID = "Swo-kj-Nav"; */
+"Swo-kj-Nav.normalTitle" = "Already have an account? log in";
+
+/* Class = "UILabel"; text = "12"; ObjectID = "SxF-bH-LR6"; */
+"SxF-bH-LR6.text" = "12";
+
+/* Class = "UIButton"; normalTitle = "Completing The Sending Process"; ObjectID = "T9w-zE-qdc"; */
+"T9w-zE-qdc.normalTitle" = "Completing The Sending Process";
+
+/* Class = "UIButton"; normalTitle = "Filter"; ObjectID = "TLR-Zi-07q"; */
+"TLR-Zi-07q.normalTitle" = "Filter";
+
+/* Class = "UILabel"; text = "Vouchers That Have Already Ended"; ObjectID = "TS8-8G-dxM"; */
+"TS8-8G-dxM.text" = "Vouchers That Have Already Ended";
+
+/* Class = "UILabel"; text = "Auction"; ObjectID = "Tax-K1-ec4"; */
+"Tax-K1-ec4.text" = "Auction";
+
+/* Class = "UITextField"; placeholder = "email@domain.com"; ObjectID = "TfB-Hy-m36"; */
+"TfB-Hy-m36.placeholder" = "email@domain.com";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "Tmk-1a-6Sp"; */
+"Tmk-1a-6Sp.text" = "Password";
+
+/* Class = "UITextField"; placeholder = "E-mail"; ObjectID = "U41-UI-Hme"; */
+"U41-UI-Hme.placeholder" = "E-mail";
+
+/* Class = "UILabel"; text = "Gifts Classification"; ObjectID = "Uix-pY-waF"; */
+"Uix-pY-waF.text" = "Gifts Classification";
+
+/* Class = "UILabel"; text = "5 SR"; ObjectID = "UlH-rr-p5k"; */
+"UlH-rr-p5k.text" = "5 SR";
+
+/* Class = "UILabel"; text = "Step 2 : Complete your personal data"; ObjectID = "UtF-8l-0ek"; */
+"UtF-8l-0ek.text" = "Step 2 : Complete your personal data";
+
+/* Class = "UILabel"; text = "Your Voucher Will Be Uploaded For Auction. Other Will Compete To Win It"; ObjectID = "Uu4-PP-DEe"; */
+"Uu4-PP-DEe.text" = "Your Voucher Will Be Uploaded For Auction. Other Will Compete To Win It";
+
+/* Class = "UILabel"; text = "Filter Search Results"; ObjectID = "Uuw-zd-JOx"; */
+"Uuw-zd-JOx.text" = "Filter Search Results";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "V63-zk-NEc"; */
+"V63-zk-NEc.text" = "Password";
+
+/* Class = "UILabel"; text = "Your Current Amount Is Not Enough To Carry Out Purchasing Process"; ObjectID = "V7Y-Zi-SRr"; */
+"V7Y-Zi-SRr.text" = "Your Current Amount Is Not Enough To Carry Out Purchasing Process";
+
+/* Class = "UILabel"; text = "Enter New Password"; ObjectID = "V7q-KZ-fCa"; */
+"V7q-KZ-fCa.text" = "Enter New Password";
+
+/* Class = "UIButton"; normalTitle = "Filter the results       "; ObjectID = "VHL-hz-VuL"; */
+"VHL-hz-VuL.normalTitle" = "Filter the results       ";
+
+/* Class = "UILabel"; text = "Version number 1.0.0"; ObjectID = "VYd-hl-7CH"; */
+"VYd-hl-7CH.text" = "Version number 1.0.0";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "VdB-6L-Hef"; */
+"VdB-6L-Hef.placeholder" = "Name";
+
+/* Class = "UILabel"; text = "Current payment methods"; ObjectID = "Vo4-MQ-ZS7"; */
+"Vo4-MQ-ZS7.text" = "Current payment methods";
+
+/* Class = "UITextField"; placeholder = "* * * * * * *"; ObjectID = "W7n-nh-q0A"; */
+"W7n-nh-q0A.placeholder" = "* * * * * * *";
+
+/* Class = "UILabel"; text = "Exchange And Add to my balance"; ObjectID = "W8V-BL-GPS"; */
+"W8V-BL-GPS.text" = "Exchange And Add to my balance";
+
+/* Class = "UILabel"; text = "Display The Voucher On An Auction"; ObjectID = "WGy-IJ-WP7"; */
+"WGy-IJ-WP7.text" = "Display The Voucher On An Auction";
+
+/* Class = "UILabel"; text = "Enter Old Password"; ObjectID = "WHH-7k-jkD"; */
+"WHH-7k-jkD.text" = "Enter Old Password";
+
+/* Class = "UILabel"; text = "E-mail: email@domain.dlt"; ObjectID = "WHz-Fd-VxH"; */
+"WHz-Fd-VxH.text" = "E-mail: email@domain.dlt";
+
+/* Class = "UILabel"; text = "2019 Valid until: January 25th"; ObjectID = "Wda-2C-3bZ"; */
+"Wda-2C-3bZ.text" = "2019 Valid until: January 25th";
+
+/* Class = "UILabel"; text = "Purchase"; ObjectID = "Wgy-JV-ubr"; */
+"Wgy-JV-ubr.text" = "Purchase";
+
+/* Class = "UIButton"; normalTitle = "You Have already have an account? log in"; ObjectID = "X4C-nv-qpm"; */
+"X4C-nv-qpm.normalTitle" = "You Have already have an account? log in";
+
+/* Class = "UIButton"; normalTitle = "Change Password"; ObjectID = "XDS-48-h52"; */
+"XDS-48-h52.normalTitle" = "Change Password";
+
+/* Class = "UILabel"; text = "Upload Voucher- Voucher Data"; ObjectID = "XKG-Y1-lI9"; */
+"XKG-Y1-lI9.text" = "Upload Voucher- Voucher Data";
+
+/* Class = "UIButton"; normalTitle = "Scan The Photo  "; ObjectID = "Xc0-jr-xcE"; */
+"Xc0-jr-xcE.normalTitle" = "Scan The Photo  ";
+
+/* Class = "UILabel"; text = "New Account"; ObjectID = "Y9b-1j-y33"; */
+"Y9b-1j-y33.text" = "New Account";
+
+/* Class = "UILabel"; text = "CVV"; ObjectID = "YXg-GN-hFm"; */
+"YXg-GN-hFm.text" = "CVV";
+
+/* Class = "UITextField"; text = "25 January 2019"; ObjectID = "Z7M-cQ-lim"; */
+"Z7M-cQ-lim.text" = "25 January 2019";
+
+/* Class = "UILabel"; text = "Exchange A Discount Voucher"; ObjectID = "ZRu-u6-JgI"; */
+"ZRu-u6-JgI.text" = "Exchange A Discount Voucher";
+
+/* Class = "UILabel"; text = "Idea of Yakrm"; ObjectID = "ZzX-Jb-4Xd"; */
+"ZzX-Jb-4Xd.text" = "Idea of Yakrm";
+
+/* Class = "UILabel"; text = "Buy gift cards with competitive prices and discounts and from international brands"; ObjectID = "aD7-FM-BnR"; */
+"aD7-FM-BnR.text" = "Buy gift cards with competitive prices and discounts and from international brands";
+
+/* Class = "UILabel"; text = "5 SR"; ObjectID = "aL6-HE-vb6"; */
+"aL6-HE-vb6.text" = "5 SR";
+
+/* Class = "UILabel"; text = "Message Title"; ObjectID = "aSw-Bo-027"; */
+"aSw-Bo-027.text" = "Message Title";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "adH-Hh-heH"; */
+"adH-Hh-heH.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "MODIFY DATA"; ObjectID = "aiI-qU-eFF"; */
+"aiI-qU-eFF.normalTitle" = "MODIFY DATA";
+
+/* Class = "UILabel"; text = "The most popular gifts    "; ObjectID = "bUF-ux-cvf"; */
+"bUF-ux-cvf.text" = "The most popular gifts    ";
+
+/* Class = "UILabel"; text = "Upload Voucher"; ObjectID = "bY9-9p-exi"; */
+"bY9-9p-exi.text" = "Upload Voucher";
+
+/* Class = "UILabel"; text = "Your balance is SAR 155"; ObjectID = "c23-tB-yLl"; */
+"c23-tB-yLl.text" = "Your balance is SAR 155";
+
+/* Class = "UILabel"; text = "You Can Transform It Into Wallet Cards And Use It In purchasing And Discount Process "; ObjectID = "cBE-Sz-lSe"; */
+"cBE-Sz-lSe.text" = "You Can Transform It Into Wallet Cards And Use It In purchasing And Discount Process ";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "cHh-ys-yJt"; */
+"cHh-ys-yJt.text" = "Name";
+
+/* Class = "UILabel"; text = "Share"; ObjectID = "cP8-79-hO2"; */
+"cP8-79-hO2.text" = "Share";
+
+/* Class = "UILabel"; text = "Notifications"; ObjectID = "cWZ-g0-4BD"; */
+"cWZ-g0-4BD.text" = "Notifications";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "cuf-J0-fyv"; */
+"cuf-J0-fyv.text" = "0";
+
+/* Class = "UITextField"; text = "#562177"; ObjectID = "d2u-By-peN"; */
+"d2u-By-peN.text" = "#562177";
+
+/* Class = "UILabel"; text = "STARBUCKSCARD"; ObjectID = "dMb-FD-oWW"; */
+"dMb-FD-oWW.text" = "STARBUCKSCARD";
+
+/* Class = "UIButton"; normalTitle = "Complete the purchase"; ObjectID = "dX6-BJ-gZc"; */
+"dX6-BJ-gZc.normalTitle" = "Complete the purchase";
+
+/* Class = "UITextField"; placeholder = "966596479033"; ObjectID = "dXu-WM-3G6"; */
+"dXu-WM-3G6.placeholder" = "966596479033";
+
+/* Class = "UIButton"; normalTitle = "Log In"; ObjectID = "dpu-wt-8Nh"; */
+"dpu-wt-8Nh.normalTitle" = "Log In";
+
+/* Class = "UILabel"; text = "Adding A Payment Method"; ObjectID = "dsB-Jc-QEY"; */
+"dsB-Jc-QEY.text" = "Adding A Payment Method";
+
+/* Class = "UILabel"; text = "Paper Gift "; ObjectID = "exz-yg-aOT"; */
+"exz-yg-aOT.text" = "Paper Gift ";
+
+/* Class = "UILabel"; text = "New Account"; ObjectID = "fIj-hZ-r7T"; */
+"fIj-hZ-r7T.text" = "New Account";
+
+/* Class = "UILabel"; text = "The most popular gifts    "; ObjectID = "fli-Wl-7g5"; */
+"fli-Wl-7g5.text" = "The most popular gifts    ";
+
+/* Class = "UILabel"; text = "Email Address"; ObjectID = "gHc-AJ-Y1q"; */
+"gHc-AJ-Y1q.text" = "Email Address";
+
+/* Class = "UITextField"; placeholder = "Enter the brand name"; ObjectID = "gqr-Zg-noN"; */
+"gqr-Zg-noN.placeholder" = "Enter the brand name";
+
+/* Class = "UILabel"; text = "OR"; ObjectID = "hW9-R8-X3A"; */
+"hW9-R8-X3A.text" = "OR";
+
+/* Class = "UILabel"; text = "SAR 2,450\nYour current balance"; ObjectID = "hdv-I3-gKM"; */
+"hdv-I3-gKM.text" = "SAR 2,450\nYour current balance";
+
+/* Class = "UILabel"; text = "25"; ObjectID = "hgr-5h-DPY"; */
+"hgr-5h-DPY.text" = "25";
+
+/* Class = "UILabel"; text = "Can you enter your mobile number, please? "; ObjectID = "hpH-ae-wc1"; */
+"hpH-ae-wc1.text" = "Can you enter your mobile number, please? ";
+
+/* Class = "UILabel"; text = "Send For A Friend As A Gift"; ObjectID = "hpp-tF-Q9E"; */
+"hpp-tF-Q9E.text" = "Send For A Friend As A Gift";
+
+/* Class = "UILabel"; text = "The most popular gifts    "; ObjectID = "hqk-Pp-zpE"; */
+"hqk-Pp-zpE.text" = "The most popular gifts    ";
+
+/* Class = "UILabel"; text = "My Personal Account"; ObjectID = "iRQ-zN-DaK"; */
+"iRQ-zN-DaK.text" = "My Personal Account";
+
+/* Class = "UIButton"; normalTitle = "Brand Names"; ObjectID = "ig9-H3-08u"; */
+"ig9-H3-08u.normalTitle" = "Brand Names";
+
+/* Class = "UILabel"; text = "Upload Voucher- Voucher Data"; ObjectID = "igL-TC-ZY7"; */
+"igL-TC-ZY7.text" = "Upload Voucher- Voucher Data";
+
+/* Class = "UIButton"; normalTitle = "Skip it Now"; ObjectID = "iof-as-jnW"; */
+"iof-as-jnW.normalTitle" = "Skip it Now";
+
+/* Class = "UILabel"; text = "The total amount is"; ObjectID = "jLn-BK-teM"; */
+"jLn-BK-teM.text" = "The total amount is";
+
+/* Class = "UITextField"; placeholder = "Friend mobile number"; ObjectID = "jQO-Pd-rDf"; */
+"jQO-Pd-rDf.placeholder" = "Friend mobile number";
+
+/* Class = "UILabel"; text = "Send to a friend"; ObjectID = "jT5-Aa-Gc8"; */
+"jT5-Aa-Gc8.text" = "Send to a friend";
+
+/* Class = "UIButton"; normalTitle = "Adding To My Notecase"; ObjectID = "jhB-Ye-xmj"; */
+"jhB-Ye-xmj.normalTitle" = "Adding To My Notecase";
+
+/* Class = "UILabel"; text = "Expiry Date"; ObjectID = "k0P-67-mu6"; */
+"k0P-67-mu6.text" = "Expiry Date";
+
+/* Class = "UITextField"; placeholder = "Available Till"; ObjectID = "k7h-6Z-IP1"; */
+"k7h-6Z-IP1.placeholder" = "Available Till";
+
+/* Class = "UIButton"; normalTitle = "Enter Data Manually In Case Scanning Is Failed"; ObjectID = "kW6-Jk-wIZ"; */
+"kW6-Jk-wIZ.normalTitle" = "Enter Data Manually In Case Scanning Is Failed";
+
+/* Class = "UILabel"; text = "Choose the country:  "; ObjectID = "kXq-Nz-ABF"; */
+"kXq-Nz-ABF.text" = "Choose the country:  ";
+
+/* Class = "UIButton"; normalTitle = "Do not have an account?"; ObjectID = "kij-gc-3oE"; */
+"kij-gc-3oE.normalTitle" = "Do not have an account?";
+
+/* Class = "UIButton"; normalTitle = "Adding To My Notecase"; ObjectID = "l1f-d3-4U6"; */
+"l1f-d3-4U6.normalTitle" = "Adding To My Notecase";
+
+/* Class = "UITextField"; placeholder = "Mobile number"; ObjectID = "mCE-CF-Uuk"; */
+"mCE-CF-Uuk.placeholder" = "Mobile number";
+
+/* Class = "UILabel"; text = "The most popular gifts    "; ObjectID = "mF1-DG-6GY"; */
+"mF1-DG-6GY.text" = "The most popular gifts    ";
+
+/* Class = "UITextField"; placeholder = "* * * * * * *"; ObjectID = "mob-3Y-img"; */
+"mob-3Y-img.placeholder" = "* * * * * * *";
+
+/* Class = "UILabel"; text = "Step 2 : Verify your mobile number"; ObjectID = "nxX-8k-JwG"; */
+"nxX-8k-JwG.text" = "Step 2 : Verify your mobile number";
+
+/* Class = "UITextField"; placeholder = "966596479033"; ObjectID = "oSI-EN-f00"; */
+"oSI-EN-f00.placeholder" = "966596479033";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "oYU-9l-APo"; */
+"oYU-9l-APo.placeholder" = "Name";
+
+/* Class = "UILabel"; text = "SR"; ObjectID = "ode-Wd-idg"; */
+"ode-Wd-idg.text" = "SR";
+
+/* Class = "UILabel"; text = "There Is No Any Payment Method Added In Your Account"; ObjectID = "ogD-JU-jvz"; */
+"ogD-JU-jvz.text" = "There Is No Any Payment Method Added In Your Account";
+
+/* Class = "UILabel"; text = "Here, You Find Voucher Cards  Sent By Your Friends\nYou Can Transform It Into Wallet Cards And Use It In purchasing And Discount Process"; ObjectID = "p7x-xX-xfj"; */
+"p7x-xX-xfj.text" = "Here, You Find Voucher Cards  Sent By Your Friends\nYou Can Transform It Into Wallet Cards And Use It In purchasing And Discount Process";
+
+/* Class = "UILabel"; text = "Contact And Support"; ObjectID = "pC5-Hz-SWQ"; */
+"pC5-Hz-SWQ.text" = "Contact And Support";
+
+/* Class = "UITextField"; placeholder = "Card Holder Name"; ObjectID = "pUe-59-f1J"; */
+"pUe-59-f1J.placeholder" = "Card Holder Name";
+
+/* Class = "UILabel"; text = "Buy gift cards"; ObjectID = "paz-14-k64"; */
+"paz-14-k64.text" = "Buy gift cards";
+
+/* Class = "UILabel"; text = "Change Password"; ObjectID = "pg4-KA-Aj9"; */
+"pg4-KA-Aj9.text" = "Change Password";
+
+/* Class = "UILabel"; text = "Payment Methods"; ObjectID = "q96-c3-TYW"; */
+"q96-c3-TYW.text" = "Payment Methods";
+
+/* Class = "UILabel"; text = "Favorite coupon sellers"; ObjectID = "qa9-XA-vsJ"; */
+"qa9-XA-vsJ.text" = "Favorite coupon sellers";
+
+/* Class = "UILabel"; text = "Gift Order"; ObjectID = "qgE-Wp-l4d"; */
+"qgE-Wp-l4d.text" = "Gift Order";
+
+/* Class = "UILabel"; text = "Vouchers Will End Soon"; ObjectID = "qiG-lc-T6I"; */
+"qiG-lc-T6I.text" = "Vouchers Will End Soon";
+
+/* Class = "UILabel"; text = "Enter login data"; ObjectID = "r5n-ME-t5e"; */
+"r5n-ME-t5e.text" = "Enter login data";
+
+/* Class = "UIButton"; normalTitle = "Start Purchasing"; ObjectID = "rMC-wh-Fj8"; */
+"rMC-wh-Fj8.normalTitle" = "Start Purchasing";
+
+/* Class = "UILabel"; text = "STARBUCKSCARD"; ObjectID = "rc3-HX-Sdg"; */
+"rc3-HX-Sdg.text" = "STARBUCKSCARD";
+
+/* Class = "UILabel"; text = "Scan The Card To Bring The Data Automatically"; ObjectID = "rcr-nz-psS"; */
+"rcr-nz-psS.text" = "Scan The Card To Bring The Data Automatically";
+
+/* Class = "UILabel"; text = "STARBUCKSCARD"; ObjectID = "s6O-QE-yZV"; */
+"s6O-QE-yZV.text" = "STARBUCKSCARD";
+
+/* Class = "UILabel"; text = "The amount will be deducted from your current balance"; ObjectID = "sIx-qf-fJu"; */
+"sIx-qf-fJu.text" = "The amount will be deducted from your current balance";
+
+/* Class = "UILabel"; text = "User Agreement And Privacy Policy"; ObjectID = "sWk-1W-3Db"; */
+"sWk-1W-3Db.text" = "User Agreement And Privacy Policy";
+
+/* Class = "UILabel"; text = "Wallet amount is 0 and the amount to be paid is :"; ObjectID = "scD-dP-vlp"; */
+"scD-dP-vlp.text" = "Wallet amount is 0 and the amount to be paid is :";
+
+/* Class = "UILabel"; text = "Your balance is SAR 0"; ObjectID = "sq6-e3-rYc"; */
+"sq6-e3-rYc.text" = "Your balance is SAR 0";
+
+/* Class = "UILabel"; text = "Total Amount"; ObjectID = "stH-ls-tMP"; */
+"stH-ls-tMP.text" = "Total Amount";
+
+/* Class = "UILabel"; text = "Charge Your Account Balance"; ObjectID = "tL1-hN-Jor"; */
+"tL1-hN-Jor.text" = "Charge Your Account Balance";
+
+/* Class = "UIButton"; normalTitle = "High Discounted"; ObjectID = "tMk-Lr-CT9"; */
+"tMk-Lr-CT9.normalTitle" = "High Discounted";
+
+/* Class = "UILabel"; text = "81 .50"; ObjectID = "tUR-iv-aQa"; */
+"tUR-iv-aQa.text" = "81 .50";
+
+/* Class = "UILabel"; text = "Step 1 : Verify your mobile number"; ObjectID = "u0K-RX-oDE"; */
+"u0K-RX-oDE.text" = "Step 1 : Verify your mobile number";
+
+/* Class = "UISegmentedControl"; uCE-QC-D6x.segmentTitles[0] = "Active Now"; ObjectID = "uCE-QC-D6x"; */
+"uCE-QC-D6x.segmentTitles[0]" = "Active Now";
+
+/* Class = "UISegmentedControl"; uCE-QC-D6x.segmentTitles[1] = "Win"; ObjectID = "uCE-QC-D6x"; */
+"uCE-QC-D6x.segmentTitles[1]" = "Win";
+
+/* Class = "UISegmentedControl"; uCE-QC-D6x.segmentTitles[2] = "Lost"; ObjectID = "uCE-QC-D6x"; */
+"uCE-QC-D6x.segmentTitles[2]" = "Lost";
+
+/* Class = "UILabel"; text = "My Wallet"; ObjectID = "uGf-Mb-3We"; */
+"uGf-Mb-3We.text" = "My Wallet";
+
+/* Class = "UILabel"; text = "SR 5"; ObjectID = "uJ3-D4-dBx"; */
+"uJ3-D4-dBx.text" = "SR 5";
+
+/* Class = "UILabel"; text = "Upload  Voucher- Scan Barcode"; ObjectID = "uQb-tb-055"; */
+"uQb-tb-055.text" = "Upload  Voucher- Scan Barcode";
+
+/* Class = "UILabel"; text = "Exchanging And to my balance"; ObjectID = "uuq-u1-VaL"; */
+"uuq-u1-VaL.text" = "Exchanging And to my balance";
+
+/* Class = "UILabel"; text = "E-mail"; ObjectID = "v3A-92-RDe"; */
+"v3A-92-RDe.text" = "E-mail";
+
+/* Class = "UILabel"; text = "General instructions"; ObjectID = "vED-JB-T6A"; */
+"vED-JB-T6A.text" = "General instructions";
+
+/* Class = "UILabel"; text = "Card Number"; ObjectID = "vSy-xQ-TRC"; */
+"vSy-xQ-TRC.text" = "Card Number";
+
+/* Class = "UILabel"; text = "Your Current Amount Is Not Enough To Carry Out Purchasing Process"; ObjectID = "vau-7r-oMK"; */
+"vau-7r-oMK.text" = "Your Current Amount Is Not Enough To Carry Out Purchasing Process";
+
+/* Class = "UITextField"; placeholder = "email@domain.com"; ObjectID = "vxd-x6-w4a"; */
+"vxd-x6-w4a.placeholder" = "email@domain.com";
+
+/* Class = "UILabel"; text = "When you register a new account, you are accepting usage agreement and the application privacy policy "; ObjectID = "wEm-UG-bed"; */
+"wEm-UG-bed.text" = "When you register a new account, you are accepting usage agreement and the application privacy policy ";
+
+/* Class = "UITextField"; placeholder = "Voucher Value"; ObjectID = "wG7-fI-n8A"; */
+"wG7-fI-n8A.placeholder" = "Voucher Value";
+
+/* Class = "UILabel"; text = "General instructions"; ObjectID = "wnU-RM-Bxj"; */
+"wnU-RM-Bxj.text" = "General instructions";
+
+/* Class = "UITextField"; text = "25 SAR"; ObjectID = "x03-aj-PMC"; */
+"x03-aj-PMC.text" = "25 SAR";
+
+/* Class = "UIButton"; normalTitle = "Start The Adventure"; ObjectID = "x5D-nF-AEC"; */
+"x5D-nF-AEC.normalTitle" = "Start The Adventure";
+
+/* Class = "UIButton"; normalTitle = "Replace Voucher"; ObjectID = "xAn-tq-5dH"; */
+"xAn-tq-5dH.normalTitle" = "Replace Voucher";
+
+/* Class = "UILabel"; text = "Here you will find discount vouchers sent by your friends and you can transfer them to your card wallet"; ObjectID = "xC6-qq-dYp"; */
+"xC6-qq-dYp.text" = "Here you will find discount vouchers sent by your friends and you can transfer them to your card wallet";
+
+/* Class = "UILabel"; text = "STARBUCKSCARD"; ObjectID = "xlt-DX-YUi"; */
+"xlt-DX-YUi.text" = "STARBUCKSCARD";
+
+/* Class = "UIButton"; normalTitle = "Add another method"; ObjectID = "yEB-yi-zn4"; */
+"yEB-yi-zn4.normalTitle" = "Add another method";
+
+/* Class = "UILabel"; text = "Log In"; ObjectID = "yFl-8H-IZ7"; */
+"yFl-8H-IZ7.text" = "Log In";
+
+/* Class = "UILabel"; text = "Total: 8150 SR"; ObjectID = "yGw-WS-JuD"; */
+"yGw-WS-JuD.text" = "Total: 8150 SR";
+
+/* Class = "UITextField"; text = "2541 9852 21 #2556"; ObjectID = "yX3-uL-POQ"; */
+"yX3-uL-POQ.text" = "2541 9852 21 #2556";
+
+/* Class = "UIButton"; normalTitle = "COMPLETING EXCHANGE PROSESS"; ObjectID = "z0K-Z0-1Se"; */
+"z0K-Z0-1Se.normalTitle" = "COMPLETING EXCHANGE PROSESS";
+
+/* Class = "UIButton"; normalTitle = "Most Popular "; ObjectID = "zPf-wh-5XW"; */
+"zPf-wh-5XW.normalTitle" = "Most Popular ";
+
+/* Class = "UITextField"; placeholder = "Country"; ObjectID = "zl9-pv-wU3"; */
+"zl9-pv-wU3.placeholder" = "Country";

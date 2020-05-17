@@ -3,16 +3,17 @@
 //  LGSideMenuControllerDemo
 //
 
+@available(iOS 11.0, *)
 class MainViewController: LGSideMenuController {
 
     private var type: UInt?
-
+    
     func setup(type: UInt) {
         self.type = type
 
         // -----
 
-        if self.storyboard != nil {
+        if (self.storyboard != nil) {
             // Left and Right view controllers is set in storyboard
             // Use custom segues with class "LGSideMenuSegue" and identifiers "left" and "right"
 
@@ -20,17 +21,19 @@ class MainViewController: LGSideMenuController {
             // You can also find there all other properties
 
             // LGSideMenuController fully customizable from storyboard
-        } else {
+        }
+        else
+        {
             leftViewController = SideMenuView()//LeftViewController()
             rightViewController = RightViewController()
 
-            leftViewWidth = 250.0
+            leftViewWidth = 250.0;
             leftViewBackgroundImage = UIImage(named: "imageLeft")
             leftViewBackgroundColor = UIColor.clear//UIColor(red: 0.5, green: 0.65, blue: 0.5, alpha: 0.95)
             rootViewCoverColorForLeftView = UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 0.05)
 
-            rightViewWidth = 100.0
-//            rightViewBackgroundImage = UIImage(named: "imageRight")
+            rightViewWidth = 100.0;
+            rightViewBackgroundImage = UIImage(named: "imageRight")
             rightViewBackgroundColor = UIColor(red: 0.65, green: 0.5, blue: 0.65, alpha: 0.95)
             rootViewCoverColorForRightView = UIColor(red: 1.0, green: 0.0, blue: 1.0, alpha: 0.05)
         }
@@ -41,12 +44,16 @@ class MainViewController: LGSideMenuController {
         let purpleCoverColor = UIColor.red//UIColor(red: 0.1, green: 0.0, blue: 0.1, alpha: 0.3)
         let regularStyle: UIBlurEffect.Style
 
-        if #available(iOS 10.0, *) {
+        if #available(iOS 10.0, *)
+        {
             regularStyle = .light//regular
-        } else {
+        }
+        else
+        {
             regularStyle = .light
         }
 
+        
         leftViewBackgroundColor = UIColor(rgb: 0xEE4158)
         rootViewCoverColorForRightView = UIColor.white
         rootViewCoverColorForLeftView = UIColor.clear
@@ -150,7 +157,7 @@ class MainViewController: LGSideMenuController {
             leftViewInitialOffsetX = -200.0
             leftViewInitialScale = 1.5
             leftViewCoverBlurEffect = UIBlurEffect(style: .dark)
-            leftViewBackgroundImage = nil
+            leftViewBackgroundImage = nil;
 
             rootViewScaleForLeftView = 0.6
             rootViewCoverColorForLeftView = UIColor(red: 1.0, green: 1.0, blue: 0.0, alpha: 0.3)
@@ -164,11 +171,11 @@ class MainViewController: LGSideMenuController {
             rightViewLayerBorderWidth = 3.0
             rightViewLayerBorderColor = .black
             rightViewLayerShadowRadius = 10.0
-
+            
             rootViewCoverColorForRightView = UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.3)
             rootViewCoverBlurEffectForRightView = UIBlurEffect(style: regularStyle)
             rootViewCoverAlphaForRightView = 0.9
-
+            
             break
         default:
             break
@@ -182,21 +189,23 @@ class MainViewController: LGSideMenuController {
             leftView?.frame = CGRect(x: 0.0, y: 20.0, width: size.width, height: size.height - 20.0)
         }
     }
-
+    
     override func rightViewWillLayoutSubviews(with size: CGSize) {
         super.rightViewWillLayoutSubviews(with: size)
-
-        if !isRightViewStatusBarHidden ||
+        
+        if (!isRightViewStatusBarHidden ||
             (rightViewAlwaysVisibleOptions.contains(.onPadLandscape) &&
                 UI_USER_INTERFACE_IDIOM() == .pad &&
-                UIApplication.shared.statusBarOrientation.isLandscape) {
+                UIApplication.shared.statusBarOrientation.isLandscape)) {
             rightView?.frame = CGRect(x: 0.0, y: 20.0, width: size.width, height: size.height - 20.0)
         }
     }
 
-    override var isLeftViewStatusBarHidden: Bool {
+    override var isLeftViewStatusBarHidden: Bool
+        {
         get {
-            if type == 8 {
+            if (type == 8)
+            {
                 return UIApplication.shared.statusBarOrientation.isLandscape && UI_USER_INTERFACE_IDIOM() == .phone
             }
 
@@ -210,7 +219,7 @@ class MainViewController: LGSideMenuController {
 
     override var isRightViewStatusBarHidden: Bool {
         get {
-            if type == 8 {
+            if (type == 8) {
                 return UIApplication.shared.statusBarOrientation.isLandscape && UI_USER_INTERFACE_IDIOM() == .phone
             }
 

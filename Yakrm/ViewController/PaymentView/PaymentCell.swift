@@ -8,13 +8,17 @@
 
 import UIKit
 
-class PaymentCell: UITableViewCell {
+class PaymentCell: UITableViewCell
+{
     @IBOutlet var imgProfile: UIImageView!
     @IBOutlet var lblName: UILabel!
     @IBOutlet var lblDetails: UILabel!
     @IBOutlet var lblDate: UILabel!
     @IBOutlet var lblPrice: UILabel!
     @IBOutlet weak var imgEdit: UIImageView!
+    
+    @IBOutlet var btnEdit: UIButton!
+    @IBOutlet var btnDelete: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,5 +30,5 @@ class PaymentCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }

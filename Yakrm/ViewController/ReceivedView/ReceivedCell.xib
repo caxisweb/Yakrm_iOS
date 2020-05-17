@@ -63,10 +63,28 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                         <state key="normal" image="walletred.png"/>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_logo.png" id="Kkd-ky-D7q">
-                        <rect key="frame" x="278" y="165" width="32" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <view tag="100" contentMode="scaleToFill" id="jnS-Ih-J1H">
+                        <rect key="frame" x="10" y="103" width="300" height="1"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.79607843140000001" green="0.79607843140000001" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starbucks Card" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5cJ-67-7Sf">
+                        <rect key="frame" x="50" y="115" width="245" height="15"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="10"/>
+                        <color key="textColor" red="0.90980392160000001" green="0.21960784310000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="groupusers.png" id="Bd1-z0-JVW">
+                        <rect key="frame" x="10" y="114" width="30" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starbucks Card Starbucks Card Starbucks Card Starbucks Card Starbucks Card" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iUk-AR-OmW">
+                        <rect key="frame" x="50" y="130" width="245" height="30"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="10"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mp4_icon.png" id="5Hp-zt-hm6">
                         <rect key="frame" x="50" y="165" width="25" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -85,33 +103,18 @@
                             <color key="titleColor" red="0.90980392160000001" green="0.21960784310000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
-                    <view tag="100" contentMode="scaleToFill" id="jnS-Ih-J1H">
-                        <rect key="frame" x="10" y="103" width="300" height="1"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.79607843140000001" green="0.79607843140000001" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starbucks Card" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5cJ-67-7Sf">
-                        <rect key="frame" x="50" y="115" width="245" height="15"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="10"/>
-                        <color key="textColor" red="0.90980392160000001" green="0.21960784310000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starbucks Card Starbucks Card Starbucks Card Starbucks Card Starbucks Card" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iUk-AR-OmW">
-                        <rect key="frame" x="50" y="130" width="245" height="30"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" name="GESSTwoMedium-Medium" family="GE SS Two" pointSize="10"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="groupusers.png" id="Bd1-z0-JVW">
-                        <rect key="frame" x="10" y="114" width="30" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_logo.png" id="Kkd-ky-D7q">
+                        <rect key="frame" x="278" y="165" width="32" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     </imageView>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="btnPress" destination="Wuq-1G-7rg" id="JtF-5E-5BL"/>
                 <outlet property="btnWallet" destination="vze-ks-dXJ" id="eML-TS-TJT"/>
+                <outlet property="imgAppLogo" destination="Kkd-ky-D7q" id="ZTf-lf-1cI"/>
+                <outlet property="imgMP4" destination="5Hp-zt-hm6" id="aXA-4f-Lad"/>
+                <outlet property="imgProfile" destination="bsF-VO-Fy2" id="l7r-rv-gP7"/>
                 <outlet property="lblAttached" destination="hwf-DC-SNi" id="aIb-W2-XcT"/>
                 <outlet property="lblDate" destination="dXX-Y6-MUS" id="HaW-5l-tub"/>
                 <outlet property="lblDetails" destination="iUk-AR-OmW" id="JaE-IX-C1x"/>

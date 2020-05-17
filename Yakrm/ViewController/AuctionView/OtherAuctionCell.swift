@@ -8,22 +8,23 @@
 
 import UIKit
 
-class OtherAuctionCell: UITableViewCell {
-
+class OtherAuctionCell: UITableViewCell
+{
+    
     @IBOutlet var imgProfile: UIImageView!
     @IBOutlet var lblName: UILabel!
     @IBOutlet var lblDetails: UILabel!
-
+    
     @IBOutlet var lblLastBid: UILabel!
     @IBOutlet var lblBidDetails: UILabel!
-
+    
     @IBOutlet var txtQue: UITextField!
     @IBOutlet var viewQue: UIView!
-
+    
     @IBOutlet var lblTime: UILabel!
-
+    
     @IBOutlet var lblPrice: UILabel!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -34,5 +35,5 @@ class OtherAuctionCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }

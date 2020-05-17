@@ -8,20 +8,27 @@
 
 import UIKit
 
-class ReceivedCell: UITableViewCell {
+class ReceivedCell: UITableViewCell
+{
 
+    
+    @IBOutlet var imgProfile: UIImageView!
     @IBOutlet var lblName: UILabel!
     @IBOutlet var lblDate: UILabel!
     @IBOutlet var lblPrice: UILabel!
     @IBOutlet var lblDiscountedPrice: UILabel!
     @IBOutlet var lblDiscount: UILabel!
-
+    
+    
     @IBOutlet var lblFriends: UILabel!
     @IBOutlet var lblDetails: UILabel!
     @IBOutlet var lblAttached: UILabel!
     @IBOutlet var btnPress: UIButton!
     @IBOutlet var btnWallet: UIButton!
-
+    
+    @IBOutlet var imgMP4: UIImageView!
+    @IBOutlet var imgAppLogo: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -32,5 +39,5 @@ class ReceivedCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }
