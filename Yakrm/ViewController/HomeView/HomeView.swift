@@ -109,6 +109,8 @@ class HomeView: UIViewController, UICollectionViewDelegate, UICollectionViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         app = UIApplication.shared.delegate as! AppDelegate
+        
+        self.navigationController?.isNavigationBarHidden = true
 
         self.arrTop = ["Buy".localized,
                        "Received".localized,

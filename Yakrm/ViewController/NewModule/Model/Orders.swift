@@ -38,15 +38,15 @@ class Order {
     var statusString: String {
         switch self.orderStatus {
         case "1":
-            return "Pending"
+            return "Pending".localizeString()
         case "2":
-            return "Accept"
+            return "Accept".localizeString()
         case "4":
-            return "Dispatch"
+            return "Dispatch".localizeString()
         case "5":
-            return "Delivered"
+            return "Delivered".localizeString()
         case "6":
-            return "Cancel"
+            return "Cancel".localizeString()
         default :
             return ""
         }

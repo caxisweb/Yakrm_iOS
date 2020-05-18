@@ -13,12 +13,10 @@ import Toaster
 class DeliveryDetailVC: UIViewController {
 
     @IBOutlet weak var imgProduct: UIImageView!
-    @IBOutlet weak var imgDeliveryProduct: UIImageView!
-    @IBOutlet weak var imgShopAddress: UIImageView!
     @IBOutlet weak var imgAdditionalNotes: UIImageView!
+    @IBOutlet weak var imgPayment: UIImageView!
+    @IBOutlet weak var imgDelivery: UIImageView!
 
-    @IBOutlet weak var txtAddress: UITextView!
-    @IBOutlet weak var txtShopAddress: UITextView!
     @IBOutlet weak var txtAdditionalNotes: UITextView!
 
     @IBOutlet weak var tableProduct: UITableView!
@@ -38,9 +36,19 @@ class DeliveryDetailVC: UIViewController {
 
     @IBOutlet weak var lblDeliveryMobile: UILabel!
     @IBOutlet weak var lblDeliveryMobileValue: UILabel!
+    
+    @IBOutlet weak var lblOrderID: UILabel!
+    @IBOutlet weak var lblProductNumber: UILabel!
+    @IBOutlet weak var lblAddress: UILabel!
+    @IBOutlet weak var lblShopAddress: UILabel!
+    @IBOutlet weak var lblStatus: UILabel!
+    @IBOutlet weak var viewStatus: UIView!
+    @IBOutlet weak var viewPayment: UIView!
+    
 
     @IBOutlet weak var btnCancel: UIButton!
     @IBOutlet weak var btnChatWith: UIButton!
+    @IBOutlet weak var lblPayment: UILabel!
     @IBOutlet weak var btnPayment: UIButton!
     @IBOutlet weak var viewDriver: UIView!
     @IBOutlet weak var viewNoDriver: UIView!
@@ -56,14 +64,14 @@ class DeliveryDetailVC: UIViewController {
         imgProduct.layer.cornerRadius = imgProduct.frame.size.height / 2
         imgProduct.clipsToBounds = true
 
-        imgDeliveryProduct.layer.cornerRadius = imgDeliveryProduct.frame.size.height / 2
-        imgDeliveryProduct.clipsToBounds = true
-
-        imgShopAddress.layer.cornerRadius = imgShopAddress.frame.size.height / 2
-        imgShopAddress.clipsToBounds = true
-
         imgAdditionalNotes.layer.cornerRadius = imgAdditionalNotes.frame.size.height / 2
         imgAdditionalNotes.clipsToBounds = true
+        
+        imgPayment.layer.cornerRadius = imgPayment.frame.size.height / 2
+        imgPayment.clipsToBounds = true
+        
+        imgDelivery.layer.cornerRadius = imgDelivery.frame.size.height / 2
+        imgDelivery.clipsToBounds = true
 
         self.getOrderDetail()
     }
@@ -81,8 +89,11 @@ class DeliveryDetailVC: UIViewController {
                 self.response = OrderDetailRootClass.init(fromJson: response)
                 self.tableProduct.reloadData()
                 self.tableHeight?.constant = self.tableProduct.contentSize.height
-                self.txtAddress.text = self.response?.userAddress ?? ""
-                self.txtShopAddress.text = self.response?.shopAddress ?? ""
+                self.lblOrderID.text = "Order Id :" + (self.response?.id ?? "")
+//                self.lblProductNumber.text = "Product:" + (self.response?.totalProducts ?? "")
+                self.lblAddress.text = self.response?.userAddress ?? ""
+                self.lblStatus.text = self.response?.statusString
+                self.lblShopAddress.text = self.response?.shopAddress ?? ""
 
                 if (self.response?.price ?? "0") == "0" {
                     self.lblProductCostValue.text = "0 Sr"
@@ -119,9 +130,35 @@ class DeliveryDetailVC: UIViewController {
                     self.lblDeliveryMobileValue.text = self.response?.phone ?? ""
                     self.viewNoDriver.isHidden = true
                     self.viewNoPrice.isHidden = true
-                    self.btnPayment.setTitle(price, for: .normal)
+                    self.lblPayment.text = price
                     self.btnCancel.isHidden = true
                 }
+                
+                if (self.response?.price ?? "0") != "0" && self.response?.orderStatus == "2" && self.response?.isPaymentComplete == "1" {
+
+                    self.btnCancel.isHidden = false
+                   self.btnChatWith.isHidden = false
+                    self.lblProductCostValue.text = (self.response?.price ?? "") + " Sr"
+                    self.lblDeliveryChargeValue.text = (self.response?.orderCharge ?? "") + " Sr"
+                    self.lblServiceTaxValue.text = (self.response?.serviceCharge ?? "") + " Sr"
+
+                    let price = "Total Cost " + (self.response?.totalPrice ?? "") + " Sr"
+
+                    self.lblDeliveryNameValue.text = self.response?.name ?? ""
+                    self.lblDeliveryMobileValue.text = self.response?.phone ?? ""
+                    self.viewNoDriver.isHidden = true
+                    self.viewNoPrice.isHidden = true
+                    self.lblPayment.text = price
+                    self.btnCancel.isHidden = true
+                    self.btnPayment.isHidden = true
+                }
+                
+                if self.response?.isPaymentComplete == "1" {
+                    self.viewPayment.isHidden = false
+                }else {
+                    self.viewPayment.isHidden = true
+                }
+                
 
             } else {
                 Toast(text: error?.localizedDescription).show()
@@ -143,6 +180,7 @@ class DeliveryDetailVC: UIViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "PaymentConfirmation") as! PaymentConfirmation
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle = .crossDissolve
+        vc.delegate = self
         self.navigationController?.present(vc, animated: true, completion: nil)
     }
 
@@ -179,4 +217,21 @@ extension DeliveryDetailVC: UITableViewDataSource {
 extension DeliveryDetailVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
+}
+extension DeliveryDetailVC : PaymentDelegate {
+    
+    func didPayTapped(_ viewController: PaymentConfirmation) {
+        viewController.dismiss(animated: true) {
+            let storyboard = UIStoryboard.init(name: "DeliveryModule", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "DeliveryPaymentVC") as! DeliveryPaymentVC
+            vc.strTotal = "1"
+            vc.orderId = self.orderId ?? ""
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func didCancelTapped(_ viewController: PaymentConfirmation) {
+        
+    }
+    
 }

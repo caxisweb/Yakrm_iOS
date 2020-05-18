@@ -37,6 +37,24 @@ class OrderDetailRootClass: NSObject, NSCoding {
     var userId: String!
     var userLatitude: String!
     var userLongitude: String!
+    
+    var statusString: String {
+        switch self.orderStatus {
+        case "1":
+            return "Pending".localizeString()
+        case "2":
+            return "Accept".localizeString()
+        case "4":
+            return "Dispatch".localizeString()
+        case "5":
+            return "Delivered".localizeString()
+        case "6":
+            return "Cancel".localizeString()
+        default :
+            return ""
+        }
+    }
+    
 
     /**
      * Instantiate the instance using the passed json values to set the properties values

@@ -51,7 +51,7 @@ class AppWebservice {
             } else {
                 LoadingIndicator.shared.startNetworkIndicator()
             }
-
+            print(JSON(parameters))
             AF.request(url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: headers).response { response in
 
                 if loader {
@@ -63,6 +63,7 @@ class AppWebservice {
                 switch response.result {
                 case .success(let data):
                     let json = JSON(data!)
+                    print(json)
                     completion(200, json, nil)
                 case .failure(let error):
                     completion(response.response?.statusCode ?? 500, nil, error)

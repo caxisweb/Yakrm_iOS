@@ -16,6 +16,8 @@ class StartScreenVC: UIViewController {
 
     @IBOutlet weak var btnDiscount: UIButton!
     @IBOutlet weak var btnDelivery: UIButton!
+    
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
 
     var app = AppDelegate()
 
@@ -28,6 +30,15 @@ class StartScreenVC: UIViewController {
 
         btnDelivery.layer.cornerRadius = btnDelivery.frame.size.height / 2
         btnDelivery.clipsToBounds = true
+        
+        if self.app.strLanguage == "ar" {
+            segmentedControl.selectedSegmentIndex = 1
+        } else {
+            segmentedControl.selectedSegmentIndex = 0
+        }
+        
+        segmentedControl.addTarget(self, action: #selector(StartScreenVC.indexChanged(_:)), for: .valueChanged)
+        segmentedControl.addTarget(self, action: #selector(StartScreenVC.indexChanged(_:)), for: .touchUpInside)
 
     }
 
@@ -63,5 +74,40 @@ class StartScreenVC: UIViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
 
+    }
+    
+    @objc func indexChanged(_ sender: UISegmentedControl) {
+        if segmentedControl.selectedSegmentIndex == 0 {
+            self.changeLang()
+        } else if segmentedControl.selectedSegmentIndex == 1 {
+            self.changeLang()
+        }
+    }
+    
+    func changeLang(){
+        if self.app.strLanguage == "ar" {
+            self.app.strLanguage = "en"
+            self.app.isEnglish = true
+        } else {
+            self.app.strLanguage = "ar"
+            self.app.isEnglish = false
+        }
+        self.app.defaults.setValue(self.app.strLanguage, forKey: "selectedLanguage")
+        self.app.defaults.setValue(self.app.isEnglish, forKey: "selectedLanguagebool")
+        self.app.defaults.synchronize()
+        sideMenuController?.hideLeftViewAnimated()
+
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
+
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LANGUAGE_WILL_CHANGE"), object: self.app.strLanguage)
+
+        let storyboard = UIStoryboard.init(name: "DeliveryModule", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "StartScreenVC")
+        let navigation  = UINavigationController.init(rootViewController: vc)
+        
+        let window = UIApplication.shared.delegate!.window!!
+        window.rootViewController = navigation
+
+        UIView.transition(with: window, duration: 0.3, options: [.transitionCrossDissolve], animations: nil, completion: nil)
     }
 }

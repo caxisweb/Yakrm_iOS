@@ -1,9 +1,9 @@
 //
-//  PurchasedView.swift
+//  DeliveryPaymentVC.swift
 //  Yakrm
 //
-//  Created by Krutik V. Poojara on 15/12/18.
-//  Copyright © 2018 Krutik V. Poojara. All rights reserved.
+//  Created by Gaurav Parmar on 17/05/20.
+//  Copyright © 2020 Krutik V. Poojara. All rights reserved.
 //
 
 import UIKit
@@ -13,19 +13,10 @@ import MBProgressHUD
 import Toaster
 import SafariServices
 
-@available(iOS 11.0, *)
-@available(iOS 11.0, *)
-class PurchasedView: UIViewController, UITableViewDelegate, UITableViewDataSource, UIWebViewDelegate, OPPCheckoutProviderDelegate, SFSafariViewControllerDelegate {
+class DeliveryPaymentVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIWebViewDelegate, OPPCheckoutProviderDelegate, SFSafariViewControllerDelegate {
     // MARK: - Outlet
     @IBOutlet var viewNavigation: UIView!
-    @IBOutlet var viewBorder: UIView!
-
-    @IBOutlet var viewDetails: UIView!
-    @IBOutlet var btnComplete: UIButton!
-    @IBOutlet var lblBalance: UILabel!
-    @IBOutlet var lblTotal: UILabel!
-    @IBOutlet var lblTotalAmountIS: UILabel!
-    @IBOutlet var lblAmountWillBe: UILabel!
+    
     @IBOutlet var lblTheAmount: UILabel!
 
     @IBOutlet var viewPurchase: UIView!
@@ -35,7 +26,6 @@ class PurchasedView: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet var viewBalance: UIView!
     @IBOutlet var viewBalanceTop: UIView!
     @IBOutlet var viewBalanceBottom: UIView!
-    @IBOutlet var lblNotEnough: UILabel!
     @IBOutlet var lblBalancePrice: UILabel!
     @IBOutlet var lblCHANGEACC: UILabel!
 
@@ -55,6 +45,7 @@ class PurchasedView: UIViewController, UITableViewDelegate, UITableViewDataSourc
 
     var strTotal = String()
     var strTransactionID = String()
+    var orderId = String()
 
     var isPayment = Bool()
 
@@ -96,10 +87,8 @@ class PurchasedView: UIViewController, UITableViewDelegate, UITableViewDataSourc
 
         if DeviceType.IS_IPHONE_X || DeviceType.IS_IPHONE_XR {
             self.viewNavigation.frame = CGRect(x: self.viewNavigation.frame.origin.x, y: self.viewNavigation.frame.origin.y, width: self.viewNavigation.frame.size.width, height: 88)
-            self.viewDetails.frame = CGRect(x: self.viewDetails.frame.origin.x, y: self.viewNavigation.frame.origin.y + self.viewNavigation.frame.size.height, width: self.viewDetails.frame.size.width, height: ScreenSize.SCREEN_HEIGHT - self.viewNavigation.frame.size.height)
-            self.viewPurchase.frame = self.viewDetails.frame
-            self.viewBalance.frame = self.viewDetails.frame
-
+            
+            
             self.viewNavPayment.frame = CGRect(x: self.viewNavPayment.frame.origin.x, y: self.viewNavPayment.frame.origin.y, width: self.viewNavPayment.frame.size.width, height: 88)
             self.webView.frame = CGRect(x: self.webView.frame.origin.x, y: self.viewNavPayment.frame.origin.y + self.viewNavPayment.frame.size.height, width: self.webView.frame.size.width, height: ScreenSize.SCREEN_HEIGHT - self.viewNavigation.frame.size.height)
         }
@@ -110,14 +99,10 @@ class PurchasedView: UIViewController, UITableViewDelegate, UITableViewDataSourc
 //            self.lblAmountWillBe.text = "سيتم خصم المبلغ من رصيدك الحالي"
 //            self.lblTheAmount.text = "المبلغ الإجمالي هو"
 //        }
-        self.lblTotalAmountIS.text = "The total amount is".localized
-        self.lblAmountWillBe.text = "The amount will be deducted from your current balance".localized
+        
         self.lblTheAmount.text = "Total Amount".localized
 
         if DeviceType.IS_IPHONE_5 {
-            self.lblBalance.font = self.lblBalance.font.withSize(self.lblBalance.font.pointSize-2)
-
-            self.lblNotEnough.font = self.lblNotEnough.font.withSize(self.lblNotEnough.font.pointSize-2)
 //            self.lblTOTAL.font = self.lblTOTAL.font.withSize(self.lblTOTAL.font.pointSize-2)
             self.lblBalancePrice.font = self.lblBalancePrice.font.withSize(self.lblBalancePrice.font.pointSize-1)
 //            self.lblRS.font = self.lblRS.font.withSize(self.lblRS.font.pointSize-2)
@@ -135,17 +120,15 @@ class PurchasedView: UIViewController, UITableViewDelegate, UITableViewDataSourc
             self.Wallet = Float(self.app.strWallet)!
         }
 
-        self.lblBalance.text = "Balance".localized + " \(self.app.strWallet) " + "SR".localized
         let strSR: String = "SR".localized
 //        self.lblTotal.text = self.strTotal
 //        self.lblBalancePrice.text = self.strTotal
 
         let strAttDiscount = NSMutableAttributedString(string: "\(self.strTotal) \(strSR)")
         strAttDiscount.setColorForText(strSR, with: UIColor.black)
-        self.lblTotal.attributedText = strAttDiscount
         self.lblBalancePrice.attributedText = strAttDiscount
 
-        self.viewBorder.dropShadow(color: .lightGray, opacity: 1, offSet: CGSize(width: 0, height: 1), radius: 1, scale: true)
+        
         self.viewSuccess.dropShadow(color: .lightGray, opacity: 1, offSet: CGSize(width: 0, height: 1), radius: 1, scale: true)
         self.viewFail.dropShadow(color: .lightGray, opacity: 1, offSet: CGSize(width: 0, height: 1), radius: 1, scale: true)
 
@@ -153,15 +136,10 @@ class PurchasedView: UIViewController, UITableViewDelegate, UITableViewDataSourc
         self.viewBalanceBottom.dropShadow(color: .lightGray, opacity: 1, offSet: CGSize(width: 0, height: 1), radius: 1, scale: true)
 
         self.viewPurchase.isHidden = true
-        self.viewBalance.isHidden = true
-        self.btnComplete.layer.cornerRadius = 5
+        self.viewBalance.isHidden = false
 
         self.tblView.delegate = self
         self.tblView.dataSource = self
-
-        self.lblNotEnough.layer.cornerRadius = 5
-        self.lblNotEnough.clipsToBounds = true
-
         self.viewPayment.isHidden = true
 
         provider = OPPPaymentProvider(mode: .live)
@@ -184,26 +162,6 @@ class PurchasedView: UIViewController, UITableViewDelegate, UITableViewDataSourc
             self.navigationController!.popToViewController(desiredViewController, animated: true)
         } else {
             self.navigationController?.popViewController(animated: true)
-        }
-    }
-
-    @IBAction func btnComplete(_ sender: UIButton) {
-        if !self.strTotal.isEmpty {
-            self.Total = Float(self.strTotal)!
-        }
-        if self.Wallet >= self.Total {
-            if self.app.isConnectedToInternet() {
-                self.VoucherPurchaseAPI()
-            } else {
-                Toast(text: self.app.InternetConnectionMessage.localized).show()
-            }
-        } else {
-            if self.Wallet > 0 && self.Wallet < self.Total {
-                self.Total = self.Total - self.Wallet
-            }
-
-            self.viewDetails.isHidden = true
-            self.viewBalance.isHidden = false
         }
     }
 
@@ -245,12 +203,11 @@ class PurchasedView: UIViewController, UITableViewDelegate, UITableViewDataSourc
         print(onedouble)
         let voucherStr = String(format: "%.2f", onedouble)
         let parameters: Parameters = ["transaction_id": self.strTransactionID,
-                                      "amount_from_wallet": self.app.strWallet,
-                                      "amount_from_bank": voucherStr,
+                                      "order_id" : self.orderId,
                                       "card_id": self.strCardID]
         print(JSON(parameters))
 
-        AppWebservice.shared.request("\(self.app.BaseURL)voucher_purchase", method: .post, parameters: parameters, headers: headers, loader: true) { (statusCode, response, error) in
+        AppWebservice.shared.request("\(self.app.newBaseURL)users/orders/payment", method: .post, parameters: parameters, headers: headers, loader: true) { (statusCode, response, error) in
 
             if statusCode == 200 {
                         self.json = response!
@@ -262,15 +219,10 @@ class PurchasedView: UIViewController, UITableViewDelegate, UITableViewDataSourc
                         Toast(text: self.strMessage).show()
                         self.viewBalance.isHidden = true
                         if strStatus == "1" {
-                            self.app.strCart = ""
-                            self.app.strWallet = self.json["wallet"].stringValue
-                            self.app.defaults.setValue(self.app.strWallet, forKey: "wallet")
-                            self.app.defaults.synchronize()
-                            self.lblBalance.text = "Balance".localized + " \(self.app.strWallet) " + "SR".localized
-
                             self.viewFail.isHidden = true
                             ProjectUtility.animatePopupView(viewPopup: self.viewPurchase, viewDetails: self.viewSuccess)
                             self.isPayment = true
+                            self.navigationController?.popViewController(animated: true)
                         } else {
                             self.viewSuccess.isHidden = true
                             ProjectUtility.animatePopupView(viewPopup: self.viewPurchase, viewDetails: self.viewFail)

@@ -14,6 +14,8 @@ import UserNotifications
 import SwiftyJSON
 import Localize_Swift
 import UserNotifications
+import GoogleMaps
+import GooglePlaces
 
 enum UIUserInterfaceIdiom: Int {
     case Unspecified
@@ -96,6 +98,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             self.isLangEnglish = true
         }
         print(langStr)
+        
+        GMSServices.provideAPIKey("AIzaSyBq46koOKR3Q3K2xdVRo0ib0okFV_WPnDE")
+        GMSPlacesClient.provideAPIKey("AIzaSyBq46koOKR3Q3K2xdVRo0ib0okFV_WPnDE")
+        
 
         NotificationCenter.default.addObserver(self, selector: #selector(languageWillChange), name: NSNotification.Name(rawValue: "LANGUAGE_WILL_CHANGE"), object: nil)
 

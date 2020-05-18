@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import Toaster
 import CoreLocation
+import SwiftyJSON
 
 class PlaceOrderVC: UIViewController {
 
@@ -89,7 +90,15 @@ class PlaceOrderVC: UIViewController {
 
         AppWebservice.shared.request("\(self.app.newBaseURL)users/orders/create", method: .post, parameters: param, headers: headers, loader: true) { (status, response, error) in
             if status == 200 {
+                
                 Toast(text: response?["message"].string ?? "").show()
+                if (response!["status"].string ?? "") == "1" {
+                    let storyboard = UIStoryboard.init(name: "DeliveryModule", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "DeliveryDetailVC") as! DeliveryDetailVC
+                    vc.orderId = response!["order_id"].stringValue
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                
             } else {
                 Toast(text: error?.localizedDescription).show()
             }
@@ -98,7 +107,11 @@ class PlaceOrderVC: UIViewController {
     }
 
     @IBAction private func btnStoreLocationTapped(_ sender: UIButton) {
-
+        let storyboard = UIStoryboard.init(name: "DeliveryModule", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "UpdateLocationViewController") as! UpdateLocationViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.delegate = self
+        self.navigationController?.present(vc, animated: true, completion: nil)
     }
 
     @IBAction private func btnPhotoTapped(_ sender: UIButton) {
@@ -149,3 +162,12 @@ extension PlaceOrderVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
 }
+
+extension PlaceOrderVC: LocationProtocol {
+
+    func didSelectedLocation(_ vc: UpdateLocationViewController, _ location: CLLocationCoordinate2D, _ address: String) {
+        self.txtShopAddress.text = address
+        vc.dismiss(animated: true, completion: nil)
+    }
+}
+
