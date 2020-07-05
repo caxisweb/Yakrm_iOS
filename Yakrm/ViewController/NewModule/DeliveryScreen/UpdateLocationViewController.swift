@@ -10,7 +10,8 @@ import UIKit
 import GoogleMaps
 
 protocol LocationProtocol: class {
-    func didSelectedLocation(_ vc: UpdateLocationViewController, _ location: CLLocationCoordinate2D, _ address: String)
+    func didSelectedLocation(_ vc: UpdateLocationViewController, _ location: CLLocationCoordinate2D?, _ address: String?)
+    func didCancelLocation(_ vc : UpdateLocationViewController)
 }
 
 class UpdateLocationViewController: UIViewController {
@@ -45,6 +46,8 @@ class UpdateLocationViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        LocationManager.shared.setLocationManager()
+        
         guard let coordinate = LocationManager.shared.userLocation else {
             return
         }
@@ -94,12 +97,14 @@ class UpdateLocationViewController: UIViewController {
     }
 
     @IBAction func actionBAck(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        self.delegate?.didCancelLocation(self)
+//        self.navigationController?.dismiss(animated: true, completion: nil)
+//        self.navigationController?.popViewController(animated: true)
     }
 
     @IBAction func actionSaveAddress(_ sender: Any) {
         LocationManager.shared.userLocation = tempLocation
-        self.delegate?.didSelectedLocation(self, tempLocation!, self.strAddress)
+        self.delegate?.didSelectedLocation(self, tempLocation, self.strAddress)
     }
 
     @IBAction func actionSave(_ sender: Any) {

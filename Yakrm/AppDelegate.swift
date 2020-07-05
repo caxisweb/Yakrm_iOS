@@ -16,6 +16,7 @@ import Localize_Swift
 import UserNotifications
 import GoogleMaps
 import GooglePlaces
+import Firebase
 
 enum UIUserInterfaceIdiom: Int {
     case Unspecified
@@ -51,15 +52,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     // MARK: Test API
 
-    var BaseURL = "http://test.yakrm.com/api/"
-    var ImageURL = "http://test.yakrm.com/assets/uploads/"
-    var SalesURL = "http://test.yakrm.com/api_salesmen/"
-    var newBaseURL = "http://test.yakrm.com/apis/v1/"
+//    var BaseURL = "http://test.yakrm.com/api/"
+//    var ImageURL = "http://test.yakrm.com/assets/uploads/"
+//    var SalesURL = "http://test.yakrm.com/api_salesmen/"
+//    var newBaseURL = "http://test.yakrm.com/apis/v1/"
 
     // MARK: Live API
-    //var BaseURL = "http://yakrm.com/api/"
-    //var ImageURL = "http://yakrm.com/assets/uploads/"
-    //var SalesURL = "http://yakrm.com/api_salesmen/"
+    var BaseURL = "http://yakrm.com/api/"
+    var ImageURL = "http://yakrm.com/assets/uploads/"
+    var SalesURL = "http://yakrm.com/api_salesmen/"
+    var newBaseURL = "http://yakrm.com/apis/v1/"
 
     var InternetConnectionMessage = "No Internet Connection"
     var RequestTimeOut = "Request time out."
@@ -78,6 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var strWallet = String()
     var strCart = ""
     var AdminProfitDiscount = Float()
+    var isDelivery : Bool =  false
 
     var strLanguage = String()
     var isEnglish = Bool()
@@ -101,7 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         GMSServices.provideAPIKey("AIzaSyBq46koOKR3Q3K2xdVRo0ib0okFV_WPnDE")
         GMSPlacesClient.provideAPIKey("AIzaSyBq46koOKR3Q3K2xdVRo0ib0okFV_WPnDE")
-        
+        FirebaseApp.configure()
 
         NotificationCenter.default.addObserver(self, selector: #selector(languageWillChange), name: NSNotification.Name(rawValue: "LANGUAGE_WILL_CHANGE"), object: nil)
 

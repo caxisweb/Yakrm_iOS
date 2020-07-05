@@ -45,14 +45,31 @@ class StartScreenVC: UIViewController {
     // MARK: - IBAction Methods
     @IBAction func discountTapped(_ sender: UIButton) {
 
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let VC = storyboard.instantiateViewController(withIdentifier: "HomeView") as! HomeView
-        self.navigationController?.pushViewController(VC, animated: true)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+        let deliveryStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
+        navigationController.setViewControllers([deliveryStoryboard.instantiateViewController(withIdentifier: "HomeView")], animated: false)
+        let mainViewController = storyboard.instantiateInitialViewController() as! MainViewController
+        mainViewController.rootViewController = navigationController
+        mainViewController.setup(type: UInt(2))
+
+        let window = UIApplication.shared.delegate!.window!!
+        window.rootViewController = mainViewController
+
+        UIView.transition(with: window, duration: 0.3, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+        
+//        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+//        let VC = storyboard.instantiateViewController(withIdentifier: "HomeView") as! HomeView
+//        self.navigationController?.pushViewController(VC, animated: true)
     }
 
     @IBAction func deliveryTapped(_ sender: UIButton) {
         if app.defaults.string(forKey: "user_id") != nil {
 
+//            self.app.isDelivery = true
+            self.app.defaults.set(true, forKey: "isDelivery")
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
 
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -70,7 +87,7 @@ class StartScreenVC: UIViewController {
         } else {
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
             let VC = storyboard.instantiateViewController(withIdentifier: "LoginView") as! LoginView
-//            VC.isDelivery =  true
+            VC.isDelivery =  true
             self.navigationController?.pushViewController(VC, animated: true)
         }
 

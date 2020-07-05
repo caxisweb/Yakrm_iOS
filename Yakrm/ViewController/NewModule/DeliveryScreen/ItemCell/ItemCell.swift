@@ -16,6 +16,7 @@ class ItemCell: UITableViewCell {
     @IBOutlet weak var btnDelete: UIButton!
 
     var deleteCallBack: ((IndexPath) -> Void)?
+    var indexPath : IndexPath?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,7 +37,7 @@ class ItemCell: UITableViewCell {
         self.lblQty.text = data.quantity ?? ""
     }
     @IBAction private func btnDeleteTapped(_ sender: UIButton) {
-
+        self.deleteCallBack?(self.indexPath!)
     }
 
 }

@@ -43,5 +43,11 @@ target 'Yakrm' do
   pod 'YLGIFImage'
   pod 'SBJson'
   pod 'PINCache'
+  
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Messaging'
+  pod 'Firebase/Database'
+  pod 'JSQMessagesViewController'
+  pod 'UITextView+Placeholder'
 
 end

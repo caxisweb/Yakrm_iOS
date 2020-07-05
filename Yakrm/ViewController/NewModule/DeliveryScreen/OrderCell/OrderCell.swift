@@ -45,9 +45,14 @@ class OrderCell: UITableViewCell {
     }
 
     func setData(_ data: Order) {
-        self.lblOrderID.text = "Order Id :" + (data.orderId ?? "")
-        self.lblProductNumber.text = "Product:" + (data.totalProducts ?? "")
+        self.lblOrderID.text = "Order Id".localizeString() + " : " + (data.orderId ?? "")
+        self.lblProductNumber.text = "Product".localizeString() + ":" + (data.totalProducts ?? "")
         self.lblAddress.text = data.userAddress ?? ""
         self.lblStatus.text = data.statusString
+//        if data.orderStatus == "6"{
+//            self.btnViewDetail.isHidden = true
+//        }else {
+//            self.btnViewDetail.isHidden = false
+//        }
     }
 }

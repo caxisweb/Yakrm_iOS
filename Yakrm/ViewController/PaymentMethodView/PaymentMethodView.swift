@@ -216,7 +216,7 @@ class PaymentMethodView: UIViewController, UITextFieldDelegate {
             return (string == filtered)
         } else if self.txtCardHolderNumber == textField {
 //            textField.text = lastText.format("nnnn nnnn nnnn nnnn", oldString: text)
-//            textField.text = lastText.format("nnnnnnnnnnnnnnnn", oldString: text)
+            textField.text = lastText.format("nnnnnnnnnnnnnnnn", oldString: text)
             return false
         } else if self.txtExpireDate == textField {
             if lastText.isEmpty {
@@ -244,7 +244,7 @@ class PaymentMethodView: UIViewController, UITextFieldDelegate {
 //            {
 //                return false
 //            }
-//            textField.text = lastText.format("nn/nn", oldString: text)
+            textField.text = lastText.format("nn/nn", oldString: text)
             return false
         }
         return true

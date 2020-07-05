@@ -19,11 +19,13 @@ class PaymentConfirmation: UIViewController {
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var btnCancel: UIButton!
     @IBOutlet weak var btnPay: UIButton!
+    var price : String?
 
     weak var delegate: PaymentDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        lblPrice.text = (price ?? "0") + " SR"
     }
 
     @IBAction private func btnCancelTapped(_ sender: UIButton) {

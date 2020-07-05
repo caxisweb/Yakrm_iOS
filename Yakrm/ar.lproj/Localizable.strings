@@ -359,13 +359,13 @@
 "Product Name" = "اسم المنتج";
 "Quantity" = "الكمية";
 "Delivery Address" = "عنوان التوصيل";
-"Change Address" = "تغير العنوان";
+"Change Address" = "اضافة عنوان ";
 "Shop Address (Not mendetory)" = "عنوان المتجر";
 "Select Store" = "اختر المتجر";
 "Place Order" = "اطلب الأن";
 "Order Id" = "رقم الطلب";
 "View Detail" = "عرض التفاصيل";
-"Pending" = "في الإنتظار";
+"Pending" = " قيد الانتظار";
 "Accept" = "قبول";
 "Confirm" = "تأكيد";
 "Delivered" = "تم التوصيل";
@@ -390,4 +390,13 @@
 "Complete Order Payment" = "إكمال دفع قيمة الطلب";
 "chat with" = "الدردشة مع";
 "Payment Is still Pending" = "الدفع لا يزال معلقًا";
-
+"Total Cost " = "التكلفة الإجمالية";
+"Additional Notes" = "ملاحظات إضافية";
+"Driver Detail" = "تفاصيل السائق";
+"VIEW DETAIL" = "عرض التفاصيل";
+"Upload Photo" = " ارفاق صورة";
+"Discount coupons" = "قسائم الخصومات";
+"Order details" = "تفاصيل الطلب ";
+"Select your address from the map" = "اختر عنوانك من الخريطة";
+"if you want to buy product from specific store please select the store and add store address" = "اذا كنت ترغب الشراء من متجر معين يرجي تحديد المتجر و اختيار العنوان";
+"Chat with" = "محادثة فورية";

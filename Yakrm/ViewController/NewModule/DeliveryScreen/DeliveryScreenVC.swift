@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class DeliveryScreenVC: UIViewController {
 
@@ -23,6 +25,11 @@ class DeliveryScreenVC: UIViewController {
 
     @IBOutlet weak var containerPlaceOrder: UIView!
     @IBOutlet weak var cntainerMyOrder: UIView!
+    
+    @IBOutlet weak var btnNotification: MIBadgeButton!
+    
+    var orderVC: MyOrderVC?
+    var app = AppDelegate()
 
     // MARK: - UIViewControlller Methods
     override func viewDidLoad() {
@@ -31,7 +38,12 @@ class DeliveryScreenVC: UIViewController {
         self.viewBorderPlaceOrder.alpha = 1
         self.cntainerMyOrder.alpha = 0
         self.viewBorderMyOrder.alpha = 0
-//        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.getNotificationNumber()
     }
 
     // MARK: - IBAction Method
@@ -53,11 +65,40 @@ class DeliveryScreenVC: UIViewController {
             self.viewBorderPlaceOrder.alpha = 0
             self.cntainerMyOrder.alpha = 1
             self.viewBorderMyOrder.alpha = 1
+            self.orderVC?.refresh()
         })
     }
 
     @IBAction func btnMenu(_ sender: UIButton) {
         sideMenuController?.showLeftViewAnimated()
     }
+    
+    @IBAction func btnNotificationTapped(_ sender: UIButton){
+        let mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let VC = mainStoryboard.instantiateViewController(withIdentifier: "AlarmsView") as! AlarmsView
+        self.navigationController?.pushViewController(VC, animated: true)
+    }
 
+    private func getNotificationNumber() {
+
+        let headers: HTTPHeaders = ["Authorization": self.app.defaults.value(forKey: "tokan") as! String,
+        "Content-Type": "application/json"]
+
+        AppWebservice.shared.request("\(self.app.newBaseURL)users/notification/get_total_today_noti", method: .get, parameters: nil, headers: headers, loader: false) { (status, response, error) in
+            if status == 200 {
+                self.btnNotification.badgeString = (response?["total_noti"].string ?? "0")
+            } else {
+               self.btnNotification.badgeString = "0"
+            }
+        }
+
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "orderSegue" {
+            self.orderVC = segue.destination as! MyOrderVC
+            self.orderVC?.refresh()
+        }
+    }
 }

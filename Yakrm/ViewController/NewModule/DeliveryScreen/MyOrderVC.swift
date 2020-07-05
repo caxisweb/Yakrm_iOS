@@ -21,7 +21,16 @@ class MyOrderVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.getOrders()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        self.getOrders()
     }
 
     private func getOrders() {
@@ -31,6 +40,7 @@ class MyOrderVC: UIViewController {
 
         AppWebservice.shared.request("\(self.app.newBaseURL)users/orders/my_orders", method: .get, parameters: nil, headers: headers, loader: true) { (status, response, error) in
             if status == 200 {
+                self.orders.removeAll()
                 for obj in response?["data"].array ?? [] {
                     self.orders.append(Order(obj))
                 }

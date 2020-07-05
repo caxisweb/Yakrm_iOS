@@ -221,10 +221,31 @@ class RegisterView: UIViewController, UITextFieldDelegate {
 
                             self.app.defaults.synchronize()
 
-                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
+                            self.app.isDelivery = self.app.defaults.bool(forKey: "isDelivery")
+                            
+                            if self.app.isDelivery {
+                                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
 
-                            let VC = self.storyboard?.instantiateViewController(withIdentifier: "HomeView") as! HomeView
-                            self.navigationController?.pushViewController(VC, animated: true)
+                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+                                let deliveryStoryboard = UIStoryboard.init(name: "DeliveryModule", bundle: nil)
+                                navigationController.setViewControllers([deliveryStoryboard.instantiateViewController(withIdentifier: "DeliveryScreenVC")], animated: false)
+                                let mainViewController = storyboard.instantiateInitialViewController() as! MainViewController
+                                mainViewController.rootViewController = navigationController
+                                mainViewController.setup(type: UInt(2))
+
+                                let window = UIApplication.shared.delegate!.window!!
+                                window.rootViewController = mainViewController
+
+                                UIView.transition(with: window, duration: 0.3, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+                            }
+                            else{
+                                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
+
+                               let VC = self.storyboard?.instantiateViewController(withIdentifier: "HomeView") as! HomeView
+                               self.navigationController?.pushViewController(VC, animated: true)
+                            }
+                           
                         }            } else {
                 Toast(text: self.app.RequestTimeOut.localized).show()
             }

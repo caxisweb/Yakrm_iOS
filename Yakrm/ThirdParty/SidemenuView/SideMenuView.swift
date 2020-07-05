@@ -55,32 +55,76 @@ class SideMenuView: UIViewController, UITableViewDelegate, UITableViewDataSource
 
     func updateArrayMenuOptions() {
         self.arrayMenuOptions.removeAll()
-
-        self.arrayMenuOptions.append(["title": "Main Page".localized, "icon": "1.Main.png"])
-        self.arrayMenuOptions.append(["title": "My Personal Account".localized, "icon": "2.myProfile.png"])
-        self.arrayMenuOptions.append(["title": "Active Vouchers".localized, "icon": "3.Active.png"])
-        self.arrayMenuOptions.append(["title": "Favorite Vouchers".localized, "icon": "4.Favorite.png"])
-//        self.arrayMenuOptions.append(["title":"Best Brands".localized, "icon":"5.Best.png"])
-        self.arrayMenuOptions.append(["title": "Transactions Record".localized, "icon": "6.Transaction.png"])
-//        self.arrayMenuOptions.append(["title":"Auctions".localized, "icon":"7.Auction.png"])
-        self.arrayMenuOptions.append(["title": "Payment Methods".localized, "icon": "8.Payment.png"])
-        self.arrayMenuOptions.append(["title": "Support And Contact".localized, "icon": "9.Support.png"])
-        self.arrayMenuOptions.append(["title": "About The Application".localized, "icon": "10.About.png"])
-        self.arrayMenuOptions.append(["title": "Instructions And Conditions".localized, "icon": "11.Instruction.png"])
-        if self.app.strUserID.isEmpty {
-            self.arrayMenuOptions.append(["title": "Sign Up/Log In".localized, "icon": "12.SignOut.png"])
-        } else {
-            self.arrayMenuOptions.append(["title": "Sign Out".localized, "icon": "12.SignOut.png"])
+        self.app.isDelivery = self.app.defaults.bool(forKey: "isDelivery")
+        
+        if self.app.isDelivery {
+            self.arrayMenuOptions.append(["title": "Main Page".localized, "icon": "1.Main.png"])
+                    self.arrayMenuOptions.append(["title": "My Personal Account".localized, "icon": "2.myProfile.png"])
+                    
+                    self.arrayMenuOptions.append(["title": "Payment Methods".localized, "icon": "8.Payment.png"])
+                    self.arrayMenuOptions.append(["title": "Support And Contact".localized, "icon": "9.Support.png"])
+                    self.arrayMenuOptions.append(["title": "About The Application".localized, "icon": "10.About.png"])
+                    self.arrayMenuOptions.append(["title": "Instructions And Conditions".localized, "icon": "11.Instruction.png"])
+                    if self.app.strUserID.isEmpty {
+                        self.arrayMenuOptions.append(["title": "Sign Up/Log In".localized, "icon": "12.SignOut.png"])
+                    } else {
+                        self.arrayMenuOptions.append(["title": "Sign Out".localized, "icon": "12.SignOut.png"])
+                    }
+                    self.arrayMenuOptions.append(["title": "English Version".localized, "icon": "13.Language.png"])
+                    self.arrayMenuOptions.append(["title": "Share With Your Friends".localized, "icon": "user"])
+        }else {
+            self.arrayMenuOptions.append(["title": "Main Page".localized, "icon": "1.Main.png"])
+                    self.arrayMenuOptions.append(["title": "My Personal Account".localized, "icon": "2.myProfile.png"])
+                    self.arrayMenuOptions.append(["title": "Active Vouchers".localized, "icon": "3.Active.png"])
+                    self.arrayMenuOptions.append(["title": "Favorite Vouchers".localized, "icon": "4.Favorite.png"])
+            //        self.arrayMenuOptions.append(["title":"Best Brands".localized, "icon":"5.Best.png"])
+                    self.arrayMenuOptions.append(["title": "Transactions Record".localized, "icon": "6.Transaction.png"])
+            //        self.arrayMenuOptions.append(["title":"Auctions".localized, "icon":"7.Auction.png"])
+                    self.arrayMenuOptions.append(["title": "Payment Methods".localized, "icon": "8.Payment.png"])
+                    self.arrayMenuOptions.append(["title": "Support And Contact".localized, "icon": "9.Support.png"])
+                    self.arrayMenuOptions.append(["title": "About The Application".localized, "icon": "10.About.png"])
+                    self.arrayMenuOptions.append(["title": "Instructions And Conditions".localized, "icon": "11.Instruction.png"])
+                    if self.app.strUserID.isEmpty {
+                        self.arrayMenuOptions.append(["title": "Sign Up/Log In".localized, "icon": "12.SignOut.png"])
+                    } else {
+                        self.arrayMenuOptions.append(["title": "Sign Out".localized, "icon": "12.SignOut.png"])
+                    }
+            //        if self.app.isEnglish
+            //        {
+            //        self.arrayMenuOptions.append(["title":"النسخة الإنجليزية", "icon":"user"])
+            //        }
+            //        else
+            //        {
+                    self.arrayMenuOptions.append(["title": "English Version".localized, "icon": "13.Language.png"])
+            //        }
+                    self.arrayMenuOptions.append(["title": "Share With Your Friends".localized, "icon": "user"])
         }
-//        if self.app.isEnglish
-//        {
-//        self.arrayMenuOptions.append(["title":"النسخة الإنجليزية", "icon":"user"])
+        
+//        self.arrayMenuOptions.append(["title": "Main Page".localized, "icon": "1.Main.png"])
+//        self.arrayMenuOptions.append(["title": "My Personal Account".localized, "icon": "2.myProfile.png"])
+//        self.arrayMenuOptions.append(["title": "Active Vouchers".localized, "icon": "3.Active.png"])
+//        self.arrayMenuOptions.append(["title": "Favorite Vouchers".localized, "icon": "4.Favorite.png"])
+////        self.arrayMenuOptions.append(["title":"Best Brands".localized, "icon":"5.Best.png"])
+//        self.arrayMenuOptions.append(["title": "Transactions Record".localized, "icon": "6.Transaction.png"])
+////        self.arrayMenuOptions.append(["title":"Auctions".localized, "icon":"7.Auction.png"])
+//        self.arrayMenuOptions.append(["title": "Payment Methods".localized, "icon": "8.Payment.png"])
+//        self.arrayMenuOptions.append(["title": "Support And Contact".localized, "icon": "9.Support.png"])
+//        self.arrayMenuOptions.append(["title": "About The Application".localized, "icon": "10.About.png"])
+//        self.arrayMenuOptions.append(["title": "Instructions And Conditions".localized, "icon": "11.Instruction.png"])
+//        if self.app.strUserID.isEmpty {
+//            self.arrayMenuOptions.append(["title": "Sign Up/Log In".localized, "icon": "12.SignOut.png"])
+//        } else {
+//            self.arrayMenuOptions.append(["title": "Sign Out".localized, "icon": "12.SignOut.png"])
 //        }
-//        else
-//        {
-        self.arrayMenuOptions.append(["title": "English Version".localized, "icon": "13.Language.png"])
-//        }
-        self.arrayMenuOptions.append(["title": "Share With Your Friends".localized, "icon": "user"])
+////        if self.app.isEnglish
+////        {
+////        self.arrayMenuOptions.append(["title":"النسخة الإنجليزية", "icon":"user"])
+////        }
+////        else
+////        {
+//        self.arrayMenuOptions.append(["title": "English Version".localized, "icon": "13.Language.png"])
+////        }
+//        self.arrayMenuOptions.append(["title": "Share With Your Friends".localized, "icon": "user"])
 
         self.tblMenuOptions.delegate = self
         self.tblMenuOptions.dataSource = self
@@ -217,233 +261,288 @@ class SideMenuView: UIViewController, UITableViewDelegate, UITableViewDataSource
         let mainViewController = sideMenuController!
         let row: Int = indexPath.row
 
-        if row == 0 {
-            mainViewController.hideLeftViewAnimated()
-        } else if row == 1 {
-            if self.app.strUserID.isEmpty {
-                self.gotoViewcontroler()
-            } else {
-                let VC = self.storyboard?.instantiateViewController(withIdentifier: "PersonalView") as! PersonalView
-
-                let navigationController = mainViewController.rootViewController as! NavigationController
-                navigationController.pushViewController(VC, animated: true)
-
-                mainViewController.hideLeftView(animated: true, completionHandler: nil)
-            }
-        } else if row == 2 {
-            if self.app.strUserID.isEmpty {
-                self.gotoViewcontroler()
-            } else {
-            let VC = self.storyboard?.instantiateViewController(withIdentifier: "ActiveVoucherView") as! ActiveVoucherView
-
-            let navigationController = mainViewController.rootViewController as! NavigationController
-            navigationController.pushViewController(VC, animated: true)
-
-                mainViewController.hideLeftView(animated: true, completionHandler: nil)
-
-            }
-        } else if row == 3 {
-            if self.app.strUserID.isEmpty {
-                self.gotoViewcontroler()
-//                let VC = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-//
-//                let navigationController = mainViewController.rootViewController as! NavigationController
-//                navigationController.pushViewController(VC, animated: true)
-//
-//                mainViewController.hideLeftView(animated: true, completionHandler: nil)
-            } else {
-            let VC = self.storyboard?.instantiateViewController(withIdentifier: "FavoritesView") as! FavoritesView
-
-            let navigationController = mainViewController.rootViewController as! NavigationController
-            navigationController.pushViewController(VC, animated: true)
-
-            mainViewController.hideLeftView(animated: true, completionHandler: nil)
-            }
-        }
-//        else if row == 4
-//        {
-//            if self.app.strUserID.isEmpty
-//            {
-//                self.gotoViewcontroler()
-////                let VC = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-////
-////                let navigationController = mainViewController.rootViewController as! NavigationController
-////                navigationController.pushViewController(VC, animated: true)
-////
-////                mainViewController.hideLeftView(animated: true, completionHandler: nil)
-//            }
-//            else
-//            {
-//            let VC = self.storyboard?.instantiateViewController(withIdentifier: "FavoriteBrandView") as! FavoriteBrandView
-//
-//            let navigationController = mainViewController.rootViewController as! NavigationController
-//            navigationController.pushViewController(VC, animated: true)
-//
-//            mainViewController.hideLeftView(animated: true, completionHandler: nil)
-//            }
-//        }
-        else if row == 4//5
-        {
-            if self.app.strUserID.isEmpty {
-                self.gotoViewcontroler()
-//                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
-//
-//                let VC = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-//
-//                let navigationController = mainViewController.rootViewController as! NavigationController
-//                navigationController.pushViewController(VC, animated: true)
-//
-//                mainViewController.hideLeftView(animated: true, completionHandler: nil)
-            } else {
-            let VC = self.storyboard?.instantiateViewController(withIdentifier: "OprationlogView") as! OprationlogView
-
-            let navigationController = mainViewController.rootViewController as! NavigationController
-            navigationController.pushViewController(VC, animated: true)
-
-            mainViewController.hideLeftView(animated: true, completionHandler: nil)
-            }
-        }
-//        else if row == 6
-//        {
-//            let VC = self.storyboard?.instantiateViewController(withIdentifier: "AuctionView") as!
-//            AuctionView
-//
-//            let navigationController = mainViewController.rootViewController as! NavigationController
-//            navigationController.pushViewController(VC, animated: true)
-//
-//            mainViewController.hideLeftView(animated: true, completionHandler: nil)
-//        }
-        else if row == 5//7
-        {
-            if self.app.strUserID.isEmpty {
-                self.gotoViewcontroler()
-//                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
-//
-//                let VC = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-//
-//                let navigationController = mainViewController.rootViewController as! NavigationController
-//                navigationController.pushViewController(VC, animated: true)
-//
-//                mainViewController.hideLeftView(animated: true, completionHandler: nil)
-            } else {
-//                let VC = self.storyboard?.instantiateViewController(withIdentifier: "PaymentMethodView") as! PaymentMethodView
-                let VC = self.storyboard?.instantiateViewController(withIdentifier: "CardListView") as! CardListView
-
-                let navigationController = mainViewController.rootViewController as! NavigationController
-                navigationController.pushViewController(VC, animated: true)
-
-                mainViewController.hideLeftView(animated: true, completionHandler: nil)
-            }
-        } else if row == 6//8
-        {
-            if self.app.strUserID.isEmpty {
-                self.gotoViewcontroler()
-//                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
-//
-//                let VC = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-//
-//                let navigationController = mainViewController.rootViewController as! NavigationController
-//                navigationController.pushViewController(VC, animated: true)
-//
-//                mainViewController.hideLeftView(animated: true, completionHandler: nil)
-            } else {
-                let VC = self.storyboard?.instantiateViewController(withIdentifier: "FeedbackView") as! FeedbackView
-
-                let navigationController = mainViewController.rootViewController as! NavigationController
-                navigationController.pushViewController(VC, animated: true)
-
-                mainViewController.hideLeftView(animated: true, completionHandler: nil)
-            }
-        } else if row == 7//9
-        {
-            let VC = self.storyboard?.instantiateViewController(withIdentifier: "GeneralView") as! GeneralView
-
-            let navigationController = mainViewController.rootViewController as! NavigationController
-            navigationController.pushViewController(VC, animated: true)
-
-            mainViewController.hideLeftView(animated: true, completionHandler: nil)
-        } else if row == 8 {
-            let VC = self.storyboard?.instantiateViewController(withIdentifier: "InstructionView") as! InstructionView
-
-            let navigationController = mainViewController.rootViewController as! NavigationController
-            navigationController.pushViewController(VC, animated: true)
-
-            mainViewController.hideLeftView(animated: true, completionHandler: nil)
-        } else if row == 9//11
-        {
-            if self.app.strUserID.isEmpty {
-                self.gotoViewcontroler()
-//                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
-//
-//                let VC = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-//
-//                let navigationController = mainViewController.rootViewController as! NavigationController
-//                navigationController.pushViewController(VC, animated: true)
-//
-//                mainViewController.hideLeftView(animated: true, completionHandler: nil)
-            } else {
-                let alertController = UIAlertController(title: "Are you sure You want to Logout ?", message: nil, preferredStyle: .alert)
-
-                let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (_: UIAlertAction!) in
-                    print("you have pressed the Cancel button")
-                }
-                alertController.addAction(cancelAction)
-
-                let OKAction = UIAlertAction(title: "Logout", style: .destructive) { (_: UIAlertAction!) in
-                    print("you have pressed OK button")
-                    UIApplication.shared.cancelAllLocalNotifications()
-
-                    self.app.strUserID = ""
-                    self.app.strToken = ""
-                    self.app.isCartAdded = false
-                    self.app.defaults.removeObject(forKey: "user_id")
-                    self.app.defaults.removeObject(forKey: "isCartAdded")
-                    self.app.defaults.synchronize()
-
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
-
-                    let VC = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        self.app.isDelivery = self.app.defaults.bool(forKey: "isDelivery")
+        
+        if self.app.isDelivery {
+            if row == 0 {
+                mainViewController.hideLeftViewAnimated()
+            } else if row == 1 {
+                if self.app.strUserID.isEmpty {
+                    self.gotoViewcontroler()
+                } else {
+                    let VC = self.storyboard?.instantiateViewController(withIdentifier: "PersonalView") as! PersonalView
 
                     let navigationController = mainViewController.rootViewController as! NavigationController
                     navigationController.pushViewController(VC, animated: true)
 
                     mainViewController.hideLeftView(animated: true, completionHandler: nil)
+                }
+            }
+            else if row == 2
+            {
+                if self.app.strUserID.isEmpty {
+                    self.gotoViewcontroler()
+                } else {
+                    let VC = self.storyboard?.instantiateViewController(withIdentifier: "CardListView") as! CardListView
+
+                    let navigationController = mainViewController.rootViewController as! NavigationController
+                    navigationController.pushViewController(VC, animated: true)
+
+                    mainViewController.hideLeftView(animated: true, completionHandler: nil)
+                }
+            } else if row == 3
+            {
+                if self.app.strUserID.isEmpty {
+                    self.gotoViewcontroler()
+                } else {
+                    let VC = self.storyboard?.instantiateViewController(withIdentifier: "FeedbackView") as! FeedbackView
+
+                    let navigationController = mainViewController.rootViewController as! NavigationController
+                    navigationController.pushViewController(VC, animated: true)
+
+                    mainViewController.hideLeftView(animated: true, completionHandler: nil)
+                }
+            } else if row == 4
+            {
+                let VC = self.storyboard?.instantiateViewController(withIdentifier: "GeneralView") as! GeneralView
+
+                let navigationController = mainViewController.rootViewController as! NavigationController
+                navigationController.pushViewController(VC, animated: true)
+
+                mainViewController.hideLeftView(animated: true, completionHandler: nil)
+            } else if row == 5 {
+                let VC = self.storyboard?.instantiateViewController(withIdentifier: "InstructionView") as! InstructionView
+
+                let navigationController = mainViewController.rootViewController as! NavigationController
+                navigationController.pushViewController(VC, animated: true)
+
+                mainViewController.hideLeftView(animated: true, completionHandler: nil)
+            } else if row == 6
+            {
+                if self.app.strUserID.isEmpty {
+                    self.gotoViewcontroler()
+                } else {
+                    let alertController = UIAlertController(title: "Are you sure You want to Logout ?", message: nil, preferredStyle: .alert)
+
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (_: UIAlertAction!) in
+                        print("you have pressed the Cancel button")
+                    }
+                    alertController.addAction(cancelAction)
+
+                    let OKAction = UIAlertAction(title: "Logout", style: .destructive) { (_: UIAlertAction!) in
+                        print("you have pressed OK button")
+                        UIApplication.shared.cancelAllLocalNotifications()
+
+                        self.app.strUserID = ""
+                        self.app.strToken = ""
+                        self.app.isCartAdded = false
+                        self.app.defaults.removeObject(forKey: "user_id")
+                        self.app.defaults.removeObject(forKey: "isCartAdded")
+                        self.app.defaults.synchronize()
+
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
+
+                        let VC = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+
+                        let navigationController = mainViewController.rootViewController as! NavigationController
+                        navigationController.pushViewController(VC, animated: true)
+
+                        mainViewController.hideLeftView(animated: true, completionHandler: nil)
+
+                    }
+                    alertController.addAction(OKAction)
+
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            } else if row == 7
+            {
+                if self.app.strLanguage == "ar" {
+                    self.app.strLanguage = "en"
+                    self.app.isEnglish = true
+                } else {
+                    self.app.strLanguage = "ar"
+                    self.app.isEnglish = false
+                }
+                self.app.defaults.setValue(self.app.strLanguage, forKey: "selectedLanguage")
+                self.app.defaults.setValue(self.app.isEnglish, forKey: "selectedLanguagebool")
+                self.app.defaults.synchronize()
+                sideMenuController?.hideLeftViewAnimated()
+
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
+
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+                let deliveryStoryboard = UIStoryboard.init(name: "DeliveryModule", bundle: nil)
+                navigationController.setViewControllers([deliveryStoryboard.instantiateViewController(withIdentifier: "DeliveryScreenVC")], animated: false)
+                let mainViewController = storyboard.instantiateInitialViewController() as! MainViewController
+                mainViewController.rootViewController = navigationController
+                mainViewController.setup(type: UInt(2))
+
+                let window = UIApplication.shared.delegate!.window!!
+                window.rootViewController = mainViewController
+
+                UIView.transition(with: window, duration: 0.3, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+            }
+        }else {
+            if row == 0 {
+                mainViewController.hideLeftViewAnimated()
+            } else if row == 1 {
+                if self.app.strUserID.isEmpty {
+                    self.gotoViewcontroler()
+                } else {
+                    let VC = self.storyboard?.instantiateViewController(withIdentifier: "PersonalView") as! PersonalView
+
+                    let navigationController = mainViewController.rootViewController as! NavigationController
+                    navigationController.pushViewController(VC, animated: true)
+
+                    mainViewController.hideLeftView(animated: true, completionHandler: nil)
+                }
+            } else if row == 2 {
+                if self.app.strUserID.isEmpty {
+                    self.gotoViewcontroler()
+                } else {
+                let VC = self.storyboard?.instantiateViewController(withIdentifier: "ActiveVoucherView") as! ActiveVoucherView
+
+                let navigationController = mainViewController.rootViewController as! NavigationController
+                navigationController.pushViewController(VC, animated: true)
+
+                    mainViewController.hideLeftView(animated: true, completionHandler: nil)
 
                 }
-                alertController.addAction(OKAction)
+            } else if row == 3 {
+                if self.app.strUserID.isEmpty {
+                    self.gotoViewcontroler()
+                } else {
+                let VC = self.storyboard?.instantiateViewController(withIdentifier: "FavoritesView") as! FavoritesView
 
-                self.present(alertController, animated: true, completion: nil)
+                let navigationController = mainViewController.rootViewController as! NavigationController
+                navigationController.pushViewController(VC, animated: true)
+
+                mainViewController.hideLeftView(animated: true, completionHandler: nil)
+                }
             }
-        } else if row == 10//12
-        {
-            if self.app.strLanguage == "ar" {
-                self.app.strLanguage = "en"
-                self.app.isEnglish = true
-            } else {
-                self.app.strLanguage = "ar"
-                self.app.isEnglish = false
+
+            else if row == 4//5
+            {
+                if self.app.strUserID.isEmpty {
+                    self.gotoViewcontroler()
+                } else {
+                let VC = self.storyboard?.instantiateViewController(withIdentifier: "OprationlogView") as! OprationlogView
+
+                let navigationController = mainViewController.rootViewController as! NavigationController
+                navigationController.pushViewController(VC, animated: true)
+
+                mainViewController.hideLeftView(animated: true, completionHandler: nil)
+                }
             }
-            self.app.defaults.setValue(self.app.strLanguage, forKey: "selectedLanguage")
-            self.app.defaults.setValue(self.app.isEnglish, forKey: "selectedLanguagebool")
-            self.app.defaults.synchronize()
-            sideMenuController?.hideLeftViewAnimated()
+            else if row == 5//7
+            {
+                if self.app.strUserID.isEmpty {
+                    self.gotoViewcontroler()
+                } else {
+                    let VC = self.storyboard?.instantiateViewController(withIdentifier: "CardListView") as! CardListView
 
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
+                    let navigationController = mainViewController.rootViewController as! NavigationController
+                    navigationController.pushViewController(VC, animated: true)
 
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LANGUAGE_WILL_CHANGE"), object: self.app.strLanguage)
+                    mainViewController.hideLeftView(animated: true, completionHandler: nil)
+                }
+            } else if row == 6//8
+            {
+                if self.app.strUserID.isEmpty {
+                    self.gotoViewcontroler()
+                } else {
+                    let VC = self.storyboard?.instantiateViewController(withIdentifier: "FeedbackView") as! FeedbackView
 
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
-            navigationController.setViewControllers([storyboard.instantiateViewController(withIdentifier: "HomeView")], animated: false)
-            let mainViewController = storyboard.instantiateInitialViewController() as! MainViewController
-            mainViewController.rootViewController = navigationController
-            mainViewController.setup(type: UInt(2))
+                    let navigationController = mainViewController.rootViewController as! NavigationController
+                    navigationController.pushViewController(VC, animated: true)
 
-            let window = UIApplication.shared.delegate!.window!!
-            window.rootViewController = mainViewController
+                    mainViewController.hideLeftView(animated: true, completionHandler: nil)
+                }
+            } else if row == 7//9
+            {
+                let VC = self.storyboard?.instantiateViewController(withIdentifier: "GeneralView") as! GeneralView
 
-            UIView.transition(with: window, duration: 0.3, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+                let navigationController = mainViewController.rootViewController as! NavigationController
+                navigationController.pushViewController(VC, animated: true)
+
+                mainViewController.hideLeftView(animated: true, completionHandler: nil)
+            } else if row == 8 {
+                let VC = self.storyboard?.instantiateViewController(withIdentifier: "InstructionView") as! InstructionView
+
+                let navigationController = mainViewController.rootViewController as! NavigationController
+                navigationController.pushViewController(VC, animated: true)
+
+                mainViewController.hideLeftView(animated: true, completionHandler: nil)
+            } else if row == 9//11
+            {
+                if self.app.strUserID.isEmpty {
+                    self.gotoViewcontroler()
+                } else {
+                    let alertController = UIAlertController(title: "Are you sure You want to Logout ?", message: nil, preferredStyle: .alert)
+
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (_: UIAlertAction!) in
+                        print("you have pressed the Cancel button")
+                    }
+                    alertController.addAction(cancelAction)
+
+                    let OKAction = UIAlertAction(title: "Logout", style: .destructive) { (_: UIAlertAction!) in
+                        print("you have pressed OK button")
+                        UIApplication.shared.cancelAllLocalNotifications()
+
+                        self.app.strUserID = ""
+                        self.app.strToken = ""
+                        self.app.isCartAdded = false
+                        self.app.defaults.removeObject(forKey: "user_id")
+                        self.app.defaults.removeObject(forKey: "isCartAdded")
+                        self.app.defaults.synchronize()
+
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
+
+                        let VC = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+
+                        let navigationController = mainViewController.rootViewController as! NavigationController
+                        navigationController.pushViewController(VC, animated: true)
+
+                        mainViewController.hideLeftView(animated: true, completionHandler: nil)
+
+                    }
+                    alertController.addAction(OKAction)
+
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            } else if row == 10//12
+            {
+                if self.app.strLanguage == "ar" {
+                    self.app.strLanguage = "en"
+                    self.app.isEnglish = true
+                } else {
+                    self.app.strLanguage = "ar"
+                    self.app.isEnglish = false
+                }
+                self.app.defaults.setValue(self.app.strLanguage, forKey: "selectedLanguage")
+                self.app.defaults.setValue(self.app.isEnglish, forKey: "selectedLanguagebool")
+                self.app.defaults.synchronize()
+                sideMenuController?.hideLeftViewAnimated()
+
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
+
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LANGUAGE_WILL_CHANGE"), object: self.app.strLanguage)
+
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+                navigationController.setViewControllers([storyboard.instantiateViewController(withIdentifier: "HomeView")], animated: false)
+                let mainViewController = storyboard.instantiateInitialViewController() as! MainViewController
+                mainViewController.rootViewController = navigationController
+                mainViewController.setup(type: UInt(2))
+
+                let window = UIApplication.shared.delegate!.window!!
+                window.rootViewController = mainViewController
+
+                UIView.transition(with: window, duration: 0.3, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+            }
         }
+        
     }
 
     func gotoViewcontroler() {

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import UITextView_Placeholder
 
 extension UILabel {
     
@@ -39,6 +40,7 @@ extension UITextView {
     
     override open func awakeFromNib() {
         super.awakeFromNib()
+        self.placeholder = placeholder?.localizeString()
         self.text = text?.localizeString()
     
     }

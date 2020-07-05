@@ -53,6 +53,13 @@ class DeliveryDetailVC: UIViewController {
     @IBOutlet weak var viewDriver: UIView!
     @IBOutlet weak var viewNoDriver: UIView!
     @IBOutlet weak var viewNoPrice: UIView!
+    @IBOutlet weak var viewPay: UIView!
+    
+    @IBOutlet weak var imgUpload: UIImageView!
+    @IBOutlet weak var imgHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var lblTitle: UILabel!
+    
 
     var app = AppDelegate()
     var orderId: String?
@@ -72,6 +79,12 @@ class DeliveryDetailVC: UIViewController {
         
         imgDelivery.layer.cornerRadius = imgDelivery.frame.size.height / 2
         imgDelivery.clipsToBounds = true
+        
+        viewStatus.layer.cornerRadius = viewStatus.frame.size.height / 2
+        viewStatus.clipsToBounds = true
+        
+        self.lblTitle.text = "Order details".localizeString()
+        
 
         self.getOrderDetail()
     }
@@ -89,8 +102,12 @@ class DeliveryDetailVC: UIViewController {
                 self.response = OrderDetailRootClass.init(fromJson: response)
                 self.tableProduct.reloadData()
                 self.tableHeight?.constant = self.tableProduct.contentSize.height
-                self.lblOrderID.text = "Order Id :" + (self.response?.id ?? "")
-//                self.lblProductNumber.text = "Product:" + (self.response?.totalProducts ?? "")
+                
+                let count = self.response?.orderDetail?.count ?? 0
+                
+                self.lblOrderID.text = "Order Id".localizeString() + " : " + (self.response?.id ?? "")
+                self.lblProductNumber.text = "Product".localizeString() + ":" + (String(count) ?? "")
+            
                 self.lblAddress.text = self.response?.userAddress ?? ""
                 self.lblStatus.text = self.response?.statusString
                 self.lblShopAddress.text = self.response?.shopAddress ?? ""
@@ -99,6 +116,9 @@ class DeliveryDetailVC: UIViewController {
                     self.lblProductCostValue.text = "0 Sr"
                     self.lblDeliveryChargeValue.text = "0 Sr"
                     self.lblServiceTaxValue.text = "0 Sr"
+                    self.lblPayment.isHidden = true
+                    self.btnPayment.isHidden = true
+                    self.viewPay.isHidden = true
                 }
 
                 if (self.response?.price ?? "0") == "0" && self.response?.orderStatus == "1" {
@@ -124,7 +144,7 @@ class DeliveryDetailVC: UIViewController {
                     self.lblDeliveryChargeValue.text = (self.response?.orderCharge ?? "") + " Sr"
                     self.lblServiceTaxValue.text = (self.response?.serviceCharge ?? "") + " Sr"
 
-                    let price = "Total Cost " + (self.response?.totalPrice ?? "") + " Sr"
+                    let price = "Total Cost ".localizeString() + (self.response?.totalPrice ?? "") + " Sr"
 
                     self.lblDeliveryNameValue.text = self.response?.name ?? ""
                     self.lblDeliveryMobileValue.text = self.response?.phone ?? ""
@@ -142,7 +162,7 @@ class DeliveryDetailVC: UIViewController {
                     self.lblDeliveryChargeValue.text = (self.response?.orderCharge ?? "") + " Sr"
                     self.lblServiceTaxValue.text = (self.response?.serviceCharge ?? "") + " Sr"
 
-                    let price = "Total Cost " + (self.response?.totalPrice ?? "") + " Sr"
+                    let price = "Total Cost ".localizeString() + (self.response?.totalPrice ?? "") + " Sr"
 
                     self.lblDeliveryNameValue.text = self.response?.name ?? ""
                     self.lblDeliveryMobileValue.text = self.response?.phone ?? ""
@@ -151,6 +171,10 @@ class DeliveryDetailVC: UIViewController {
                     self.lblPayment.text = price
                     self.btnCancel.isHidden = true
                     self.btnPayment.isHidden = true
+                }else if self.response?.status == "6" {
+                    self.btnCancel.isHidden = true
+                    self.btnChatWith.isHidden = true
+                    self.viewPay.isHidden = true
                 }
                 
                 if self.response?.isPaymentComplete == "1" {
@@ -166,13 +190,35 @@ class DeliveryDetailVC: UIViewController {
 
         }
     }
+    
+    private func cancelOrder() {
+        var param = Parameters()
+        param["order_id"] = orderId ?? ""
+        
+        let headers: HTTPHeaders = ["Authorization": self.app.defaults.value(forKey: "tokan") as! String,
+                                    "Content-Type": "application/json"]
+        
+        AppWebservice.shared.request("\(self.app.newBaseURL)users/orders/cancel_order", method: .post, parameters: param, headers: headers, loader: true) { (status, response, error) in
+            
+            if status == 200 {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+    }
 
     @IBAction private func cancelOrderTapped(_ sender: UIButton) {
-
+        self.cancelOrder()
     }
 
     @IBAction private func chatOrderTapped(_ sender: UIButton) {
 
+        let storyboard = UIStoryboard.init(name: "DeliveryModule", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ChatVC") as! ChatVC
+        vc.orderId = self.orderId
+        vc.name = self.response!.name ?? ""
+        vc.phone = self.response!.phone ?? ""
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
 
     @IBAction private func payTapped(_ sender: UIButton) {
@@ -181,6 +227,7 @@ class DeliveryDetailVC: UIViewController {
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle = .crossDissolve
         vc.delegate = self
+        vc.price = self.response?.totalPrice ?? ""
         self.navigationController?.present(vc, animated: true, completion: nil)
     }
 
@@ -206,6 +253,7 @@ extension DeliveryDetailVC: UITableViewDataSource {
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as? ItemCell else { return UITableViewCell() }
             cell.setData(response!.orderDetail![indexPath.row - 1])
+            cell.btnDelete.isHidden = true
             return cell
         }
     }
@@ -224,14 +272,14 @@ extension DeliveryDetailVC : PaymentDelegate {
         viewController.dismiss(animated: true) {
             let storyboard = UIStoryboard.init(name: "DeliveryModule", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "DeliveryPaymentVC") as! DeliveryPaymentVC
-            vc.strTotal = "1"
+            vc.strTotal = self.response?.totalPrice ?? ""
             vc.orderId = self.orderId ?? ""
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
     func didCancelTapped(_ viewController: PaymentConfirmation) {
-        
+        viewController.dismiss(animated: true) { }
     }
     
 }

@@ -538,7 +538,8 @@ class DeliveryPaymentVC: UIViewController, UITableViewDelegate, UITableViewDataS
 
                             self.tblView.reloadData()
                         } else {
-                            let VC = self.storyboard?.instantiateViewController(withIdentifier: "PaymentMethodView") as! PaymentMethodView
+                            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                            let VC = storyboard.instantiateViewController(withIdentifier: "PaymentMethodView") as! PaymentMethodView
                             self.navigationController?.pushViewController(VC, animated: true)
 
                             Toast(text: self.strMessage).show()

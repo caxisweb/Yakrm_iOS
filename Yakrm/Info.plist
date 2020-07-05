@@ -45,6 +45,12 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Yakrm App Camera requires access to read barcode number</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Yakrm App uses location for getting user current address for the delivery of the item.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Yakrm App uses location for getting user current address for the delivery of the item.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Yakrm App uses location for getting user current address for the delivery of the item.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Yakrm App Camera requires to Upload Video</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -78,6 +84,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>
