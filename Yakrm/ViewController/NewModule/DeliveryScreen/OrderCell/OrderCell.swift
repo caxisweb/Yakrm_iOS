@@ -16,6 +16,7 @@ class OrderCell: UITableViewCell {
     @IBOutlet weak var lblAddress: UILabel!
     @IBOutlet weak var lblStatus: UILabel!
     @IBOutlet weak var viewStatus: UIView!
+    @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var btnViewDetail: UIButton!
 
     var viewDetailTapped: (() -> Void)?
@@ -45,6 +46,10 @@ class OrderCell: UITableViewCell {
     }
 
     func setData(_ data: Order) {
+        let floatRadius : CGFloat = 5
+        
+        self.viewContainer.dropShadow(color: .lightGray, opacity: 1, offSet: CGSize(width: 0, height: 5), radius: floatRadius, scale: true)
+        
         self.lblOrderID.text = "Order Id".localizeString() + " : " + (data.orderId ?? "")
         self.lblProductNumber.text = "Product".localizeString() + ":" + (data.totalProducts ?? "")
         self.lblAddress.text = data.userAddress ?? ""

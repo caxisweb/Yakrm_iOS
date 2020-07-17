@@ -60,6 +60,11 @@ class DeliveryDetailVC: UIViewController {
     
     @IBOutlet weak var lblTitle: UILabel!
     
+    @IBOutlet weak var viewOrderInfo : UIView!
+    @IBOutlet weak var viewPaymentInfo : UIView!
+    @IBOutlet weak var viewDriverInfo : UIView!
+    
+    
 
     var app = AppDelegate()
     var orderId: String?
@@ -84,6 +89,14 @@ class DeliveryDetailVC: UIViewController {
         viewStatus.clipsToBounds = true
         
         self.lblTitle.text = "Order details".localizeString()
+        
+        let floatRadius : CGFloat = 5
+        
+        self.viewOrderInfo.dropShadow(color: .lightGray, opacity: 1, offSet: CGSize(width: 0, height: 5), radius: floatRadius, scale: true)
+        self.viewPaymentInfo.dropShadow(color: .lightGray, opacity: 1, offSet: CGSize(width: 0, height: 5), radius: floatRadius, scale: true)
+        self.viewDriverInfo.dropShadow(color: .lightGray, opacity: 1, offSet: CGSize(width: 0, height: 5), radius: floatRadius, scale: true)
+        self.txtAdditionalNotes.dropShadow(color: .lightGray, opacity: 1, offSet: CGSize(width: 0, height: 5), radius: floatRadius, scale: true)
+        self.tableProduct.dropShadow(color: .lightGray, opacity: 1, offSet: CGSize(width: 0, height: 5), radius: floatRadius, scale: true)
         
 
         self.getOrderDetail()
@@ -118,6 +131,7 @@ class DeliveryDetailVC: UIViewController {
                     self.lblServiceTaxValue.text = "0 Sr"
                     self.lblPayment.isHidden = true
                     self.btnPayment.isHidden = true
+                    self.viewDriver.isHidden = true
                     self.viewPay.isHidden = true
                 }
 
@@ -183,6 +197,12 @@ class DeliveryDetailVC: UIViewController {
                     self.viewPayment.isHidden = true
                 }
                 
+//                if self.app.strLanguage != "ar" {
+//                    Toast(text: response?["message"].string ?? "").show()
+//                }else {
+//                    Toast(text: response?["arab_message"].string ?? "").show()
+//                }
+                
 
             } else {
                 Toast(text: error?.localizedDescription).show()
@@ -201,6 +221,12 @@ class DeliveryDetailVC: UIViewController {
         AppWebservice.shared.request("\(self.app.newBaseURL)users/orders/cancel_order", method: .post, parameters: param, headers: headers, loader: true) { (status, response, error) in
             
             if status == 200 {
+                if self.app.strLanguage != "ar" {
+                    Toast(text: response?["message"].string ?? "").show()
+                }else {
+                    Toast(text: response?["arab_message"].string ?? "").show()
+                }
+                
                 self.navigationController?.popViewController(animated: true)
             }
         }

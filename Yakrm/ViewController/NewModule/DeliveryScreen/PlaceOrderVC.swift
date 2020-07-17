@@ -30,6 +30,11 @@ class PlaceOrderVC: UIViewController,UIImagePickerControllerDelegate, UINavigati
     @IBOutlet weak var imgProductUpload: UIImageView!
     @IBOutlet weak var imgHeight: NSLayoutConstraint!
     @IBOutlet weak var btnClose: UIButton!
+    
+    @IBOutlet weak var btnAdd: UIButton!
+    @IBOutlet weak var btnUpload: UIButton!
+    @IBOutlet weak var btnChangeAddress: UIButton!
+    @IBOutlet weak var btnSelectStore: UIButton!
 
     @IBOutlet weak var tableProduct: UITableView!
 
@@ -64,6 +69,21 @@ class PlaceOrderVC: UIViewController,UIImagePickerControllerDelegate, UINavigati
         imgAdditionalNotes.clipsToBounds = true
 
         self.navigationController?.isNavigationBarHidden = true
+    
+        let floatRadius : CGFloat = 5
+        
+        self.txtProductName.dropShadow(color: .lightGray, opacity: 1, offSet: CGSize(width: 0, height: 5), radius: floatRadius, scale: true)
+        self.txtQty.dropShadow(color: .lightGray, opacity: 1, offSet: CGSize(width: 0, height: 1), radius: floatRadius, scale: true)
+        self.txtAddress.dropShadow(color: .lightGray, opacity: 1, offSet: CGSize(width: 0, height: 1), radius: floatRadius, scale: true)
+        self.txtShopAddress.dropShadow(color: .lightGray, opacity: 1, offSet: CGSize(width: 0, height: 1), radius: floatRadius, scale: true)
+        self.txtAdditionalNotes.dropShadow(color: .lightGray, opacity: 1, offSet: CGSize(width: 0, height: 1), radius: floatRadius, scale: true)
+        self.tableProduct.dropShadow(color: .lightGray, opacity: 1, offSet: CGSize(width: 0, height: 1), radius: floatRadius, scale: true)
+        
+        self.btnAdd.dropShadow(color: .lightGray, opacity: 1, offSet: CGSize(width: 0, height: 1), radius: floatRadius, scale: true)
+        self.btnUpload.dropShadow(color: .lightGray, opacity: 1, offSet: CGSize(width: 0, height: 1), radius: floatRadius, scale: true)
+        self.btnChangeAddress.dropShadow(color: .lightGray, opacity: 1, offSet: CGSize(width: 0, height: 1), radius: floatRadius, scale: true)
+        self.btnSelectStore.dropShadow(color: .lightGray, opacity: 1, offSet: CGSize(width: 0, height: 1), radius: floatRadius, scale: true)
+        
         
         self.picker.delegate = self
 
@@ -86,20 +106,33 @@ class PlaceOrderVC: UIViewController,UIImagePickerControllerDelegate, UINavigati
         let name = txtProductName.text ?? ""
         let qty = txtQty.text ?? ""
         
-        let formatter: NumberFormatter = NumberFormatter()
-        formatter.locale = NSLocale(localeIdentifier: "EN") as Locale!
-        let final = formatter.number(from: qty)
-        let doubleNumber = Double(final!)
-        
-        if  doubleNumber > 0 && name != "" {
-            self.dicData.append(["product_title": name, "quantity": String(Int(doubleNumber))])
-            self.tableProduct.reloadData()
-            self.txtProductName.text = nil
-            self.txtQty.text = nil
+        if qty != nil, qty != "" {
+            let formatter: NumberFormatter = NumberFormatter()
+            formatter.locale = NSLocale(localeIdentifier: "EN") as Locale!
+            let final = formatter.number(from: qty)
+            let doubleNumber = Double(final!)
+            
+            if  doubleNumber > 0 && name != "" {
+                self.dicData.append(["product_title": name, "quantity": String(Int(doubleNumber))])
+                self.tableProduct.reloadData()
+                self.txtProductName.text = nil
+                self.txtQty.text = nil
+            }
         }
     }
 
     @IBAction private func btnPlaceOrderTapped(_ sender: UIButton) {
+        
+        if self.dicData.count == 0 {
+            Toast(text: "Please Add Product".localizeString()).show()
+            return
+        }
+        
+        if txtAddress.text.count == 0 {
+            Toast(text: "Please select Delivery Address".localizeString()).show()
+            return
+        }
+        
         var param = Parameters()
         param["user_address"] = self.txtAddress.text
         param["user_latitude"] = String(Double(self.userLocation?.latitude ?? 0.0))
@@ -116,7 +149,13 @@ class PlaceOrderVC: UIViewController,UIImagePickerControllerDelegate, UINavigati
         AppWebservice.shared.request("\(self.app.newBaseURL)users/orders/create", method: .post, parameters: param, headers: headers, loader: true) { (status, response, error) in
             if status == 200 {
                 
-                Toast(text: response?["message"].string ?? "").show()
+                
+                if self.app.strLanguage != "ar" {
+                    Toast(text: response?["message"].string ?? "").show()
+                }else {
+                    Toast(text: response?["arab_message"].string ?? "").show()
+                }
+                
                 if (response!["status"].string ?? "") == "1" {
                     
                     self.txtAddress.text = ""
@@ -153,11 +192,11 @@ class PlaceOrderVC: UIViewController,UIImagePickerControllerDelegate, UINavigati
 
         let parameters = ["order_id":orderId]
         let headers: HTTPHeaders = ["Authorization": self.app.defaults.value(forKey: "tokan") as! String,
-        "Content-Type": "application/json"]
+        "Content-Type": "multipart/form-data"]
         LoadingIndicator.shared.startLoading()
         
         AF.upload(multipartFormData: { multipartFormData in
-            multipartFormData.append(imageFileName.jpegData(compressionQuality: 0.3)!, withName: "order_image", fileName: "file.png", mimeType: "image/png")
+            multipartFormData.append(imageFileName.pngData()!, withName: "order_image", fileName: "file.png", mimeType: "image/png")
 
             for (key, value) in parameters {
                 multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)

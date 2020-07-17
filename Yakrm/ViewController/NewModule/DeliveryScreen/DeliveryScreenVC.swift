@@ -86,7 +86,7 @@ class DeliveryScreenVC: UIViewController {
 
         AppWebservice.shared.request("\(self.app.newBaseURL)users/notification/get_total_today_noti", method: .get, parameters: nil, headers: headers, loader: false) { (status, response, error) in
             if status == 200 {
-                self.btnNotification.badgeString = (response?["total_noti"].string ?? "0")
+                self.btnNotification.badgeString = String(response?["total_noti"].int ?? 0)
             } else {
                self.btnNotification.badgeString = "0"
             }

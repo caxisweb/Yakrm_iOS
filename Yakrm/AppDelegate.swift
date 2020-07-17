@@ -17,6 +17,7 @@ import UserNotifications
 import GoogleMaps
 import GooglePlaces
 import Firebase
+import Adjust
 
 enum UIUserInterfaceIdiom: Int {
     case Unspecified
@@ -52,16 +53,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     // MARK: Test API
 
-//    var BaseURL = "http://test.yakrm.com/api/"
-//    var ImageURL = "http://test.yakrm.com/assets/uploads/"
-//    var SalesURL = "http://test.yakrm.com/api_salesmen/"
-//    var newBaseURL = "http://test.yakrm.com/apis/v1/"
+    var BaseURL = "http://test.yakrm.com/api/"
+    var ImageURL = "http://test.yakrm.com/assets/uploads/"
+    var SalesURL = "http://test.yakrm.com/api_salesmen/"
+    var newBaseURL = "http://test.yakrm.com/apis/v1/"
 
     // MARK: Live API
-    var BaseURL = "http://yakrm.com/api/"
-    var ImageURL = "http://yakrm.com/assets/uploads/"
-    var SalesURL = "http://yakrm.com/api_salesmen/"
-    var newBaseURL = "http://yakrm.com/apis/v1/"
+//    var BaseURL = "http://yakrm.com/api/"
+//    var ImageURL = "http://yakrm.com/assets/uploads/"
+//    var SalesURL = "http://yakrm.com/api_salesmen/"
+//    var newBaseURL = "http://yakrm.com/apis/v1/"
 
     var InternetConnectionMessage = "No Internet Connection"
     var RequestTimeOut = "Request time out."
@@ -105,6 +106,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         GMSServices.provideAPIKey("AIzaSyBq46koOKR3Q3K2xdVRo0ib0okFV_WPnDE")
         GMSPlacesClient.provideAPIKey("AIzaSyBq46koOKR3Q3K2xdVRo0ib0okFV_WPnDE")
         FirebaseApp.configure()
+        
+        let config = ADJConfig.init(appToken: "dczclrbzx4w0", environment: "ADJEnvironmentSandbox")
+        Adjust.appDidLaunch(config)
 
         NotificationCenter.default.addObserver(self, selector: #selector(languageWillChange), name: NSNotification.Name(rawValue: "LANGUAGE_WILL_CHANGE"), object: nil)
 
@@ -544,6 +548,7 @@ extension UIView {
         layer.shadowOpacity = opacity
         layer.shadowOffset = offSet
         layer.shadowRadius = radius
+        layer.cornerRadius = radius
 
         layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
         layer.shouldRasterize = true

@@ -370,6 +370,8 @@ class SideMenuView: UIViewController, UITableViewDelegate, UITableViewDataSource
 
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
 
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LANGUAGE_WILL_CHANGE"), object: self.app.strLanguage)
+                
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
                 let deliveryStoryboard = UIStoryboard.init(name: "DeliveryModule", bundle: nil)

@@ -129,7 +129,12 @@ class CardListView: UIViewController, UITableViewDelegate, UITableViewDataSource
 
         cell.lblDetails.text = "**** **** **** \(strLast)"
         cell.lblName.text = "By Using Credit Card"//strDetails
-        cell.imgProfile.image = UIImage(named: "payment_visa_icon.png")!
+//        cell.imgProfile.image = UIImage(named: "payment_visa_icon.png")!
+        if let methods = arrValue[indexPath.section]["payment_method"].string, methods == "1" {
+            cell.imgProfile.image = UIImage(named: "payment_type_csmada_icon.png")!
+        }else {
+            cell.imgProfile.image = UIImage(named: "payment_visa_icon.png")!
+        }
 
         if !strDetails.isEmpty {
             cell.lblName.text = "By \(strDetails)"//strDetails

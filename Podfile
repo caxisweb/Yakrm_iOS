@@ -49,5 +49,6 @@ target 'Yakrm' do
   pod 'Firebase/Database'
   pod 'JSQMessagesViewController'
   pod 'UITextView+Placeholder'
+  pod 'Adjust', '~> 4.22.1'
 
 end

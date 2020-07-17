@@ -214,7 +214,11 @@ class DeliveryPaymentVC: UIViewController, UITableViewDelegate, UITableViewDataS
                         print(self.json)
 
                         let strStatus: String = self.json["status"].stringValue
-                        self.strMessage = self.json["message"].stringValue
+                        if self.app.strLanguage != "ar" {
+                            self.strMessage = self.json["message"].stringValue
+                        }else {
+                            self.strMessage = self.json["arab_message"].stringValue
+                        }
 
                         Toast(text: self.strMessage).show()
                         self.viewBalance.isHidden = true
@@ -266,17 +270,22 @@ class DeliveryPaymentVC: UIViewController, UITableViewDelegate, UITableViewDataS
 
         cell.lblDetails.text = "**** **** **** \(strLast)"
         cell.lblName.text = "By Using Credit Card"//strDetails
-        cell.imgProfile.image = UIImage(named: "payment_visa_icon.png")!
-
-        if !strDetails.isEmpty {
-            cell.lblName.text = "By \(strDetails)"//strDetails
-            cell.imgProfile.image = UIImage(named: "hyperpay.png")!
-            cell.imgProfile.contentMode = .scaleAspectFill
-            cell.imgProfile.frame.origin.x = 20
-            cell.lblDetails.text = "**** **** **** ****"
-        } else {
-            cell.imgProfile.contentMode = .scaleAspectFit
+        if let methods = arrValue[indexPath.section]["payment_method"].string, methods == "1" {
+            cell.imgProfile.image = UIImage(named: "payment_type_csmada_icon.png")!
+        }else {
+            cell.imgProfile.image = UIImage(named: "payment_visa_icon.png")!
         }
+        
+
+//        if !strDetails.isEmpty {
+//            cell.lblName.text = "By \(strDetails)"//strDetails
+//            cell.imgProfile.image = UIImage(named: "hyperpay.png")!
+//            cell.imgProfile.contentMode = .scaleAspectFill
+//            cell.imgProfile.frame.origin.x = 20
+//            cell.lblDetails.text = "**** **** **** ****"
+//        } else {
+//            cell.imgProfile.contentMode = .scaleAspectFit
+//        }
 
         if DeviceType.IS_IPHONE_5 {
             cell.lblName.font = cell.lblName.font.withSize(12)
@@ -519,23 +528,17 @@ class DeliveryPaymentVC: UIViewController, UITableViewDelegate, UITableViewDataS
 
             if statusCode == 200 {
                         self.json = response!
-                        print(self.json)
 
                         let strStatus: String = self.json["status"].stringValue
-                        self.strMessage = self.json["message"].stringValue
+                if self.app.isLangEnglish {
+                    self.strMessage = self.json["message"].stringValue
+                }else {
+                    self.strMessage = self.json["arab_message"].stringValue
+                }
+                        
 
                         if strStatus == "1" {
-                            let data = self.json["data"]
-
-//                            var dic : Dictionary<String,String> = [:]
-//                            dic.updateValue("Hyper Pay", forKey: "name")
                             self.arrCardList = self.json["data"].arrayValue
-//                            if data.count > 0
-//                            {
-//                                self.strCardID = data[0]["id"].stringValue
-//                            }
-//                            self.arrCardList.insert(dic, at: 0)
-
                             self.tblView.reloadData()
                         } else {
                             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)

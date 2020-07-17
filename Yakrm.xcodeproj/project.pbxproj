@@ -557,6 +557,13 @@
 			path = AppControls;
 			sourceTree = "<group>";
 		};
+		2F618CBA24C0AA5800F63A20 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		2F6B3E0324712ECA00036828 /* NewModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -1174,6 +1181,7 @@
 		8852BF9621B8FCC9001F71BC /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				2F618CBA24C0AA5800F63A20 /* Extension */,
 				2FCD152D24A4580900D8A16E /* BadgeButton */,
 				2F78BE2D247A431D002847B3 /* StringFormatter */,
 				2F9E23DE246F8A2300C4CA40 /* LocationManager.swift */,
@@ -1939,7 +1947,7 @@
 				CODE_SIGN_ENTITLEMENTS = Yakrm/Yakrm.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.2.6.4;
+				CURRENT_PROJECT_VERSION = 1.2.7.14;
 				DEVELOPMENT_TEAM = PMCL622RZ9;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1952,7 +1960,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.6;
+				MARKETING_VERSION = 1.2.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codeclinic.yakrmapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Yakrm Development";
@@ -1972,7 +1980,7 @@
 				CODE_SIGN_ENTITLEMENTS = Yakrm/Yakrm.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.2.6.4;
+				CURRENT_PROJECT_VERSION = 1.2.7.14;
 				DEVELOPMENT_TEAM = PMCL622RZ9;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1985,7 +1993,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.6;
+				MARKETING_VERSION = 1.2.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codeclinic.yakrmapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Yakrm Development";

@@ -1,5 +1,8 @@
 PODS:
   - ActionSheetPicker-3.0 (2.5.0)
+  - Adjust (4.22.1):
+    - Adjust/Core (= 4.22.1)
+  - Adjust/Core (4.22.1)
   - AFNetworking (4.0.0):
     - AFNetworking/NSURLSession (= 4.0.0)
     - AFNetworking/Reachability (= 4.0.0)
@@ -153,6 +156,7 @@ PODS:
 
 DEPENDENCIES:
   - ActionSheetPicker-3.0
+  - Adjust (~> 4.22.1)
   - AFNetworking
   - Alamofire
   - BIObjCHelpers
@@ -187,6 +191,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - ActionSheetPicker-3.0
+    - Adjust
     - AFNetworking
     - Alamofire
     - BIObjCHelpers
@@ -236,6 +241,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: 6d79f6f3b98e2b21d218dd65a39f634ff37a27e5
+  Adjust: 7cd2d1cf61dff44d2d15541d83ffde87abbcd193
   AFNetworking: d9fdf484a3c723ec3c558a41cc5754c7e845ee77
   Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
   BIObjCHelpers: 378672b0f9309e4d2cbd4cabfb3afbe1ce225e40
@@ -283,6 +289,6 @@ SPEC CHECKSUMS:
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
   YLGIFImage: c0ae132fe80e5282b2762a97d14e23ba71a748ae
 
-PODFILE CHECKSUM: 763db2b40105b921068b73e22b785faa6dacb025
+PODFILE CHECKSUM: 3bc9e2f4f790b5a212791ce9e688d207f75fc59b
 
 COCOAPODS: 1.9.1

@@ -31,10 +31,13 @@ class StartScreenVC: UIViewController {
         btnDelivery.layer.cornerRadius = btnDelivery.frame.size.height / 2
         btnDelivery.clipsToBounds = true
         
-        if self.app.strLanguage == "ar" {
-            segmentedControl.selectedSegmentIndex = 1
-        } else {
+        
+        let boolLang = self.app.defaults.bool(forKey: "selectedLanguagebool")
+        
+        if boolLang {
             segmentedControl.selectedSegmentIndex = 0
+        } else {
+            segmentedControl.selectedSegmentIndex = 1
         }
         
         segmentedControl.addTarget(self, action: #selector(StartScreenVC.indexChanged(_:)), for: .valueChanged)
@@ -102,12 +105,16 @@ class StartScreenVC: UIViewController {
     }
     
     func changeLang(){
-        if self.app.strLanguage == "ar" {
+        let boolLang = self.app.defaults.bool(forKey: "selectedLanguagebool")
+        
+        if !boolLang {
             self.app.strLanguage = "en"
             self.app.isEnglish = true
+//            self.segmentedControl.selectedSegmentIndex = 0
         } else {
             self.app.strLanguage = "ar"
             self.app.isEnglish = false
+//            self.segmentedControl.selectedSegmentIndex = 1
         }
         self.app.defaults.setValue(self.app.strLanguage, forKey: "selectedLanguage")
         self.app.defaults.setValue(self.app.isEnglish, forKey: "selectedLanguagebool")
