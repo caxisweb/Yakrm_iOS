@@ -61,6 +61,7 @@ class VarifyLoginView: UIViewController, PinCodeTextFieldDelegate {
             self.lblEnterSecret.textAlignment = .right
         }
 
+        
         self.txtCode.layer.borderWidth = 1
         self.txtCode.layer.borderColor = UIColor.darkGray.withAlphaComponent(0.5).cgColor
 

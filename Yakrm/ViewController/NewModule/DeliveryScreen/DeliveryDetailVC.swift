@@ -197,6 +197,13 @@ class DeliveryDetailVC: UIViewController {
                     self.viewPayment.isHidden = true
                 }
                 
+                if self.response?.orderImage != nil && self.response?.orderImage != "" {
+                    self.imgHeight.constant = 120.0
+                    let url = self.app.orderBaseURL + (self.response?.orderImage!)!
+                    self.imgUpload.sd_setImage(with: URL.init(string: url), completed: nil)
+                }
+                
+                
 //                if self.app.strLanguage != "ar" {
 //                    Toast(text: response?["message"].string ?? "").show()
 //                }else {

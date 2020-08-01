@@ -53,16 +53,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     // MARK: Test API
 
-    var BaseURL = "http://test.yakrm.com/api/"
-    var ImageURL = "http://test.yakrm.com/assets/uploads/"
-    var SalesURL = "http://test.yakrm.com/api_salesmen/"
-    var newBaseURL = "http://test.yakrm.com/apis/v1/"
+//    var BaseURL = "http://test.yakrm.com/api/"
+//    var ImageURL = "http://test.yakrm.com/assets/uploads/"
+//    var SalesURL = "http://test.yakrm.com/api_salesmen/"
+//    var newBaseURL = "http://test.yakrm.com/apis/v1/"
+//    var orderBaseURL = "http://test.yakrm.com/assets/uploads/order_images/"
 
     // MARK: Live API
-//    var BaseURL = "http://yakrm.com/api/"
-//    var ImageURL = "http://yakrm.com/assets/uploads/"
-//    var SalesURL = "http://yakrm.com/api_salesmen/"
-//    var newBaseURL = "http://yakrm.com/apis/v1/"
+    var BaseURL = "http://yakrm.com/api/"
+    var ImageURL = "http://yakrm.com/assets/uploads/"
+    var SalesURL = "http://yakrm.com/api_salesmen/"
+    var newBaseURL = "http://yakrm.com/apis/v1/"
+    var orderBaseURL = "http://yakrm.com/assets/uploads/order_images/"
 
     var InternetConnectionMessage = "No Internet Connection"
     var RequestTimeOut = "Request time out."

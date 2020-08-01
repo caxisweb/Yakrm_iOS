@@ -73,6 +73,7 @@ class StartScreenVC: UIViewController {
 
 //            self.app.isDelivery = true
             self.app.defaults.set(true, forKey: "isDelivery")
+            self.app.defaults.synchronize()
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
 
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -88,6 +89,8 @@ class StartScreenVC: UIViewController {
 
             UIView.transition(with: window, duration: 0.3, options: [.transitionCrossDissolve], animations: nil, completion: nil)
         } else {
+            self.app.defaults.set(true, forKey: "isDelivery")
+            self.app.defaults.synchronize()
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
             let VC = storyboard.instantiateViewController(withIdentifier: "LoginView") as! LoginView
             VC.isDelivery =  true
@@ -110,10 +113,12 @@ class StartScreenVC: UIViewController {
         if !boolLang {
             self.app.strLanguage = "en"
             self.app.isEnglish = true
+            UIView.appearance().semanticContentAttribute = .forceLeftToRight
 //            self.segmentedControl.selectedSegmentIndex = 0
         } else {
             self.app.strLanguage = "ar"
             self.app.isEnglish = false
+            UIView.appearance().semanticContentAttribute = .forceRightToLeft
 //            self.segmentedControl.selectedSegmentIndex = 1
         }
         self.app.defaults.setValue(self.app.strLanguage, forKey: "selectedLanguage")

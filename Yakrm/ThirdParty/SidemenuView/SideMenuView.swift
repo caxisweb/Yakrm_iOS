@@ -342,10 +342,14 @@ class SideMenuView: UIViewController, UITableViewDelegate, UITableViewDataSource
 
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SidemenuView"), object: nil, userInfo: nil)
 
-                        let VC = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-
-                        let navigationController = mainViewController.rootViewController as! NavigationController
-                        navigationController.pushViewController(VC, animated: true)
+                        let storyboard = UIStoryboard.init(name: "DeliveryModule", bundle: nil)
+                        let vc = storyboard.instantiateViewController(withIdentifier: "StartScreenVC")
+                        let navigation  = UINavigationController.init(rootViewController: vc)
+                        self.app.window?.rootViewController = navigation
+//                        let VC = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+//
+//                        let navigationController = mainViewController.rootViewController as! NavigationController
+//                        navigationController.pushViewController(VC, animated: true)
 
                         mainViewController.hideLeftView(animated: true, completionHandler: nil)
 
@@ -359,9 +363,11 @@ class SideMenuView: UIViewController, UITableViewDelegate, UITableViewDataSource
                 if self.app.strLanguage == "ar" {
                     self.app.strLanguage = "en"
                     self.app.isEnglish = true
+                    UIView.appearance().semanticContentAttribute = .forceLeftToRight
                 } else {
                     self.app.strLanguage = "ar"
                     self.app.isEnglish = false
+                    UIView.appearance().semanticContentAttribute = .forceRightToLeft
                 }
                 self.app.defaults.setValue(self.app.strLanguage, forKey: "selectedLanguage")
                 self.app.defaults.setValue(self.app.isEnglish, forKey: "selectedLanguagebool")
